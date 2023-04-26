@@ -31,6 +31,10 @@ return [
         'date_of_birth' => 'Date of Birth',
         'SSN' => 'SSN',
         'passportNumber' => 'Passport Number',
+        'project_name' => "Project Name",
+        'project_location' => "Project Location",
+        'registered_companyName' => "Registered Company Name",
+        'comapany_tax_number' => "Company Tax Number",
     ],
     // __("labels.text.edit_profile")
 
@@ -154,6 +158,9 @@ return [
         ],
     ],
 
-
+    'contacts' => [
+        'id_no' => 'ID No',
+        'phone' => 'Phone Number'
+    ]
 
 ];

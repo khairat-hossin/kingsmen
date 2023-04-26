@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend\Investments;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class InvestmentController extends Controller
 {
@@ -12,7 +13,8 @@ class InvestmentController extends Controller
      */
     public function index()
     {
-        //
+        $investments= DB::table('private_investments')->select('*')->get();
+        return view('backend.investments.index', compact('investments'));
     }
 
     /**

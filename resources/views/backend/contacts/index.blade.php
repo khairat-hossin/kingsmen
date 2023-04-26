@@ -1,10 +1,10 @@
 @extends ('backend.layouts.app')
 
-@section('title') List Teams @endsection
+@section('title') List Contacts @endsection
 
 @section('breadcrumbs')
 <x-backend-breadcrumbs>
-    <x-backend-breadcrumb-item type="active" icon='fa-solid fa-people-group'>Teams</x-backend-breadcrumb-item>
+    <x-backend-breadcrumb-item type="active" icon='fa-solid fa-people-group'>Contacts</x-backend-breadcrumb-item>
 </x-backend-breadcrumbs>
 @endsection
 
@@ -13,17 +13,17 @@
     <div class="card-body">
 
         <x-backend.section-header>
-            <i class="fa-solid fa-people-group"></i> Teams <small class="text-muted">List</small>
+            <i class="fa-solid fa-people-group"></i> Contacts <small class="text-muted">List</small>
 
             <x-slot name="subtitle">
-                @lang(":module_name Management Dashboard", ['module_name'=>Str::title("Teams")])
+                @lang(":module_name Management Dashboard", ['module_name'=>Str::title("Contacts")])
             </x-slot>
             <x-slot name="toolbar">
-                @can('add_teams')
-                <x-buttons.create route='{{ route("backend.teams.create") }}' title="{{__('Create')}} {{ ucwords(Str::singular('teams')) }}" />
+                @can('add_contacts')
+                <x-buttons.create route='{{ route("backend.contacts.create") }}' title="{{__('Create')}} {{ ucwords(Str::singular('contacts')) }}" />
                 @endcan
 
-                @can('restore_teams')
+                @can('restore_contacts')
                 <div class="btn-group">
                     <button class="btn btn-secondary dropdown-toggle" type="button" data-coreui-toggle="dropdown" aria-expanded="false">
                         <i class="fas fa-cog"></i>
@@ -51,28 +51,28 @@
                     <thead>
                         <tr>
                             <th>{{ __('labels.text.name') }}</th>
-                            <th>{{ __('labels.text.date_of_birth') }}</th>
-                            <th>{{ __('labels.text.SSN') }}</th>
-                            <th>{{ __('labels.text.passportNumber') }}</th>
+                            <th>{{ __('labels.text.email') }}</th>
+                            <th>{{ __('labels.contacts.phone') }}</th>
+                            <th>{{ __('labels.contacts.id_no') }}</th>
                             <th class="text-end">{{ __('labels.backend.action') }}</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse ($teams as $member)
+                        @forelse ($contacts as $member)
                         <tr>
                             <td>
-                                {{ $member->firstName }} {{ $member->lastName }}
+                                {{ $member->first_name }} {{ $member->last_name }}
                             </td>
-                            <td>{{ $member->date_of_birth }}</td>
+                            <td>{{ $member->email }}</td>
                             <td>
-                                {{ $member->SSN }}
+                                {{ $member->phone }}
                             </td>
                             <td>
-                                {{ $member->passportNumber }}
+                                {{ $member->id_no }}
                             </td>
     
                             <td class="text-end">
-                                <a href="{{route('backend.teams.show', $member->id)}}" class="btn btn-success btn-sm mt-1" data-toggle="tooltip" title="{{__('labels.backend.show')}}"><i class="fas fa-desktop"></i></a>
+                                <a href="{{route('backend.contacts.show', $member->id)}}" class="btn btn-success btn-sm mt-1" data-toggle="tooltip" title="{{__('labels.backend.show')}}"><i class="fas fa-desktop"></i></a>
                                 
                             </td>
                         </tr>

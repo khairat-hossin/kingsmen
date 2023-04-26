@@ -1,10 +1,10 @@
 @extends ('backend.layouts.app')
 
-@section('title') List Teams @endsection
+@section('title') List Projects @endsection
 
 @section('breadcrumbs')
 <x-backend-breadcrumbs>
-    <x-backend-breadcrumb-item type="active" icon='fa-solid fa-people-group'>Teams</x-backend-breadcrumb-item>
+    <x-backend-breadcrumb-item type="active" icon='fa-solid fa-people-group'>Projects</x-backend-breadcrumb-item>
 </x-backend-breadcrumbs>
 @endsection
 
@@ -50,29 +50,29 @@
                 <table class="table table-hover table-responsive-sm">
                     <thead>
                         <tr>
-                            <th>{{ __('labels.text.name') }}</th>
-                            <th>{{ __('labels.text.date_of_birth') }}</th>
-                            <th>{{ __('labels.text.SSN') }}</th>
-                            <th>{{ __('labels.text.passportNumber') }}</th>
+                            <th>{{ __('labels.text.project_name') }}</th>
+                            <th>{{ __('labels.text.project_location') }}</th>
+                            <th>{{ __('labels.text.registered_companyName') }}</th>
+                            <th>{{ __('labels.text.comapany_tax_number') }}</th>
                             <th class="text-end">{{ __('labels.backend.action') }}</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse ($teams as $member)
+                        @forelse ($projects as $project)
                         <tr>
                             <td>
-                                {{ $member->firstName }} {{ $member->lastName }}
+                                {{ $project->project_name }}
                             </td>
-                            <td>{{ $member->date_of_birth }}</td>
+                            <td>{{ $project->project_location }}</td>
                             <td>
-                                {{ $member->SSN }}
+                                {{ $project->registered_company_name }}
                             </td>
                             <td>
-                                {{ $member->passportNumber }}
+                                {{ $project->comapany_tax_number }}
                             </td>
     
                             <td class="text-end">
-                                <a href="{{route('backend.teams.show', $member->id)}}" class="btn btn-success btn-sm mt-1" data-toggle="tooltip" title="{{__('labels.backend.show')}}"><i class="fas fa-desktop"></i></a>
+                                <a href="{{route('backend.projects.show', $project->id)}}" class="btn btn-success btn-sm mt-1" data-toggle="tooltip" title="{{__('labels.backend.show')}}"><i class="fas fa-desktop"></i></a>
                                 
                             </td>
                         </tr>

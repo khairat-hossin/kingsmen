@@ -106,18 +106,18 @@ class GenerateMenus
             ]);
 
             // Companies
-            $menu->add('<i class="nav-icon fa-solid fa-industry"></i>Companies', [
-                'route' => 'backend.companies.index',
-                'class' => 'nav-item',
-            ])
-            ->data([
-                'order' => 6,
-                'activematches' => 'admin/companies*',
-                'permission' => [],
-            ])
-            ->link->attr([
-                'class' => 'nav-link',
-            ]);
+            // $menu->add('<i class="nav-icon fa-solid fa-industry"></i>Companies', [
+            //     'route' => 'backend.companies.index',
+            //     'class' => 'nav-item',
+            // ])
+            // ->data([
+            //     'order' => 6,
+            //     'activematches' => 'admin/companies*',
+            //     'permission' => [],
+            // ])
+            // ->link->attr([
+            //     'class' => 'nav-link',
+            // ]);
 
             // Teams
             $menu->add('<i class="nav-icon fa-solid fa-people-group"></i>Teams', [

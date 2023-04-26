@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend\Contacts;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ContactController extends Controller
 {
@@ -12,7 +13,8 @@ class ContactController extends Controller
      */
     public function index()
     {
-        //
+        $contacts= DB::table('contacts')->select('*')->get();
+        return view('backend.contacts.index', compact('contacts'));
     }
 
     /**

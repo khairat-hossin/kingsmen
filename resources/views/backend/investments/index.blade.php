@@ -1,10 +1,10 @@
 @extends ('backend.layouts.app')
 
-@section('title') List Teams @endsection
+@section('title') List Private Investments @endsection
 
 @section('breadcrumbs')
 <x-backend-breadcrumbs>
-    <x-backend-breadcrumb-item type="active" icon='fa-solid fa-people-group'>Teams</x-backend-breadcrumb-item>
+    <x-backend-breadcrumb-item type="active" icon='fa-solid fa-people-group'>Private Investments</x-backend-breadcrumb-item>
 </x-backend-breadcrumbs>
 @endsection
 
@@ -13,17 +13,17 @@
     <div class="card-body">
 
         <x-backend.section-header>
-            <i class="fa-solid fa-people-group"></i> Teams <small class="text-muted">List</small>
+            <i class="fa-solid fa-people-group"></i> Private Investments <small class="text-muted">List</small>
 
             <x-slot name="subtitle">
-                @lang(":module_name Management Dashboard", ['module_name'=>Str::title("Teams")])
+                @lang(":module_name Management Dashboard", ['module_name'=>Str::title("Private Investments")])
             </x-slot>
             <x-slot name="toolbar">
-                @can('add_teams')
-                <x-buttons.create route='{{ route("backend.teams.create") }}' title="{{__('Create')}} {{ ucwords(Str::singular('teams')) }}" />
+                @can('add_investments')
+                <x-buttons.create route='{{ route("backend.investments.create") }}' title="{{__('Create')}} {{ ucwords(Str::singular('investments')) }}" />
                 @endcan
 
-                @can('restore_teams')
+                @can('restore_investments')
                 <div class="btn-group">
                     <button class="btn btn-secondary dropdown-toggle" type="button" data-coreui-toggle="dropdown" aria-expanded="false">
                         <i class="fas fa-cog"></i>
@@ -50,29 +50,29 @@
                 <table class="table table-hover table-responsive-sm">
                     <thead>
                         <tr>
-                            <th>{{ __('labels.text.name') }}</th>
-                            <th>{{ __('labels.text.date_of_birth') }}</th>
-                            <th>{{ __('labels.text.SSN') }}</th>
-                            <th>{{ __('labels.text.passportNumber') }}</th>
+                            <th>{{ __('labels.text.project_name') }}</th>
+                            <th>{{ __('labels.text.project_location') }}</th>
+                            <th>{{ __('labels.text.registered_companyName') }}</th>
+                            <th>{{ __('labels.text.comapany_tax_number') }}</th>
                             <th class="text-end">{{ __('labels.backend.action') }}</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse ($teams as $member)
+                        @forelse ($investments as $investment)
                         <tr>
                             <td>
-                                {{ $member->firstName }} {{ $member->lastName }}
+                                {{ $investment->project_name }}
                             </td>
-                            <td>{{ $member->date_of_birth }}</td>
+                            <td>{{ $investment->project_location }}</td>
                             <td>
-                                {{ $member->SSN }}
+                                {{ $investment->registered_companyName }}
                             </td>
                             <td>
-                                {{ $member->passportNumber }}
+                                {{ $investment->comapany_tax_number }}
                             </td>
     
                             <td class="text-end">
-                                <a href="{{route('backend.teams.show', $member->id)}}" class="btn btn-success btn-sm mt-1" data-toggle="tooltip" title="{{__('labels.backend.show')}}"><i class="fas fa-desktop"></i></a>
+                                <a href="{{route('backend.investments.show', $investment->id)}}" class="btn btn-success btn-sm mt-1" data-toggle="tooltip" title="{{__('labels.backend.show')}}"><i class="fas fa-desktop"></i></a>
                                 
                             </td>
                         </tr>
