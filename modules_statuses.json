@@ -1,0 +1,8 @@
+{
+    "Article": true,
+    "Tag": true,
+    "Comment": true,
+    "Crowdfunding": true,
+    "Contact": true,
+    "Company": true
+}
