@@ -137,7 +137,6 @@ class CrowdfundingController extends Controller
      */
     public function edit(request $request, string $id)
     {
-
         $module_title = $this->module_title;
         $module_name = $this->module_name;
         $module_icon = $this->module_icon;
@@ -178,6 +177,16 @@ class CrowdfundingController extends Controller
         $crowdfunding->project_location = $request->project_location;
         $crowdfunding->registered_company_name = $request->registered_company_name;
         $crowdfunding->company_tax_number = $request->company_tax_number;
+        $crowdfunding->project_type = $request->project_type;
+        $crowdfunding->investment_duration = $request->investment_duration;
+        $crowdfunding->land_category = $request->land_category;
+        $crowdfunding->total_landCost = $request->total_landCost;
+        $crowdfunding->accepted_currency = $request->accepted_currency;
+        $crowdfunding->real_state_value = $request->real_state_value;
+        $crowdfunding->total_cost_of_investment = $request->total_cost_of_investment;
+        $crowdfunding->profit_after_return_of_investment_is = $request->profit_after_return_of_investment_is;
+
+
 
         $crowdfunding->save();
 
