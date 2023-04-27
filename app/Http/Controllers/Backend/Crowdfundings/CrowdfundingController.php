@@ -88,13 +88,30 @@ class CrowdfundingController extends Controller
             'project_location' => 'nullable:'.$module_model.',project_location',
             'registered_company_name' => 'nullable:'.$module_model.',registered_company_name',
             'company_tax_number' => 'nullable:'.$module_model.',company_tax_number',
+            'project_type' => 'nullable:'.$module_model.',project_type',
+            'investment_duration' => 'nullable:'.$module_model.',investment_duration',
+            'land_category' => 'nullable:'.$module_model.',land_category',
+            'total_landCost' => 'nullable:'.$module_model.',total_landCost',
+            'accepted_currency' => 'nullable:'.$module_model.',accepted_currency',
+            'real_state_value' => 'nullable:'.$module_model.',real_state_value',
+            'total_cost_of_investment' => 'nullable:'.$module_model.',total_cost_of_investment',
+            'profit_after_return_of_investment_is' => 'nullable:'.$module_model.',profit_after_return_of_investment_is'
+
         ]);
 
         $crowdfunding = new Crowdfunding([
             'project_name' => $validatedData['project_name'],
             'project_location' => $validatedData['project_location'],
             'registered_company_name' => $validatedData['registered_company_name'],
-            'company_tax_number' => $validatedData['company_tax_number']
+            'company_tax_number' => $validatedData['company_tax_number'],
+            'project_type' => $validatedData['project_type'],
+            'investment_duration' => $validatedData['investment_duration'],
+            'land_category' => $validatedData['land_category'],
+            'total_landCost' => $validatedData['total_landCost'],
+            'accepted_currency' => $validatedData['accepted_currency'],
+            'real_state_value' => $validatedData['real_state_value'],
+            'total_cost_of_investment' => $validatedData['total_cost_of_investment'],
+            'profit_after_return_of_investment_is' => $validatedData['profit_after_return_of_investment_is']
         ]);
 
         $crowdfunding->save();

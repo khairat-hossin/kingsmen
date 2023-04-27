@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('project_location');
             $table->string('registered_company_name');
             $table->string('company_tax_number')->nullable();
-            $table->string('project_type')->nullable;
+            $table->string('project_type')->nullable();
             $table->string('investment_duration')->nullable();
             $table->string('investment_duration_in_years')->nullable();
             $table->string('type_of_investment')->nullable();
