@@ -46,33 +46,35 @@
         <div class="row mt-4">
             <div class="col">
                 <input type="text" class="form-control my-2" placeholder=" Search" wire:model="searchTerm" />
-    
+
                 <table class="table table-hover table-responsive-sm">
                     <thead>
                         <tr>
-                            <th>{{ __('labels.text.name') }}</th>
-                            <th>{{ __('labels.text.date_of_birth') }}</th>
-                            <th>{{ __('labels.text.SSN') }}</th>
-                            <th>{{ __('labels.text.passportNumber') }}</th>
+                            <th>{{ __('labels.text.project_name') }}</th>
+                            <th>{{ __('labels.text.project_location') }}</th>
+                            <th>{{ __('labels.text.registered_companyName') }}</th>
+                            <th>{{ __('labels.text.company_tax_number') }}</th>
                             <th class="text-end">{{ __('labels.backend.action') }}</th>
                         </tr>
                     </thead>
                     <tbody>
                         @forelse ($crowdfundings as $funding)
                         <tr>
-                            <td> {{ $funding->project_name }}
+                            <td>
+                                {{ $funding->project_name }}
                             </td>
-                            <td>{{ $funding->project_location }}</td>
+                            <td>
+                                {{ $funding->project_location }}</td>
                             <td>
                                 {{ $funding->registered_company_name }}
                             </td>
                             <td>
-                                {{ $funding->comapany_tax_number }}
+                                {{ $funding->company_tax_number }}
                             </td>
-    
+
                             <td class="text-end">
                                 <a href="{{route('backend.crowdfundings.show', $funding->id)}}" class="btn btn-success btn-sm mt-1" data-toggle="tooltip" title="{{__('labels.backend.show')}}"><i class="fas fa-desktop"></i></a>
-                                
+
                             </td>
                         </tr>
                         @empty

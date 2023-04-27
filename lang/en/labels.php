@@ -34,7 +34,7 @@ return [
         'project_name' => "Project Name",
         'project_location' => "Project Location",
         'registered_companyName' => "Registered Company Name",
-        'comapany_tax_number' => "Company Tax Number",
+        'company_tax_number' => "Company Tax Number",
     ],
     // __("labels.text.edit_profile")
 
