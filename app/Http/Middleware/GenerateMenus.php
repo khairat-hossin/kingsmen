@@ -44,7 +44,7 @@ class GenerateMenus
             // ]);
 
             /**
-             * 
+             *
              * Khairat Hossin Routes started
              * ----------------------------------------
              */
@@ -148,7 +148,7 @@ class GenerateMenus
             ]);
 
             /**
-             * 
+             *
              * Khairat Hossin Route Ends
              * ---------------------------------------
              */
@@ -189,7 +189,7 @@ class GenerateMenus
             ->link->attr([
                 'class' => 'nav-link',
             ]);
-
+*/
             // Access Control Dropdown
             $accessControl = $menu->add('<i class="nav-icon fa-solid fa-user-gear"></i> Access Control', [
                 'class' => 'nav-group',
@@ -235,6 +235,7 @@ class GenerateMenus
                 'class' => 'nav-link',
             ]);
 
+/*
             // Log Viewer
             // Log Viewer Dropdown
             $accessControl = $menu->add('<i class="nav-icon fa-solid fa-list-check"></i> Log Viewer', [
@@ -277,8 +278,8 @@ class GenerateMenus
             ->link->attr([
                 'class' => 'nav-link',
             ]);
-            */
 
+*/
             // Access Permission Check
             $menu->filter(function ($item) {
                 if ($item->data('permission')) {
