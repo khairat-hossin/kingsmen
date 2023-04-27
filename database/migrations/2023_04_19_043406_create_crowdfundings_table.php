@@ -36,7 +36,7 @@ return new class extends Migration
             $table->string('investment_in')->nullable();
             $table->double('totalNumber_of_investment_in', 8, 2)->nullable();
             $table->double('real_state_value', 8, 2)->nullable();
-            $table->double('propost_additional_investment_cost', 8, 2)->nullable();
+            $table->double('proposed_additional_investment_cost', 8, 2)->nullable();
             $table->double('total_cost_of_investment', 8, 2)->nullable();
             $table->double('total_registered_shares_at_local_authoritise', 8, 2)->nullable();
             $table->double('shares_listed_for_sale', 8, 2)->nullable();

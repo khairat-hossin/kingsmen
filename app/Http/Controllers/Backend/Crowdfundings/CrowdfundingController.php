@@ -118,9 +118,21 @@ class CrowdfundingController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(request $request, string $id)
     {
-        //
+
+        $module_title = $this->module_title;
+        $module_name = $this->module_name;
+        $module_icon = $this->module_icon;
+        $module_model = $this->module_model;
+        $module_path = 'backend';
+        $module_name_singular = Str::singular($module_name);
+
+        $module_action = 'Edit';
+
+        $crowdfunding = Crowdfunding::find($id);
+
+        return view('backend.crowdfundings.edit', compact('module_title', 'module_name', 'module_icon', 'module_path', 'module_name_singular', 'module_action', 'crowdfunding'));
     }
 
     /**
@@ -128,7 +140,36 @@ class CrowdfundingController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $module_title = $this->module_title;
+        $module_name = $this->module_name;
+        $module_path = $this->module_path;
+        $module_icon = $this->module_icon;
+        $module_model = $this->module_model;
+        $module_name_singular = Str::singular($module_name);
+
+        $module_action = 'Store';
+
+        $validatedData = $request->validate([
+            'project_name' => 'required:'.$module_model.',project_name',
+            'project_location' => 'nullable:'.$module_model.',project_location',
+            'registered_company_name' => 'nullable:'.$module_model.',registered_company_name',
+            'company_tax_number' => 'nullable:'.$module_model.',company_tax_number',
+        ]);
+
+        $crowdfunding = Crowdfunding::find($id);
+        $crowdfunding->project_name = $request->project_name;
+        $crowdfunding->project_location = $request->project_location;
+        $crowdfunding->registered_company_name = $request->registered_company_name;
+        $crowdfunding->company_tax_number = $request->company_tax_number;
+
+        $crowdfunding->save();
+
+
+        flash(icon().' '.Str::singular($module_title)."' Updated.")->success()->important();
+
+        logUserAccess($module_title.' '.$module_action.' | Id: '.$$module_name_singular->id);
+
+        return redirect("admin/$module_name");
     }
 
     /**
@@ -136,6 +177,17 @@ class CrowdfundingController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // TODO: Will do later
+        dd('hello');
+        $crowdfunding = Crowdfunding::find($id);
+
+        // if (!$crowdfunding) {
+        //     flash(icon().' '.Str::singular($module_title)."' Not Found.")->success()->important();
+        // }
+
+        $crowdfunding->delete();
+        flash(icon().' '.Str::singular($module_title)."' Deleted Successfully.")->success()->important();
+
+        return redirect("admin/$module_name");
     }
 }

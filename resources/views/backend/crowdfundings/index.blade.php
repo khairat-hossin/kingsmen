@@ -54,6 +54,20 @@
                             <th>{{ __('labels.text.project_location') }}</th>
                             <th>{{ __('labels.text.registered_companyName') }}</th>
                             <th>{{ __('labels.text.company_tax_number') }}</th>
+                            <th>{{ __('labels.text.project_type') }}</th>
+                            <th>{{ __('labels.text.investment_duration') }}</th>
+                            <th>{{ __('labels.text.investment_duration_in_years') }}</th>
+                            <th>{{ __('labels.text.type_of_investment') }}</th>
+                            <th>{{ __('labels.text.accepted_currency') }}</th>
+                            <th>{{ __('labels.text.project_duration_in_years') }}</th>
+                            <th>{{ __('labels.text.land_category') }}</th>
+                            <th>{{ __('labels.text.landArea_per_sqm') }}</th>
+                            <th>{{ __('labels.text.project_deliveryDate') }}</th>
+                            <th>{{ __('labels.text.project_deliveryDate') }}</th>
+                            <th>{{ __('labels.text.project_deliveryDate') }}</th>
+                            <th>{{ __('labels.text.project_deliveryDate') }}</th>
+                            <th>{{ __('labels.text.project_deliveryDate') }}</th>
+                            <th>{{ __('labels.text.project_deliveryDate') }}</th>
                             <th class="text-end">{{ __('labels.backend.action') }}</th>
                         </tr>
                     </thead>
@@ -74,6 +88,8 @@
 
                             <td class="text-end">
                                 <a href="{{route('backend.crowdfundings.show', $funding->id)}}" class="btn btn-success btn-sm mt-1" data-toggle="tooltip" title="{{__('labels.backend.show')}}"><i class="fas fa-desktop"></i></a>
+                                <a href="{{route('backend.crowdfundings.edit', $funding->id)}}" class="btn btn-success btn-sm mt-1" data-toggle="tooltip" title="{{__('labels.backend.edit')}}"><i class="fas fa-edit"></i></a>
+                                <a href="{{route('backend.crowdfundings.destroy', $funding->id)}}" class="btn btn-success btn-sm mt-1" data-toggle="tooltip" title="{{__('labels.backend.edit')}}"><i class="fas  fa-trash-alt"></i></a>
 
                             </td>
                         </tr>
