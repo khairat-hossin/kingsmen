@@ -96,7 +96,6 @@ class CrowdfundingController extends Controller
             'real_state_value' => 'nullable:'.$module_model.',real_state_value',
             'total_cost_of_investment' => 'nullable:'.$module_model.',total_cost_of_investment',
             'profit_after_return_of_investment_is' => 'nullable:'.$module_model.',profit_after_return_of_investment_is'
-
         ]);
 
         $crowdfunding = new Crowdfunding([
@@ -117,7 +116,7 @@ class CrowdfundingController extends Controller
         $crowdfunding->save();
 
 
-        flash(icon().' '.Str::singular($module_title)."' Created.")->success()->important();
+        flash(icon().' '.Str::singular($module_title)."' Created Successfully")->success()->important();
 
         logUserAccess($module_title.' '.$module_action.' | Id: '.$$module_name_singular->id);
 
@@ -188,7 +187,7 @@ class CrowdfundingController extends Controller
 
         $crowdfunding->save();
 
-        flash(icon().' '.Str::singular($module_title)."' Updated")->success()->important();
+        flash(icon().' '.Str::singular($module_title)."' Updated Successfully")->success()->important();
 
         logUserAccess($module_title.' '.$module_action.' | Id: '.$$module_name_singular->id);
 
