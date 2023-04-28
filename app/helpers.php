@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 /*
@@ -514,5 +515,27 @@ if (! function_exists('language_direction')) {
         }
 
         return 'ltr';
+    }
+}
+
+if (!function_exists('uploadFileToStorage')) {
+    function uploadFileToStorage($file, string $path)
+    {
+        $file_name = $file->hashName();
+        Storage::putFileAs($path, $file,  $file_name);
+        return $path . '/' .  $file_name;
+    }
+}
+
+if (!function_exists('uploadFileToPublic')) {
+    function uploadFileToPublic($file, string $path)
+    {
+        if ($file && $path) {
+            $url = $file->move('uploads/' . $path, $file->hashName());
+        } else {
+            $url = null;
+        }
+
+        return $url;
     }
 }

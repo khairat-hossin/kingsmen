@@ -7,10 +7,14 @@
             $field_name = 'Project Logo';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'project_logo', "$required"]) }}
+            {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'project_logo', "$required", 'value' => "$value"]) }}
+            @error('project_logo')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -18,21 +22,51 @@
             $field_name = 'Project Name';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = old('project_name') ?? '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'project_name', "$required"]) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'project_name', "$required", 'value' => "$value"]) }}
+            @error('project_name')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
+
+        <div class="form-group col-6 col-md-4 mb-2">
+            <?php
+            $field_name = 'Project Address';
+            $field_lable = label_case($field_name);
+            $field_placeholder = 'Please Select';
+            $options = [
+                'Country' => 'Country',
+                'Region' => 'Region',
+                'City' => 'City',
+                'Village' => 'Village',
+            ];
+            $value = old('project_address') ?? '';
+            $required = 'required';
+            ?>
+            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
+            {{ html()->select($field_name)->class('form-control form-control-sm select2')->attributes(['name' => 'project_address', "$required"])->options($options)->placeholder($field_placeholder)->value($value) }}
+            @error('project_address')
+                <span class="error">{{ $message }}</span>
+            @enderror
+        </div>
+
 
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
             $field_name = 'Project Location';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
-            $required = '';
+            $value = old('project_location') ?? '';
+            $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'project_location', "$required"]) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'project_location', "$required", 'value' => "$value"]) }}
+            @error('project_location')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -40,10 +74,14 @@
             $field_name = 'Registered Company Name';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
-            $required = '';
+            $value = old('registered_company_name') ?? '';
+            $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'registered_company_name', "$required"]) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'registered_company_name', "$required", 'value' => "$value"]) }}
+            @error('registered_company_name')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -51,69 +89,59 @@
             $field_name = 'Company Tax Number';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = old('comapany_tax_number') ?? '';
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'comapany_tax_number', "$required"]) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'comapany_tax_number', "$required", 'value' => "$value"]) }}
+            @error('comapany_tax_number')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
             $field_name = 'Project Type';
             $field_lable = label_case($field_name);
-            $field_placeholder = $field_lable;
-            $required = '';
+            $field_placeholder = 'Please Select';
+            $options = [
+                'Agriculture' => 'Agriculture',
+                'Residential' => 'Residential',
+                'Indurstrial' => 'Indurstrial',
+                'Commercial' => 'Commercial',
+            ];
+            $value = old('project_type') ?? '';
+            $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'project_type', "$required"]) }}
-        </div>
-
-        <div class="form-group col-6 col-md-4 mb-2">
-            <?php
-            $field_name = 'Investment Duration';
-            $field_lable = label_case($field_name);
-            $field_placeholder = $field_lable;
-            $required = '';
-            ?>
-            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'investment_duration', "$required"]) }}
-        </div>
-
-        <div class="form-group col-6 col-md-4 mb-2">
-            <?php
-            $field_name = 'Inventment in Years';
-            $field_lable = label_case($field_name);
-            $field_placeholder = $field_lable;
-            $required = '';
-            ?>
-            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'duration_in_years', "$required"]) }}
-        </div>
-
-        <div class="form-group col-6 col-md-4 mb-2">
-            <?php
-            $field_name = 'Type of Investment';
-            $field_lable = label_case($field_name);
-            $field_placeholder = $field_lable;
-            $required = '';
-            ?>
-            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'investment_type', "$required"]) }}
+            {{ html()->select($field_name)->class('form-control form-control-sm select2')->attributes(['name' => 'project_type', "$required"])->options($options)->placeholder($field_placeholder)->value($value) }}
+            @error('project_type')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
             $field_name = 'Accepted Currency';
             $field_lable = label_case($field_name);
-            $field_placeholder = $field_lable;
-            $required = '';
+            $field_placeholder = 'Please Select';
+            $options = [
+                'USD' => 'USD',
+                'EURO' => 'EURO',
+                'AMD' => 'AMD',
+            ];
+            $value = old('accepted_currency') ?? '';
+            $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'accepted_currency', "$required"]) }}
+            {{ html()->select($field_name)->class('form-control form-control-sm')->attributes(['name' => 'accepted_currency', "$required"])->options($options)->placeholder($field_placeholder)->value($value) }}
+            @error('accepted_currency')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
     </div>
 
-
+    {{-- 
     <legend class="border-bottom w-100">Project Timeline</legend>
     <div class="row">
         <div class="form-group col-6 col-md-4 mb-2">
@@ -1084,6 +1112,6 @@
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->file($field_name)->multiple()->class('form-control form-control-sm')->attributes(['name' => 'other', "$required"]) }}
         </div>
-    </div>
-    
+    </div> --}}
+
 </div>

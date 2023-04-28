@@ -15,13 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('project_logo')->nullable();
             $table->string('project_name');
+            $table->string('project_address');
             $table->string('project_location');
             $table->string('registered_company_name');
             $table->string('comapany_tax_number')->nullable();
             $table->string('project_type');
-            $table->string('investment_duration')->nullable();
             $table->integer('duration_in_years')->nullable();
-            $table->string('investment_type')->nullable();
             $table->string('accepted_currency')->nullable();
             $table->date('starting_date')->nullable();
             $table->date('delivery_date')->nullable();
@@ -62,7 +61,7 @@ return new class extends Migration
             $table->string('project_timeline')->nullable();
             $table->string('management_companies')->nullable();
             $table->string('kingsmen_details')->nullable();
-            $table->string('project_address');
+            
             $table->string('phone_number');
             $table->string('email');
             $table->string('project_brochure')->nullable();

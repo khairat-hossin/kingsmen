@@ -33,11 +33,15 @@
         }
         .form-label{
             font-size: 12px;
-            margin-bottom: 0;
+            margin-bottom: 0px;
         }
-        /* input select{
-            font-size: 12px;
-        } */
+        .error{
+            font-size: 10px;
+            margin: 0px;
+            padding: 0px; 
+            color: red;
+        }
+
     </style>
 
     @stack('after-styles')
