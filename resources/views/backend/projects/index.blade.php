@@ -13,17 +13,17 @@
     <div class="card-body">
 
         <x-backend.section-header>
-            <i class="fa-solid fa-people-group"></i> Teams <small class="text-muted">List</small>
+            <i class="fa-solid fa-people-group"></i> Projects <small class="text-muted">List</small>
 
             <x-slot name="subtitle">
-                @lang(":module_name Management Dashboard", ['module_name'=>Str::title("Teams")])
+                @lang(":module_name Management Dashboard", ['module_name'=>Str::title("Projects")])
             </x-slot>
             <x-slot name="toolbar">
-                @can('add_teams')
-                <x-buttons.create route='{{ route("backend.teams.create") }}' title="{{__('Create')}} {{ ucwords(Str::singular('teams')) }}" />
+                @can('add_projects')
+                <x-buttons.create route='{{ route("backend.projects.create") }}' title="{{__('Create')}} {{ ucwords(Str::singular('projects')) }}" />
                 @endcan
 
-                @can('restore_teams')
+                @can('restore_projects')
                 <div class="btn-group">
                     <button class="btn btn-secondary dropdown-toggle" type="button" data-coreui-toggle="dropdown" aria-expanded="false">
                         <i class="fas fa-cog"></i>
@@ -88,12 +88,12 @@
         <div class="row">
             <div class="col-7">
                 <div class="float-left">
-                    {{-- {!! $teams->total() !!} {{ __('labels.backend.total') }} --}}
+                    {{-- {!! $projects->total() !!} {{ __('labels.backend.total') }} --}}
                 </div>
             </div>
             <div class="col-5">
                 <div class="float-end">
-                    {{-- {!! $teams->links() !!} --}}
+                    {{-- {!! $projects->links() !!} --}}
                 </div>
             </div>
         </div>

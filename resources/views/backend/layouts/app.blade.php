@@ -31,6 +31,13 @@
         body {
             font-family: Ubuntu, "Noto Sans Bengali UI", Arial, Helvetica, sans-serif
         }
+        .form-label{
+            font-size: 12px;
+            margin-bottom: 0;
+        }
+        /* input select{
+            font-size: 12px;
+        } */
     </style>
 
     @stack('after-styles')
@@ -51,8 +58,8 @@
         @include('backend.includes.header')
         <!-- /Header -->
 
-        <div class="body flex-grow-1 px-3">
-            <div class="container-lg">
+        <div class="body flex-grow-1 px-0">
+            <div class="container-lg px-1">
 
                 @include('flash::message')
 

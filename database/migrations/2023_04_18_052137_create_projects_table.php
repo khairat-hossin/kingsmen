@@ -18,11 +18,13 @@ return new class extends Migration
             $table->string('project_location');
             $table->string('registered_company_name');
             $table->string('comapany_tax_number')->nullable();
-            $table->string('type');
+            $table->string('project_type');
+            $table->string('investment_duration')->nullable();
+            $table->integer('duration_in_years')->nullable();
+            $table->string('investment_type')->nullable();
             $table->string('accepted_currency')->nullable();
             $table->date('starting_date')->nullable();
             $table->date('delivery_date')->nullable();
-            $table->double('duration_in_years')->nullable();
             $table->double('area_starting_per_sqm', 8, 2)->nullable();
             $table->double('price_starting_per_sqm', 8, 2)->nullable();
             $table->double('land_price_starting', 8, 2)->nullable();
