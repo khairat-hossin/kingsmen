@@ -41,9 +41,12 @@
             padding: 0px; 
             color: red;
         }
+        .form-control-sm{
+            font-size: 12px;
+        }
 
     </style>
-
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     @stack('after-styles')
 
     <x-google-analytics />
@@ -83,12 +86,16 @@
         <!-- / Footer block -->
 
     </div>
-
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <!-- Scripts -->
     @stack('before-scripts')
 
     @livewireScripts
-    
+    <script>
+        $( function() {
+            $( ".datepicker" ).datepicker();
+        } );
+    </script>
     @stack('after-scripts')
     <!-- / Scripts -->
 

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('project_logo')->nullable();
             $table->string('project_name');
-            $table->string('project_address');
+            $table->string('address');
             $table->string('project_location');
             $table->string('registered_company_name');
             $table->string('comapany_tax_number')->nullable();
@@ -51,17 +51,68 @@ return new class extends Migration
             $table->string('title')->nullable();
             $table->string('description')->nullable();
             $table->string('template')->nullable();
-            $table->string('banner')->nullable();
-            $table->string('banner_text')->nullable();
-            $table->string('title_1')->nullable();
-            $table->string('paragraph_1')->nullable();
-            $table->string('title_2')->nullable();
-            $table->string('paragraph_2')->nullable();
-            $table->string('photos_gallery')->nullable();
+            $table->string('home_page_banner')->nullable();
+            $table->string('home_page_banner_text')->nullable();
+            $table->string('home_page_header_title')->nullable();
+            $table->string('home_page_header_paragraph')->nullable();
+            $table->string('home_page_footer_title')->nullable();
+            $table->string('home_page_footer_paragraph')->nullable();
+            $table->string('home_page_photos_gallery')->nullable();
             $table->string('project_timeline')->nullable();
-            $table->string('management_companies')->nullable();
-            $table->string('kingsmen_details')->nullable();
+            $table->string('project_management_companies')->nullable();
+
+            $table->string('qna_page_banner')->nullable();
+            $table->string('qna_page_banner_text')->nullable();
+            $table->string('qna_page_header_title')->nullable();
+            $table->string('qna_page_header_paragraph')->nullable();
+            $table->string('qna_page_footer_title')->nullable();
+            $table->string('qna_page_footer_paragraph')->nullable();
             
+            $table->string('buy_home_page_banner')->nullable();
+            $table->string('buy_home_page_banner_text')->nullable();
+            $table->string('buy_home_page_header_title')->nullable();
+            $table->string('buy_home_page_header_paragraph')->nullable();
+            $table->string('buy_home_page_footer_title')->nullable();
+            $table->string('buy_home_page_footer_paragraph')->nullable();
+            
+            $table->string('buy_land_page_banner')->nullable();
+            $table->string('buy_land_page_banner_text')->nullable();
+            $table->string('buy_land_page_header_title')->nullable();
+            $table->string('buy_land_page_header_paragraph')->nullable();
+            $table->string('buy_land_page_footer_title')->nullable();
+            $table->string('buy_land_page_footer_paragraph')->nullable();
+            
+            $table->string('amenities_page_banner')->nullable();
+            $table->string('amenities_page_banner_text')->nullable();
+            $table->string('amenities_page_header_title')->nullable();
+            $table->string('amenities_page_header_paragraph')->nullable();
+            $table->string('amenities_page_footer_title')->nullable();
+            $table->string('amenities_page_footer_paragraph')->nullable();
+            
+            $table->string('financing_page_banner')->nullable();
+            $table->string('financing_page_banner_text')->nullable();
+            $table->string('financing_page_header_title')->nullable();
+            $table->string('financing_page_header_paragraph')->nullable();
+            $table->string('financing_page_footer_title')->nullable();
+            $table->string('financing_page_footer_paragraph')->nullable();
+            
+            $table->string('who_page_banner')->nullable();
+            $table->string('who_page_banner_text')->nullable();
+            $table->string('who_page_header_title')->nullable();
+            $table->string('who_page_header_paragraph')->nullable();
+            $table->string('who_page_footer_title')->nullable();
+            $table->string('who_page_footer_paragraph')->nullable();
+            
+            $table->string('contact_page_banner')->nullable();
+            $table->string('contact_page_banner_text')->nullable();
+            $table->string('contact_page_header_title')->nullable();
+            $table->string('contact_page_header_paragraph')->nullable();
+            $table->string('contact_page_footer_title')->nullable();
+            $table->string('contact_page_footer_paragraph')->nullable();
+
+
+            $table->string('kingsmen_details')->nullable();
+            $table->string('project_address');
             $table->string('phone_number');
             $table->string('email');
             $table->string('project_brochure')->nullable();

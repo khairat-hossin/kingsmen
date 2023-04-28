@@ -43,12 +43,12 @@
                 'City' => 'City',
                 'Village' => 'Village',
             ];
-            $value = old('project_address') ?? '';
+            $value = old('address') ?? '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->select($field_name)->class('form-control form-control-sm select2')->attributes(['name' => 'project_address', "$required"])->options($options)->placeholder($field_placeholder)->value($value) }}
-            @error('project_address')
+            {{ html()->select($field_name)->class('form-control form-control-sm select2')->attributes(['name' => 'address', "$required"])->options($options)->placeholder($field_placeholder)->value($value) }}
+            @error('address')
                 <span class="error">{{ $message }}</span>
             @enderror
         </div>
@@ -141,29 +141,37 @@
         </div>
     </div>
 
-    {{-- 
+
     <legend class="border-bottom w-100">Project Timeline</legend>
     <div class="row">
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
             $field_name = 'Project Starting Date';
             $field_lable = label_case($field_name);
-            $field_placeholder = $field_lable;
+            $field_placeholder = 'mm/dd/yyyy';
+            $value = old('starting_date') ?? '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'starting_date', "$required"]) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm datepicker')->attributes(['name' => 'starting_date', "$required", 'id' => 'starting_date'])->placeholder($field_placeholder) }}
+            @error('accepted_currency')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
             $field_name = 'Project Delivery Date';
             $field_lable = label_case($field_name);
-            $field_placeholder = $field_lable;
-            $required = '';
+            $field_placeholder = 'mm/dd/yyyy';
+            $value = old('starting_date') ?? '';
+            $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'delivery_date', "$required"]) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm datepicker')->attributes(['name' => 'delivery_date', "$required", 'id' => 'delivery_date'])->placeholder($field_placeholder) }}
+            @error('delivery_date')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -171,10 +179,14 @@
             $field_name = 'Project Duration in Years';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
-            $required = '';
+            $value = old('project_duration_in_years') ?? '';
+            $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'project_duration_in_years', "$required"]) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'project_duration_in_years', "$required", 'id' => 'project_duration_in_years', 'readonly' => true]) }}
+            @error('project_duration_in_years')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
     </div>
 
@@ -186,10 +198,11 @@
             $field_name = 'Area Starting/Sqm';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = old('area_starting_per_sqm') ?? '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'area_starting_per_sqm', "$required"]) }}
+            {{ html()->number($field_name)->class('form-control form-control-sm')->attributes(['name' => 'area_starting_per_sqm', "$required", 'id' => 'area_starting_per_sqm', 'pattern' => '\d*', 'step' => 'any']) }}
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -197,10 +210,11 @@
             $field_name = 'Price Starting/Sqm';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = old('price_starting_per_sqm') ?? '';
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'price_starting_per_sqm', "$required"]) }}
+            {{ html()->number($field_name)->class('form-control form-control-sm')->attributes(['name' => 'price_starting_per_sqm', "$required", 'id' => 'price_starting_per_sqm', 'pattern' => '\d*', 'step' => 'any']) }}
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -208,15 +222,16 @@
             $field_name = 'Land Price Starting';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = old('land_price_starting') ?? '';
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'land_price_starting', "$required"]) }}
+            {{ html()->number($field_name)->class('form-control form-control-sm')->attributes(['name' => 'land_price_starting', "$required", 'id' => 'land_price_starting', 'pattern' => '\d*', 'step' => 'any', 'readonly' => true]) }}
         </div>
 
     </div>
 
-
+    {{-- 
     <legend class="border-bottom w-100">Add Land</legend>
     <div class="row">
         <div class="form-group col-6 col-md-4 mb-2">
@@ -463,655 +478,1032 @@
         </div>
     </div>
 
-
+--}}
     <legend class="border-bottom w-100">Home Page ( To Be Filled As Per Design )</legend>
     <div class="row">
-        
+
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
             $field_name = 'Banner';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'banner', "$required"]) }}
+            {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'home_page_banner', "$required", 'value' => "$value"]) }}
+            @error('home_page_banner')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
-        
+
+
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
             $field_name = 'Banner Text';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = old('home_page_banner_text') ?? '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'banner_text', "$required"]) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'home_page_banner_text', "$required", 'value' => "$value"]) }}
+            @error('home_page_banner_text')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
-        
+
+
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Title 1 As per Design';
+            $field_name = 'Header Title';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = old('home_page_header_title') ?? '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'title_1', "$required"]) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'home_page_header_title', "$required", 'value' => "$value"]) }}
+            @error('home_page_header_title')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
-        
+
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Pharagraph 1 As Per Design';
+            $field_name = 'Header Pharagraph';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = old('home_page_header_paragraph') ?? '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'paragraph_1', "$required"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'home_page_header_paragraph', "$required", 'value' => "$value"]) }}
+            @error('home_page_header_paragraph')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
-        
+
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Title 2 As per Design';
+            $field_name = 'Footer Title';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = old('home_page_footer_title') ?? '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'title_2', "$required"]) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'home_page_footer_title', "$required", 'value' => "$value"]) }}
+            @error('home_page_footer_title')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
-        
+
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Pharagraph 2 As Per Design';
+            $field_name = 'Footer Pharagraph';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = old('home_page_footer_paragraph') ?? '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'paragraph_2', "$required"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'home_page_footer_paragraph', "$required", 'value' => "$value"]) }}
+            @error('home_page_footer_paragraph')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
-        
+
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
             $field_name = 'Add Photos to Galary';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->file($field_name)->multiple()->class('form-control form-control-sm')->attributes(['name' => 'photos_gallery', "$required"]) }}
+            {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'home_page_photos_gallery[]', "$required", 'value' => "$value"])->multiple() }}
+            @error('home_page_photos_gallery')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
-        
+
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
             $field_name = 'Add Project Timline';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = old('project_timeline') ?? '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'project_timeline', "$required"]) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'project_timeline', "$required", 'value' => "$value"]) }}
+            @error('project_timeline')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
-        
+
+
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
             $field_name = 'Add Managment Companies';
             $field_lable = label_case($field_name);
-            $field_placeholder = $field_lable;
+            $field_placeholder = 'Please Select';
+            $options = [
+                'Company Name 1' => 'Company Name 1',
+                'Company Name 2' => 'Company Name 2',
+                'Company Name 3' => 'Company Name 3',
+                'Company Name 4' => 'Company Name 4',
+            ];
+            $value = old('project_management_companies') ?? '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'management_companies', "$required"]) }}
+            {{ html()->select($field_name)->class('form-control form-control-sm select2')->attributes(['name' => 'project_management_companies', "$required"])->options($options)->placeholder($field_placeholder)->value($value) }}
+            @error('project_management_companies')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
 
     </div>
-    
+
 
     <legend class="border-bottom w-100">Questions And Answers ( To Be Filled As Per Design )</legend>
     <div class="row">
-        
+
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
             $field_name = 'Banner';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'banner', "$required"]) }}
+            {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'qna_page_banner', "$required", 'value' => "$value"]) }}
+            @error('qna_page_banner')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
-        
+
+
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
             $field_name = 'Banner Text';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = old('qna_page_banner_text') ?? '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'banner_text', "$required"]) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'qna_page_banner_text', "$required", 'value' => "$value"]) }}
+            @error('qna_page_banner_text')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
-        
+
+
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Title 1 As per Design';
+            $field_name = 'Header Title';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = old('qna_page_header_title') ?? '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'title_1', "$required"]) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'qna_page_header_title', "$required", 'value' => "$value"]) }}
+            @error('qna_page_header_title')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
-        
+
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Pharagraph 1 As Per Design';
+            $field_name = 'Header Pharagraph';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = old('qna_page_header_paragraph') ?? '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'paragraph_1', "$required"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'qna_page_header_paragraph', "$required", 'value' => "$value"]) }}
+            @error('qna_page_header_paragraph')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
-        
+
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Title 2 As per Design';
+            $field_name = 'Footer Title';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = old('qna_page_footer_title') ?? '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'title_2', "$required"]) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'qna_page_footer_title', "$required", 'value' => "$value"]) }}
+            @error('qna_page_footer_title')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
-        
+
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Pharagraph 2 As Per Design';
+            $field_name = 'Footer Pharagraph';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = old('qna_page_footer_paragraph') ?? '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'paragraph_2', "$required"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'qna_page_footer_paragraph', "$required", 'value' => "$value"]) }}
+            @error('qna_page_footer_paragraph')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
     </div>
 
-
     <legend class="border-bottom w-100">Buy Your Home( To Be Filled As Per Design )</legend>
     <div class="row">
-        
+
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
             $field_name = 'Banner';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'banner', "$required"]) }}
+            {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'buy_home_page_banner', "$required", 'value' => "$value"]) }}
+            @error('buy_home_page_banner')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
-        
+
+
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
             $field_name = 'Banner Text';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = old('buy_home_page_banner_text') ?? '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'banner_text', "$required"]) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'buy_home_page_banner_text', "$required", 'value' => "$value"]) }}
+            @error('buy_home_page_banner_text')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
-        
+
+
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Title 1 As per Design';
+            $field_name = 'Header Title';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = old('buy_home_page_header_title') ?? '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'title_1', "$required"]) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'buy_home_page_header_title', "$required", 'value' => "$value"]) }}
+            @error('buy_home_page_header_title')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
-        
+
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Pharagraph 1 As Per Design';
+            $field_name = 'Header Pharagraph';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = old('buy_home_page_header_paragraph') ?? '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'paragraph_1', "$required"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'buy_home_page_header_paragraph', "$required", 'value' => "$value"]) }}
+            @error('buy_home_page_header_paragraph')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
-        
+
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Title 2 As per Design';
+            $field_name = 'Footer Title';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = old('buy_home_page_footer_title') ?? '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'title_2', "$required"]) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'buy_home_page_footer_title', "$required", 'value' => "$value"]) }}
+            @error('buy_home_page_footer_title')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
-        
+
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Pharagraph 2 As Per Design';
+            $field_name = 'Footer Pharagraph';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = old('buy_home_page_footer_paragraph') ?? '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'paragraph_2', "$required"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'buy_home_page_footer_paragraph', "$required", 'value' => "$value"]) }}
+            @error('buy_home_page_footer_paragraph')
+                <span class="error">{{ $message }}</span>
+            @enderror
+        </div>
+    </div>
+
+    <legend class="border-bottom w-100">Buy Your Land( To Be Filled As Per Design )</legend>
+    <div class="row">
+
+        <div class="form-group col-6 col-md-4 mb-2">
+            <?php
+            $field_name = 'Banner';
+            $field_lable = label_case($field_name);
+            $field_placeholder = $field_lable;
+            $value = '';
+            $required = 'required';
+            ?>
+            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
+            {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'buy_land_page_banner', "$required", 'value' => "$value"]) }}
+            @error('buy_land_page_banner')
+                <span class="error">{{ $message }}</span>
+            @enderror
+        </div>
+
+
+        <div class="form-group col-6 col-md-4 mb-2">
+            <?php
+            $field_name = 'Banner Text';
+            $field_lable = label_case($field_name);
+            $field_placeholder = $field_lable;
+            $value = old('buy_land_page_banner_text') ?? '';
+            $required = 'required';
+            ?>
+            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'buy_land_page_banner_text', "$required", 'value' => "$value"]) }}
+            @error('buy_land_page_banner_text')
+                <span class="error">{{ $message }}</span>
+            @enderror
+        </div>
+
+
+        <div class="form-group col-6 col-md-4 mb-2">
+            <?php
+            $field_name = 'Header Title';
+            $field_lable = label_case($field_name);
+            $field_placeholder = $field_lable;
+            $value = old('buy_land_page_header_title') ?? '';
+            $required = 'required';
+            ?>
+            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'buy_land_page_header_title', "$required", 'value' => "$value"]) }}
+            @error('buy_land_page_header_title')
+                <span class="error">{{ $message }}</span>
+            @enderror
+        </div>
+
+        <div class="form-group col-6 col-md-4 mb-2">
+            <?php
+            $field_name = 'Header Pharagraph';
+            $field_lable = label_case($field_name);
+            $field_placeholder = $field_lable;
+            $value = old('buy_land_page_header_paragraph') ?? '';
+            $required = 'required';
+            ?>
+            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'buy_land_page_header_paragraph', "$required", 'value' => "$value"]) }}
+            @error('buy_land_page_header_paragraph')
+                <span class="error">{{ $message }}</span>
+            @enderror
+        </div>
+
+        <div class="form-group col-6 col-md-4 mb-2">
+            <?php
+            $field_name = 'Footer Title';
+            $field_lable = label_case($field_name);
+            $field_placeholder = $field_lable;
+            $value = old('buy_land_page_footer_title') ?? '';
+            $required = 'required';
+            ?>
+            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'buy_land_page_footer_title', "$required", 'value' => "$value"]) }}
+            @error('buy_land_page_footer_title')
+                <span class="error">{{ $message }}</span>
+            @enderror
+        </div>
+
+        <div class="form-group col-6 col-md-4 mb-2">
+            <?php
+            $field_name = 'Footer Pharagraph';
+            $field_lable = label_case($field_name);
+            $field_placeholder = $field_lable;
+            $value = old('buy_land_page_footer_paragraph') ?? '';
+            $required = 'required';
+            ?>
+            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'buy_land_page_footer_paragraph', "$required", 'value' => "$value"]) }}
+            @error('buy_land_page_footer_paragraph')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
     </div>
 
     <legend class="border-bottom w-100">Amenities ( To Be Filled As Per Design )</legend>
     <div class="row">
-        
+
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
             $field_name = 'Banner';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'banner', "$required"]) }}
+            {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'amenities_page_banner', "$required", 'value' => "$value"]) }}
+            @error('amenities_page_banner')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
-        
+
+
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
             $field_name = 'Banner Text';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = old('amenities_page_banner_text') ?? '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'banner_text', "$required"]) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'amenities_page_banner_text', "$required", 'value' => "$value"]) }}
+            @error('amenities_page_banner_text')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
-        
+
+
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Title 1 As per Design';
+            $field_name = 'Header Title';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = old('amenities_page_header_title') ?? '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'title_1', "$required"]) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'amenities_page_header_title', "$required", 'value' => "$value"]) }}
+            @error('amenities_page_header_title')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
-        
+
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Pharagraph 1 As Per Design';
+            $field_name = 'Header Pharagraph';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = old('amenities_page_header_paragraph') ?? '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'paragraph_1', "$required"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'amenities_page_header_paragraph', "$required", 'value' => "$value"]) }}
+            @error('amenities_page_header_paragraph')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
-        
+
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Title 2 As per Design';
+            $field_name = 'Footer Title';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = old('amenities_page_footer_title') ?? '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'title_2', "$required"]) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'amenities_page_footer_title', "$required", 'value' => "$value"]) }}
+            @error('amenities_page_footer_title')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
-        
+
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Pharagraph 2 As Per Design';
+            $field_name = 'Footer Pharagraph';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = old('amenities_page_footer_paragraph') ?? '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'paragraph_2', "$required"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'amenities_page_footer_paragraph', "$required", 'value' => "$value"]) }}
+            @error('amenities_page_footer_paragraph')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
     </div>
-    
+
 
     <legend class="border-bottom w-100">Add Financing ( To Be Filled As Per Design )</legend>
     <div class="row">
-        
+
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
             $field_name = 'Banner';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'banner', "$required"]) }}
+            {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'financing_page_banner', "$required", 'value' => "$value"]) }}
+            @error('financing_page_banner')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
-        
+
+
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
             $field_name = 'Banner Text';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = old('financing_page_banner_text') ?? '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'banner_text', "$required"]) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'financing_page_banner_text', "$required", 'value' => "$value"]) }}
+            @error('financing_page_banner_text')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
-        
+
+
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Title 1 As per Design';
+            $field_name = 'Header Title';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = old('financing_page_header_title') ?? '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'title_1', "$required"]) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'financing_page_header_title', "$required", 'value' => "$value"]) }}
+            @error('financing_page_header_title')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
-        
+
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Pharagraph 1 As Per Design';
+            $field_name = 'Header Pharagraph';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = old('financing_page_header_paragraph') ?? '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'paragraph_1', "$required"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'financing_page_header_paragraph', "$required", 'value' => "$value"]) }}
+            @error('financing_page_header_paragraph')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
-        
+
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Title 2 As per Design';
+            $field_name = 'Footer Title';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = old('financing_page_footer_title') ?? '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'title_2', "$required"]) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'financing_page_footer_title', "$required", 'value' => "$value"]) }}
+            @error('financing_page_footer_title')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
-        
+
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Pharagraph 2 As Per Design';
+            $field_name = 'Footer Pharagraph';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = old('financing_page_footer_paragraph') ?? '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'paragraph_2', "$required"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'financing_page_footer_paragraph', "$required", 'value' => "$value"]) }}
+            @error('financing_page_footer_paragraph')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
     </div>
-    
 
     <legend class="border-bottom w-100">Add Who We Are ( To Be Filled As Per Design )</legend>
     <div class="row">
-        
+
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
             $field_name = 'Banner';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'banner', "$required"]) }}
+            {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'who_page_banner', "$required", 'value' => "$value"]) }}
+            @error('who_page_banner')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
-        
+
+
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
             $field_name = 'Banner Text';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = old('who_page_banner_text') ?? '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'banner_text', "$required"]) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'who_page_banner_text', "$required", 'value' => "$value"]) }}
+            @error('who_page_banner_text')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
-        
+
+
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Title 1 As per Design';
+            $field_name = 'Header Title';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = old('who_page_header_title') ?? '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'title_1', "$required"]) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'who_page_header_title', "$required", 'value' => "$value"]) }}
+            @error('who_page_header_title')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
-        
+
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Pharagraph 1 As Per Design';
+            $field_name = 'Header Pharagraph';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = old('who_page_header_paragraph') ?? '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'paragraph_1', "$required"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'who_page_header_paragraph', "$required", 'value' => "$value"]) }}
+            @error('who_page_header_paragraph')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
-        
+
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Title 2 As per Design';
+            $field_name = 'Footer Title';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = old('who_page_footer_title') ?? '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'title_2', "$required"]) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'who_page_footer_title', "$required", 'value' => "$value"]) }}
+            @error('who_page_footer_title')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
-        
+
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Pharagraph 2 As Per Design';
+            $field_name = 'Footer Pharagraph';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = old('who_page_footer_paragraph') ?? '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'paragraph_2', "$required"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'who_page_footer_paragraph', "$required", 'value' => "$value"]) }}
+            @error('who_page_footer_paragraph')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
     </div>
-    
-    
 
     <legend class="border-bottom w-100">Add Contact Us ( To Be Filled As Per Design )</legend>
     <div class="row">
-        
+
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
             $field_name = 'Banner';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'banner', "$required"]) }}
+            {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'contact_page_banner', "$required", 'value' => "$value"]) }}
+            @error('contact_page_banner')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
-        
+
+
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
             $field_name = 'Banner Text';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = old('contact_page_banner_text') ?? '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'banner_text', "$required"]) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'contact_page_banner_text', "$required", 'value' => "$value"]) }}
+            @error('contact_page_banner_text')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
-        
+
+
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Title 1 As per Design';
+            $field_name = 'Header Title';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = old('contact_page_header_title') ?? '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'title_1', "$required"]) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'contact_page_header_title', "$required", 'value' => "$value"]) }}
+            @error('contact_page_header_title')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
-        
+
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Pharagraph 1 As Per Design';
+            $field_name = 'Header Pharagraph';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = old('contact_page_header_paragraph') ?? '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'paragraph_1', "$required"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'contact_page_header_paragraph', "$required", 'value' => "$value"]) }}
+            @error('contact_page_header_paragraph')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
-        
+
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Title 2 As per Design';
+            $field_name = 'Footer Title';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = old('contact_page_footer_title') ?? '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'title_2', "$required"]) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'contact_page_footer_title', "$required", 'value' => "$value"]) }}
+            @error('contact_page_footer_title')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
-        
+
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Pharagraph 2 As Per Design';
+            $field_name = 'Footer Pharagraph';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = old('contact_page_footer_paragraph') ?? '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'paragraph_2', "$required"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'contact_page_footer_paragraph', "$required", 'value' => "$value"]) }}
+            @error('contact_page_footer_paragraph')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
     </div>
-    
-    
+
     <legend class="border-bottom w-100">Add Information in Footer ( To Be Filled As Per Design )</legend>
     <div class="row">
-        
+
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Banner';
+            $field_name = 'Kingsmen Details';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = old('kingsmen_details') ?? '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'banner', "$required"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'kingsmen_details', "$required", 'value' => "$value"]) }}
+            @error('kingsmen_details')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
-        
+
+
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Banner Text';
+            $field_name = 'Project Address';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = old('project_address') ?? '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'banner_text', "$required"]) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'project_address', "$required", 'value' => "$value"]) }}
+            @error('project_address')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
-        
+
+
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Title 1 As per Design';
+            $field_name = 'Phone Number';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = old('phone_number') ?? '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'title_1', "$required"]) }}
+            {{ html()->number($field_name)->class('form-control form-control-sm')->attributes(['name' => 'phone_number', "$required", 'value' => "$value", 'pattern' => '\d*']) }}
+            @error('phone_number')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
-        
+
+
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Pharagraph 1 As Per Design';
+            $field_name = 'Email';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = old('email') ?? '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'paragraph_1', "$required"]) }}
+            {{ html()->email($field_name)->class('form-control form-control-sm')->attributes(['name' => 'email', "$required", 'value' => "$value"]) }}
+            @error('email')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
-        
-        <div class="form-group col-6 col-md-4 mb-2">
-            <?php
-            $field_name = 'Title 2 As per Design';
-            $field_lable = label_case($field_name);
-            $field_placeholder = $field_lable;
-            $required = 'required';
-            ?>
-            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'title_2', "$required"]) }}
-        </div>
-        
-        <div class="form-group col-6 col-md-4 mb-2">
-            <?php
-            $field_name = 'Pharagraph 2 As Per Design';
-            $field_lable = label_case($field_name);
-            $field_placeholder = $field_lable;
-            $required = 'required';
-            ?>
-            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'paragraph_2', "$required"]) }}
-        </div>
+
+
     </div>
-    
+
 
     <legend class="border-bottom w-100">Downloads ( To Be FilledAs Per Design ) </legend>
     <div class="row">
-        
+
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
             $field_name = 'Project Brochure';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
-            $required = '';
+            $value = '';
+            $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->file($field_name)->multiple()->class('form-control form-control-sm')->attributes(['name' => 'project_brochure', "$required"]) }}
+            {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'project_brochure', "$required", 'value' => "$value"]) }}
+            @error('project_brochure')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
-        
+
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
             $field_name = 'Project Elevations';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
-            $required = '';
+            $value = '';
+            $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->file($field_name)->multiple()->class('form-control form-control-sm')->attributes(['name' => 'project_elevations', "$required"]) }}
+            {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'project_elevations', "$required", 'value' => "$value"]) }}
+            @error('project_elevations')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
-        
+
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
             $field_name = 'Construction Rules';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
-            $required = '';
+            $value = '';
+            $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->file($field_name)->multiple()->class('form-control form-control-sm')->attributes(['name' => 'construction_rules', "$required"]) }}
+            {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'construction_rules', "$required", 'value' => "$value"]) }}
+            @error('construction_rules')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
-        
+
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
             $field_name = 'Other';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = '';
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->file($field_name)->multiple()->class('form-control form-control-sm')->attributes(['name' => 'other', "$required"]) }}
+            {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'other', "$required", 'value' => "$value"]) }}
+            @error('other')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
-    </div> --}}
+    </div>
 
 </div>
+
+@push('after-scripts')
+    <script>
+        /**
+         * on change start date or delivery date calculdate project duration in year
+         */
+        $('#starting_date').on("change", function() {
+            let starting_date = $("#starting_date").val();
+            let delivery_date = $("#delivery_date").val();
+
+            if (starting_date && delivery_date) {
+                starting_date = new Date(starting_date)
+                delivery_date = new Date(delivery_date)
+                let years = [];
+                for (var i = starting_date.getFullYear(); i <= delivery_date.getFullYear(); i++) {
+                    years.push(i);
+                }
+                $("#project_duration_in_years").val(years.length);
+            }
+        });
+        $('#delivery_date').on("change", function() {
+            let starting_date = $("#starting_date").val();
+            let delivery_date = $("#delivery_date").val();
+
+            if (starting_date && delivery_date) {
+                starting_date = new Date(starting_date)
+                delivery_date = new Date(delivery_date)
+                let years = calculateYear(starting_date, delivery_date);
+                $("#project_duration_in_years").val(years.length);
+            }
+        });
+
+        // calculate years
+        function calculateYear(from, to) {
+            let years = [];
+            for (var i = from.getFullYear(); i <= to.getFullYear(); i++) {
+                years.push(i);
+            }
+            return years;
+        }
+
+        /**
+         * on change area starting and price price starting change land price starting
+         * land_price_starting= area_starting_per_sqm * price_starting_per_sqm
+         */
+
+        $('#area_starting_per_sqm').on("change", function() {
+            let area_starting_per_sqm = $("#area_starting_per_sqm").val();
+            let price_starting_per_sqm = $("#price_starting_per_sqm").val();
+
+            if (area_starting_per_sqm && price_starting_per_sqm) {
+                calculateLandPriceStarting(area_starting_per_sqm, price_starting_per_sqm);
+            }
+        });
+
+        $('#price_starting_per_sqm').on("change", function() {
+            let area_starting_per_sqm = $("#area_starting_per_sqm").val();
+            let price_starting_per_sqm = $("#price_starting_per_sqm").val();
+
+            if (area_starting_per_sqm && price_starting_per_sqm) {
+                calculateLandPriceStarting(area_starting_per_sqm, price_starting_per_sqm);
+            }
+        });
+
+        function calculateLandPriceStarting(area, price) {
+            let landPriceStarting = parseFloat(area) * parseFloat(price);
+            $("#land_price_starting").val(landPriceStarting);
+        }
+    </script>
+@endpush

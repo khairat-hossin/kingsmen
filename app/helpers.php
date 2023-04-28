@@ -530,8 +530,16 @@ if (!function_exists('uploadFileToStorage')) {
 if (!function_exists('uploadFileToPublic')) {
     function uploadFileToPublic($file, string $path)
     {
+        $url='';
         if ($file && $path) {
-            $url = $file->move('uploads/' . $path, $file->hashName());
+            if(is_array($file)){
+                foreach ($file as $photo){
+                    $url.= $photo->move('uploads/' . $path, $photo->hashName());
+                }
+            }else{
+                $url = $file->move('uploads/' . $path, $file->hashName());
+            }
+            
         } else {
             $url = null;
         }
