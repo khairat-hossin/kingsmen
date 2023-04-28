@@ -96,7 +96,6 @@ class CrowdfundingController extends Controller
             'real_state_value' => 'nullable:'.$module_model.',real_state_value',
             'total_cost_of_investment' => 'nullable:'.$module_model.',total_cost_of_investment',
             'profit_after_return_of_investment_is' => 'nullable:'.$module_model.',profit_after_return_of_investment_is'
-
         ]);
 
         $crowdfunding = new Crowdfunding([
@@ -117,7 +116,7 @@ class CrowdfundingController extends Controller
         $crowdfunding->save();
 
 
-        flash(icon().' '.Str::singular($module_title)."' Created.")->success()->important();
+        flash(icon().' '.Str::singular($module_title)."' Created Successfully")->success()->important();
 
         logUserAccess($module_title.' '.$module_action.' | Id: '.$$module_name_singular->id);
 
@@ -186,12 +185,9 @@ class CrowdfundingController extends Controller
         $crowdfunding->total_cost_of_investment = $request->total_cost_of_investment;
         $crowdfunding->profit_after_return_of_investment_is = $request->profit_after_return_of_investment_is;
 
-
-
         $crowdfunding->save();
 
-
-        flash(icon().' '.Str::singular($module_title)."' Updated.")->success()->important();
+        flash(icon().' '.Str::singular($module_title)."' Updated Successfully")->success()->important();
 
         logUserAccess($module_title.' '.$module_action.' | Id: '.$$module_name_singular->id);
 
@@ -203,16 +199,23 @@ class CrowdfundingController extends Controller
      */
     public function destroy(string $id)
     {
-        // TODO: Will do later
-        dd('hello');
-        $crowdfunding = Crowdfunding::find($id);
+        $module_title = $this->module_title;
+        $module_name = $this->module_name;
+        $module_path = $this->module_path;
+        $module_icon = $this->module_icon;
+        $module_model = $this->module_model;
+        $module_name_singular = Str::singular($module_name);
 
-        // if (!$crowdfunding) {
-        //     flash(icon().' '.Str::singular($module_title)."' Not Found.")->success()->important();
-        // }
+        $module_action = 'destroy';
 
-        $crowdfunding->delete();
-        flash(icon().' '.Str::singular($module_title)."' Deleted Successfully.")->success()->important();
+        $$module_name_singular = $module_model::findOrFail($id);
+
+
+        $$module_name_singular->delete();
+
+        flash(icon().' '.Str::singular($module_title)."' Deleted Successfully")->success()->important();
+
+        logUserAccess($module_title.' '.$module_action.' | Id: '.$$module_name_singular->id);
 
         return redirect("admin/$module_name");
     }

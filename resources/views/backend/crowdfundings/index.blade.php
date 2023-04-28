@@ -4,7 +4,7 @@
 
 @section('breadcrumbs')
 <x-backend-breadcrumbs>
-    <x-backend-breadcrumb-item type="active" icon='fa-solid fa-people-group'>Crowdfundings</x-backend-breadcrumb-item>
+    <x-backend-breadcrumb-item type="active" icon='fa-solid fa-donate'>Crowdfundings</x-backend-breadcrumb-item>
 </x-backend-breadcrumbs>
 @endsection
 
@@ -13,7 +13,7 @@
     <div class="card-body">
 
         <x-backend.section-header>
-            <i class="fa-solid fa-people-group"></i> Crowdfundings <small class="text-muted">List</small>
+            <i class="fa-solid fa-donate"></i> Crowdfundings <small class="text-muted">List</small>
 
             <x-slot name="subtitle">
                 @lang(":module_name Management Dashboard", ['module_name'=>Str::title("Crowdfundings")])
@@ -53,28 +53,8 @@
                             <th>{{ __('labels.text.project_name') }}</th>
                             <th>{{ __('labels.text.project_location') }}</th>
                             <th>{{ __('labels.text.registered_companyName') }}</th>
-                            <th>{{ __('labels.text.company_tax_number') }}</th>
                             <th>{{ __('labels.text.project_type') }}</th>
                             <th>{{ __('labels.text.investment_duration') }}</th>
-                            <th>{{ __('labels.text.accepted_currency') }}</th>
-                            {{-- <th>{{ __('labels.text.type_of_investment') }}</th>
-                            <th>{{ __('labels.text.project_duration_in_years') }}</th>
-                            <th>{{ __('labels.text.land_category') }}</th>
-                            <th>{{ __('labels.text.landArea_per_sqm') }}</th>
-                            <th>{{ __('labels.text.total_landCost') }}</th> --}}
-
-                            {{-- <th>{{ __('labels.text.available_construction_type') }}</th>
-                            <th>{{ __('labels.text.builtUpAreaSize_per_sqm') }}</th>
-                            <th>{{ __('labels.text.builtUpAreaValue_per_sqm') }}</th>
-                            <th>{{ __('labels.text.investment_in') }}</th>
-                            <th>{{ __('labels.text.totalNumber_of_investment_in') }}</th>
-                            <th>{{ __('labels.text.real_state_value') }}</th>
-                            <th>{{ __('labels.text.proposed_additional_investment_cost') }}</th>
-                            <th>{{ __('labels.text.total_cost_of_investment') }}</th>
-                            <th>{{ __('labels.text.total_registered_shares_at_local_authoritise') }}</th>
-                            <th>{{ __('labels.text.shares_listed_for_sale') }}</th>
-                            <th>{{ __('labels.text.investment_break_even_expected_after_year') }}</th>
-                            <th>{{ __('labels.text.profit_after_return_of_investment_is') }}</th> --}}
                             <th class="text-end">{{ __('labels.backend.action') }}</th>
                         </tr>
                     </thead>
@@ -90,26 +70,20 @@
                                 {{ $funding->registered_company_name }}
                             </td>
                             <td>
-                                {{ $funding->company_tax_number }}
-                            </td>
-
-                            <td>
                                 {{ $funding->project_type }}
                             </td>
-
                             <td>
                                 {{ $funding->investment_duration }}
                             </td>
-
-                            <td>
-                                {{ $funding->accepted_currency }}
-                            </td>
-
                             <td class="text-end">
-                                <a href="{{route('backend.crowdfundings.show', $funding->id)}}" class="btn btn-success btn-sm mt-1" data-toggle="tooltip" title="{{__('labels.backend.show')}}"><i class="fas fa-desktop"></i></a>
-                                <a href="{{route('backend.crowdfundings.edit', $funding->id)}}" class="btn btn-success btn-sm mt-1" data-toggle="tooltip" title="{{__('labels.backend.edit')}}"><i class="fas fa-edit"></i></a>
-                                <a href="{{route('backend.crowdfundings.destroy', $funding->id)}}" class="btn btn-success btn-sm mt-1" data-toggle="tooltip" title="{{__('labels.backend.edit')}}"><i class="fas  fa-trash-alt"></i></a>
+                                <form action="{{route('backend.crowdfundings.destroy', $funding->id)}}" method="POST">
+                                    <a href="{{route('backend.crowdfundings.show', $funding->id)}}" class="btn btn-success btn-sm mt-1" data-toggle="tooltip" title="{{__('labels.backend.show')}}"><i class="fas fa-desktop"></i></a>
+                                    <a href="{{route('backend.crowdfundings.edit', $funding->id)}}" class="btn btn-primary btn-sm mt-1" data-toggle="tooltip" title="{{__('labels.backend.edit')}}"><i class="fas fa-edit"></i></a>
 
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger btn-sm mt-1" data-toggle="tooltip" title="{{__('labels.backend.delete')}}"><i class="fas fa-trash-alt"></i></button>
+                                </form>
                             </td>
                         </tr>
                         @empty
