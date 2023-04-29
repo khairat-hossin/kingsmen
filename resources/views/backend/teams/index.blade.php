@@ -46,7 +46,7 @@
         <div class="row mt-4">
             <div class="col">
                 <input type="text" class="form-control my-2" placeholder=" Search" wire:model="searchTerm" />
-    
+
                 <table class="table table-hover table-responsive-sm">
                     <thead>
                         <tr>
@@ -61,19 +61,19 @@
                         @forelse ($teams as $member)
                         <tr>
                             <td>
-                                {{ $member->firstName }} {{ $member->lastName }}
+                                {{ $member->first_name }} {{ $member->last_name }}
                             </td>
                             <td>{{ $member->date_of_birth }}</td>
                             <td>
-                                {{ $member->SSN }}
+                                {{ $member->ssn }}
                             </td>
                             <td>
-                                {{ $member->passportNumber }}
+                                {{ $member->passport_number }}
                             </td>
-    
+
                             <td class="text-end">
                                 <a href="{{route('backend.teams.show', $member->id)}}" class="btn btn-success btn-sm mt-1" data-toggle="tooltip" title="{{__('labels.backend.show')}}"><i class="fas fa-desktop"></i></a>
-                                
+
                             </td>
                         </tr>
                         @empty

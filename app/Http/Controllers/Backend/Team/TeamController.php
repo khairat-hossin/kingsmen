@@ -82,41 +82,46 @@ class TeamController extends Controller
             "date_of_birth"        => "required",
             "passport_number"      => "required|unique:" . $this->module_model . ",passport_number",
             "passport_expiry_date" => "required",
-            "passport_photo"       => "required",
+            // TODO: Will validate for image type and pdf type files
+            "passport_photo"       => "nullable",
             "ssn"                  => "required|unique:" . $this->module_model . ",ssn",
-            "id_card"              => "required",
+            "id_card"              => "nullable",
             "university_degree"    => "required",
             "about_team_member"    => "required",
             "position"             => "required",
             "type"                 => "required",
-            "upload_photo"         => "required",
+            "upload_photo"         => "nullable",
             "personal_cell_number" => "required|unique:" . $this->module_model . ",personal_cell_number",
             "personal_email"       => "required",
             "home_address"         => "required",
             "family_member_name"   => "required",
             "work_contract"        => "required"
         ]);
+
         DB::beginTransaction();
-        // dd($request->all());
         try {
             $team  = new $this->module_model();
-            $passport_photo_url = '';
-            $id_card_url = '';
-            $upload_photo_url = '';
 
-            if ($request->passport_photo || $request->id_card || $request->upload_photo) {
+            $passport_photo_url = '';
+            if ($request->passport_photo) {
                 $passport_photo_url = uploadFileToPublic($request->file('passport_photo'), 'teams/passport');
-                // $passport_photo_url = $request->file('passport_photo')->store('teams/passport', 'public');
-                dd($passport_photo_url);
+            }
+
+            $id_card_url = '';
+            if ($request->id_card) {
                 $id_card_url = uploadFileToPublic($request->file('id_card'), 'teams/id_card');
+            }
+
+            $upload_photo_url = '';
+            if($request->upload_photo) {
                 $upload_photo_url = uploadFileToPublic($request->file('upload_photo'), 'teams/photo');
             }
 
             $team->first_name           = $request->first_name;
             $team->last_name            = $request->last_name;
-            $team->date_of_birth        = $request->date_of_birth;
+            $team->date_of_birth        = date("Y-m-d", strtotime($request->date_of_birth));
             $team->passport_number      = $request->passport_number;
-            $team->passport_expiry_date = $request->passport_expiry_date;
+            $team->passport_expiry_date = date("Y-m-d", strtotime($request->passport_expiry_date));
             $team->passport_photo       = $passport_photo_url;
             $team->ssn                  = $request->ssn;
             $team->id_card              = $id_card_url;
@@ -131,13 +136,13 @@ class TeamController extends Controller
             $team->assigned_email       = $request->assigned_email;
             $team->home_address         = $request->home_address;
             $team->family_member_name   = $request->family_member_name;
-            $team->family_member_number   = $request->family_member_number;
+            $team->family_member_number = $request->family_member_number;
             $team->work_contract        = $request->work_contract;
 
             $team->save();
 
             flash(icon() . ' ' . Str::singular($this->module_title) . " Created Successfully")->success()->important();
-            logUserAccess($this->module_title . ' ' . $module_action . ' | Id: ' . $project->id);
+            logUserAccess($this->module_title . ' ' . $module_action . ' | Id: ' . $team->id);
             DB::commit();
             return redirect("admin/$this->module_name");
 
