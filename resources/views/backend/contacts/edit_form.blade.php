@@ -25,7 +25,7 @@
     </div>
 </div>
 <div class="row mb-3">
-    <div class="col-6 col-md-5">
+    <div class="col-6 col-md-6">
         <div class="form-group">
             <?php
             $field_name = 'Email';
@@ -37,7 +37,7 @@
             {{ html()->text($field_name)->placeholder($field_placeholder)->value($contact->email)->class('form-control')->attributes(["name" => "email", "$required"]) }}
         </div>
     </div>
-    <div class="col-6 col-md-7">
+    <div class="col-6 col-md-6">
         <div class="form-group">
             <?php
             $field_name = 'Phone';
@@ -49,7 +49,7 @@
             {{ html()->text($field_name)->placeholder($field_placeholder)->value($contact->phone)->class('form-control')->attributes(["name" => "phone", "type" => "number", "$required"]) }}
         </div>
     </div>
-    <div class="col-6 col-md-7">
+    <div class="col-6 col-md-6">
         <div class="form-group">
             <?php
             $field_name = 'ID NO';
