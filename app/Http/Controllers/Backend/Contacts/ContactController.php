@@ -46,7 +46,7 @@ class ContactController extends Controller
      */
     public function index()
     {
-        $contacts= DB::table('contacts')->select('*')->get();
+        $contacts = DB::table('contacts')->select('*')->get();
         return view('backend.contacts.index', compact('contacts'));
     }
 
@@ -120,9 +120,20 @@ class ContactController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(request $request, string $id)
     {
-        //
+        $module_title = $this->module_title;
+        $module_name = $this->module_name;
+        $module_icon = $this->module_icon;
+        $module_model = $this->module_model;
+        $module_path = 'backend';
+        $module_name_singular = Str::singular($module_name);
+
+        $module_action = 'Edit';
+
+        $contact = contact::find($id);
+
+        return view('backend.contacts.edit', compact('module_title', 'module_name', 'module_icon', 'module_path', 'module_name_singular', 'module_action', 'contact'));
     }
 
     /**
@@ -130,7 +141,36 @@ class ContactController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $module_title = $this->module_title;
+        $module_name = $this->module_name;
+        $module_path = $this->module_path;
+        $module_icon = $this->module_icon;
+        $module_model = $this->module_model;
+        $module_name_singular = Str::singular($module_name);
+
+        $module_action = 'Store';
+
+        $validatedData = $request->validate([
+            'first_name' => 'required:'.$module_model.',first_name',
+            'last_name' => 'nullable:'.$module_model.',last_name',
+            'email' => 'nullable:'.$module_model.',email',
+            'id_no' => 'nullable:'.$module_model.',id_no',
+        ]);
+
+        $contact = Contact::find($id);
+        $contact->first_name = $request->first_name;
+        $contact->last_name = $request->last_name;
+        $contact->email = $request->email;
+        $contact->phone = $request->phone;
+        $contact->id_no = $request->id_no;        
+
+        $contact->save();
+
+        flash(icon().' '.Str::singular($module_title)."' Updated Successfully")->success()->important();
+
+        logUserAccess($module_title.' '.$module_action.' | Id: '.$$module_name_singular->id);
+
+        return redirect("admin/$module_name");
     }
 
     /**
@@ -138,6 +178,24 @@ class ContactController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $module_title = $this->module_title;
+        $module_name = $this->module_name;
+        $module_path = $this->module_path;
+        $module_icon = $this->module_icon;
+        $module_model = $this->module_model;
+        $module_name_singular = Str::singular($module_name);
+
+        $module_action = 'destroy';
+
+        $$module_name_singular = $module_model::findOrFail($id);
+
+
+        $$module_name_singular->delete();
+
+        flash(icon().' '.Str::singular($module_title)."' Deleted Successfully")->success()->important();
+
+        logUserAccess($module_title.' '.$module_action.' | Id: '.$$module_name_singular->id);
+
+        return redirect("admin/$module_name");
     }
 }
