@@ -13,25 +13,27 @@ return new class extends Migration
     {
         Schema::create('team_members', function (Blueprint $table) {
             $table->id();
-            $table->string('firstName');
-            $table->string('lastName');
+            $table->string('first_name');
+            $table->string('last_name');
             $table->date('date_of_birth');
-            $table->string('passportNumber');
-            $table->string('passportExpiryDate');
-            $table->string('photoOfPassport');
-            $table->string('SSN');
-            $table->integer('IdCard');
-            $table->string('universityDegree');
-            $table->string('aboutTeamMember');
-            $table->string('uploadPhoto');
-            $table->date('personanlCellNo');
-            $table->date('personalEmail');
-            $table->date('assignedCellNo');
-            $table->date('assignedEmail');
-            $table->date('homeAddress');
-            $table->date('family_member_name');
-            $table->date('family_member_number');
-            $table->date('workContract');
+            $table->string('passport_number');
+            $table->string('passport_expiry_date');
+            $table->string('passport_photo');
+            $table->string('ssn');
+            $table->string('id_card');
+            $table->string('university_degree');
+            $table->string('about_team_member');
+            $table->string('position');
+            $table->string('type');
+            $table->string('upload_photo');
+            $table->string('personal_cell_number');
+            $table->string('personal_email');
+            $table->string('assigned_cell_number');
+            $table->string('assigned_email');
+            $table->string('home_address');
+            $table->string('family_member_name');
+            $table->string('family_member_number');
+            $table->string('work_contract');
             $table->timestamps();
         });
     }
