@@ -4,21 +4,6 @@
     <div class="row">
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Project Logo';
-            $field_lable = label_case($field_name);
-            $field_placeholder = $field_lable;
-            $value = '';
-            $required = 'required';
-            ?>
-            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'project_logo', "$required", 'value' => "$value"]) }}
-            @error('project_logo')
-                <span class="error">{{ $message }}</span>
-            @enderror
-        </div>
-
-        <div class="form-group col-6 col-md-4 mb-2">
-            <?php
             $field_name = 'Project Name';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
@@ -43,12 +28,12 @@
                 'City' => 'City',
                 'Village' => 'Village',
             ];
-            $value = old('address') ?? '';
+            $value = old('project_address') ?? '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->select($field_name)->class('form-control form-control-sm select2')->attributes(['name' => 'address', "$required"])->options($options)->placeholder($field_placeholder)->value($value) }}
-            @error('address')
+            {{ html()->select($field_name)->class('form-control form-control-sm select2')->attributes(['name' => 'project_address', "$required"])->options($options)->placeholder($field_placeholder)->value($value) }}
+            @error('project_address')
                 <span class="error">{{ $message }}</span>
             @enderror
         </div>
@@ -89,12 +74,12 @@
             $field_name = 'Company Tax Number';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
-            $value = old('comapany_tax_number') ?? '';
+            $value = old('company_tax_number') ?? '';
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'comapany_tax_number', "$required", 'value' => "$value"]) }}
-            @error('comapany_tax_number')
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'company_tax_number', "$required", 'value' => "$value"]) }}
+            @error('company_tax_number')
                 <span class="error">{{ $message }}</span>
             @enderror
         </div>
@@ -215,7 +200,7 @@
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'investment_duration_in_years', "$required", 'value' => "$value"]) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'investment_duration_in_years_2', "$required", 'value' => "$value"]) }}
             @error('investment_duration_in_years')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -261,11 +246,11 @@
             $field_name = 'Land Cost Per sqm';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
-            $value = old('price_cost_per_sqm') ?? '';
+            $value = old('land_cost_per_sqm') ?? '';
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->number($field_name)->class('form-control form-control-sm')->attributes(['name' => 'price_cost_per_sqm', "$required", 'id' => 'price_cost_per_sqm', 'pattern' => '\d*', 'step' => 'any']) }}
+            {{ html()->number($field_name)->class('form-control form-control-sm')->attributes(['name' => 'land_cost_per_sqm', "$required", 'id' => 'price_cost_per_sqm', 'pattern' => '\d*', 'step' => 'any']) }}
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
