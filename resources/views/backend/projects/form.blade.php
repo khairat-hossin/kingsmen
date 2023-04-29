@@ -231,7 +231,7 @@
 
     </div>
 
-    {{-- 
+    {{--
     <legend class="border-bottom w-100">Add Land</legend>
     <div class="row">
         <div class="form-group col-6 col-md-4 mb-2">
@@ -673,7 +673,7 @@
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'qna_page_header_title', "$required", 'value' => "$value"]) }}
+            {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'qna_page_header_title', "$required", 'value' => "$value"]) }}
             @error('qna_page_header_title')
                 <span class="error">{{ $message }}</span>
             @enderror

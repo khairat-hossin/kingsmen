@@ -65,12 +65,12 @@ class GenerateMenus
 
             // Private Investments
             $menu->add('<i class="nav-icon fas fa-hand-holding-usd"></i>Private Investments', [
-                'route' => 'backend.investments.index',
+                'route' => 'backend.private-investments.index',
                 'class' => 'nav-item',
             ])
             ->data([
                 'order' => 3,
-                'activematches' => 'admin/investments*',
+                'activematches' => 'admin/private-investments*',
                 'permission' => [],
             ])
             ->link->attr([
