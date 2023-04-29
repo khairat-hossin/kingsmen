@@ -26,11 +26,14 @@ return new class extends Migration
             $table->string('reffered_by')->nullable();
             $table->text('note')->nullable();
             $table->date('date_of_birth')->nullable();
+            $table->string('team_member')->nullable();
+            $table->string('project_or_investment')->nullable();
             $table->string('citizenship')->nullable();
             $table->string('passport_number')->nullable();
             $table->string('passport_expiry_date')->nullable();
             $table->string('photo_of_passport')->nullable();
-            $table->string('photo_of_id_card')->nullable();
+            $table->string('id_card_text')->nullable();
+            $table->string('photo_of_id_card')->nullable();            
             $table->string('exact_address')->nullable();
             $table->string('PO_box')->nullable();
             $table->string('name_of_the_bank_you_work_with')->nullable();
