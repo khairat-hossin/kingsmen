@@ -4,7 +4,7 @@ use App\Http\Controllers\Backend\Brokers\BrokerController;
 use App\Http\Controllers\Backend\Companies\CompanyController;
 use App\Http\Controllers\Backend\Contacts\ContactController;
 use App\Http\Controllers\Backend\Crowdfundings\CrowdfundingController;
-use App\Http\Controllers\Backend\Investments\InvestmentController;
+use App\Http\Controllers\Backend\Investments\PrivateInvestmentController;
 use App\Http\Controllers\Backend\Projects\ProjectController;
 use App\Http\Controllers\Backend\Team\TeamController;
 use App\Http\Controllers\LanguageController;
@@ -148,7 +148,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Backend', 'prefix' => 'admin'
     Route::patch("$module_name/{id}/unblock", ['as' => "$module_name.unblock", 'uses' => "$controller_name@unblock", 'middleware' => ['permission:block_users']]);
 
 
-    
+
 });
 
 Route::group(['prefix' => 'admin', 'as' => 'backend.', 'middleware' => ['auth', 'can:view_backend']], function () {
@@ -164,8 +164,8 @@ Route::group(['prefix' => 'admin', 'as' => 'backend.', 'middleware' => ['auth', 
     // Broker routes
     Route::resource('brokers', BrokerController::class);
 
-    //Investment routes
-    Route::resource('investments', InvestmentController::class);
+    // Private Investment routes
+    Route::resource('private-investments', PrivateInvestmentController::class);
 
     // Crowdfunding routes
     Route::resource('crowdfundings', CrowdfundingController::class);
