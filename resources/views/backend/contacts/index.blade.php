@@ -54,7 +54,7 @@
                             <th>{{ __('labels.text.email') }}</th>
                             <th>{{ __('labels.contacts.phone') }}</th>
                             <th>{{ __('labels.contacts.id_no') }}</th>
-                            <th class="text-end">{{ __('labels.backend.action') }}</th>
+                            <th class="text-center">{{ __('labels.backend.action') }}</th>
                         </tr>
                     </thead>
                     <tbody>
