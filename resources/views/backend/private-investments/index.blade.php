@@ -20,7 +20,7 @@
             </x-slot>
             <x-slot name="toolbar">
                 @can('add_investments')
-                <x-buttons.create route='{{ route("backend.investments.create") }}' title="{{__('Create')}} {{ ucwords(Str::singular('investments')) }}" />
+                <x-buttons.create route='{{ route("backend.private-investments.create") }}' title="{{__('Create')}} {{ ucwords(Str::singular('investments')) }}" />
                 @endcan
 
                 @can('restore_investments')
@@ -46,7 +46,7 @@
         <div class="row mt-4">
             <div class="col">
                 <input type="text" class="form-control my-2" placeholder=" Search" wire:model="searchTerm" />
-    
+
                 <table class="table table-hover table-responsive-sm">
                     <thead>
                         <tr>
@@ -70,10 +70,10 @@
                             <td>
                                 {{ $investment->comapany_tax_number }}
                             </td>
-    
+
                             <td class="text-end">
-                                <a href="{{route('backend.investments.show', $investment->id)}}" class="btn btn-success btn-sm mt-1" data-toggle="tooltip" title="{{__('labels.backend.show')}}"><i class="fas fa-desktop"></i></a>
-                                
+                                <a href="{{route('backend.private-investments.show', $investment->id)}}" class="btn btn-success btn-sm mt-1" data-toggle="tooltip" title="{{__('labels.backend.show')}}"><i class="fas fa-desktop"></i></a>
+
                             </td>
                         </tr>
                         @empty
