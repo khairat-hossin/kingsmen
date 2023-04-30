@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('crowdfundings', function (Blueprint $table) {
             $table->id();
             $table->string('project_name');
-            $table->string('project_logo');
             $table->string('project_location');
             $table->string('registered_company_name');
             $table->string('company_tax_number')->nullable();
@@ -47,9 +46,9 @@ return new class extends Migration
             $table->string('profit_after_return_of_investment_is')->nullable();
             $table->double('expected_profit_after_break_even', 8, 2)->nullable();
             $table->double('expected_profit_percent_after_break_even_as_per_study',8,2)->nullable();
-            $table->double('1_shares_of_ownership_of_the_land_in_sqm',8,2)->nullable();
-            $table->double('1_shares_of_ownership_of_the_construction_in_sqm',8,2)->nullable();
-            $table->double('1_shares_of_ownership_in_number_of_investing_in',8,2)->nullable();
+            $table->double('one_shares_of_ownership_of_the_land_in_sqm',8,2)->nullable();
+            $table->double('one_shares_of_ownership_of_the_construction_in_sqm',8,2)->nullable();
+            $table->double('one_shares_of_ownership_in_number_of_investing_in',8,2)->nullable();
             $table->double('share_price',8,2)->nullable();
             $table->double('deposit', 8, 2)->nullable();
             $table->double('remaining_amount_as_bank_transfer',8,2)->nullable();
