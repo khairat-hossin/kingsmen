@@ -20,6 +20,7 @@ class PrivateInvestment extends Model
         'investment_duration_in_years',
         'investment_duration_in_years_2',
         'type_of_investment',
+
         'accepted_currency',
         'project_starting_date',
         'project_delivery_date',
@@ -30,6 +31,7 @@ class PrivateInvestment extends Model
         'total_land_cost',
         'project_duration_in_years_before_generating_profit',
         'available_construction_type',
+
         'built_up_area_size_per_sqm',
         'built_up_area_value_per_sqm',
         'investment_in',
@@ -40,16 +42,18 @@ class PrivateInvestment extends Model
         'total_cost_of_investment',
         'shares_listed_for_sale',
         'investment_break_even_expected_at_year',
+
         'profit_after_return_on_investment_is',
         'expected_profit_after_break_even',
         'expected_profit_percent_after_break_even_as_per_study',
         'deposit',
         'remaining_amount_as_bank_transfer',
-        'shares_selling_contract',
+        'selling_contract',
         'company_papers',
         'project_rules_and_regulation',
         'other_files',
         'buisness_plan',
+
         'project_logo',
         'crowfund_thumbnail',
         'title',
