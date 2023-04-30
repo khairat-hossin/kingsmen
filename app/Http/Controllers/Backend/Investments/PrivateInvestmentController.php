@@ -276,16 +276,206 @@ class PrivateInvestmentController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, PrivateInvestment $privateInvestment)
+    public function update(Request $request, String $id)
     {
-        //
+        $module_action = 'store';
+        $privateInvestment  = new $this->module_model();
+
+        $request->validate([
+
+            'project_name' => 'required|unique:private_investments,project_name,' . $id.',id',
+            'company_tax_number' => 'required|unique:private_investments,company_tax_number,'.$id.',id',
+
+
+            "project_address"                => "required",
+            "project_location"               => "required",
+            "registered_company_name"        => "required",
+            "project_type"                   => "required",
+            "accepted_currency"              => "required",
+            "investment_duration"            => "required",
+            "investment_duration_in_years"   => "required",
+            "investment_duration_in_years_2" => "required",
+
+            "type_of_investment"             => "nullable",
+            "project_delivery_date"          => "nullable",
+            "project_duration_in_years"      => "nullable",
+            "land_category"                  => "nullable",
+            "land_area_in_sqm"               => "nullable",
+            "land_cost_per_sqm"              => "nullable",
+            "total_land_cost"                => "nullable",
+            "project_duration_in_years_before_generating_profit" => "nullable",
+
+            "available_construction_type"    => "nullable",
+            "built_up_area_size_per_sqm"     => "nullable",
+            "built_up_area_value_per_sqm"    => "nullable",
+            "investment_in"                  => "nullable",
+            "total_built_up_area_value"      => "nullable",
+            "total_number_of_investment_in"  => "nullable",
+
+            "proposed_additional_investment_cost"    => "nullable",
+            "real_state_value"                       => "nullable",
+            "total_cost_of_investment"               => "nullable",
+            "shares_listed_for_sale"                 => "nullable",
+            "investment_break_even_expected_at_year" => "nullable",
+            "profit_after_return_on_investment_is"   => "nullable",
+
+            "expected_profit_after_break_even"                      => "nullable",
+            "expected_profit_percent_after_break_even_as_per_study" => "nullable",
+            "deposit"                                               => "nullable",
+            "remaining_amount_as_bank_transfer"                     => "nullable",
+            "selling_contract"                                      => "nullable|mimes:pdf",
+            "company_papers"                                        => "nullable|mimes:pdf",
+
+            "project_rules_and_regulation" => "nullable",
+            "other_files"                  => "nullable",
+            "buisness_plan"                => "nullable|mimes:pdf",
+            "project_logo"                 => "nullable",
+            "crowfund_thumbnail"           => "nullable",
+            "title"                        => "nullable",
+
+            "description"       => "nullable",
+            "choose_template"   => "nullable",
+            "banner"            => "nullable|image",
+            "banner_text"       => "nullable",
+            "title_1"           => "nullable",
+            "paragraph_1"       => "nullable",
+
+            "title_2"           => "nullable",
+            "paragraph_2"       => "nullable",
+            "photo_gallery"     => "nullable|image",
+        ]);
+
+        DB::beginTransaction();
+        try {
+
+            $privateInvestment = PrivateInvestment::findOrFail($id);
+
+            $privateInvestment->project_name                   = $request->project_name;
+            $privateInvestment->project_address                = $request->project_address;
+            $privateInvestment->project_location               = $request->project_location;
+            $privateInvestment->registered_company_name        = $request->registered_company_name;
+            $privateInvestment->company_tax_number             = $request->company_tax_number;
+            $privateInvestment->project_type                   = $request->project_type;
+            $privateInvestment->accepted_currency              = $request->accepted_currency;
+            $privateInvestment->project_starting_date          = date("Y-m-d", strtotime($request->project_starting_date));
+            $privateInvestment->investment_duration            = $request->investment_duration;
+            $privateInvestment->investment_duration_in_years   = $request->investment_duration_in_years;
+            $privateInvestment->investment_duration_in_years_2 = $request->investment_duration_in_years_2;
+
+            $privateInvestment->type_of_investment                                  = $request->type_of_investment;
+            $privateInvestment->project_delivery_date                               = $request->project_delivery_date;
+            $privateInvestment->project_duration_in_years                           = $request->project_duration_in_years;
+            $privateInvestment->land_category                                       = $request->land_category;
+            $privateInvestment->land_area_in_sqm                                    = $request->land_area_in_sqm;
+            $privateInvestment->land_cost_per_sqm                                   = $request->land_cost_per_sqm;
+            $privateInvestment->total_land_cost                                     = $request->total_land_cost;
+            $privateInvestment->project_duration_in_years_before_generating_profit  = $request->project_duration_in_years_before_generating_profit;
+
+            $privateInvestment->available_construction_type   = $request->available_construction_type;
+            $privateInvestment->built_up_area_size_per_sqm    = $request->built_up_area_size_per_sqm;
+            $privateInvestment->built_up_area_value_per_sqm   = $request->built_up_area_value_per_sqm;
+            $privateInvestment->investment_in                 = $request->investment_in;
+            $privateInvestment->total_built_up_area_value     = $request->total_built_up_area_value;
+            $privateInvestment->total_number_of_investment_in = $request->total_number_of_investment_in;
+
+            $privateInvestment->proposed_additional_investment_cost    = $request->proposed_additional_investment_cost;
+            $privateInvestment->real_state_value                       = $request->real_state_value;
+            $privateInvestment->total_cost_of_investment               = $request->total_cost_of_investment;
+            $privateInvestment->shares_listed_for_sale                 = $request->shares_listed_for_sale;
+            $privateInvestment->investment_break_even_expected_at_year = $request->investment_break_even_expected_at_year;
+            $privateInvestment->profit_after_return_on_investment_is   = $request->profit_after_return_on_investment_is;
+
+            $privateInvestment->expected_profit_after_break_even                      = $request->expected_profit_after_break_even;
+            $privateInvestment->expected_profit_percent_after_break_even_as_per_study = $request->expected_profit_percent_after_break_even_as_per_study;
+            $privateInvestment->deposit                                               = $request->deposit;
+            $privateInvestment->remaining_amount_as_bank_transfer                     = $request->remaining_amount_as_bank_transfer;
+
+            $selling_contract = '';
+            $company_papers = '';
+            $project_rules_and_regulation = '';
+
+            if ($request->selling_contract) {
+                $selling_contract = uploadFileToPublic($request->file('selling_contract'), 'private_investment/selling_contract');
+            }
+
+            if ($request->company_papers) {
+                $company_papers = uploadFileToPublic($request->file('company_papers'), 'private_investment/company_papers');
+            }
+
+            if ($request->project_rules_and_regulation) {
+                $project_rules_and_regulation = uploadFileToPublic($request->file('project_rules_and_regulation'), 'private_investment/project_rules_and_regulation');
+            }
+
+            $other_files = '';
+            if ($request->other_files) {
+                $other_files = uploadFileToPublic($request->file('other_files'), 'private_investment/other_files');
+            }
+
+            $privateInvestment->selling_contract             = $selling_contract;
+            $privateInvestment->company_papers               = $company_papers;
+            $privateInvestment->project_rules_and_regulation = $project_rules_and_regulation;
+            $privateInvestment->other_files                  = $other_files;
+
+            $privateInvestment->buisness_plan                = $request->buisness_plan;
+            $privateInvestment->project_logo                 = $request->project_logo;
+            $privateInvestment->crowfund_thumbnail           = $request->crowfund_thumbnail;
+            $privateInvestment->title                        = $request->title;
+
+            $banner = '';
+            if ($request->banner) {
+                $banner = uploadFileToPublic($request->file('banner'), 'private_investment/banner');
+            }
+            $privateInvestment->banner          = $banner;
+
+            $privateInvestment->description     = $request->description;
+            $privateInvestment->choose_template = $request->choose_template;
+            $privateInvestment->banner_text     = $request->banner_text;
+            $privateInvestment->title_1         = $request->title_1;
+            $privateInvestment->paragraph_1     = $request->paragraph_1;
+
+            $photo_gallery = '';
+            if ($request->photo_gallery) {
+                $photo_gallery = uploadFileToPublic($request->file('photo_gallery'), 'private_investment/photo_gallery');
+            }
+            $privateInvestment->photo_gallery     = $photo_gallery;
+            $privateInvestment->title_2           = $request->title_2;
+            $privateInvestment->paragraph_2      = $request->paragraph_2;
+
+            $privateInvestment->save();
+
+            flash(icon() . ' ' . Str::singular($this->module_title) . " Created Successfully")->success()->important();
+            logUserAccess($this->module_title . ' ' . $module_action . ' | Id: ' . $privateInvestment->id);
+            DB::commit();
+            return redirect("admin/$this->module_name");
+
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            $msg = $th->getMessage();
+            flash(icon() . ' ' . Str::singular($this->module_title) . " Creation Failed! $msg")->error()->important();
+            return back()->withInput();
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(PrivateInvestment $privateInvestment)
+    public function destroy(String $id)
     {
-        //
+        $module_title = $this->module_title;
+        $module_name = $this->module_name;
+        $module_name_singular = Str::singular($module_name);
+
+        $module_action = 'destroy';
+
+        $private_investments = PrivateInvestment::findOrFail($id);
+
+
+        $private_investments->delete();
+
+        flash(icon().' '.Str::singular($module_title)."' Deleted Successfully")->success()->important();
+
+        logUserAccess($private_investments.' '.$private_investments.' | Id: '.$private_investments->id);
+
+        return redirect("admin/$module_name");
     }
 }

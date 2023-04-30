@@ -446,7 +446,7 @@
                 'Quartertly' => 'Quartertly',
                 'Yearly' => 'Yearly',
             ];
-            $value = $private_investment->address ?? '';
+            $value = $private_investment->profit_after_return_on_investment_is ?? '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
@@ -618,8 +618,8 @@
             $value = '';
             $required = 'required';
             ?>
-            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'banner', "$required", 'value' => "$value"]) }}
+            {{ html()->label($field_lable, $field_name)->class('form-label') }}
+            {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'banner', 'value' => "$value"]) }}
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -630,8 +630,8 @@
             $value = $private_investment->banner_text ?? '';
             $required = 'required';
             ?>
-            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'banner_text', "$required", 'value' => "$value"]) }}
+            {{ html()->label($field_lable, $field_name)->class('form-label') }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'banner_text',  'value' => "$value"]) }}
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -642,8 +642,8 @@
             $value = $private_investment->title_1 ?? '';
             $required = 'required';
             ?>
-            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'title_1', "$required", 'value' => "$value"]) }}
+            {{ html()->label($field_lable, $field_name)->class('form-label') }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'title_1', 'value' => "$value"]) }}
             @error('title_1')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -657,8 +657,8 @@
             $value = $private_investment->paragraph_1 ?? '';
             $required = 'required';
             ?>
-            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'paragraph_1', "$required", 'value' => "$value"]) }}
+            {{ html()->label($field_lable, $field_name)->class('form-label') }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'paragraph_1', 'value' => "$value"]) }}
             @error('paragraph_1')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -672,8 +672,8 @@
             $value = $private_investment->title_2 ?? '';
             $required = 'required';
             ?>
-            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'title_2', "$required", 'value' => "$value"]) }}
+            {{ html()->label($field_lable, $field_name)->class('form-label') }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'title_2', 'value' => "$value"]) }}
             @error('title_2')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -687,8 +687,8 @@
             $value = $private_investment->paragraph_2 ?? '';
             $required = 'required';
             ?>
-            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'paragraph_2', "$required", 'value' => "$value"]) }}
+            {{ html()->label($field_lable, $field_name)->class('form-label') }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'paragraph_2', 'value' => "$value"]) }}
             @error('paragraph_2')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -701,8 +701,8 @@
             $field_placeholder = $field_lable;
             $required = '';
             ?>
-            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->file($field_name)->multiple()->class('form-control form-control-sm')->attributes(['name' => 'photo_gallery', "$required"]) }}
+            {{ html()->label($field_lable, $field_name)->class('form-label') }}
+            {{ html()->file($field_name)->multiple()->class('form-control form-control-sm')->attributes(['name' => 'photo_gallery']) }}
         </div>
     </div>
 

@@ -30,7 +30,7 @@
 
         <div class="row mt-4">
             <div class="col">
-                {{ html()->modelForm($module_name, 'PATCH', route("backend.$module_name.update", $module_name))->acceptsFiles()->class('form')->open() }}
+                {{ html()->modelForm($module_name, 'PATCH', route("backend.$module_name.update", $private_investment->id))->acceptsFiles()->class('form')->open() }}
 
                 @include ("$module_path.$module_name.edit_form")
 
