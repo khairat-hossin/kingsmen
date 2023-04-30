@@ -53,7 +53,7 @@
                             <th>{{ __('labels.text.project_name') }}</th>
                             <th>{{ __('labels.text.project_location') }}</th>
                             <th>{{ __('labels.text.registered_companyName') }}</th>
-                            <th>{{ __('labels.text.comapany_tax_number') }}</th>
+                            <th>{{ __('labels.text.company_tax_number') }}</th>
                             <th class="text-end">{{ __('labels.backend.action') }}</th>
                         </tr>
                     </thead>
@@ -65,10 +65,10 @@
                             </td>
                             <td>{{ $investment->project_location }}</td>
                             <td>
-                                {{ $investment->registered_companyName }}
+                                {{ $investment->registered_company_name }}
                             </td>
                             <td>
-                                {{ $investment->comapany_tax_number }}
+                                {{ $investment->company_tax_number }}
                             </td>
 
                             <td class="text-end">
