@@ -114,6 +114,12 @@ class ContactController extends Controller
 
         ]);
 
+        $photo_of_passport_url = '';
+
+        if ($request->hasFile('photo_of_passport')) {
+            $photo_of_passport_url = uploadFileToPublic($request->file('photo_of_passport'), 'contact/photo_of_passport');
+        }
+
         $contact = new Contact([
             'first_name' => $validatedData['first_name'],
             'last_name' => $validatedData['last_name'],
@@ -128,24 +134,23 @@ class ContactController extends Controller
             'reffered_by' => $validatedData['reffered_by'],
             'note' => $validatedData['note'],
             'date_of_birth' => $validatedData['date_of_birth'],
-            date("Y-m-d", strtotime($request->date_of_birth)),
             'team_member' => $validatedData['team_member'],
             'project_or_investment' => $validatedData['project_or_investment'],
             'citizenship' => $validatedData['citizenship'],
             'passport_number' => $validatedData['passport_number'],
+            'photo_of_passport' => $photo_of_passport_url,
             'passport_expiry_date' => $validatedData['passport_expiry_date'],
-            'photo_of_passport' => $validatedData['photo_of_passport'],
             'id_card_text' => $validatedData['id_card_text'],
             'exact_address' => $validatedData['exact_address'],
             'PO_box' => $validatedData['PO_box'],
             'name_of_the_bank_you_work_with' => $validatedData['name_of_the_bank_you_work_with'],
             'card_details_for_downpayment' => $validatedData['card_details_for_downpayment'],
             'bank_acc_with_6_month_history' => $validatedData['bank_acc_with_6_month_history'],
-            'crypto_wallet' => $validatedData['crypto_wallet'],
-            
+            'crypto_wallet' => $validatedData['crypto_wallet']
         ]);
-
+        
         $contact->save();
+        
 
 
         flash(icon().' '.Str::singular($module_title)."' Created.")->success()->important();
