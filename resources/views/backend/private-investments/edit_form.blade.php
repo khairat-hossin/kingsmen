@@ -591,7 +591,7 @@
         </div>
     </div>
 
-    <legend class="border-bottom w-100">Website Project Cover and Social Media Share</legend>
+    <legend class="border-bottom w-100">Website Template and Description</legend>
     <div class="row">
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
@@ -705,20 +705,7 @@
             {{ html()->file($field_name)->multiple()->class('form-control form-control-sm')->attributes(['name' => 'photo_gallery']) }}
         </div>
     </div>
-
-
-
 </div>
-
-
-
-
-
-
-
-
-
-
 
 
 @push('after-scripts')
