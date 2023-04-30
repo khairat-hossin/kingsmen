@@ -46,8 +46,8 @@ class PrivateInvestmentController extends Controller
      */
     public function index()
     {
-        $investments= DB::table('private_investments')->select('*')->get();
-        return view('backend.private-investments.index', compact('investments'));
+        $private_investments= DB::table('private_investments')->select('*')->get();
+        return view('backend.private-investments.index', compact('private_investments'));
     }
 
     /**
@@ -114,26 +114,26 @@ class PrivateInvestmentController extends Controller
             "expected_profit_percent_after_break_even_as_per_study" => "nullable",
             "deposit"                                               => "nullable",
             "remaining_amount_as_bank_transfer"                     => "nullable",
-            "selling_contract"                                      => "nullable",
-            "company_papers"                                        => "nullable",
+            "selling_contract"                                      => "nullable|mimes:pdf",
+            "company_papers"                                        => "nullable|mimes:pdf",
 
             "project_rules_and_regulation" => "nullable",
             "other_files"                  => "nullable",
-            "buisness_plan"                => "nullable",
+            "buisness_plan"                => "nullable|mimes:pdf",
             "project_logo"                 => "nullable",
             "crowfund_thumbnail"           => "nullable",
             "title"                        => "nullable",
 
-            "description"     => "nullable",
-            "choose_template" => "nullable",
-            "banner"          => "nullable",
-            "banner_text"     => "nullable",
-            "title_1"         => "nullable",
-            "paragraph_1"     => "nullable",
+            "description"       => "nullable",
+            "choose_template"   => "nullable",
+            "banner"            => "nullable|image",
+            "banner_text"       => "nullable",
+            "title_1"           => "nullable",
+            "paragraph_1"       => "nullable",
 
-            "title_2"         => "nullable",
-            "paragraph_2"     => "nullable",
-            "photo_gallery"   => "nullable",
+            "title_2"           => "nullable",
+            "paragraph_2"       => "nullable",
+            "photo_gallery"     => "nullable|image",
         ]);
 
         DB::beginTransaction();
@@ -257,9 +257,20 @@ class PrivateInvestmentController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(PrivateInvestment $privateInvestment)
+    public function edit(String $id)
     {
-        //
+        $module_title = $this->module_title;
+        $module_name = $this->module_name;
+        $module_icon = $this->module_icon;
+        $module_model = $this->module_model;
+        $module_path = 'backend';
+        $module_name_singular = Str::singular($module_name);
+
+        $module_action = 'Edit';
+
+        $private_investment = PrivateInvestment::find($id);
+
+        return view('backend.private-investments.edit', compact('module_title', 'module_name', 'module_icon', 'module_path', 'module_name_singular', 'module_action', 'private_investment'));
     }
 
     /**
