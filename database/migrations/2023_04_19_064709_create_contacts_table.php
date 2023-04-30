@@ -29,7 +29,7 @@ return new class extends Migration
             $table->string('team_member')->nullable();
             $table->string('project_or_investment')->nullable();
             $table->string('citizenship')->nullable();
-            $table->string('passport_number')->nullable();
+            $table->bigInteger('passport_number')->nullable();
             $table->string('passport_expiry_date')->nullable();
             $table->string('photo_of_passport')->nullable();
             $table->string('id_card_text')->nullable();

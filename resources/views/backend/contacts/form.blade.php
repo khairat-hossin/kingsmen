@@ -75,8 +75,8 @@
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->select($field_name)->class('form-control form-control-sm select2')->attributes(['name' => 'client_ype', "$required"])->options($options)->placeholder($field_placeholder)->value($value) }}
-            @error('client_ype')
+            {{ html()->select($field_name)->class('form-control form-control-sm select2')->attributes(['name' => 'client_type', "$required"])->options($options)->placeholder($field_placeholder)->value($value) }}
+            @error('client_type')
                 <span class="error">{{ $message }}</span>
             @enderror
     </div>    
@@ -91,7 +91,7 @@
             $required = "";
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->placeholder($field_placeholder)->class('form-control form-control-sm')->attributes(["name" => "buisness_position ", "$required"]) }}
+            {{ html()->text($field_name)->placeholder($field_placeholder)->class('form-control form-control-sm')->attributes(["name" => "buisness_position", "$required"]) }}
         </div>
     </div>
     <div class="col-6 col-md-4">
@@ -112,10 +112,8 @@
             $field_lable = label_case($field_name);
             $field_placeholder = 'Please Select';
             $options = [
-                'Country Name 1' => 'Country Name 1',
-                'Country Name 2' => 'Country Name 2',
-                'Country Name 3' => 'Country Name 3',
-                'Country Name 4' => 'Country Name 4',
+                'Country' => 'Country',
+                'City' => 'City',
             ];
             $value = old('location') ?? '';
             $required = 'required';
@@ -141,7 +139,7 @@
         </div>
     </div>
 </div>
-<legend class="border-bottom w-100">Reffered By</legend>Country
+<legend class="border-bottom w-100">Reffered By</legend>
 <div class="row mb-3">    
     <div class="col-6 col-md-4">
         <div class="form-group">
@@ -176,7 +174,7 @@
             $required = "";
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->date($field_name)->placeholder($field_placeholder)->class('form-control form-control-sm')->attributes(["name" => "date_of_birth ", "$required"]) }}
+            {{ html()->date($field_name)->placeholder($field_placeholder)->class('form-control form-control-sm')->attributes(["name" => "date_of_birth", "$required"]) }}
         </div>
     </div>
 </div>
@@ -191,7 +189,7 @@
             $required = "";
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->placeholder($field_placeholder)->class('form-control form-control-sm')->attributes(["name" => "team_member ", "$required"]) }}
+            {{ html()->text($field_name)->placeholder($field_placeholder)->class('form-control form-control-sm')->attributes(["name" => "team_member", "$required"]) }}
         </div>
     </div>
     <div class="col-6 col-md-6">
@@ -203,7 +201,7 @@
             $required = "";
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->placeholder($field_placeholder)->class('form-control form-control-sm')->attributes(["name" => "project_or_investment ", "$required"]) }}
+            {{ html()->text($field_name)->placeholder($field_placeholder)->class('form-control form-control-sm')->attributes(["name" => "project_or_investment", "$required"]) }}
         </div>
     </div>    
 </div>
@@ -230,7 +228,7 @@
             $required = "";
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->placeholder($field_placeholder)->class('form-control form-control-sm')->attributes(["name" => "passport_numbe", "type"=>"number", "$required"]) }}
+            {{ html()->text($field_name)->placeholder($field_placeholder)->class('form-control form-control-sm')->attributes(["name" => "passport_number", "type"=>"number", "$required"]) }}
         </div>
     </div>
     <div class="col-6 col-md-4">
@@ -274,6 +272,21 @@
     <div class="col-6 col-md-4">
         <div class="form-group">
             <?php
+            $field_name = 'ID CARD Photo';
+            $field_lable = label_case($field_name);
+            $field_placeholder = $field_lable;
+            $required = "";
+            ?>
+            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
+            {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(["name" => "photo_of_id_card", "$required"]) }}
+        </div>
+    </div>
+    
+</div>
+<div class="row mb-3">
+    <div class="col-6 col-md-4">
+        <div class="form-group">
+            <?php
             $field_name = 'Exact Address';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
@@ -283,8 +296,6 @@
             {{ html()->text($field_name)->placeholder($field_placeholder)->class('form-control form-control-sm')->attributes(["name" => "exact_address", "$required"]) }}
         </div>
     </div>
-</div>
-<div class="row mb-3">
     <div class="col-6 col-md-4">
         <div class="form-group">
             <?php
@@ -294,7 +305,7 @@
             $required = "";
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->placeholder($field_placeholder)->class('form-control form-control-sm')->attributes(["name" => "PO_box ", "$required"]) }}
+            {{ html()->text($field_name)->placeholder($field_placeholder)->class('form-control form-control-sm')->attributes(["name" => "PO_box", "$required"]) }}
         </div>
     </div>    
 </div>
