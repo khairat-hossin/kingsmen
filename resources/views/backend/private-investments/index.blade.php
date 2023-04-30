@@ -53,27 +53,32 @@
                             <th>{{ __('labels.text.project_name') }}</th>
                             <th>{{ __('labels.text.project_location') }}</th>
                             <th>{{ __('labels.text.registered_companyName') }}</th>
-                            <th>{{ __('labels.text.comapany_tax_number') }}</th>
+                            <th>{{ __('labels.text.company_tax_number') }}</th>
                             <th class="text-end">{{ __('labels.backend.action') }}</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse ($investments as $investment)
+                        @forelse ($private_investments as $investment)
                         <tr>
                             <td>
                                 {{ $investment->project_name }}
                             </td>
                             <td>{{ $investment->project_location }}</td>
                             <td>
-                                {{ $investment->registered_companyName }}
+                                {{ $investment->registered_company_name }}
                             </td>
                             <td>
-                                {{ $investment->comapany_tax_number }}
+                                {{ $investment->company_tax_number }}
                             </td>
-
                             <td class="text-end">
-                                <a href="{{route('backend.private-investments.show', $investment->id)}}" class="btn btn-success btn-sm mt-1" data-toggle="tooltip" title="{{__('labels.backend.show')}}"><i class="fas fa-desktop"></i></a>
+                                <form action="{{route('backend.private-investments.destroy', $investment->id)}}" method="POST">
+                                    <a href="{{route('backend.private-investments.show', $investment->id)}}" class="btn btn-success btn-sm mt-1" data-toggle="tooltip" title="{{__('labels.backend.show')}}"><i class="fas fa-desktop"></i></a>
+                                    <a href="{{route('backend.private-investments.edit', $investment->id)}}" class="btn btn-primary btn-sm mt-1" data-toggle="tooltip" title="{{__('labels.backend.edit')}}"><i class="fas fa-edit"></i></a>
 
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger btn-sm mt-1" data-toggle="tooltip" title="{{__('labels.backend.delete')}}"><i class="fas fa-trash-alt"></i></button>
+                                </form>
                             </td>
                         </tr>
                         @empty
