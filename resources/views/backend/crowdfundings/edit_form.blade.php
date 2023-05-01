@@ -188,19 +188,48 @@
         </div>
     </div>
 
-    <legend class="border-bottom w-100">Investment Duration</legend>
+    <legend class="border-bottom w-100">Project Timeline</legend>
     <div class="row">
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Investment Duration in Years';
+            $field_name = 'Project Starting Date';
+            $field_lable = label_case($field_name);
+            $field_placeholder = 'mm/dd/yyyy';
+            $value = $crowdfunding->project_starting_date ?? '';
+            $required = 'required';
+            ?>
+            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
+            {{ html()->text($field_name)->class('form-control form-control-sm datepicker')->value($value)->attributes(['name' => 'project_starting_date', "$required", 'id' => 'project_starting_date']) }}
+            @error('project_starting_date')
+                <span class="error">{{ $message }}</span>
+            @enderror
+        </div>
+
+        <div class="form-group col-6 col-md-4 mb-2">
+            <?php
+            $field_name = 'Project Delivery Date';
+            $field_lable = label_case($field_name);
+            $field_placeholder = 'mm/dd/yyyy';
+            $value = $crowdfunding->project_delivery_date ?? '';
+            $required = 'required';
+            ?>
+            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
+            {{ html()->text($field_name)->class('form-control form-control-sm datepicker')->value($value)->attributes(['name' => 'project_delivery_date', "$required", 'id' => 'project_delivery_date']) }}
+            @error('project_delivery_date')
+                <span class="error">{{ $message }}</span>
+            @enderror
+        </div>
+        <div class="form-group col-6 col-md-4 mb-2">
+            <?php
+            $field_name = 'Project Duration in Years';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
-            $value = $crowdfunding->investment_duration_in_years ?? '';
+            $value = $crowdfunding->project_duration_in_years ?? '';
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'investment_duration_in_years_2', "$required", 'value' => "$value"]) }}
-            @error('investment_duration_in_years')
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'project_duration_in_years', 'id' => 'project_duration_in_years', "$required", 'value' => "$value"]) }}
+            @error('project_duration_in_years')
                 <span class="error">{{ $message }}</span>
             @enderror
         </div>
@@ -788,23 +817,40 @@
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
-            {{ html()->file($field_name)->multiple()->class('form-control form-control-sm')->attributes(['name' => 'photo_gallery']) }}
+            {{ html()->file($field_name)->multiple()->class('form-control form-control-sm')->attributes(['name' => 'photos_gallery']) }}
+        </div>
+
+        <div class="form-group col-6 col-md-4 mb-2">
+            <?php
+            $field_name = 'Add Project Timeline';
+            $field_lable = label_case($field_name);
+            $field_placeholder = $field_lable;
+            $value = $crowdfunding->project_timeline ?? '';
+            $required = 'required';
+            ?>
+            {{ html()->label($field_lable, $field_name)->class('form-label') }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'project_timeline', 'value' => "$value"]) }}
+            @error('project_timeline')
+                <span class="error">{{ $message }}</span>
+            @enderror
+        </div>
+
+        <div class="form-group col-6 col-md-4 mb-2">
+            <?php
+            $field_name = 'Add Managment Companies';
+            $field_lable = label_case($field_name);
+            $field_placeholder = $field_lable;
+            $value = $crowdfunding->management_companies ?? '';
+            $required = 'required';
+            ?>
+            {{ html()->label($field_lable, $field_name)->class('form-label') }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'management_companies', 'value' => "$value"]) }}
+            @error('management_companies')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
     </div>
-
-
-
 </div>
-
-
-
-
-
-
-
-
-
-
 
 
 @push('after-scripts')

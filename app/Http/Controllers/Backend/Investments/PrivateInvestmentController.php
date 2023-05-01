@@ -147,7 +147,7 @@ class PrivateInvestmentController extends Controller
             $privateInvestment->company_tax_number             = $request->company_tax_number;
             $privateInvestment->project_type                   = $request->project_type;
             $privateInvestment->accepted_currency              = $request->accepted_currency;
-            $privateInvestment->project_starting_date          = date("Y-m-d", strtotime($request->project_starting_date));
+            // $privateInvestment->project_starting_date          = date("Y-m-d", strtotime($request->project_starting_date));
             $privateInvestment->investment_duration            = $request->investment_duration;
             $privateInvestment->investment_duration_in_years   = $request->investment_duration_in_years;
             $privateInvestment->investment_duration_in_years_2 = $request->investment_duration_in_years_2;
@@ -169,7 +169,7 @@ class PrivateInvestmentController extends Controller
             $privateInvestment->total_number_of_investment_in = $request->total_number_of_investment_in;
 
             $privateInvestment->proposed_additional_investment_cost    = $request->proposed_additional_investment_cost;
-            $privateInvestment->real_estate_value                       = $request->real_estate_value;
+            $privateInvestment->real_estate_value                      = $request->real_estate_value;
             $privateInvestment->total_cost_of_investment               = $request->total_cost_of_investment;
             $privateInvestment->shares_listed_for_sale                 = $request->shares_listed_for_sale;
             $privateInvestment->investment_break_even_expected_at_year = $request->investment_break_even_expected_at_year;

@@ -54,7 +54,7 @@ return new class extends Migration
             $table->double('remaining_amount_as_bank_transfer',8,2)->nullable();
             $table->double('full_payment_in_USDT_bLockchain',8,2)->nullable();
 
-            $table->string('shares_selling_contract')->nullable();
+            $table->string('selling_contract')->nullable();
             $table->string('company_papers')->nullable();
             $table->string('buisness_plan')->nullable();
             $table->string('project_logo')->nullable();

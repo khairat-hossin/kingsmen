@@ -189,19 +189,48 @@
         </div>
     </div>
 
-    <legend class="border-bottom w-100">Investment Duration</legend>
+    <legend class="border-bottom w-100">Project Timeline</legend>
     <div class="row">
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Investment Duration in Years';
+            $field_name = 'Project Starting Date';
+            $field_lable = label_case($field_name);
+            $field_placeholder = 'mm/dd/yyyy';
+            $value = old('project_starting_date') ?? '';
+            $required = 'required';
+            ?>
+            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
+            {{ html()->text($field_name)->class('form-control form-control-sm datepicker')->attributes(['name' => 'project_starting_date', "$required", 'id' => 'project_starting_date'])->placeholder($field_placeholder) }}
+            @error('project_starting_date')
+                <span class="error">{{ $message }}</span>
+            @enderror
+        </div>
+
+        <div class="form-group col-6 col-md-4 mb-2">
+            <?php
+            $field_name = 'Project Delivery Date';
+            $field_lable = label_case($field_name);
+            $field_placeholder = 'mm/dd/yyyy';
+            $value = old('project_delivery_date') ?? '';
+            $required = 'required';
+            ?>
+            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
+            {{ html()->text($field_name)->class('form-control form-control-sm datepicker')->attributes(['name' => 'project_delivery_date', "$required", 'id' => 'project_delivery_date'])->placeholder($field_placeholder) }}
+            @error('project_delivery_date')
+                <span class="error">{{ $message }}</span>
+            @enderror
+        </div>
+        <div class="form-group col-6 col-md-4 mb-2">
+            <?php
+            $field_name = 'Project Duration in Years';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
-            $value = old('investment_duration_in_years') ?? '';
+            $value = old('project_duration_in_years') ?? '';
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'investment_duration_in_years_2', "$required", 'value' => "$value"]) }}
-            @error('investment_duration_in_years')
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'project_duration_in_years', 'id' => 'project_duration_in_years', "$required", 'value' => "$value"]) }}
+            @error('project_duration_in_years')
                 <span class="error">{{ $message }}</span>
             @enderror
         </div>
@@ -231,14 +260,14 @@
         </div>
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Land Area in sqm';
+            $field_name = 'Land Area Per sqm';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
-            $value = old('land_area_in_sqm') ?? '';
+            $value = old('land_area_per_sqm') ?? '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->number($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'land_area_in_sqm', "$required", 'id' => 'land_area_in_sqm', 'pattern' => '\d*', 'step' => 'any']) }}
+            {{ html()->number($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'land_area_per_sqm', "$required", 'id' => 'land_area_per_sqm', 'pattern' => '\d*', 'step' => 'any']) }}
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -414,7 +443,41 @@
         </div>
     </div>
 
-    <legend class="border-bottom w-100">Investment Cost</legend>
+    <legend class="border-bottom w-100">Shares And Values</legend>
+    <div class="row">
+        <div class="form-group col-6 col-md-4 mb-2">
+            <?php
+            $field_name = 'Total registered Shares at Local Authoritise';
+            $field_lable = label_case($field_name);
+            $field_placeholder = $field_lable;
+            $value = old('total_registered_shares_at_local_authoritise') ?? '';
+            $required = '';
+            ?>
+            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
+            {{ html()->number($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'total_registered_shares_at_local_authoritise', "$required", 'pattern' => '\d*', 'step' => 'any']) }}
+            @error('total_registered_shares_at_local_authoritise')
+                    <span class="error">{{ $message }}</span>
+            @enderror
+        </div>
+
+        <div class="form-group col-6 col-md-4 mb-2">
+            <?php
+            $field_name = 'Shares Listed for Sale';
+            $field_lable = label_case($field_name);
+            $field_placeholder = $field_lable;
+            $value = old('shares_listed_for_sale') ?? '';
+            $required = '';
+            ?>
+            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
+            {{ html()->number($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'shares_listed_for_sale', "$required", 'pattern' => '\d*', 'step' => 'any']) }}
+            @error('shares_listed_for_sale')
+                    <span class="error">{{ $message }}</span>
+            @enderror
+        </div>
+
+    </div>
+
+    <legend class="border-bottom w-100">Return on Investment</legend>
     <div class="row">
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
@@ -433,11 +496,14 @@
             $field_name = 'Investment Break Even Expected at year';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
-            $value = old('investment_break_even_expected_at_year') ?? '';
+            $value = old('investment_break_even_expected_after_year') ?? '';
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->number($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'investment_break_even_expected_at_year', "$required", 'id' => 'investment_break_even_expected_at_year', 'pattern' => '\d*', 'step' => 'any']) }}
+            {{ html()->number($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'investment_break_even_expected_after_year', "$required", 'id' => 'investment_break_even_expected_after_year', 'pattern' => '\d*', 'step' => 'any']) }}
+            @error('investment_break_even_expected_after_year')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -454,8 +520,8 @@
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->select($field_name)->class('form-control form-control-sm select2')->value($value)->attributes(['name' => 'profit_after_return_on_investment_is', "$required"])->options($options)->placeholder($field_placeholder)->value($value) }}
-            @error('profit_after_return_on_investment_is')
+            {{ html()->select($field_name)->class('form-control form-control-sm select2')->attributes(['name' => 'profit_after_return_of_investment_is', "$required"])->options($options)->placeholder($field_placeholder) }}
+            @error('profit_after_return_of_investment_is')
                 <span class="error">{{ $message }}</span>
             @enderror
         </div>
@@ -503,11 +569,11 @@
             $field_name = '1 Share\'s Ownership of The Construction in sqm ';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
-            $value = old('one_shares_of_ownership_of_the_land_in_sqm') ?? '';
+            $value = old('one_shares_of_ownership_of_the_construction_in_sqm') ?? '';
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->number($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'one_shares_of_ownership_of_the_land_in_sqm', "$required", 'id' => 'one_shares_of_ownership_of_the_land_in_sqm', 'pattern' => '\d*', 'step' => 'any']) }}
+            {{ html()->number($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'one_shares_of_ownership_of_the_construction_in_sqm', "$required", 'id' => 'one_shares_of_ownership_of_the_construction_in_sqm', 'pattern' => '\d*', 'step' => 'any']) }}
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -603,24 +669,13 @@
 
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Add Project Rules And Regulations';
+            $field_name = 'Add Buisness Plan';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->file($field_name)->multiple()->class('form-control form-control-sm')->attributes(['name' => 'project_rules_and_regulation', "$required"]) }}
-        </div>
-
-        <div class="form-group col-6 col-md-4 mb-2">
-            <?php
-            $field_name = 'Add Other Files';
-            $field_lable = label_case($field_name);
-            $field_placeholder = $field_lable;
-            $required = '';
-            ?>
-            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->file($field_name)->multiple()->class('form-control form-control-sm')->attributes(['name' => 'other_files', "$required"]) }}
+            {{ html()->file($field_name)->multiple()->class('form-control form-control-sm')->attributes(['name' => 'buisness_plan', "$required"]) }}
         </div>
     </div>
 
@@ -786,12 +841,39 @@
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
-            {{ html()->file($field_name)->multiple()->class('form-control form-control-sm')->attributes(['name' => 'photo_gallery']) }}
+            {{ html()->file($field_name)->multiple()->class('form-control form-control-sm')->attributes(['name' => 'photos_gallery']) }}
+        </div>
+
+        <div class="form-group col-6 col-md-4 mb-2">
+            <?php
+            $field_name = 'Add Project Timeline';
+            $field_lable = label_case($field_name);
+            $field_placeholder = $field_lable;
+            $value = old('project_timeline') ?? '';
+            $required = 'required';
+            ?>
+            {{ html()->label($field_lable, $field_name)->class('form-label') }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'project_timeline', 'value' => "$value"]) }}
+            @error('project_timeline')
+                <span class="error">{{ $message }}</span>
+            @enderror
+        </div>
+
+        <div class="form-group col-6 col-md-4 mb-2">
+            <?php
+            $field_name = 'Add Managment Companies';
+            $field_lable = label_case($field_name);
+            $field_placeholder = $field_lable;
+            $value = old('management_companies') ?? '';
+            $required = 'required';
+            ?>
+            {{ html()->label($field_lable, $field_name)->class('form-label') }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'management_companies', 'value' => "$value"]) }}
+            @error('management_companies')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
     </div>
-
-
-
 </div>
 
 
