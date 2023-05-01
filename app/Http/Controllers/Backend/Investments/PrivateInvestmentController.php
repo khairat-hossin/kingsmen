@@ -278,14 +278,13 @@ class PrivateInvestmentController extends Controller
      */
     public function update(Request $request, String $id)
     {
-        $module_action = 'store';
-        $privateInvestment  = new $this->module_model();
+        $module_action = 'update';
+        $privateInvestment  = PrivateInvestment::find($id);
 
         $request->validate([
 
             'project_name' => 'required|unique:private_investments,project_name,' . $id.',id',
             'company_tax_number' => 'required|unique:private_investments,company_tax_number,'.$id.',id',
-
 
             "project_address"                => "required",
             "project_location"               => "required",

@@ -114,6 +114,7 @@ class TeamController extends Controller
             $upload_photo_url = '';
             if($request->upload_photo) {
                 $upload_photo_url = uploadFileToPublic($request->file('upload_photo'), 'teams/photo');
+                $team->passport_photo       = $passport_photo_url;
             }
 
             $team->first_name           = $request->first_name;
@@ -121,7 +122,6 @@ class TeamController extends Controller
             $team->date_of_birth        = date("Y-m-d", strtotime($request->date_of_birth));
             $team->passport_number      = $request->passport_number;
             $team->passport_expiry_date = date("Y-m-d", strtotime($request->passport_expiry_date));
-            $team->passport_photo       = $passport_photo_url;
             $team->ssn                  = $request->ssn;
             $team->id_card              = $id_card_url;
             $team->university_degree    = $request->university_degree;
@@ -185,7 +185,84 @@ class TeamController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $module_action = 'update';
+        $request->validate([
+            "first_name"           => "required|unique:team_members,first_name," . $id.",id",
+            "last_name"            => "required|unique:team_members,last_name," . $id.",id",
+            "date_of_birth"        => "required",
+            "passport_number"      => "required|unique:team_members,passport_number," . $id.",id",
+            "passport_expiry_date" => "required",
+            "passport_photo"       => "nullable|image",
+            "ssn"                  => "required|unique:team_members,ssn," . $id.",id",
+            "id_card"              => "nullable|image",
+            "university_degree"    => "required",
+            "about_team_member"    => "required",
+            "position"             => "required",
+            "type"                 => "required",
+            "upload_photo"         => "nullable|image",
+            "personal_cell_number" => "required|unique:team_members,personal_cell_number," . $id.",id",
+            "personal_email"       => "required",
+            "home_address"         => "required",
+            "family_member_name"   => "required",
+            "work_contract"        => "required"
+        ]);
+
+        DB::beginTransaction();
+        try {
+            $team  = Team::find($id);
+
+            $passport_photo_url = '';
+            $id_card_url = '';
+            $upload_photo_url = '';
+
+            if ($request->passport_photo) {
+                $passport_photo_url = uploadFileToPublic($request->file('passport_photo'), 'teams/passport');
+                $team->passport_photo   = $passport_photo_url;
+            }
+
+            if ($request->id_card) {
+                $id_card_url = uploadFileToPublic($request->file('id_card'), 'teams/id_card');
+                $team->id_card              = $id_card_url;
+            }
+
+            if($request->upload_photo) {
+                $upload_photo_url = uploadFileToPublic($request->file('upload_photo'), 'teams/photo');
+                $team->upload_photo         = $upload_photo_url;
+            }
+
+            $team->first_name           = $request->first_name;
+            $team->last_name            = $request->last_name;
+            $team->date_of_birth        = date("Y-m-d", strtotime($request->date_of_birth));
+            $team->passport_number      = $request->passport_number;
+            $team->passport_expiry_date = date("Y-m-d", strtotime($request->passport_expiry_date));
+
+            $team->ssn                  = $request->ssn;
+            $team->university_degree    = $request->university_degree;
+            $team->about_team_member    = $request->about_team_member;
+            $team->position             = $request->position;
+            $team->type                 = $request->type;
+            $team->personal_cell_number = $request->personal_cell_number;
+            $team->personal_email       = $request->personal_email;
+            $team->assigned_cell_number = $request->assigned_cell_number;
+            $team->assigned_email       = $request->assigned_email;
+            $team->home_address         = $request->home_address;
+            $team->family_member_name   = $request->family_member_name;
+            $team->family_member_number = $request->family_member_number;
+            $team->work_contract        = $request->work_contract;
+
+            $team->save();
+
+            flash(icon() . ' ' . Str::singular($this->module_title) . " Updated Successfully")->success()->important();
+            logUserAccess($this->module_title . ' ' . $module_action . ' | Id: ' . $team->id);
+            DB::commit();
+            return redirect("admin/$this->module_name");
+
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            $msg = $th->getMessage();
+            flash(icon() . ' ' . Str::singular($this->module_title) . " Update Failed! $msg")->error()->important();
+            return back()->withInput();
+        }
     }
 
     /**
@@ -193,6 +270,24 @@ class TeamController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $module_title = $this->module_title;
+        $module_name = $this->module_name;
+        $module_path = $this->module_path;
+        $module_icon = $this->module_icon;
+        $module_model = $this->module_model;
+        $module_name_singular = Str::singular($module_name);
+
+        $module_action = 'destroy';
+
+        $$module_name_singular = $module_model::findOrFail($id);
+
+
+        $$module_name_singular->delete();
+
+        flash(icon().' '.Str::singular($module_title)."' Deleted Successfully")->success()->important();
+
+        logUserAccess($module_title.' '.$module_action.' | Id: '.$$module_name_singular->id);
+
+        return redirect("admin/$module_name");
     }
 }

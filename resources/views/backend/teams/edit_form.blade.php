@@ -85,8 +85,8 @@
             $value = '';
             $required = 'required';
             ?>
-            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'passport_photo', "$required", 'value' => "$value"]) }}
+            {{ html()->label($field_lable, $field_name)->class('form-label') }}
+            {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'passport_photo']) }}
             @error('passport_photo')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -115,8 +115,8 @@
             $value = '';
             $required = 'required';
             ?>
-            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'id_card', "$required", 'value' => "$value"]) }}
+            {{ html()->label($field_lable, $field_name)->class('form-label') }}
+            {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'id_card', 'value' => "$value"]) }}
             @error('id_card')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -163,7 +163,7 @@
                 'sales_agent' => 'Sales Agent',
                 'project_manager' => 'Project Manager',
             ];
-            $value = ($team->project_address) ?? '';
+            $value = ($team->position) ?? '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
@@ -202,8 +202,8 @@
             $value = '';
             $required = 'required';
             ?>
-            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'upload_photo', "$required", 'value' => "$value"]) }}
+            {{ html()->label($field_lable, $field_name)->class('form-label') }}
+            {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'upload_photo', 'value' => "$value"]) }}
             @error('upload_photo')
                 <span class="error">{{ $message }}</span>
             @enderror

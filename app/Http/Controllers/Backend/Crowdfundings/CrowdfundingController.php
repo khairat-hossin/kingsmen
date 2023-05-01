@@ -141,136 +141,143 @@ class CrowdfundingController extends Controller
             'management_companies'=> 'nullable'
         ]);
 
-        $crowdfunding = new Crowdfunding;
+        DB::beginTransaction();
+        try {
+            $crowdfunding  = new $this->module_model();
+            // $crowdfunding = new Crowdfunding;
+            $crowdfunding->project_name = $request->project_name;
+            $crowdfunding->project_location = $request->project_location;
+            $crowdfunding->registered_company_name = $request->registered_company_name;
+            $crowdfunding->company_tax_number = $request->company_tax_number;
+            $crowdfunding->project_type = $request->project_type;
+            $crowdfunding->investment_duration = $request->investment_duration;
+            $crowdfunding->investment_duration_in_years = $request->investment_duration_in_years;
+            $crowdfunding->type_of_investment = $request->type_of_investment;
+            $crowdfunding->accepted_currency = $request->accepted_currency;
 
-        $crowdfunding->project_name = $request->project_name;
-        $crowdfunding->project_location = $request->project_location;
-        $crowdfunding->registered_company_name = $request->registered_company_name;
-        $crowdfunding->company_tax_number = $request->company_tax_number;
-        $crowdfunding->project_type = $request->project_type;
-        $crowdfunding->investment_duration = $request->investment_duration;
-        $crowdfunding->investment_duration_in_years = $request->investment_duration_in_years;
-        $crowdfunding->type_of_investment = $request->type_of_investment;
-        $crowdfunding->accepted_currency = $request->accepted_currency;
+            $crowdfunding->project_starting_date = date("Y-m-d", strtotime($request->project_starting_date));
+            $crowdfunding->project_delivery_date = date("Y-m-d", strtotime($request->project_delivery_date));
+            $crowdfunding->land_category = $request->land_category;
+            $crowdfunding->land_area_per_sqm = $request->land_area_per_sqm;
+            $crowdfunding->land_cost_per_sqm = $request->land_cost_per_sqm;
+            $crowdfunding->total_land_cost = $request->total_land_cost;
+            $crowdfunding->available_construction_type = $request->available_construction_type;
+            $crowdfunding->built_up_area_size_per_sqm = $request->built_up_area_size_per_sqm;
+            $crowdfunding->built_area_value_per_sqm = $request->built_area_value_per_sqm;
+            $crowdfunding->total_built_up_area_value = $request->total_built_up_area_value;
+            $crowdfunding->investment_in = $request->investment_in;
+            $crowdfunding->total_number_of_investment_in = $request->total_number_of_investment_in;
+            $crowdfunding->real_estate_value = $request->real_estate_value;
+            $crowdfunding->proposed_additional_investment_cost = $request->proposed_additional_investment_cost;
+            $crowdfunding->total_cost_of_investment = $request->total_cost_of_investment;
+            $crowdfunding->total_registered_shares_at_local_authoritise = $request->total_registered_shares_at_local_authoritise;
+            $crowdfunding->shares_listed_for_sale = $request->shares_listed_for_sale;
+            $crowdfunding->project_duration_in_years = $request->project_duration_in_years;
+            $crowdfunding->investment_break_even_expected_after_year = $request->investment_break_even_expected_after_year;
+            $crowdfunding->profit_after_return_of_investment_is = $request->profit_after_return_of_investment_is;
+            $crowdfunding->expected_profit_after_break_even = $request->expected_profit_after_break_even;
+            $crowdfunding->expected_profit_percent_after_break_even_as_per_study = $request->expected_profit_percent_after_break_even_as_per_study;
+            $crowdfunding->one_shares_of_ownership_of_the_land_in_sqm = $request->one_shares_of_ownership_of_the_land_in_sqm;
+            $crowdfunding->one_shares_of_ownership_of_the_construction_in_sqm = $request->one_shares_of_ownership_of_the_construction_in_sqm;
+            $crowdfunding->one_shares_of_ownership_in_number_of_investing_in = $request->one_shares_of_ownership_in_number_of_investing_in;
+            $crowdfunding->share_price = $request->share_price;
+            $crowdfunding->deposit = $request->deposit;
+            $crowdfunding->remaining_amount_as_bank_transfer = $request->remaining_amount_as_bank_transfer;
+            $crowdfunding->full_payment_in_USDT_bLockchain = $request->full_payment_in_USDT_bLockchain;
 
-        $crowdfunding->project_starting_date = date("Y-m-d", strtotime($request->project_starting_date));
-        $crowdfunding->project_delivery_date = date("Y-m-d", strtotime($request->project_delivery_date));
-        $crowdfunding->land_category = $request->land_category;
-        $crowdfunding->land_area_per_sqm = $request->land_area_per_sqm;
-        $crowdfunding->land_cost_per_sqm = $request->land_cost_per_sqm;
-        $crowdfunding->total_land_cost = $request->total_land_cost;
-        $crowdfunding->available_construction_type = $request->available_construction_type;
-        $crowdfunding->built_up_area_size_per_sqm = $request->built_up_area_size_per_sqm;
-        $crowdfunding->built_area_value_per_sqm = $request->built_area_value_per_sqm;
-        $crowdfunding->total_built_up_area_value = $request->total_built_up_area_value;
-        $crowdfunding->investment_in = $request->investment_in;
-        $crowdfunding->total_number_of_investment_in = $request->total_number_of_investment_in;
-        $crowdfunding->real_estate_value = $request->real_estate_value;
-        $crowdfunding->proposed_additional_investment_cost = $request->proposed_additional_investment_cost;
-        $crowdfunding->total_cost_of_investment = $request->total_cost_of_investment;
-        $crowdfunding->total_registered_shares_at_local_authoritise = $request->total_registered_shares_at_local_authoritise;
-        $crowdfunding->shares_listed_for_sale = $request->shares_listed_for_sale;
-        $crowdfunding->project_duration_in_years = $request->project_duration_in_years;
-        $crowdfunding->investment_break_even_expected_after_year = $request->investment_break_even_expected_after_year;
-        $crowdfunding->profit_after_return_of_investment_is = $request->profit_after_return_of_investment_is;
-        $crowdfunding->expected_profit_after_break_even = $request->expected_profit_after_break_even;
-        $crowdfunding->expected_profit_percent_after_break_even_as_per_study = $request->expected_profit_percent_after_break_even_as_per_study;
-        $crowdfunding->one_shares_of_ownership_of_the_land_in_sqm = $request->one_shares_of_ownership_of_the_land_in_sqm;
-        $crowdfunding->one_shares_of_ownership_of_the_construction_in_sqm = $request->one_shares_of_ownership_of_the_construction_in_sqm;
-        $crowdfunding->one_shares_of_ownership_in_number_of_investing_in = $request->one_shares_of_ownership_in_number_of_investing_in;
-        $crowdfunding->share_price = $request->share_price;
-        $crowdfunding->deposit = $request->deposit;
-        $crowdfunding->remaining_amount_as_bank_transfer = $request->remaining_amount_as_bank_transfer;
-        $crowdfunding->full_payment_in_USDT_bLockchain = $request->full_payment_in_USDT_bLockchain;
+            $selling_contract = '';
+            $company_papers = '';
+            $buisness_plan = '';
+            $project_logo = '';
 
-        $selling_contract = '';
-        $company_papers = '';
-        $buisness_plan = '';
-        $project_logo = '';
+            if ($request->selling_contract) {
+                $selling_contract_url = uploadFileToPublic($request->file('selling_contract'), 'crowdfunding/selling_contract');
 
+                $crowdfunding->selling_contract = $selling_contract_url;
+            }
 
-        if ($request->selling_contract) {
-            $selling_contract_url = uploadFileToPublic($request->file('selling_contract'), 'crowdfunding/selling_contract');
+            if ($request->company_papers) {
+                $company_papers_url = uploadFileToPublic($request->file('company_papers'), 'crowdfunding/company_papers');
 
-            $crowdfunding->selling_contract = $selling_contract_url;
-        }
+                $crowdfunding->company_papers = $company_papers_url;
+            }
 
-        if ($request->company_papers) {
-            $company_papers_url = uploadFileToPublic($request->file('company_papers'), 'crowdfunding/company_papers');
+            if ($request->buisness_plan) {
+                $buisness_plan_url = uploadFileToPublic($request->file('buisness_plan'), 'crowdfunding/buisness_plan');
 
-            $crowdfunding->company_papers = $company_papers_url;
-        }
+                $crowdfunding->buisness_plan = $buisness_plan_url;
+            }
 
-        if ($request->buisness_plan) {
-            $buisness_plan_url = uploadFileToPublic($request->file('buisness_plan'), 'crowdfunding/buisness_plan');
+            if ($request->project_logo) {
+                $project_logo_url = uploadFileToPublic($request->file('project_logo'), 'crowdfunding/project_logo');
 
-            $crowdfunding->buisness_plan = $buisness_plan_url;
-        }
-
-        if ($request->project_logo) {
-            $project_logo_url = uploadFileToPublic($request->file('project_logo'), 'crowdfunding/project_logo');
-
-            $crowdfunding->project_logo = $project_logo_url;
-        }
-
-
-        $crowdfunding->crowfund_thumbnail = $request->crowfund_thumbnail;
-        $crowdfunding->title = $request->title;
-        $crowdfunding->description = $request->description;
-        $crowdfunding->choose_template = $request->choose_template;
-
-        $banner = '';
-
-        if ($request->banner) {
-            $banner_url = uploadFileToPublic($request->file('banner'), 'crowdfunding/banner');
-
-            $crowdfunding->banner = $banner_url;
-        }
+                $crowdfunding->project_logo = $project_logo_url;
+            }
 
 
-        // For Multiple photos
-        // $photos_gallery = '';
-        // $photos_gallery = $request->file('photos_gallery');
-        // dd($photos_gallery);
-        // foreach ($photos_gallery as $photo) {
-        //     $photos_gallery_url = uploadFileToPublic($photo, 'crowdfunding/photos_gallery');
-        //     $crowdfunding->photos_gallery = $photos_gallery_url;
+            $crowdfunding->crowfund_thumbnail = $request->crowfund_thumbnail;
+            $crowdfunding->title = $request->title;
+            $crowdfunding->description = $request->description;
+            $crowdfunding->choose_template = $request->choose_template;
+
+            $banner = '';
+
+            if ($request->banner) {
+                $banner_url = uploadFileToPublic($request->file('banner'), 'crowdfunding/banner');
+
+                $crowdfunding->banner = $banner_url;
+            }
+
+
+            // For Multiple photos
+            // $photos_gallery = '';
+            // $photos_gallery = $request->file('photos_gallery');
+            // dd($photos_gallery);
+            // foreach ($photos_gallery as $photo) {
+            //     $photos_gallery_url = uploadFileToPublic($photo, 'crowdfunding/photos_gallery');
+            //     $crowdfunding->photos_gallery = $photos_gallery_url;
+            // }
+            // dd($crowdfunding->photos_gallery);
+
+        // if ($request->hasFile('photos_gallery')) {
+        //     $images = $request->file('photos_gallery');
+
+        //     foreach ($images as $image) {
+        //         // Generate a unique filename for each image
+        //         $filename = uniqid() . '.' . $image->getClientOriginalExtension();
+
+        //         dd($filename);
+
+        //         // Save the image to the public disk
+        //         $image->storeAs('public/uploads/crowdfunding/photo_gallery', $filename);
+        //         $crowdfunding->photos_gallery = $filename;
+
+        //         dd($crowdfunding->photos_gallery);
+        //     }
         // }
-        // dd($crowdfunding->photos_gallery);
-
-    // if ($request->hasFile('photos_gallery')) {
-    //     $images = $request->file('photos_gallery');
-
-    //     foreach ($images as $image) {
-    //         // Generate a unique filename for each image
-    //         $filename = uniqid() . '.' . $image->getClientOriginalExtension();
-
-    //         dd($filename);
-
-    //         // Save the image to the public disk
-    //         $image->storeAs('public/uploads/crowdfunding/photo_gallery', $filename);
-    //         $crowdfunding->photos_gallery = $filename;
-
-    //         dd($crowdfunding->photos_gallery);
-    //     }
-    // }
 
 
-        $crowdfunding->banner_text = $request->banner_text;
-        $crowdfunding->title_1 = $request->title_1;
-        $crowdfunding->paragraph_1 = $request->paragraph_1;
-        $crowdfunding->title_2 = $request->title_2;
-        $crowdfunding->paragraph_2 = $request->paragraph_2;
-        $crowdfunding->project_timeline = $request->project_timeline;
-        $crowdfunding->management_companies = $request->management_companies;
+            $crowdfunding->banner_text = $request->banner_text;
+            $crowdfunding->title_1 = $request->title_1;
+            $crowdfunding->paragraph_1 = $request->paragraph_1;
+            $crowdfunding->title_2 = $request->title_2;
+            $crowdfunding->paragraph_2 = $request->paragraph_2;
+            $crowdfunding->project_timeline = $request->project_timeline;
+            $crowdfunding->management_companies = $request->management_companies;
 
-        $crowdfunding->save();
+            $crowdfunding->save();
 
-        flash(icon().' '.Str::singular($module_title)."' Created Successfully")->success()->important();
+            flash(icon() . ' ' . Str::singular($this->module_title) . " Created Successfully")->success()->important();
+            logUserAccess($this->module_title . ' ' . $module_action . ' | Id: ' . $crowdfunding->id);
+            DB::commit();
+            return redirect("admin/$this->module_name");
 
-        logUserAccess($module_title.' '.$module_action.' | Id: '.$$module_name_singular->id);
-
-        return redirect("admin/$module_name");
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            $msg = $th->getMessage();
+            flash(icon() . ' ' . Str::singular($this->module_title) . " Creation Failed! $msg")->error()->important();
+            return back()->withInput();
+        }
     }
 
     /**
@@ -312,10 +319,10 @@ class CrowdfundingController extends Controller
         $module_model = $this->module_model;
         $module_name_singular = Str::singular($module_name);
 
-        $module_action = 'Store';
+        $module_action = 'Update';
 
         $request->validate([
-            'project_name' => 'required|unique:'.$module_model.',project_name',
+            'project_name' => 'required|unique:private_investments,project_name,' . $id.',id',
             'project_location' => 'nullable',
             'registered_company_name' => 'nullable',
             'company_tax_number' => 'nullable',
@@ -372,72 +379,121 @@ class CrowdfundingController extends Controller
             'management_companies'=> 'nullable'
         ]);
 
-        $crowdfunding = Crowdfunding::find($id);
+        DB::beginTransaction();
+        try {
 
-        $crowdfunding->project_name = $request->project_name;
-        $crowdfunding->project_location = $request->project_location;
-        $crowdfunding->registered_company_name = $request->registered_company_name;
-        $crowdfunding->company_tax_number = $request->company_tax_number;
-        $crowdfunding->project_type = $request->project_type;
-        $crowdfunding->investment_duration = $request->investment_duration;
-        $crowdfunding->investment_duration_in_years = $request->investment_duration_in_years;
-        $crowdfunding->type_of_investment = $request->type_of_investment;
-        $crowdfunding->accepted_currency = $request->accepted_currency;
-        $crowdfunding->project_starting_date =  date("Y-m-d", strtotime($request->project_starting_date));
-        $crowdfunding->project_delivery_date =  date("Y-m-d", strtotime($request->project_delivery_date));
-        $crowdfunding->land_category = $request->land_category;
-        $crowdfunding->land_area_per_sqm = $request->land_area_per_sqm;
-        $crowdfunding->land_cost_per_sqm = $request->land_cost_per_sqm;
-        $crowdfunding->total_land_cost = $request->total_land_cost;
-        $crowdfunding->available_construction_type = $request->available_construction_type;
-        $crowdfunding->built_up_area_size_per_sqm = $request->built_up_area_size_per_sqm;
-        $crowdfunding->built_area_value_per_sqm = $request->built_area_value_per_sqm;
-        $crowdfunding->total_built_up_area_value = $request->total_built_up_area_value;
-        $crowdfunding->investment_in = $request->investment_in;
-        $crowdfunding->total_number_of_investment_in = $request->total_number_of_investment_in;
-        $crowdfunding->real_estate_value = $request->real_estate_value;
-        $crowdfunding->proposed_additional_investment_cost = $request->proposed_additional_investment_cost;
-        $crowdfunding->total_cost_of_investment = $request->total_cost_of_investment;
-        $crowdfunding->total_registered_shares_at_local_authoritise = $request->total_registered_shares_at_local_authoritise;
-        $crowdfunding->shares_listed_for_sale = $request->shares_listed_for_sale;
-        $crowdfunding->project_duration_in_years = $request->project_duration_in_years;
-        $crowdfunding->investment_break_even_expected_after_year = $request->investment_break_even_expected_after_year;
-        $crowdfunding->profit_after_return_of_investment_is = $request->profit_after_return_of_investment_is;
-        $crowdfunding->expected_profit_after_break_even = $request->expected_profit_after_break_even;
-        $crowdfunding->expected_profit_percent_after_break_even_as_per_study = $request->expected_profit_percent_after_break_even_as_per_study;
-        $crowdfunding->one_shares_of_ownership_of_the_land_in_sqm = $request->one_shares_of_ownership_of_the_land_in_sqm;
-        $crowdfunding->one_shares_of_ownership_of_the_construction_in_sqm = $request->one_shares_of_ownership_of_the_construction_in_sqm;
-        $crowdfunding->one_shares_of_ownership_in_number_of_investing_in = $request->one_shares_of_ownership_in_number_of_investing_in;
-        $crowdfunding->share_price = $request->share_price;
-        $crowdfunding->deposit = $request->deposit;
-        $crowdfunding->remaining_amount_as_bank_transfer = $request->remaining_amount_as_bank_transfer;
-        $crowdfunding->full_payment_in_USDT_bLockchain = $request->full_payment_in_USDT_bLockchain;
-        $crowdfunding->shares_selling_contract = $request->shares_selling_contract;
-        $crowdfunding->company_papers = $request->company_papers;
-        $crowdfunding->buisness_plan = $request->buisness_plan;
-        $crowdfunding->project_logo = $request->project_logo;
-        $crowdfunding->crowfund_thumbnail = $request->crowfund_thumbnail;
-        $crowdfunding->title = $request->title;
-        $crowdfunding->description = $request->description;
-        $crowdfunding->choose_template = $request->choose_template;
-        $crowdfunding->banner = $request->banner;
-        $crowdfunding->banner_text = $request->banner_text;
-        $crowdfunding->title_1 = $request->title_1;
-        $crowdfunding->paragraph_1 = $request->paragraph_1;
-        $crowdfunding->title_2 = $request->title_2;
-        $crowdfunding->paragraph_2 = $request->paragraph_2;
-        $crowdfunding->photos_gallery = $request->photos_gallery;
-        $crowdfunding->project_timeline = $request->project_timeline;
-        $crowdfunding->management_companies = $request->management_companies;
+            $crowdfunding = Crowdfunding::find($id);
+
+            $crowdfunding->project_name = $request->project_name;
+            $crowdfunding->project_location = $request->project_location;
+            $crowdfunding->registered_company_name = $request->registered_company_name;
+            $crowdfunding->company_tax_number = $request->company_tax_number;
+            $crowdfunding->project_type = $request->project_type;
+            $crowdfunding->investment_duration = $request->investment_duration;
+            $crowdfunding->investment_duration_in_years = $request->investment_duration_in_years;
+            $crowdfunding->type_of_investment = $request->type_of_investment;
+            $crowdfunding->accepted_currency = $request->accepted_currency;
+            $crowdfunding->project_starting_date =  date("Y-m-d", strtotime($request->project_starting_date));
+            $crowdfunding->project_delivery_date =  date("Y-m-d", strtotime($request->project_delivery_date));
+            $crowdfunding->land_category = $request->land_category;
+            $crowdfunding->land_area_per_sqm = $request->land_area_per_sqm;
+            $crowdfunding->land_cost_per_sqm = $request->land_cost_per_sqm;
+            $crowdfunding->total_land_cost = $request->total_land_cost;
+            $crowdfunding->available_construction_type = $request->available_construction_type;
+            $crowdfunding->built_up_area_size_per_sqm = $request->built_up_area_size_per_sqm;
+            $crowdfunding->built_area_value_per_sqm = $request->built_area_value_per_sqm;
+            $crowdfunding->total_built_up_area_value = $request->total_built_up_area_value;
+            $crowdfunding->investment_in = $request->investment_in;
+            $crowdfunding->total_number_of_investment_in = $request->total_number_of_investment_in;
+            $crowdfunding->real_estate_value = $request->real_estate_value;
+            $crowdfunding->proposed_additional_investment_cost = $request->proposed_additional_investment_cost;
+            $crowdfunding->total_cost_of_investment = $request->total_cost_of_investment;
+            $crowdfunding->total_registered_shares_at_local_authoritise = $request->total_registered_shares_at_local_authoritise;
+            $crowdfunding->shares_listed_for_sale = $request->shares_listed_for_sale;
+            $crowdfunding->project_duration_in_years = $request->project_duration_in_years;
+            $crowdfunding->investment_break_even_expected_after_year = $request->investment_break_even_expected_after_year;
+            $crowdfunding->profit_after_return_of_investment_is = $request->profit_after_return_of_investment_is;
+            $crowdfunding->expected_profit_after_break_even = $request->expected_profit_after_break_even;
+            $crowdfunding->expected_profit_percent_after_break_even_as_per_study = $request->expected_profit_percent_after_break_even_as_per_study;
+            $crowdfunding->one_shares_of_ownership_of_the_land_in_sqm = $request->one_shares_of_ownership_of_the_land_in_sqm;
+            $crowdfunding->one_shares_of_ownership_of_the_construction_in_sqm = $request->one_shares_of_ownership_of_the_construction_in_sqm;
+            $crowdfunding->one_shares_of_ownership_in_number_of_investing_in = $request->one_shares_of_ownership_in_number_of_investing_in;
+            $crowdfunding->share_price = $request->share_price;
+            $crowdfunding->deposit = $request->deposit;
+            $crowdfunding->remaining_amount_as_bank_transfer = $request->remaining_amount_as_bank_transfer;
+            $crowdfunding->full_payment_in_USDT_bLockchain = $request->full_payment_in_USDT_bLockchain;
+
+            $selling_contract = '';
+            $company_papers = '';
+            $buisness_plan = '';
+            $project_logo = '';
+
+            if ($request->selling_contract) {
+                $selling_contract_url = uploadFileToPublic($request->file('selling_contract'), 'crowdfunding/selling_contract');
+
+                $crowdfunding->selling_contract = $selling_contract_url;
+            }
+
+            if ($request->company_papers) {
+                $company_papers_url = uploadFileToPublic($request->file('company_papers'), 'crowdfunding/company_papers');
+
+                $crowdfunding->company_papers = $company_papers_url;
+            }
+
+            if ($request->buisness_plan) {
+                $buisness_plan_url = uploadFileToPublic($request->file('buisness_plan'), 'crowdfunding/buisness_plan');
+
+                $crowdfunding->buisness_plan = $buisness_plan_url;
+            }
+
+            if ($request->project_logo) {
+                $project_logo_url = uploadFileToPublic($request->file('project_logo'), 'crowdfunding/project_logo');
+
+                $crowdfunding->project_logo = $project_logo_url;
+            }
+
+            $crowdfunding->crowfund_thumbnail = $request->crowfund_thumbnail;
+            $crowdfunding->title = $request->title;
+            $crowdfunding->description = $request->description;
+            $crowdfunding->choose_template = $request->choose_template;
+
+            $banner = '';
+
+            if ($request->banner) {
+                $banner_url = uploadFileToPublic($request->file('banner'), 'crowdfunding/banner');
+
+                $crowdfunding->banner = $banner_url;
+            }
+
+            $crowdfunding->banner_text = $request->banner_text;
+            $crowdfunding->title_1 = $request->title_1;
+            $crowdfunding->paragraph_1 = $request->paragraph_1;
+            $crowdfunding->title_2 = $request->title_2;
+            $crowdfunding->paragraph_2 = $request->paragraph_2;
+            $crowdfunding->photos_gallery = $request->photos_gallery;
+            $crowdfunding->project_timeline = $request->project_timeline;
+            $crowdfunding->management_companies = $request->management_companies;
 
 
-        $crowdfunding->save();
+            $crowdfunding->save();
 
-        flash(icon().' '.Str::singular($module_title)."' Updated Successfully")->success()->important();
+            flash(icon() . ' ' . Str::singular($this->module_title) . " Created Successfully")->success()->important();
+            logUserAccess($this->module_title . ' ' . $module_action . ' | Id: ' . $crowdfunding->id);
+            DB::commit();
+            return redirect("admin/$this->module_name");
 
-        logUserAccess($module_title.' '.$module_action.' | Id: '.$$module_name_singular->id);
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            $msg = $th->getMessage();
+            flash(icon() . ' ' . Str::singular($this->module_title) . " Creation Failed! $msg")->error()->important();
+            return back()->withInput();
+        }
 
-        return redirect("admin/$module_name");
+        // flash(icon().' '.Str::singular($module_title)."' Updated Successfully")->success()->important();
+
+        // logUserAccess($module_title.' '.$module_action.' | Id: '.$$module_name_singular->id);
+
+        // return redirect("admin/$module_name");
     }
 
     /**
