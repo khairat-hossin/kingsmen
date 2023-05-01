@@ -48,7 +48,7 @@ class Crowdfunding extends Model
         'deposit',
         'remaining_amount_as_bank_transfer',
         'full_payment_in_USDT_bLockchain',
-        'shares_selling_contract',
+        'selling_contract',
         'company_papers',
         'buisness_plan',
         'project_logo',

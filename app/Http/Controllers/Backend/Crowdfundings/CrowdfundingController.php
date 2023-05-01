@@ -93,8 +93,8 @@ class CrowdfundingController extends Controller
             'investment_duration_in_years' => 'nullable',
             'type_of_investment' => 'nullable',
             'accepted_currency' => 'nullable',
-            'project_starting_date' => 'nullable',
-            'project_delivery_date' => 'nullable',
+            'project_starting_date' => 'nullable|date',
+            'project_delivery_date' => 'nullable|date',
             'land_category' => 'nullable',
             'land_area_per_sqm' => 'nullable',
             'land_cost_per_sqm' => 'nullable',
@@ -152,8 +152,9 @@ class CrowdfundingController extends Controller
         $crowdfunding->investment_duration_in_years = $request->investment_duration_in_years;
         $crowdfunding->type_of_investment = $request->type_of_investment;
         $crowdfunding->accepted_currency = $request->accepted_currency;
-        $crowdfunding->project_starting_date = $request->project_starting_date;
-        $crowdfunding->project_delivery_date = $request->project_delivery_date;
+
+        $crowdfunding->project_starting_date = date("Y-m-d", strtotime($request->project_starting_date));
+        $crowdfunding->project_delivery_date = date("Y-m-d", strtotime($request->project_delivery_date));
         $crowdfunding->land_category = $request->land_category;
         $crowdfunding->land_area_per_sqm = $request->land_area_per_sqm;
         $crowdfunding->land_cost_per_sqm = $request->land_cost_per_sqm;
@@ -181,26 +182,89 @@ class CrowdfundingController extends Controller
         $crowdfunding->deposit = $request->deposit;
         $crowdfunding->remaining_amount_as_bank_transfer = $request->remaining_amount_as_bank_transfer;
         $crowdfunding->full_payment_in_USDT_bLockchain = $request->full_payment_in_USDT_bLockchain;
-        $crowdfunding->shares_selling_contract = $request->shares_selling_contract;
-        $crowdfunding->company_papers = $request->company_papers;
-        $crowdfunding->buisness_plan = $request->buisness_plan;
-        $crowdfunding->project_logo = $request->project_logo;
+
+        $selling_contract = '';
+        $company_papers = '';
+        $buisness_plan = '';
+        $project_logo = '';
+
+
+        if ($request->selling_contract) {
+            $selling_contract_url = uploadFileToPublic($request->file('selling_contract'), 'crowdfunding/selling_contract');
+
+            $crowdfunding->selling_contract = $selling_contract_url;
+        }
+
+        if ($request->company_papers) {
+            $company_papers_url = uploadFileToPublic($request->file('company_papers'), 'crowdfunding/company_papers');
+
+            $crowdfunding->company_papers = $company_papers_url;
+        }
+
+        if ($request->buisness_plan) {
+            $buisness_plan_url = uploadFileToPublic($request->file('buisness_plan'), 'crowdfunding/buisness_plan');
+
+            $crowdfunding->buisness_plan = $buisness_plan_url;
+        }
+
+        if ($request->project_logo) {
+            $project_logo_url = uploadFileToPublic($request->file('project_logo'), 'crowdfunding/project_logo');
+
+            $crowdfunding->project_logo = $project_logo_url;
+        }
+
+
         $crowdfunding->crowfund_thumbnail = $request->crowfund_thumbnail;
         $crowdfunding->title = $request->title;
         $crowdfunding->description = $request->description;
         $crowdfunding->choose_template = $request->choose_template;
-        $crowdfunding->banner = $request->banner;
+
+        $banner = '';
+
+        if ($request->banner) {
+            $banner_url = uploadFileToPublic($request->file('banner'), 'crowdfunding/banner');
+
+            $crowdfunding->banner = $banner_url;
+        }
+
+
+        // For Multiple photos
+        // $photos_gallery = '';
+        // $photos_gallery = $request->file('photos_gallery');
+        // dd($photos_gallery);
+        // foreach ($photos_gallery as $photo) {
+        //     $photos_gallery_url = uploadFileToPublic($photo, 'crowdfunding/photos_gallery');
+        //     $crowdfunding->photos_gallery = $photos_gallery_url;
+        // }
+        // dd($crowdfunding->photos_gallery);
+
+    // if ($request->hasFile('photos_gallery')) {
+    //     $images = $request->file('photos_gallery');
+
+    //     foreach ($images as $image) {
+    //         // Generate a unique filename for each image
+    //         $filename = uniqid() . '.' . $image->getClientOriginalExtension();
+
+    //         dd($filename);
+
+    //         // Save the image to the public disk
+    //         $image->storeAs('public/uploads/crowdfunding/photo_gallery', $filename);
+    //         $crowdfunding->photos_gallery = $filename;
+
+    //         dd($crowdfunding->photos_gallery);
+    //     }
+    // }
+
+
         $crowdfunding->banner_text = $request->banner_text;
         $crowdfunding->title_1 = $request->title_1;
         $crowdfunding->paragraph_1 = $request->paragraph_1;
         $crowdfunding->title_2 = $request->title_2;
         $crowdfunding->paragraph_2 = $request->paragraph_2;
-        $crowdfunding->photos_gallery = $request->photos_gallery;
         $crowdfunding->project_timeline = $request->project_timeline;
         $crowdfunding->management_companies = $request->management_companies;
 
         $crowdfunding->save();
-
 
         flash(icon().' '.Str::singular($module_title)."' Created Successfully")->success()->important();
 
@@ -260,8 +324,8 @@ class CrowdfundingController extends Controller
             'investment_duration_in_years' => 'nullable',
             'type_of_investment' => 'nullable',
             'accepted_currency' => 'nullable',
-            'project_starting_date' => 'nullable',
-            'project_delivery_date' => 'nullable',
+            'project_starting_date' => 'nullable|date',
+            'project_delivery_date' => 'nullable|date',
             'land_category' => 'nullable',
             'land_area_per_sqm' => 'nullable',
             'land_cost_per_sqm' => 'nullable',
@@ -289,7 +353,7 @@ class CrowdfundingController extends Controller
             'deposit'     => 'nullable',
             'remaining_amount_as_bank_transfer' => 'nullable',
             'full_payment_in_USDT_bLockchain'   => 'nullable',
-            'shares_selling_contract'           => 'nullable',
+            'selling_contract'           => 'nullable',
             'company_papers'     => 'nullable',
             'buisness_plan'      => 'nullable',
             'project_logo'       => 'nullable',
@@ -319,8 +383,8 @@ class CrowdfundingController extends Controller
         $crowdfunding->investment_duration_in_years = $request->investment_duration_in_years;
         $crowdfunding->type_of_investment = $request->type_of_investment;
         $crowdfunding->accepted_currency = $request->accepted_currency;
-        $crowdfunding->project_starting_date = $request->project_starting_date;
-        $crowdfunding->project_delivery_date = $request->project_delivery_date;
+        $crowdfunding->project_starting_date =  date("Y-m-d", strtotime($request->project_starting_date));
+        $crowdfunding->project_delivery_date =  date("Y-m-d", strtotime($request->project_delivery_date));
         $crowdfunding->land_category = $request->land_category;
         $crowdfunding->land_area_per_sqm = $request->land_area_per_sqm;
         $crowdfunding->land_cost_per_sqm = $request->land_cost_per_sqm;
