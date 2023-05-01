@@ -105,7 +105,7 @@ class CrowdfundingController extends Controller
             'total_built_up_area_value' => 'nullable',
             'investment_in' => 'nullable',
             'total_number_of_investment_in' => 'nullable',
-            'real_state_value' => 'nullable',
+            'real_estate_value' => 'nullable',
             'proposed_additional_investment_cost' => 'nullable',
             'total_cost_of_investment' => 'nullable',
             'total_registered_shares_at_local_authoritise' => 'nullable',
@@ -164,7 +164,7 @@ class CrowdfundingController extends Controller
         $crowdfunding->total_built_up_area_value = $request->total_built_up_area_value;
         $crowdfunding->investment_in = $request->investment_in;
         $crowdfunding->total_number_of_investment_in = $request->total_number_of_investment_in;
-        $crowdfunding->real_state_value = $request->real_state_value;
+        $crowdfunding->real_estate_value = $request->real_estate_value;
         $crowdfunding->proposed_additional_investment_cost = $request->proposed_additional_investment_cost;
         $crowdfunding->total_cost_of_investment = $request->total_cost_of_investment;
         $crowdfunding->total_registered_shares_at_local_authoritise = $request->total_registered_shares_at_local_authoritise;
@@ -272,7 +272,7 @@ class CrowdfundingController extends Controller
             'total_built_up_area_value' => 'nullable',
             'investment_in' => 'nullable',
             'total_number_of_investment_in' => 'nullable',
-            'real_state_value' => 'nullable',
+            'real_estate_value' => 'nullable',
             'proposed_additional_investment_cost' => 'nullable',
             'total_cost_of_investment' => 'nullable',
             'total_registered_shares_at_local_authoritise' => 'nullable',
@@ -310,19 +310,6 @@ class CrowdfundingController extends Controller
 
         $crowdfunding = Crowdfunding::find($id);
 
-        // $crowdfunding->project_name = $request->project_name;
-        // $crowdfunding->project_location = $request->project_location;
-        // $crowdfunding->registered_company_name = $request->registered_company_name;
-        // $crowdfunding->company_tax_number = $request->company_tax_number;
-        // $crowdfunding->project_type = $request->project_type;
-        // $crowdfunding->investment_duration = $request->investment_duration;
-        // $crowdfunding->land_category = $request->land_category;
-        // $crowdfunding->total_landCost = $request->total_landCost;
-        // $crowdfunding->accepted_currency = $request->accepted_currency;
-        // $crowdfunding->real_state_value = $request->real_state_value;
-        // $crowdfunding->total_cost_of_investment = $request->total_cost_of_investment;
-        // $crowdfunding->profit_after_return_of_investment_is = $request->profit_after_return_of_investment_is;
-
         $crowdfunding->project_name = $request->project_name;
         $crowdfunding->project_location = $request->project_location;
         $crowdfunding->registered_company_name = $request->registered_company_name;
@@ -344,7 +331,7 @@ class CrowdfundingController extends Controller
         $crowdfunding->total_built_up_area_value = $request->total_built_up_area_value;
         $crowdfunding->investment_in = $request->investment_in;
         $crowdfunding->total_number_of_investment_in = $request->total_number_of_investment_in;
-        $crowdfunding->real_state_value = $request->real_state_value;
+        $crowdfunding->real_estate_value = $request->real_estate_value;
         $crowdfunding->proposed_additional_investment_cost = $request->proposed_additional_investment_cost;
         $crowdfunding->total_cost_of_investment = $request->total_cost_of_investment;
         $crowdfunding->total_registered_shares_at_local_authoritise = $request->total_registered_shares_at_local_authoritise;

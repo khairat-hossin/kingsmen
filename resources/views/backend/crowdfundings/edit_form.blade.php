@@ -31,7 +31,7 @@
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->select($field_name)->class('form-control form-control-sm select2')->attributes(['name' => 'project_address', "$required"])->options($options)->placeholder($field_placeholder)->value($value) }}
+            {{ html()->select($field_name)->class('form-control form-control-sm select2')->attributes(['name' => 'project_address', "$required"])->options($options)->value($value) }}
             @error('project_address')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -161,7 +161,7 @@
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'type_of_investment', "$required", 'id' => 'type_of_investment'])->placeholder($field_placeholder) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'type_of_investment', "$required", 'id' => 'type_of_investment']) }}
             @error('type_of_investment')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -310,19 +310,19 @@
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->number($field_name)->class('form-control form-control-sm')->attributes(['name' => 'built_area_value_per_sqm', "$required", 'id' => 'built_area_value_per_sqm', 'pattern' => '\d*', 'step' => 'any']) }}
+            {{ html()->number($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'built_area_value_per_sqm', "$required", 'id' => 'built_area_value_per_sqm', 'pattern' => '\d*', 'step' => 'any']) }}
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Built Area Value /sqm';
+            $field_name = 'Total Built Up Area Value';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = $crowdfunding->total_built_up_area_value ?? '';
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->number($field_name)->class('form-control form-control-sm')->attributes(['name' => 'total_built_up_area_value', "$required", 'id' => 'total_built_up_area_value', 'pattern' => '\d*', 'step' => 'any']) }}
+            {{ html()->number($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'total_built_up_area_value', "$required", 'id' => 'total_built_up_area_value', 'pattern' => '\d*', 'step' => 'any']) }}
         </div>
     </div>
 
@@ -429,14 +429,14 @@
 
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Investment Break Even Expected at year';
+            $field_name = 'Investment Break Even Expected After year';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
-            $value = $crowdfunding->investment_break_even_expected_at_year ?? '';
+            $value = $crowdfunding->investment_break_even_expected_after_year ?? '';
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->number($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'investment_break_even_expected_at_year', "$required", 'id' => 'investment_break_even_expected_at_year', 'pattern' => '\d*', 'step' => 'any']) }}
+            {{ html()->number($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'investment_break_even_expected_after_year', "$required", 'id' => 'investment_break_even_expected_after_year', 'pattern' => '\d*', 'step' => 'any']) }}
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -449,11 +449,11 @@
                 'Quartertly' => 'Quartertly',
                 'Yearly' => 'Yearly',
             ];
-            $value = $crowdfunding->address ?? '';
+            $value = $crowdfunding->profit_after_return_on_investment_is ?? '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->select($field_name)->class('form-control form-control-sm select2')->value($value)->attributes(['name' => 'profit_after_return_on_investment_is', "$required"])->options($options)->placeholder($field_placeholder)->value($value) }}
+            {{ html()->select($field_name)->class('form-control form-control-sm select2')->value($value)->attributes(['name' => 'profit_after_return_on_investment_is', "$required"])->options($options) }}
             @error('profit_after_return_on_investment_is')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -645,6 +645,7 @@
             $field_name = 'Add Crowfund Thumbnail';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = $crowdfunding->crowfund_thumbnail;
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
@@ -656,6 +657,7 @@
             $field_name = 'Add Title';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = $crowdfunding->title;
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
@@ -667,6 +669,7 @@
             $field_name = 'Add Description';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = $crowdfunding->description;
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
@@ -691,7 +694,7 @@
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
-            {{ html()->select($field_name)->class('form-control form-control-sm select2')->attributes(['name' => 'choose_template'])->options($options)->placeholder($field_placeholder)->value($value) }}
+            {{ html()->select($field_name)->class('form-control form-control-sm select2')->value($value)->attributes(['name' => 'choose_template'])->options($options) }}
         </div>
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
