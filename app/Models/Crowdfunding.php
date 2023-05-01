@@ -31,7 +31,7 @@ class Crowdfunding extends Model
         'total_built_up_area_value',
         'investment_in',
         'total_number_of_investment_in',
-        'real_state_value',
+        'real_estate_value',
         'proposed_additional_investment_cost',
         'total_cost_of_investment',
         'total_registered_shares_at_local_authoritise',
