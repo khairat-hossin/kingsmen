@@ -38,7 +38,7 @@ class PrivateInvestment extends Model
         'total_built_up_area_value',
         'total_number_of_investment_in',
         'proposed_additional_investment_cost',
-        'real_state_value',
+        'real_estate_value',
         'total_cost_of_investment',
         'shares_listed_for_sale',
         'investment_break_even_expected_at_year',

@@ -104,7 +104,7 @@ class PrivateInvestmentController extends Controller
             "total_number_of_investment_in"  => "nullable",
 
             "proposed_additional_investment_cost"    => "nullable",
-            "real_state_value"                       => "nullable",
+            "real_estate_value"                       => "nullable",
             "total_cost_of_investment"               => "nullable",
             "shares_listed_for_sale"                 => "nullable",
             "investment_break_even_expected_at_year" => "nullable",
@@ -169,7 +169,7 @@ class PrivateInvestmentController extends Controller
             $privateInvestment->total_number_of_investment_in = $request->total_number_of_investment_in;
 
             $privateInvestment->proposed_additional_investment_cost    = $request->proposed_additional_investment_cost;
-            $privateInvestment->real_state_value                       = $request->real_state_value;
+            $privateInvestment->real_estate_value                       = $request->real_estate_value;
             $privateInvestment->total_cost_of_investment               = $request->total_cost_of_investment;
             $privateInvestment->shares_listed_for_sale                 = $request->shares_listed_for_sale;
             $privateInvestment->investment_break_even_expected_at_year = $request->investment_break_even_expected_at_year;
@@ -313,7 +313,7 @@ class PrivateInvestmentController extends Controller
             "total_number_of_investment_in"  => "nullable",
 
             "proposed_additional_investment_cost"    => "nullable",
-            "real_state_value"                       => "nullable",
+            "real_estate_value"                       => "nullable",
             "total_cost_of_investment"               => "nullable",
             "shares_listed_for_sale"                 => "nullable",
             "investment_break_even_expected_at_year" => "nullable",
@@ -379,7 +379,7 @@ class PrivateInvestmentController extends Controller
             $privateInvestment->total_number_of_investment_in = $request->total_number_of_investment_in;
 
             $privateInvestment->proposed_additional_investment_cost    = $request->proposed_additional_investment_cost;
-            $privateInvestment->real_state_value                       = $request->real_state_value;
+            $privateInvestment->real_estate_value                       = $request->real_estate_value;
             $privateInvestment->total_cost_of_investment               = $request->total_cost_of_investment;
             $privateInvestment->shares_listed_for_sale                 = $request->shares_listed_for_sale;
             $privateInvestment->investment_break_even_expected_at_year = $request->investment_break_even_expected_at_year;
