@@ -113,5 +113,36 @@
 
     "Draft": "Draft",
     "Published": "Published",
-    "Unpublished": "Unpublished"
+    "Unpublished": "Unpublished",
+    
+    "project": {
+        "land_number": "Land Number",
+        "land_category": "Land Category",
+        "land_area": "Land Area",
+        "land_price_per_sqm": "Land Price Per Sqm",
+        "total_land_price": "Total Land Price",
+        "all_listings_land": "Upload All Listings",
+        "interactive_map": "Add Interactive Map",
+
+        "house_type": "House Type",
+        "house_area_per_sqm": "House Area/Sqm",
+        "cost_of_construction_per_sqm": "Cost of Construction/ Sqm",
+        "all_listings_house": "Upload All Listings",
+        "technical_specs": "Technical Specs",
+        "total_construction_cost": "Total Construction Cost",
+
+        "selling_contract": "Add  Selling Contract",
+        "company_papers": "Add Company Papers",
+        "project_rules_and_regulation": "Add Project Rules And Regulations",
+        "other_files": "Add Other Files",
+
+        "project_thumbnail": "Add Project thumbnail",
+        "title": "Add Title",
+        "description": "Add Description",
+
+        "total_price_with_land": "Total Price With Land",
+        "deposit": "Deposit",
+        "remainingAmount_as_bankTransfer": "Remaining Amount As bank Transfer ",
+        "full_payment_usdt": "Full Payment in USDT"
+    }
 }

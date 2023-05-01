@@ -25,7 +25,7 @@
 
                 @can('restore_projects')
                 <div class="btn-group">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" data-coreui-toggle="dropdown" aria-expanded="false">
+                    <button class="btn btn-sm btn-secondary dropdown-toggle" type="button" data-coreui-toggle="dropdown" aria-expanded="false">
                         <i class="fas fa-cog"></i>
                     </button>
                     <ul class="dropdown-menu">
@@ -45,7 +45,7 @@
 
         <div class="row mt-4">
             <div class="col">
-                <input type="text" class="form-control my-2" placeholder=" Search" wire:model="searchTerm" />
+                <input type="text" class="form-control form-control-sm my-2" placeholder=" Search" wire:model="searchTerm" />
     
                 <table class="table table-hover table-responsive-sm">
                     <thead>
@@ -72,8 +72,14 @@
                             </td>
     
                             <td class="text-end">
+                                <form action="{{route('backend.projects.destroy', $project->id)}}" method="POST">
                                 <a href="{{route('backend.projects.show', $project->id)}}" class="btn btn-success btn-sm mt-1" data-toggle="tooltip" title="{{__('labels.backend.show')}}"><i class="fas fa-desktop"></i></a>
-                                
+                                <a href="{{route('backend.projects.edit', $project->id)}}" class="btn btn-primary btn-sm mt-1" data-toggle="tooltip" title="{{__('labels.backend.edit')}}"><i class="fas fa-edit"></i></a>
+
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger btn-sm mt-1" data-toggle="tooltip" title="{{__('labels.backend.delete')}}"><i class="fas fa-trash-alt"></i></button>
+                                </form>
                             </td>
                         </tr>
                         @empty

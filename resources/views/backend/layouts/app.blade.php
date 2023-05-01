@@ -98,6 +98,11 @@
     </script>
     @stack('after-scripts')
     <!-- / Scripts -->
+    <script>
+        function convertToUSDT(total){
+            return total*5;
+        }
+    </script>
 
 </body>
 

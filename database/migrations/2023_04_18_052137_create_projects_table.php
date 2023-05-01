@@ -32,11 +32,12 @@ return new class extends Migration
             $table->double('land_area', 8, 2)->nullable();
             $table->double('land_price_per_sqm', 8, 2)->nullable();
             $table->double('total_land_price', 8, 2)->nullable();
-            $table->string('all_listings')->nullable();
+            $table->text('all_listings_land')->nullable();
             $table->string('interactive_map')->nullable();
             $table->string('house_type')->nullable();
-            $table->string('houseArea_per_sqm')->nullable();
-            $table->string('costOfConstruction_per_sqm')->nullable();
+            $table->string('house_area_per_sqm')->nullable();
+            $table->string('cost_of_construction_per_sqm')->nullable();
+            $table->text('all_listings_house')->nullable();
             $table->string('technical_specs')->nullable();
             $table->string('total_construction_cost')->nullable();
             $table->string('category')->nullable();

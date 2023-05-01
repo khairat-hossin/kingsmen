@@ -211,7 +211,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = old('price_starting_per_sqm') ?? '';
-            $required = '';
+            $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->number($field_name)->class('form-control form-control-sm')->attributes(['name' => 'price_starting_per_sqm', "$required", 'id' => 'price_starting_per_sqm', 'pattern' => '\d*', 'step' => 'any']) }}
@@ -231,255 +231,432 @@
 
     </div>
 
-    {{--
+
     <legend class="border-bottom w-100">Add Land</legend>
     <div class="row">
+
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Land Number';
+            $field_name = __('land_number');
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = old('land_number') ?? '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'land_number', "$required"]) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'land_number', "$required", 'value' => "$value"]) }}
+            @error('land_number')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Land Category';
+            $field_name = __('land_category');
             $field_lable = label_case($field_name);
-            $field_placeholder = $field_lable;
-            $required = '';
+            $field_placeholder = 'Please Select';
+            $options = [
+                'Agriculture' => 'Agriculture',
+                'Residential' => 'Residential',
+                'Indurstrial' => 'Indurstrial',
+                'Commercial' => 'Commercial',
+            ];
+            $value = old('land_category') ?? '';
+            $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'land_category', "$required"]) }}
+            {{ html()->select($field_name)->class('form-control form-control-sm select2')->attributes(['name' => 'land_category', "$required"])->options($options)->placeholder($field_placeholder)->value($value) }}
+            @error('land_category')
+                <span class="error">{{ $message }}</span>
+            @enderror
+        </div>
+
+
+        <div class="form-group col-6 col-md-4 mb-2">
+            <?php
+            $field_name = __('land_area');
+            $field_lable = label_case($field_name);
+            $field_placeholder = $field_lable;
+            $value = old('land_area') ?? '';
+            $required = 'required';
+            ?>
+            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
+            {{ html()->number($field_name)->class('form-control form-control-sm')->attributes(['name' => 'land_area', "$required", 'id' => 'land_area', 'pattern' => '\d*', 'step' => 'any']) }}
+            @error('land_area')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Land Area';
+            $field_name = __('land_price_per_sqm');
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
-            $required = '';
+            $value = old('land_price_per_sqm') ?? '';
+            $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'land_area', "$required"]) }}
+            {{ html()->number($field_name)->class('form-control form-control-sm')->attributes(['name' => 'land_price_per_sqm', "$required", 'id' => 'land_price_per_sqm', 'pattern' => '\d*', 'step' => 'any']) }}
+            @error('land_price_per_sqm')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Land Price Per Sqm';
+            $field_name = __('total_land_price');
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = old('total_land_price') ?? '';
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'land_price_per_sqm', "$required"]) }}
+            {{ html()->number($field_name)->class('form-control form-control-sm')->attributes(['name' => 'total_land_price', "$required", 'id' => 'total_land_price', 'pattern' => '\d*', 'step' => 'any', 'readonly' => true]) }}
+            @error('total_land_price')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Total Land Price';
+            $field_name = __('all_listings_land');
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
-            $required = '';
+            $value = '';
+            $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'total_land_price', "$required"]) }}
+            {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'all_listings_land', "$required", 'value' => "$value"]) }}
+            @error('all_listings_land')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Upload All Listings';
+            $field_name = __('interactive_map');
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
-            $required = '';
+            $value = old('interactive_map') ?? '';
+            $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'all_listings', "$required"]) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'interactive_map', "$required", 'value' => "$value"]) }}
+            @error('interactive_map')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
 
-        <div class="form-group col-6 col-md-4 mb-2">
-            <?php
-            $field_name = 'Add Interactive Map';
-            $field_lable = label_case($field_name);
-            $field_placeholder = $field_lable;
-            $required = '';
-            ?>
-            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'interactive_map', "$required"]) }}
-        </div>
+
     </div>
 
 
-    <legend class="border-bottom w-100">Add Houses</legend>
+    <legend class="border-bottom w-100">Add House</legend>
     <div class="row">
+
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'House Type';
+            $field_name = __('house_type');
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = old('house_type') ?? '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'house_type', "$required"]) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'house_type', "$required", 'value' => "$value"]) }}
+            @error('house_type')
+                <span class="error">{{ $message }}</span>
+            @enderror
+        </div>
+
+
+        <div class="form-group col-6 col-md-4 mb-2">
+            <?php
+            $field_name = __('house_area_per_sqm');
+            $field_lable = label_case($field_name);
+            $field_placeholder = $field_lable;
+            $value = old('house_area_per_sqm') ?? '';
+            $required = 'required';
+            ?>
+            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
+            {{ html()->number($field_name)->class('form-control form-control-sm')->attributes(['name' => 'house_area_per_sqm', "$required", 'id' => 'house_area_per_sqm', 'pattern' => '\d*', 'step' => 'any']) }}
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'House Area/Sqm';
+            $field_name = __('cost_of_construction_per_sqm');
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
-            $required = '';
+            $value = old('cost_of_construction_per_sqm') ?? '';
+            $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'houseArea_per_sqm', "$required"]) }}
+            {{ html()->number($field_name)->class('form-control form-control-sm')->attributes(['name' => 'cost_of_construction_per_sqm', "$required", 'id' => 'cost_of_construction_per_sqm', 'pattern' => '\d*', 'step' => 'any']) }}
+        </div>
+
+
+        <div class="form-group col-6 col-md-4 mb-2">
+            <?php
+            $field_name = __('all_listings_house');
+            $field_lable = label_case($field_name);
+            $field_placeholder = $field_lable;
+            $value = '';
+            $required = 'required';
+            ?>
+            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
+            {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'all_listings_house', "$required", 'value' => "$value"]) }}
+            @error('all_listings_house')
+                <span class="error">{{ $message }}</span>
+            @enderror
+        </div>
+
+
+        <div class="form-group col-6 col-md-4 mb-2">
+            <?php
+            $field_name = __('technical_specs');
+            $field_lable = label_case($field_name);
+            $field_placeholder = $field_lable;
+            $value = '';
+            $required = 'required';
+            ?>
+            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
+            {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'technical_specs', "$required", 'value' => "$value"]) }}
+            @error('technical_specs')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Cost of Construction/ Sqm';
+            $field_name = __('total_construction_cost');
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = old('total_construction_cost') ?? '';
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'costOfConstruction_per_sqm', "$required"]) }}
-        </div>
-
-        <div class="form-group col-6 col-md-4 mb-2">
-            <?php
-            $field_name = 'Upload All Listings';
-            $field_lable = label_case($field_name);
-            $field_placeholder = $field_lable;
-            $required = '';
-            ?>
-            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'all_listings', "$required"]) }}
-        </div>
-
-        <div class="form-group col-6 col-md-4 mb-2">
-            <?php
-            $field_name = 'Technical Specs';
-            $field_lable = label_case($field_name);
-            $field_placeholder = $field_lable;
-            $required = '';
-            ?>
-            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'technical_specs', "$required"]) }}
-        </div>
-
-        <div class="form-group col-6 col-md-4 mb-2">
-            <?php
-            $field_name = 'Total Construction Cost';
-            $field_lable = label_case($field_name);
-            $field_placeholder = $field_lable;
-            $required = '';
-            ?>
-            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'total_construction_cost', "$required"]) }}
+            {{ html()->number($field_name)->class('form-control form-control-sm')->attributes(['name' => 'total_construction_cost', "$required", 'id' => 'total_construction_cost', 'pattern' => '\d*', 'step' => 'any', 'readonly' => true]) }}
         </div>
     </div>
 
-
+    
     <legend class="border-bottom w-100">Payment Method</legend>
     <div class="row">
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Total Price With Land';
+            $field_name = __('total_price_with_land');
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
-            $required = 'required';
+            $value = old('total_price_with_land') ?? '';
+            $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'total_price_with_land', "$required"]) }}
+            {{ html()->number($field_name)->class('form-control form-control-sm')->attributes(['name' => 'total_price_with_land', "$required", 'id' => 'total_price_with_land', 'pattern' => '\d*', 'step' => 'any', 'readonly' => true]) }}
+            @error('total_price_with_land')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Deposit';
+            $field_name = __('deposit');
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = old('deposit') ?? '';
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'deposit', "$required"]) }}
+            {{ html()->number($field_name)->class('form-control form-control-sm')->attributes(['name' => 'deposit', "$required", 'id' => 'deposit', 'pattern' => '\d*', 'step' => 'any']) }}
+            @error('deposit')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
+
 
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Remaining Amount As bank Transfer';
+            $field_name = __('remainingAmount_as_bankTransfer');
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = old('remainingAmount_as_bankTransfer') ?? '';
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'remainingAmount_as_bankTransfer', "$required"]) }}
+            {{ html()->number($field_name)->class('form-control form-control-sm')->attributes(['name' => 'remainingAmount_as_bankTransfer', "$required", 'id' => 'remainingAmount_as_bankTransfer', 'pattern' => '\d*', 'step' => 'any', 'readonly' => true]) }}
+            @error('remainingAmount_as_bankTransfer')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
+
 
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Full Payment in USDT';
+            $field_name = __('full_payment_usdt');
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = old('full_payment_usdt') ?? '';
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'full_payment_usdt', "$required"]) }}
+            {{ html()->number($field_name)->class('form-control form-control-sm')->attributes(['name' => 'full_payment_usdt', "$required", 'id' => 'full_payment_usdt', 'pattern' => '\d*', 'step' => 'any', 'readonly' => true]) }}
+            @error('full_payment_usdt')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
     </div>
 
 
     <legend class="border-bottom w-100">Upload Legal Document And Contracts </legend>
     <div class="row">
+
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Add  Selling Contract';
+            $field_name = __('selling_contract');
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
-            $required = '';
+            $value = '';
+            $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->file($field_name)->multiple()->class('form-control form-control-sm')->attributes(['name' => 'selling_contract', "$required"]) }}
+            {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'selling_contract[]', "$required", 'value' => "$value"])->multiple() }}
+            @error('selling_contract')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Add Company Papers';
+            $field_name = __('company_papers');
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
-            $required = '';
+            $value = '';
+            $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->file($field_name)->multiple()->class('form-control form-control-sm')->attributes(['name' => 'company_papers', "$required"]) }}
+            {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'company_papers[]', "$required", 'value' => "$value"])->multiple() }}
+            @error('company_papers')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Add Project Rules And Regulations';
+            $field_name = __('project_rules_and_regulation');
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
-            $required = '';
+            $value = '';
+            $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->file($field_name)->multiple()->class('form-control form-control-sm')->attributes(['name' => 'project_rules_and_regulation', "$required"]) }}
+            {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'project_rules_and_regulation[]', "$required", 'value' => "$value"])->multiple() }}
+            @error('project_rules_and_regulation')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Add Other Files';
+            $field_name = __('other_files');
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
-            $required = '';
+            $value = '';
+            $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->file($field_name)->multiple()->class('form-control form-control-sm')->attributes(['name' => 'other_files', "$required"]) }}
+            {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'other_files[]', "$required", 'value' => "$value"])->multiple() }}
+            @error('other_files')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
     </div>
 
---}}
-    <legend class="border-bottom w-100">Home Page ( To Be Filled As Per Design )</legend>
+    <legend class="border-bottom w-100">Website Project Cover and Social Media Share</legend>
+    <div class="row">
+
+        <div class="form-group col-6 col-md-4 mb-2">
+            <?php
+            $field_name = __('project_thumbnail');
+            $field_lable = label_case($field_name);
+            $field_placeholder = $field_lable;
+            $value = old('project_thumbnail') ?? '';
+            $required = 'required';
+            ?>
+            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'project_thumbnail', "$required", 'value' => "$value"]) }}
+            @error('project_thumbnail')
+                <span class="error">{{ $message }}</span>
+            @enderror
+        </div>
+
+        
+
+        <div class="form-group col-6 col-md-4 mb-2">
+            <?php
+            $field_name = __('title');
+            $field_lable = label_case($field_name);
+            $field_placeholder = 'Please Select';
+            $options = [
+                'Country' => 'Country',
+                'Region' => 'Region',
+                'City' => 'City',
+                'Village' => 'Village',
+            ];
+            $value = old('title') ?? '';
+            $required = 'required';
+            ?>
+            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
+            {{ html()->select($field_name)->class('form-control form-control-sm select2')->attributes(['name' => 'title', "$required"])->options($options)->placeholder($field_placeholder)->value($value) }}
+            @error('title')
+                <span class="error">{{ $message }}</span>
+            @enderror
+        </div>
+
+        
+
+        <div class="form-group col-6 col-md-4 mb-2">
+            <?php
+            $field_name = __('description');
+            $field_lable = label_case($field_name);
+            $field_placeholder = $field_lable;
+            $value = old('description') ?? '';
+            $required = 'required';
+            ?>
+            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'description', "$required", 'value' => "$value"]) }}
+            @error('description')
+                <span class="error">{{ $message }}</span>
+            @enderror
+        </div>
+
+
+    </div>
+
+
+    <legend class="border-bottom w-100">Website Data</legend>
+    <div class="row">
+        <div class="form-group col-6 col-md-4 mb-2">
+            <?php
+            $field_name = __('template');
+            $field_lable = label_case($field_name);
+            $field_placeholder = 'Please Select';
+            $options = [
+                'Template 1' => 'Template 1',
+                'Template 2' => 'Template 2',
+                'Template 3' => 'Template 3',
+            ];
+            $value = old('template') ?? '';
+            $required = 'required';
+            ?>
+            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
+            {{ html()->select($field_name)->class('form-control form-control-sm select2')->attributes(['name' => 'template', "$required"])->options($options)->placeholder($field_placeholder)->value($value) }}
+            @error('template')
+                <span class="error">{{ $message }}</span>
+            @enderror
+        </div>
+    </div>
+
+
+    <legend class="border-bottom w-100">Home Page</legend>
     <div class="row">
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -629,7 +806,7 @@
     </div>
 
 
-    <legend class="border-bottom w-100">Questions And Answers ( To Be Filled As Per Design )</legend>
+    <legend class="border-bottom w-100">Questions And Answers</legend>
     <div class="row">
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -917,7 +1094,7 @@
         </div>
     </div>
 
-    <legend class="border-bottom w-100">Amenities ( To Be Filled As Per Design )</legend>
+    <legend class="border-bottom w-100">Amenities</legend>
     <div class="row">
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -1014,7 +1191,7 @@
     </div>
 
 
-    <legend class="border-bottom w-100">Add Financing ( To Be Filled As Per Design )</legend>
+    <legend class="border-bottom w-100">Add Financing</legend>
     <div class="row">
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -1110,7 +1287,7 @@
         </div>
     </div>
 
-    <legend class="border-bottom w-100">Add Who We Are ( To Be Filled As Per Design )</legend>
+    <legend class="border-bottom w-100">Add Who We Are</legend>
     <div class="row">
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -1206,7 +1383,7 @@
         </div>
     </div>
 
-    <legend class="border-bottom w-100">Add Contact Us ( To Be Filled As Per Design )</legend>
+    <legend class="border-bottom w-100">Add Contact Us</legend>
     <div class="row">
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -1302,7 +1479,7 @@
         </div>
     </div>
 
-    <legend class="border-bottom w-100">Add Information in Footer ( To Be Filled As Per Design )</legend>
+    <legend class="border-bottom w-100">Add Information in Footer</legend>
     <div class="row">
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -1488,7 +1665,8 @@
             let price_starting_per_sqm = $("#price_starting_per_sqm").val();
 
             if (area_starting_per_sqm && price_starting_per_sqm) {
-                calculateLandPriceStarting(area_starting_per_sqm, price_starting_per_sqm);
+                let landPriceStarting = calculateLandPriceStarting(area_starting_per_sqm, price_starting_per_sqm);
+                $("#land_price_starting").val(landPriceStarting).change();
             }
         });
 
@@ -1497,13 +1675,122 @@
             let price_starting_per_sqm = $("#price_starting_per_sqm").val();
 
             if (area_starting_per_sqm && price_starting_per_sqm) {
-                calculateLandPriceStarting(area_starting_per_sqm, price_starting_per_sqm);
+                let landPriceStarting = calculateLandPriceStarting(area_starting_per_sqm, price_starting_per_sqm);
+                $("#land_price_starting").val(landPriceStarting).change();
             }
         });
 
         function calculateLandPriceStarting(area, price) {
-            let landPriceStarting = parseFloat(area) * parseFloat(price);
-            $("#land_price_starting").val(landPriceStarting);
+            return parseFloat(area) * parseFloat(price);
+
         }
+
+        /**
+         * on change Land Area and Land Price Per Sqm, change Total Land Price
+         * land_price_starting= area_starting_per_sqm * price_starting_per_sqm
+         */
+
+        $('#land_area').on("change", function() {
+            let land_area = $("#land_area").val();
+            let land_price_per_sqm = $("#land_price_per_sqm").val();
+
+            if (land_area && land_price_per_sqm) {
+                let total_land_price = calculateLandPriceStarting(land_area, land_price_per_sqm);
+                $("#total_land_price").val(total_land_price).change();
+            }
+        });
+
+        $('#land_price_per_sqm').on("change", function() {
+            let land_area = $("#land_area").val();
+            let land_price_per_sqm = $("#land_price_per_sqm").val();
+
+            if (land_area && land_price_per_sqm) {
+                let total_land_price = calculateLandPriceStarting(land_area, land_price_per_sqm);
+                $("#total_land_price").val(total_land_price).change();
+            }
+        });
+
+        /**
+         * on change house_area_per_sqm and cost_of_construction_per_sqm, change Total Land Price
+         * land_price_starting= area_starting_per_sqm * price_starting_per_sqm
+         */
+
+        $('#house_area_per_sqm').on("change", function() {
+            let house_area_per_sqm = $("#house_area_per_sqm").val();
+            let cost_of_construction_per_sqm = $("#cost_of_construction_per_sqm").val();
+
+            if (house_area_per_sqm && cost_of_construction_per_sqm) {
+                let total_construction_cost = calculateLandPriceStarting(house_area_per_sqm,
+                    cost_of_construction_per_sqm);
+                $("#total_construction_cost").val(total_construction_cost).change();
+            }
+        });
+
+        $('#cost_of_construction_per_sqm').on("change", function() {
+            let house_area_per_sqm = $("#house_area_per_sqm").val();
+            let cost_of_construction_per_sqm = $("#cost_of_construction_per_sqm").val();
+
+            if (house_area_per_sqm && cost_of_construction_per_sqm) {
+                let total_construction_cost = calculateLandPriceStarting(house_area_per_sqm,
+                    cost_of_construction_per_sqm);
+                $("#total_construction_cost").val(total_construction_cost).change();
+            }
+        });
+
+        // total cost 
+        
+        $("#land_price_starting").on("change",function (e) { 
+            let land_price_starting= $("#land_price_starting").val();
+            let total_land_price= $("#total_land_price").val();
+            let total_construction_cost= $("#total_construction_cost").val();
+
+            if(!land_price_starting) land_price_starting=0;
+            if(!total_land_price) total_land_price=0;
+            if(!total_construction_cost) total_construction_cost=0;
+            let total= calculateTotalCost(land_price_starting, total_land_price, total_construction_cost);
+
+            $("#total_price_with_land").val(total);
+        });
+        
+        $("#total_land_price").on("change",function (e) { 
+            let land_price_starting= $("#land_price_starting").val();
+            let total_land_price= $("#total_land_price").val();
+            let total_construction_cost= $("#total_construction_cost").val();
+
+            if(!land_price_starting) land_price_starting=0;
+            if(!total_land_price) total_land_price=0;
+            if(!total_construction_cost) total_construction_cost=0;
+            let total= calculateTotalCost(land_price_starting, total_land_price, total_construction_cost);
+
+            $("#total_price_with_land").val(total);
+        });
+        
+        $("#total_construction_cost").on("change",function (e) { 
+            let land_price_starting= $("#land_price_starting").val();
+            let total_land_price= $("#total_land_price").val();
+            let total_construction_cost= $("#total_construction_cost").val();
+
+            if(!land_price_starting) land_price_starting=0;
+            if(!total_land_price) total_land_price=0;
+            if(!total_construction_cost) total_construction_cost=0;
+            let total= calculateTotalCost(land_price_starting, total_land_price, total_construction_cost);
+
+            $("#total_price_with_land").val(total);
+        });
+
+        function calculateTotalCost(land_price_starting, total_land_price, total_construction_cost){
+            return parseFloat(parseFloat(land_price_starting)+parseFloat(total_land_price)+parseFloat(total_construction_cost))
+        }
+
+        $("#deposit").on("change",function (e) { 
+
+            let total_price_with_land= $("#total_price_with_land").val();
+            let deposit= $("#deposit").val();
+            let total= parseFloat(parseFloat(total_price_with_land)- parseFloat(deposit));
+            $("#remainingAmount_as_bankTransfer").val(total).change();
+            let full_payment_usdt= convertToUSDT(total);
+            $("#full_payment_usdt").val(full_payment_usdt).change();
+        });
+
     </script>
 @endpush
