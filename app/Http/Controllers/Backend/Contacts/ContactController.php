@@ -248,9 +248,10 @@ class ContactController extends Controller
 
         if ($request->hasFile('photo_of_passport')) {
             $photo_of_passport_url = uploadFileToPublic($request->file('photo_of_passport'), 'contact/photo_of_passport');
-        }
 
-        $contact->photo_of_passport = $photo_of_passport_url;
+            $contact->photo_of_passport = $photo_of_passport_url;
+
+        }        
 
 
 
@@ -259,9 +260,9 @@ class ContactController extends Controller
         if ($request->hasFile('photo_of_id_card')) {
             $photo_of_id_card_url = uploadFileToPublic($request->file('photo_of_id_card'), 'contact/photo_of_id_card');
 
-        }
+            $contact->photo_of_id_card = $photo_of_id_card_url;
 
-        $contact->photo_of_id_card = $photo_of_id_card_url;
+        }        
 
 
         $contact->first_name = $request->first_name;

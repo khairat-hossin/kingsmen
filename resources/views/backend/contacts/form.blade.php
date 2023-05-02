@@ -17,7 +17,7 @@
             $field_name = 'Last Name';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
-            $required = "";
+            $required = "required";
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(["name" => "last_name", "$required"]) }}
@@ -29,7 +29,7 @@
             $field_name = 'Email';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
-            $required = "";
+            $required = "required";
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(["name" => "email", "$required"]) }}
@@ -43,7 +43,7 @@
             $field_name = 'Phone';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
-            $required = "";
+            $required = "required";
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(["name" => "phone", "type" => "number", "$required"]) }}
@@ -55,7 +55,7 @@
             $field_name = 'ID NO';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
-            $required = "";
+            $required = "required";
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(["name" => "id_no", "type" => "number", "$required"]) }}
@@ -88,7 +88,7 @@
             $field_name = 'Buisness Position';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
-            $required = "";
+            $required = "required";
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(["name" => "buisness_position", "$required"]) }}
@@ -100,7 +100,7 @@
             $field_name = 'Budget';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
-            $required = "";
+            $required = "required";
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(["name" => "budget", "$required"]) }}
@@ -132,7 +132,7 @@
             $field_name = 'Date';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
-            $required = "";
+            $required = "required";
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->date($field_name)->class('form-control form-control-sm')->attributes(["name" => "added_date", "$required"]) }}
@@ -147,7 +147,7 @@
             $field_name = 'Reffered By ';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
-            $required = "";
+            $required = "required";
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(["name" => "reffered_by", "$required"]) }}
@@ -171,7 +171,7 @@
             $field_name = 'Date of Birth';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
-            $required = "";
+            $required = "required";
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->date($field_name)->class('form-control form-control-sm')->attributes(["name" => "date_of_birth", "$required"]) }}
@@ -186,7 +186,7 @@
             $field_name = 'Team Member';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
-            $required = "";
+            $required = "required";
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(["name" => "team_member", "$required"]) }}
@@ -198,7 +198,7 @@
             $field_name = 'Project Or Investment';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
-            $required = "";
+            $required = "required";
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(["name" => "project_or_investment", "$required"]) }}
@@ -213,7 +213,7 @@
             $field_name = 'Citizenship';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
-            $required = "";
+            $required = "required";
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(["name" => "citizenship", "$required"]) }}
@@ -225,7 +225,7 @@
             $field_name = 'Passport Number';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
-            $required = "";
+            $required = "required";
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(["name" => "passport_number", "type"=>"number", "$required"]) }}
@@ -237,7 +237,7 @@
             $field_name = 'Passport Expiry Date';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
-            $required = "";
+            $required = "required";
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->date($field_name)->class('form-control form-control-sm')->attributes(["name" => "passport_expiry_date", "$required"]) }}
@@ -251,7 +251,7 @@
             $field_name = 'Passport Photo';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
-            $required = "";
+            $required = "required";
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(["name" => "photo_of_passport", "$required"]) }}
@@ -263,7 +263,7 @@
             $field_name = 'ID CARD (if Armenian)';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
-            $required = "";
+            $required = "required";
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(["name" => "id_card_text", "$required"]) }}
@@ -275,7 +275,7 @@
             $field_name = 'ID CARD Photo';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
-            $required = "";
+            $required = "required";
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(["name" => "photo_of_id_card", "$required"]) }}
@@ -290,7 +290,7 @@
             $field_name = 'Exact Address';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
-            $required = "";
+            $required = "required";
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(["name" => "exact_address", "$required"]) }}
