@@ -456,7 +456,7 @@
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->number($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'total_registered_shares_at_local_authoritise', "$required", 'pattern' => '\d*', 'step' => 'any']) }}
             @error('total_registered_shares_at_local_authoritise')
-                    <span class="error">{{ $message }}</span>
+                <span class="error">{{ $message }}</span>
             @enderror
         </div>
 
@@ -471,7 +471,7 @@
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->number($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'shares_listed_for_sale', "$required", 'pattern' => '\d*', 'step' => 'any']) }}
             @error('shares_listed_for_sale')
-                    <span class="error">{{ $message }}</span>
+                <span class="error">{{ $message }}</span>
             @enderror
         </div>
 
@@ -550,8 +550,8 @@
             {{ html()->number($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'expected_profit_percent_after_break_even_as_per_study', "$required", 'id' => 'expected_profit_percent_after_break_even_as_per_study', 'pattern' => '\d*', 'step' => 'any']) }}
         </div>
     </div>
-        <legend class="border-bottom w-100">1 Share's value in assets</legend>
-        <div class="row">
+    <legend class="border-bottom w-100">1 Share's value in assets</legend>
+    <div class="row">
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
             $field_name = '1 Share\'s Ownership of The Land in sqm ';
@@ -876,44 +876,33 @@
     </div>
 </div>
 
-
-
-
-
-
-
-
-
-
-
-
 @push('after-scripts')
     <script>
         /**
          * on change start date or delivery date calculdate project duration in year
          */
-        $('#starting_date').on("change", function() {
-            let starting_date = $("#starting_date").val();
-            let delivery_date = $("#delivery_date").val();
+        $('#project_starting_date').on("change", function() {
+            let project_starting_date = $("#project_starting_date").val();
+            let project_delivery_date = $("#project_delivery_date").val();
 
-            if (starting_date && delivery_date) {
-                starting_date = new Date(starting_date)
-                delivery_date = new Date(delivery_date)
+            if (project_starting_date && project_delivery_date) {
+                project_starting_date = new Date(project_starting_date)
+                project_delivery_date = new Date(project_delivery_date)
                 let years = [];
-                for (var i = starting_date.getFullYear(); i <= delivery_date.getFullYear(); i++) {
+                for (var i = project_starting_date.getFullYear(); i <= project_delivery_date.getFullYear(); i++) {
                     years.push(i);
                 }
                 $("#project_duration_in_years").val(years.length);
             }
         });
-        $('#delivery_date').on("change", function() {
-            let starting_date = $("#starting_date").val();
-            let delivery_date = $("#delivery_date").val();
+        $('#project_delivery_date').on("change", function() {
+            let project_starting_date = $("#project_starting_date").val();
+            let project_delivery_date = $("#project_delivery_date").val();
 
-            if (starting_date && delivery_date) {
-                starting_date = new Date(starting_date)
-                delivery_date = new Date(delivery_date)
-                let years = calculateYear(starting_date, delivery_date);
+            if (project_starting_date && project_delivery_date) {
+                project_starting_date = new Date(project_starting_date)
+                project_delivery_date = new Date(project_delivery_date)
+                let years = calculateYear(project_starting_date, project_delivery_date);
                 $("#project_duration_in_years").val(years.length);
             }
         });
@@ -929,30 +918,30 @@
 
         /**
          * on change area starting and price price starting change land price starting
-         * land_price_starting= area_starting_per_sqm * price_starting_per_sqm
+         * land_price_starting= land_area_per_sqm * land_cost_per_sqm
          */
 
-        $('#area_starting_per_sqm').on("change", function() {
-            let area_starting_per_sqm = $("#area_starting_per_sqm").val();
-            let price_starting_per_sqm = $("#price_starting_per_sqm").val();
+        $('#land_area_per_sqm').on("change", function() {
+            let land_area_per_sqm = $("#land_area_per_sqm").val();
+            let land_cost_per_sqm = $("#land_cost_per_sqm").val();
 
-            if (area_starting_per_sqm && price_starting_per_sqm) {
-                calculateLandPriceStarting(area_starting_per_sqm, price_starting_per_sqm);
+            if (land_area_per_sqm && land_cost_per_sqm) {
+                calculateLandPriceStarting(land_area_per_sqm, land_cost_per_sqm);
             }
         });
 
-        $('#price_starting_per_sqm').on("change", function() {
-            let area_starting_per_sqm = $("#area_starting_per_sqm").val();
-            let price_starting_per_sqm = $("#price_starting_per_sqm").val();
+        $('#land_cost_per_sqm').on("change", function() {
+            let land_area_per_sqm = $("#land_area_per_sqm").val();
+            let land_cost_per_sqm = $("#land_cost_per_sqm").val();
 
-            if (area_starting_per_sqm && price_starting_per_sqm) {
-                calculateLandPriceStarting(area_starting_per_sqm, price_starting_per_sqm);
+            if (land_area_per_sqm && land_cost_per_sqm) {
+                calculateLandPriceStarting(land_area_per_sqm, land_cost_per_sqm);
             }
         });
 
         function calculateLandPriceStarting(area, price) {
             let landPriceStarting = parseFloat(area) * parseFloat(price);
-            $("#land_price_starting").val(landPriceStarting);
+            $("#total_land_cost").val(landPriceStarting);
         }
     </script>
 @endpush
