@@ -4,7 +4,7 @@
 
 @section('breadcrumbs')
 <x-backend-breadcrumbs>
-    <x-backend-breadcrumb-item type="active" icon='fa-solid fa-people-group'>Private Investments</x-backend-breadcrumb-item>
+    <x-backend-breadcrumb-item type="active" icon='fa-solid fa-hand-holding-usd'>Private Investments</x-backend-breadcrumb-item>
 </x-backend-breadcrumbs>
 @endsection
 
@@ -13,7 +13,7 @@
     <div class="card-body">
 
         <x-backend.section-header>
-            <i class="fa-solid fa-people-group"></i> Private Investments <small class="text-muted">List</small>
+            <i class="fa-solid fa-hand-holding-usd"></i> Private Investments <small class="text-muted">List</small>
 
             <x-slot name="subtitle">
                 @lang(":module_name Management Dashboard", ['module_name'=>Str::title("Private Investments")])
