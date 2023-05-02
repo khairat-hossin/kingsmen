@@ -9,28 +9,20 @@
                 <li><a class="nav-link scrollto" href="#hero">Home</a></li>
                 <li class="dropdown"><a href=""><span>Invests</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
-                        <li class="dropdown"><a href="invests/crowdfunding/crowdfunding.html"><span
-                                    class="">Crowdfunding</span> <i class="bi bi-chevron-right"></i></a>
+                        <li class="dropdown"><a href="invests/crowdfunding/crowdfunding.html"><span class="">Crowdfunding</span> <i class="bi bi-chevron-right"></i></a>
                             <ul>
-                                <li><a href="invests/crowdfunding/one-tree-armenia.html"><span class="">One tree
-                                            armenia</span> </a>
-                                </li>
-                                <li class="dropdown"><a href="invests/crowdfunding/the-western-village.html"><span>The
-                                            western village</span></a>
-                                </li>
-                                <li class="dropdown"><a
-                                        href="invests/crowdfunding/united-8-apartments.html"><span>United 8
-                                            apartments</span></a>
-                                </li>
+                                <li><a href="invests/crowdfunding/one-tree-armenia.html"><span class="">One tree armenia</span> </a></li>
+                                <li class="dropdown"><a href="invests/crowdfunding/the-western-village.html"><span>The western village</span></a></li>
+                                <li class="dropdown"><a href="invests/crowdfunding/united-8-apartments.html"><span>United 8 apartments</span></a></li>
                             </ul>
                         </li>
-                        <li class="dropdown"><a href="invests/private-statement.html"><span>Private statement</span>
+                        <li class="dropdown"><a class="{{ Request::is('private-investments*') ? 'active' : '' }}" href="{{ route('frontend.privateInvestments') }}"><span>Private Investments</span>
                             </a>
                         </li>
                     </ul>
                 </li>
-                <li><a class="nav-link scrollto  {{ Request::is('projects*') ? 'active' : '' }}" href="{{ route('frontend.projects') }}">Projects</a></li>
-                <li><a class="nav-link scrollto" href="faq.html">Frequently Asked Questions</a></li>
+                <li><a class="nav-link scrollto {{ Request::is('projects*') ? 'active' : '' }}" href="{{ route('frontend.projects') }}">Projects</a></li>
+                <li><a class="nav-link scrollto {{ Request::is('faq*') ? 'active' : '' }}" href="{{ route('frontend.faq') }}">Frequently Asked Questions</a></li>
                 <li><a class="nav-link scrollto" href="#team">Services</a></li>
                 <li><a class="nav-link scrollto {{ Request::is('team*') ? 'active' : '' }}" href="{{ route('frontend.team') }}">Meet our Team</a></li>
                 <li><a class="nav-link scrollto " href="#contact">About us</a></li>
