@@ -1,4 +1,77 @@
-<nav class="bg-white drop-shadow-md" x-data="{ showMobileNav: false }">
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top bg-dark">
+    <div class="container-fluid d-flex align-items-center justify-content-lg-start">
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <a href="index.html" class="navbar-brand logo me-auto "><img src="assets/img/kingsmenlogo.png" alt=""
+          class="img-fluid"></a>
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+          <li class="dropdown"><a href=""><span>Invests</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li class="dropdown"><a href="invests/crowdfunding/crowdfunding.html"><span class="">Crowdfunding</span>   <i
+                class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="invests/crowdfunding/one-tree-armenia.html"><span class="">One tree armenia</span> </a>
+                  </li>
+                  <li class="dropdown"><a href="invests/crowdfunding/the-western-village.html"><span>The western village</span></a>
+                  </li>
+                  <li class="dropdown"><a href="invests/crowdfunding/united-8-apartments.html"><span>United 8 apartments</span></a>
+                  </li>
+                </ul>
+              </li>
+              <li class="dropdown"><a href="invests/private-statement.html"><span>Private statement</span> </a>
+              </li>
+            </ul>
+          </li>
+          <li><a class="nav-link scrollto" href="projects.html">Projects</a></li>
+          <li><a class="nav-link scrollto " href="faq.html">Frequently Asked Questions</a></li>
+          <li><a class="nav-link scrollto" href="#team">Services</a></li>
+          <li><a class="nav-link scrollto" href="team.html">Meet our Team</a></li>
+          <li><a class="nav-link scrollto " href="#contact">About us</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+      <a href="#about" class="nav-link get-started-btn scrollto mx-3">Sign in</a>
+    </div>
+  </header><!-- End Header -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{-- <nav class="bg-white drop-shadow-md" x-data="{ showMobileNav: false }">
     <div class="max-w-7xl mx-auto px-2 py-2 sm:px-6 lg:px-8">
         <div class="relative flex items-center justify-between h-16">
             <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -20,7 +93,7 @@
                     <a href="/">
                         <img class="hidden lg:block h-12 w-auto" src="{{asset('img/kingsmen-logo.png')}}" alt="{{ app_name() }}">
                     </a>
-                </div>
+                </div> --}}
                 {{-- <div class="hidden sm:block sm:ml-6">
                     <div class="flex space-x-4">
                         <a href="{{ route('frontend.posts.index') }}" class="text-gray-600 border-transparent border-b-2 hover:border-orange-600 px-3 py-2 text-base font-medium transition ease-out duration-300">
@@ -37,7 +110,7 @@
                         </a>
                     </div>
                 </div> --}}
-            </div>
+            {{-- </div>
             <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 <div class="ml-3 relative" x-data="{ isUserMenuOpen: false }">
                     <div class="flex flex-row">
@@ -90,10 +163,10 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <!-- Mobile menu, show/hide based on menu state. -->
-    <div class="sm:hidden absolute z-10 w-full p-1" id="mobile-menu" x-show="showMobileNav" @click.away="showMobileNav = false" x-transition:enter="transition ease-out duration-100 transform" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-75 transform" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95">
+    {{-- <div class="sm:hidden absolute z-10 w-full p-1" id="mobile-menu" x-show="showMobileNav" @click.away="showMobileNav = false" x-transition:enter="transition ease-out duration-100 transform" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-75 transform" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95">
         <div class="px-2 pt-2 pb-3 space-y-1 bg-white shadow-lg rounded-md ring-1 ring-black ring-opacity-5">
             <a href="{{ route('frontend.posts.index') }}" class="text-gray-500 block px-3 py-2 rounded-md text-base font-medium">
                 {{__('Posts')}}
@@ -134,4 +207,4 @@
             @endauth
         </div>
     </div>
-</nav>
+</nav> --}}
