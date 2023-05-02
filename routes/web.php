@@ -41,7 +41,9 @@ Route::group(['namespace' => 'App\Http\Controllers\Frontend', 'as' => 'frontend.
     Route::get('terms', 'FrontendController@terms')->name('terms');
 
     // Added by Imran
-    Route::get('teams', 'FrontendController@teams')->name('teams');
+    Route::get('team', 'FrontendController@team')->name('team');
+    Route::get('projects', 'FrontendController@projects')->name('projects');
+    Route::get('crowdfundings', 'FrontendController@crowdfundings')->name('crowdfundings');
 
     Route::group(['middleware' => ['auth']], function () {
         /*

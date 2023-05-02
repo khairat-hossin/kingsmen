@@ -29,10 +29,10 @@
                         </li>
                     </ul>
                 </li>
-                <li><a class="nav-link scrollto" href="projects.html">Projects</a></li>
-                <li><a class="nav-link scrollto " href="faq.html">Frequently Asked Questions</a></li>
+                <li><a class="nav-link scrollto  {{ Request::is('projects*') ? 'active' : '' }}" href="{{ route('frontend.projects') }}">Projects</a></li>
+                <li><a class="nav-link scrollto" href="faq.html">Frequently Asked Questions</a></li>
                 <li><a class="nav-link scrollto" href="#team">Services</a></li>
-                <li><a class="nav-link scrollto {{ Request::is('teams*') ? 'active' : '' }}" href="{{ route('frontend.teams') }}">Meet our Team</a></li>
+                <li><a class="nav-link scrollto {{ Request::is('team*') ? 'active' : '' }}" href="{{ route('frontend.team') }}">Meet our Team</a></li>
                 <li><a class="nav-link scrollto " href="#contact">About us</a></li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>

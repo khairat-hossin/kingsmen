@@ -1,8 +1,8 @@
-@extends('frontend.layouts.app')
+    @extends('frontend.layouts.app')
 
-{{-- @section('title') {{app_name()}} @endsection --}}
+    @section('title') {{app_name()}} @endsection
 
-@section('content')
+    @section('content')
     <main id="main">
         <!-- ======= description ======= -->
         <section class="description">
@@ -44,12 +44,11 @@
                                     <a href="callto:" class="btn mt-1"> Get number </a></a>
                                     <a href="mailto:" class="btn mt-1"> Send email </a></a>
                                     <a href="video cal:" class="btn mt-1"> Fix meeting</a></a>
-
                                 </p>
                             </div>
                     @endforeach
 
-                    <section class="text-center">
+                    <section class="">
                         <div class="container-fluid">
                             <div class="row text-center ">
                                 <div></div>
