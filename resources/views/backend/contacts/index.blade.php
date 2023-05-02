@@ -4,7 +4,7 @@
 
 @section('breadcrumbs')
 <x-backend-breadcrumbs>
-    <x-backend-breadcrumb-item type="active" icon='fa-solid fa-people-group'>Contacts</x-backend-breadcrumb-item>
+    <x-backend-breadcrumb-item type="active" icon='fa-solid fa-address-book'>Contacts</x-backend-breadcrumb-item>
 </x-backend-breadcrumbs>
 @endsection
 
@@ -13,7 +13,7 @@
     <div class="card-body">
 
         <x-backend.section-header>
-            <i class="fa-solid fa-people-group"></i> Contacts <small class="text-muted">List</small>
+            <i class="fa-solid fa-address-book"></i> Contacts <small class="text-muted">List</small>
 
             <x-slot name="subtitle">
                 @lang(":module_name Management Dashboard", ['module_name'=>Str::title("Contacts")])
@@ -46,7 +46,7 @@
         <div class="row mt-4">
             <div class="col">
                 <input type="text" class="form-control my-2" placeholder=" Search" wire:model="searchTerm" />
-    
+
                 <table class="table table-hover table-responsive-sm">
                     <thead>
                         <tr>
@@ -70,7 +70,7 @@
                             <td>
                                 {{ $member->id_no }}
                             </td>
-    
+
                             <td class="text-end">
                                 <form action="{{route('backend.contacts.destroy', $member->id)}}" method="POST">
                                     <a href="{{route('backend.contacts.show', $member->id)}}" class="btn btn-success btn-sm mt-1" data-toggle="tooltip" title="{{__('labels.backend.show')}}"><i class="fas fa-desktop"></i></a>
