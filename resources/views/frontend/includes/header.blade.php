@@ -11,14 +11,12 @@
                     <ul>
                         <li class="dropdown"><a href="invests/crowdfunding/crowdfunding.html"><span class="">Crowdfunding</span> <i class="bi bi-chevron-right"></i></a>
                             <ul>
-                                <li><a href="invests/crowdfunding/one-tree-armenia.html"><span class="">One tree armenia</span> </a></li>
-                                <li class="dropdown"><a href="invests/crowdfunding/the-western-village.html"><span>The western village</span></a></li>
+                                <li class="dropdown"><a class="{{ Request::is('one-tree-armenia*') ? 'active' : '' }}" href="{{ route('frontend.one_tree_armenia') }}"><span class="">One tree armenia</span> </a></li>
+                                <li class="dropdown"><a class="{{ Request::is('one-tree-armenia*') ? 'active' : '' }}" href="{{ route('frontend.the_western_village') }}"><span>The western village</span></a></li>
                                 <li class="dropdown"><a href="invests/crowdfunding/united-8-apartments.html"><span>United 8 apartments</span></a></li>
                             </ul>
                         </li>
-                        <li class="dropdown"><a class="{{ Request::is('private-investments*') ? 'active' : '' }}" href="{{ route('frontend.privateInvestments') }}"><span>Private Investments</span>
-                            </a>
-                        </li>
+                        <li class="dropdown"><a class="{{ Request::is('private-investments*') ? 'active' : '' }}" href="{{ route('frontend.privateInvestments') }}"><span>Private Investments</span></a></li>
                     </ul>
                 </li>
                 <li><a class="nav-link scrollto {{ Request::is('projects*') ? 'active' : '' }}" href="{{ route('frontend.projects') }}">Projects</a></li>

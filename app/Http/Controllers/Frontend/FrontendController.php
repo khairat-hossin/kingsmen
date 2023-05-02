@@ -60,6 +60,16 @@ class FrontendController extends Controller
         return view('frontend.project', compact('projects'));
     }
 
+    public function one_tree_armenia()
+    {
+        return view('frontend.one-tree-armenia');
+    }
+
+    public function the_western_village()
+    {
+        return view('frontend.the-western-village');
+    }
+
     public function privateInvestments()
     {
         $privateInvestments = PrivateInvestment::all();
