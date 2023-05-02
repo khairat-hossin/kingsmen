@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\Team;
 use App\Models\Project;
-use App\Models\Crowdfunding;
+use App\Models\PrivateInvestment;
 
 class FrontendController extends Controller
 {
@@ -60,10 +60,15 @@ class FrontendController extends Controller
         return view('frontend.project', compact('projects'));
     }
 
-    public function crowdfunding()
+    public function privateInvestments()
     {
-        $crowdfundings = Crowdfunding::all();
+        $privateInvestments = PrivateInvestment::all();
 
-        return view('frontend.crowdfunding', compact('crowdfundings'));
+        return view('frontend.private-investments', compact('privateInvestments'));
+    }
+
+    public function faq()
+    {
+        return view('frontend.faq');
     }
 }
