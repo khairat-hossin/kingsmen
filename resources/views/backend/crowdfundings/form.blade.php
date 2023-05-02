@@ -647,7 +647,7 @@
     <div class="row">
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Add  Selling Contract';
+            $field_name = 'Add Selling Contract';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $required = '';
@@ -841,7 +841,7 @@
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
-            {{ html()->file($field_name)->multiple()->class('form-control form-control-sm')->attributes(['name' => 'photos_gallery']) }}
+            {{ html()->file($field_name)->multiple()->class('form-control form-control-sm')->attributes(['name' => 'photos_gallery[]']) }}
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
