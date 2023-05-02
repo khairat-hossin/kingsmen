@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Team;
 
 class FrontendController extends Controller
 {
@@ -41,5 +42,12 @@ class FrontendController extends Controller
         $body_class = '';
 
         return view('frontend.terms', compact('body_class'));
+    }
+
+    public function teams()
+    {
+         $teams = Team::all();
+         
+         return view('frontend.team.index', compact('teams'));
     }
 }

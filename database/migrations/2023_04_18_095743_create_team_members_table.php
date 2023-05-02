@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('ssn');
             $table->string('id_card');
             $table->string('university_degree');
-            $table->string('about_team_member');
+            $table->text('about_team_member');
             $table->string('position');
             $table->string('type');
             $table->string('upload_photo');

@@ -40,6 +40,9 @@ Route::group(['namespace' => 'App\Http\Controllers\Frontend', 'as' => 'frontend.
     Route::get('privacy', 'FrontendController@privacy')->name('privacy');
     Route::get('terms', 'FrontendController@terms')->name('terms');
 
+    // Added by Imran
+    Route::get('teams', 'FrontendController@teams')->name('teams');
+
     Route::group(['middleware' => ['auth']], function () {
         /*
         *

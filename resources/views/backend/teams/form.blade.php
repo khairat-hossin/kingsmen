@@ -146,7 +146,7 @@
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'about_team_member', "$required", 'value' => "$value"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'about_team_member', "$required", 'value' => "$value"]) }}
             @error('about_team_member')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -158,10 +158,10 @@
             $field_lable = label_case($field_name);
             $field_placeholder = 'Please Select';
             $options = [
-                'top_management' => 'Top Management',
-                'sales_manager' => 'Sales Manager',
-                'sales_agent' => 'Sales Agent',
-                'project_manager' => 'Project Manager',
+                'Top Management'  => 'Top Management',
+                'Sales Manager'   => 'Sales Manager',
+                'Sales Agent'     => 'Sales Agent',
+                'Project Manager' => 'Project Manager',
             ];
             $value = old('project_address') ?? '';
             $required = 'required';
@@ -179,10 +179,10 @@
             $field_lable = label_case($field_name);
             $field_placeholder = 'Please Select';
             $options = [
-                'master_admin' => 'Master Admin',
-                'super_admin' => 'Super Admin',
-                'admin' => 'Admin',
-                'agent' => 'Agent',
+                'Master Admin' => 'Master Admin',
+                'Super Admin'  => 'Super Admin',
+                'Admin'        => 'Admin',
+                'Agent'        => 'Agent',
             ];
             $value = old('type') ?? '';
             $required = 'required';
