@@ -14,22 +14,22 @@ return new class extends Migration
         Schema::create('invoices', function (Blueprint $table) {
             $table->id();
             $table->date('date');
-            $table->string('paymentMethodForDeposit');
-            $table->string('paymentMethodForRemainingPayments');
+            $table->string('payment_method_for_deposit');
+            $table->string('payment_method_for_remaining_payments');
             $table->string('project');
-            $table->double('landAreaPerSqm', 8, 2);
-            $table->double('landPricePerSqm', 8, 2);
-            $table->string('HouseType');
-            $table->double('HouseAreaPerSqm', 8, 2);
-            $table->double('HousePricePerSqm', 8, 2);
-            $table->double('landPriceIncludignVAT', 8, 2);
-            $table->double('housePriceIncludignVAT', 8, 2);
-            $table->double('totalPurchaseIncludingVAT_beforeDiscount', 8, 2);
-            $table->double('downpayment', 8, 2);
+            $table->unsignedDecimal('land_area_per_sqm', 12, 2);
+            $table->unsignedDecimal('land_price_per_sqm', 12, 2);
+            $table->string('house_type');
+            $table->unsignedDecimal('house_area_per_sqm', 12, 2);
+            $table->unsignedDecimal('house_price_per_sqm', 12, 2);
+            $table->unsignedDecimal('land_price_includign_VAT', 12, 2);
+            $table->unsignedDecimal('house_rice_includign_VAT', 12, 2);
+            $table->unsignedDecimal('total_purchase_including_VAT_before_discount', 12, 2);
+            $table->unsignedDecimal('downpayment', 12, 2);
             $table->string('discount');
-            $table->double('holdingDeposit', 8, 2);
-            $table->double('remainingPayment', 8, 2);
-            $table->double('paidMonthly', 8, 2);
+            $table->unsignedDecimal('holding_deposit', 12, 2);
+            $table->unsignedDecimal('remaining_payment', 12, 2);
+            $table->unsignedDecimal('paid_monthly', 12, 2);
             $table->timestamps();
         });
     }
