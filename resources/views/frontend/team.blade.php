@@ -41,9 +41,10 @@
         </section>
 
         <section id="team-members">
+            @if (count($teams) > 0)
+            @foreach ($teams as $team)
             <div class="container" data-aos-delay="fade-up">
-                @if (count($teams) > 0)
-                    @foreach ($teams as $team)
+
                         <h3>{{ $team->position }} </h3>
                         <div class="row row row-cols-auto m-0 row-cols-lg-2 gx-5">
                             <div>
@@ -63,9 +64,10 @@
                                     <a href="video cal:" class="btn mt-1"> Fix meeting</a></a>
                                 </p>
                             </div>
-                    @endforeach
-                @endif
+
             </div>
+            @endforeach
+                @endif
         </section>
     </main><!-- End #main -->
 @endsection
