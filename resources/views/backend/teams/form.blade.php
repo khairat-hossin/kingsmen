@@ -146,7 +146,7 @@
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'about_team_member', "$required", 'value' => "$value"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'about_team_member', "$required"]) }}
             @error('about_team_member')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -163,11 +163,11 @@
                 'Sales Agent'     => 'Sales Agent',
                 'Project Manager' => 'Project Manager',
             ];
-            $value = old('project_address') ?? '';
+            $value = old('position') ?? '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->select($field_name)->class('form-control form-control-sm select2')->attributes(['name' => 'position', "$required"])->options($options)->placeholder($field_placeholder)->value($value) }}
+            {{ html()->select($field_name)->class('form-control form-control-sm select2')->attributes(['name' => 'position', "$required"])->value($value) }}
             @error('position')
                 <span class="error">{{ $message }}</span>
             @enderror
