@@ -92,7 +92,8 @@ class TeamController extends Controller
             "type"                 => "required",
             "upload_photo"         => "required|image",
             "personal_cell_number" => "required|unique:" . $this->module_model . ",personal_cell_number",
-            "personal_email"       => "required",
+            "personal_email"       => "required|email|unique:" . $this->module_model . ",personal_email",
+            "assigned_email"       => "required|email",
             "home_address"         => "required",
             "family_member_name"   => "required",
             "work_contract"        => "required"
@@ -204,7 +205,8 @@ class TeamController extends Controller
             "type"                 => "required",
             "upload_photo"         => "nullable|image",
             "personal_cell_number" => "required|unique:team_members,personal_cell_number," . $id.",id",
-            "personal_email"       => "required",
+            "personal_email"       => "required|email|unique:team_members" . $id . ",id",
+            "assigned_email"       => "required|email",
             "home_address"         => "required",
             "family_member_name"   => "required",
             "work_contract"        => "required"
