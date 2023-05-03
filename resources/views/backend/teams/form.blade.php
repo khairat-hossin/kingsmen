@@ -128,9 +128,9 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = old('university_degree') ?? '';
-            $required = 'required';
+            $required = '';
             ?>
-            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
+            {{ html()->label($field_lable, $field_name)->class('form-label') }}
             {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'university_degree', "$required", 'value' => "$value"]) }}
             @error('university_degree')
                 <span class="error">{{ $message }}</span>
