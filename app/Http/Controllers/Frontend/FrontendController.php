@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Team;
 use App\Models\Project;
 use App\Models\PrivateInvestment;
+use App\Models\Crowdfunding;
 
 class FrontendController extends Controller
 {
@@ -58,6 +59,13 @@ class FrontendController extends Controller
         $projects = Project::all();
 
         return view('frontend.project', compact('projects'));
+    }
+
+    public function crowdfunding()
+    {
+        $crowdfundings = Crowdfunding::all();
+
+        return view('frontend.crowdfunding', compact('crowdfundings'));
     }
 
     public function one_tree_armenia()
