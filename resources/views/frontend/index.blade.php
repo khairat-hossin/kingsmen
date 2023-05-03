@@ -60,7 +60,7 @@
           <div class="col-6 col-sm-3 col-lg-3 col-xl-2">
             <div class="icon-box bg-dark rounded-pill">
               <i class=" ri-arrow-right-circle-fill"></i>
-              <h3><a href="">Sign up now</a></h3>
+              <h3><a href="{{ route('register') }}">Sign up now</a></h3>
             </div>
           </div>
         </div>
