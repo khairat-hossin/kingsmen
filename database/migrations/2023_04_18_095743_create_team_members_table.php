@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('last_name');
             $table->date('date_of_birth');
             $table->string('passport_number');
-            $table->string('passport_expiry_date');
+            $table->date('passport_expiry_date');
             $table->string('passport_photo');
             $table->string('ssn');
             $table->string('id_card');
