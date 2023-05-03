@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('university_degree');
             $table->text('about_team_member');
             $table->string('position');
+            $table->string('designation');
             $table->string('type');
             $table->string('upload_photo');
             $table->string('personal_cell_number');

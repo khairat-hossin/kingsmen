@@ -175,6 +175,21 @@
 
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
+            $field_name = 'Designation';
+            $field_lable = label_case($field_name);
+            $field_placeholder = $field_lable;
+            $value = old('designation') ?? '';
+            $required = 'required';
+            ?>
+            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'designation', "$required", 'value' => "$value"]) }}
+            @error('designation')
+                <span class="error">{{ $message }}</span>
+            @enderror
+        </div>
+
+        <div class="form-group col-6 col-md-4 mb-2">
+            <?php
             $field_name = 'Type';
             $field_lable = label_case($field_name);
             $field_placeholder = 'Please Select';
