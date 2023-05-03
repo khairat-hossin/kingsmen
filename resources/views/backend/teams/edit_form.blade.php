@@ -146,7 +146,7 @@
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'about_team_member', "$required", 'value' => "$value"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'about_team_member', "$required"]) }}
             @error('about_team_member')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -158,17 +158,32 @@
             $field_lable = label_case($field_name);
             $field_placeholder = 'Please Select';
             $options = [
-                'top_management' => 'Top Management',
-                'sales_manager' => 'Sales Manager',
-                'sales_agent' => 'Sales Agent',
-                'project_manager' => 'Project Manager',
+                'Top Management' => 'Top Management',
+                'Sales Manager' => 'Sales Manager',
+                'Sales Agent' => 'Sales Agent',
+                'Project Manager' => 'Project Manager',
             ];
             $value = ($team->position) ?? '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->select($field_name)->class('form-control form-control-sm select2')->attributes(['name' => 'position', "$required"])->options($options)->placeholder($field_placeholder)->value($value) }}
+            {{ html()->select($field_name)->class('form-control form-control-sm select2')->attributes(['name' => 'position', "$required"])->options($options)->value($value) }}
             @error('position')
+                <span class="error">{{ $message }}</span>
+            @enderror
+        </div>
+
+        <div class="form-group col-6 col-md-4 mb-2">
+            <?php
+            $field_name = 'Designation';
+            $field_lable = label_case($field_name);
+            $field_placeholder = $field_lable;
+            $value = $team->designation ?? '';
+            $required = 'required';
+            ?>
+            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'designation', "$required", 'value' => "$value"]) }}
+            @error('designation')
                 <span class="error">{{ $message }}</span>
             @enderror
         </div>
@@ -179,16 +194,16 @@
             $field_lable = label_case($field_name);
             $field_placeholder = 'Please Select';
             $options = [
-                'master_admin' => 'Master Admin',
-                'super_admin' => 'Super Admin',
-                'admin' => 'Admin',
-                'agent' => 'Agent',
+                'Master Admin' => 'Master Admin',
+                'Super Admin' => 'Super Admin',
+                'Admin' => 'Admin',
+                'Agent' => 'Agent',
             ];
-            $value = ($team->type) ?? '';
+            $value = $team->type ?? '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->select($field_name)->class('form-control form-control-sm select2')->attributes(['name' => 'type', "$required"])->options($options)->placeholder($field_placeholder)->value($value) }}
+            {{ html()->select($field_name)->class('form-control form-control-sm select2')->attributes(['name' => 'type', "$required"])->options($options)->value($value) }}
             @error('type')
                 <span class="error">{{ $message }}</span>
             @enderror
