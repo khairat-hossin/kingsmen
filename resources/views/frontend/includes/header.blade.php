@@ -2,7 +2,7 @@
 <header id="header" class="fixed-top bg-dark">
     <div class="container-fluid d-flex align-items-center justify-content-lg-start">
         <!-- Uncomment below if you prefer to use an image logo -->
-        <a href="index.html" class="navbar-brand logo me-auto "><img src="assets/img/kingsmenlogo.png" alt=""
+        <a href="{{ route('frontend.index') }}" class="navbar-brand logo me-auto "><img src="assets/img/kingsmenlogo.png" alt=""
                 class="img-fluid"></a>
         <nav id="navbar" class="navbar order-last order-lg-0">
             <ul>
