@@ -11,7 +11,7 @@
                     <ul>
                         <li class="dropdown"><a class="{{ Request::is('crowdfundings') ? 'active' : '' }}" href="{{ route('frontend.crowdfundings') }}"><span class="">Crowdfunding</span> <i class="bi bi-chevron-right"></i></a>
                             <ul>
-                                <li class="dropdown"><a class="{{ Request::is('one-tree-armenia*') ? 'active' : '' }}" href="{{ route('frontend.one_tree_armenia') }}"><span class="">One Tree Trmenia</span> </a></li>
+                                <li class="dropdown"><a class="{{ Request::is('one-tree-armenia*') ? 'active' : '' }}" href="{{ route('frontend.one_tree_armenia') }}"><span class="">One Tree Armenia</span> </a></li>
                                 <li class="dropdown"><a class="{{ Request::is('the-western-village*') ? 'active' : '' }}" href="{{ route('frontend.the_western_village') }}"><span>The Western Village</span></a></li>
                                 <li class="dropdown"><a href="#"><span>United 8 Apartments</span></a></li>
                             </ul>
