@@ -33,9 +33,10 @@
           <div class="container-fluid text-center card raw_card" data-aos="fade-up">
             <div class="row row-cols-1 d-flex justify-content-center align-items-center">
               <div class="gy-5" style="   font-family: 'Inter', sans-serif;text-align: justify; ">
-                <strong> The Western Village </strong> is an ambitious new project located in the Parpi Ashtarak Region that is currently under development. Designed to be a cutting-edge residential development, the project aims to transform the land from agricultural to residential use by providing top-of-the-line infrastructure. and with the help of government friends. <br>
+                <p><strong> The Western Village </strong> is an ambitious new project located in the Parpi Ashtarak Region that is currently under development. Designed to be a cutting-edge residential development, the project aims to transform the land from agricultural to residential use by providing top-of-the-line infrastructure. and with the help of government friends. <br>
 
                 10 KM from Western Village the government is Building 8 Universities , You can check it out  By Pressing <a href=" https://news.am/eng/news/718191.html " target="_blank" > "8 Universities Link.""  </a>
+                </p>
               </div>
               <div class="col-5 opportunity-slider swiper my-2">
                 <div class="swiper-wrapper align-items-center">
@@ -69,13 +70,14 @@
                 <div class=" "></div>
                 <div>Location photos Plus Licensed homes to be executed in 2023</div>
               </div>
-              <div class="gy-5" style="   font-family: 'Inter', sans-serif;text-align: justify; "class="gx-5" style="   font-family: 'Inter', sans-serif;text-align: justify; ">
+              <div class="gy-5" style=" font-family: 'Inter', sans-serif;text-align: justify; "class="gx-5" style="   font-family: 'Inter', sans-serif;text-align: justify; ">
 
                 Next to Western Village on 20,000 Sqm We built the <a href="https://sites.google.com/kmen.me/the-eco-gardens-armenia/eco-homes?authuser=0" target="_blank"> "www.theecogardens.com" </a>in two Years we managed to Break Even and yet we own 40% of the Remaining Plots. We are only Selling For the Highest Prices 60 - 70 USD per Sqm while our cost those not exceed the 30USD .<br>
 
-                <strong> Designed By Jamil Hannouche  ( We are in the Phase of Developing the project full identity  we Always target the armenian Diaspora for end-user homes , since they prefer to buy a finished product and usually the competition only sells core and shell with very low quality and higher prices. )
+               <p> <strong> Designed By Jamil Hannouche  ( We are in the Phase of Developing the project full identity  we Always target the armenian Diaspora for end-user homes , since they prefer to buy a finished product and usually the competition only sells core and shell with very low quality and higher prices. )
 
                   Our Latest Project Green Hills can give you an Idea about the concepts we are Building :<a href="https://sites.google.com/kmen.me/greenhills1?usp=sharing"  target="_blank" > Greenhills.am  </a></strong>
+                </p>
               </div>
             </div>
           </div>

@@ -126,7 +126,7 @@
 </div>
       <!-- End Product Section -->
       <!-- ======= Faq Section ======= -->
-      <h3 class="text-center my-3">GET TO KNOW</h3>
+      <h2 class="text-center my-3">GET TO KNOW</h2>
       <div class="row row-cols-lg-3 row-cols-1 row-cols-md-2 m-auto ">
         <div class="container my-4">
           <div class="faq_wrap bg-dark text-white">
@@ -184,7 +184,7 @@
                 <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
                 <h3>Sara Wilsson</h3>
                 <h4>Designer</h4>
-                <p  class="fs-5">
+                <p>
                   <i class="bx bxs-quote-alt-left quote-icon-left"></i>
                   Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis
                   quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
@@ -197,7 +197,7 @@
                 <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
                 <h3>Jena Karlis</h3>
                 <h4>Store Owner</h4>
-                <p  class="fs-5">
+                <p>
                   <i class="bx bxs-quote-alt-left quote-icon-left"></i>
                   Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim
                   tempor labore quem eram duis noster aute amet eram fore quis sint minim.
@@ -210,7 +210,7 @@
                 <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
                 <h3>Matt Brandon</h3>
                 <h4>Freelancer</h4>
-                <p  class="fs-5">
+                <p>
                   <i class="bx bxs-quote-alt-left quote-icon-left"></i>
                   Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit
                   minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
@@ -223,7 +223,7 @@
                 <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
                 <h3>John Larson</h3>
                 <h4>Entrepreneur</h4>
-                <p  class="fs-5">
+                <p>
                   <i class="bx bxs-quote-alt-left quote-icon-left"></i>
                   Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim
                   culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum
@@ -241,7 +241,7 @@
     <section id="clients" class="clients">
       <div class="container" data-aos="fade-up">
         <h1 class="bolder my-3 text-center card bg-dark text-white  p-3"> Stratigical Partners </h1>
-        <h3 class="bolder my-5 text-center"> Legal And Accounting </h3>
+        <h2 class="bolder my-5 text-center"> Legal And Accounting </h2>
         <div class="clients-slider swiper">
           <div class="swiper-wrapper align-items-center">
             <div class="swiper-slide text-center"><img src="assets/img/clients/client-9.png" class="img-fluid" alt="">
@@ -256,21 +256,21 @@
         <div class="row">
           <div class="col-md-6 ">
             <div>
-              <h3 class="my-5 text-center">Online Banking Solutions</h3>
+              <h2 class="my-5 text-center">Online Banking Solutions</h2>
               <div class="swiper-slide text-center w-40"><img src="assets/img/clients/onlinebanking.png" class="w-50"
                   alt=""></div>
             </div>
           </div>
           <div class="col-md-6">
             <div>
-              <h3 class="my-5 text-center">Web Solutions And Blockchain integration</h3>
+              <h2 class="my-5 text-center">Web Solutions And Blockchain integration</h2>
               <div class="swiper-slide text-center"><img src="assets/img/clients/websolutions.png" style="max-width:30%" class="img-fluid"
                   alt=""></div>
             </div>
           </div>
         </div>
         <div class="clients-slider swiper">
-          <h3 class="my-5 text-center">Architecture And Construction </h3>
+          <h2 class="my-5 text-center">Architecture And Construction </h2>
           <div class="swiper-wrapper align-items-center">
             <div class="swiper-slide text-center"><img src="assets/img/clients/architech.png" class="img-fluid"
                 alt=""></div>

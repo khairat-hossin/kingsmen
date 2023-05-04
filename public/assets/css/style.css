@@ -27,7 +27,7 @@ body {
 a {
   color: #ffc451;
   text-decoration: none;
-  font-size: calc(15px + 0.390625vw);
+  font-size: calc(10px + 0.390625vw);
 }
 
 a:hover {
@@ -64,8 +64,9 @@ h2{
   font-size: 1.3rem;
 }
 
-h3{
-  font-size: 1rem;
+li,p,h3,h4,h6{
+  font-size:  calc(10px + 0.390625vw)!important;
+
 }
 
 h4{
@@ -102,7 +103,7 @@ li{
 }
 
 .back-to-top i {
-  font-size:  calc(28px + 0.390625vw);
+  font-size:  calc(15px + 0.390625vw);
   color: #151515;
   line-height: 0;
 }
@@ -212,7 +213,7 @@ li{
   padding: 7px 25px 8px 25px;
   white-space: nowrap;
   transition: 0.3s;
-  font-size: calc(15px + 0.390625vw);
+  font-size: calc(10px + 0.390625vw);
   display: inline-block;
   border: 2px solid #ffc451;
 }
@@ -257,7 +258,7 @@ li{
   align-items: center;
   justify-content: space-between;
   padding: 10px 0 10px 30px;
-  font-size: calc(12px + 0.390625vw);
+  font-size: calc(10px + 0.390625vw);
   font-weight: 600;
   color: #fff;
   white-space: nowrap;
@@ -266,7 +267,7 @@ li{
 
 .navbar a i,
 .navbar a:focus i {
-  font-size:  calc(12px + 0.390625vw);
+  font-size:  calc(10px + 0.390625vw);
   line-height: 0;
   margin-left: 5px;
 }
@@ -299,7 +300,7 @@ li{
 
 .navbar .dropdown ul a {
   padding: 10px 20px;
-  font-size:  calc(14px + 0.390625vw);
+  font-size:  calc(10px + 0.390625vw);
   text-transform: none;
   color: #151515;
   font-weight: 400;
@@ -510,6 +511,15 @@ li{
   background-size: cover;
   position: relative;
 }
+
+#hero-united-8-apartments{
+  width: 100%;
+  height: 65vh;
+  background: url("../img/crowdfunding/united-8-apartments/hero_united_8_apartment_bg.jpg") top center;
+  background-size: cover;
+  position: relative;
+}
+
 #hero-the-western-village h3{
   margin: 0;
   font-size:  calc(23px + 0.390625vw);
@@ -635,7 +645,7 @@ li{
   font-weight: 700;
   padding: 0;
   line-height: 1;
-  font-size:  calc(20px + 0.390625vw);
+  font-size:  calc(10px + 0.390625vw);
   line-height: 26px;
 }
 @media (max-width: 667px) {
@@ -650,7 +660,7 @@ li{
     font-weight: 700;
     padding: 0;
     line-height: 1;
-    font-size:  calc(15px + 0.390625vw);
+    font-size:  calc(10px + 0.390625vw);
     line-height: 20px;
   }
   }
@@ -1234,14 +1244,14 @@ section {
 }
 
 .testimonials .testimonial-item h3 {
-  font-size:  calc(20px + 0.390625vw);
+  font-size:  calc(10px + 0.390625vw);
   font-weight: bold;
   margin: 10px 0 5px 0;
   color: #fff;
 }
 
 .testimonials .testimonial-item h4 {
-  font-size:  calc(14px + 0.390625vw);
+  font-size:  calc(10px + 0.390625vw);
   color: #ddd;
   margin: 0 0 15px 0;
 }
@@ -1395,7 +1405,7 @@ section {
 }
 
 .contact .info i {
-  font-size: calc(15px + 0.390625vw);
+  font-size: calc(10px + 0.390625vw);
   background: #ffc451;
   color: #151515;
   float: left;
@@ -1410,7 +1420,7 @@ section {
 
 .contact .info h4 {
   padding: 0 0 0 60px;
-  font-size: calc(13px + 0.390625vw);
+  font-size: calc(10px + 0.390625vw);
   font-weight: 600;
   margin-bottom: 5px;
   color: #151515;
@@ -1419,7 +1429,7 @@ section {
 .contact .info p {
   padding: 0 0 0 60px;
   margin-bottom: 0;
-  font-size: calc(15px + 0.390625vw);
+  font-size: calc(10px + 0.390625vw);
   color: #484848;
 }
 
@@ -1482,7 +1492,7 @@ section {
 .contact .php-email-form textarea {
   border-radius: 0;
   box-shadow: none;
-  font-size:  calc(14px + 0.390625vw);
+  font-size:  calc(10px + 0.390625vw);
   border-radius: 4px;
 }
 
@@ -1581,7 +1591,7 @@ section {
   background: black;
   padding: 0 0 30px 0;
   color: #fff;
-  font-size:  calc(14px + 0.390625vw);
+  font-size:  calc(10px + 0.390625vw);
 }
 
 #footer .footer-top {
@@ -1595,7 +1605,7 @@ section {
 }
 
 #footer .footer-top .footer-info h3 {
-  font-size: calc(18px + 0.390625vw);
+  font-size: calc(10px + 0.390625vw);
   margin: 0 0 20px 0;
   padding: 2px 0 2px 0;
   line-height: 1;
@@ -1608,15 +1618,15 @@ section {
 }
 
 #footer .footer-top .footer-info p {
-  font-size: calc(15px + 0.390625vw);
-  line-height: calc(px + 0.390625vw);
+  font-size: calc(10px + 0.390625vw);
+  line-height: calc(15px + 0.390625vw);
   margin-bottom: 0;
   font-family: "lato", sans-serif;
   color: #fff;
 }
 
 #footer .footer-top .social-links a {
-  font-size:  calc(18px + 0.390625vw);
+  font-size:  calc(10px + 0.390625vw);
   display: inline-block;
   background: #292929;
   color: #fff;
@@ -1637,7 +1647,7 @@ section {
 }
 
 #footer .footer-top h4 {
-  font-size:  calc(16px + 0.390625vw);
+  font-size:  calc(10px + 0.390625vw);
   font-weight: 600;
   color: #fff;
   position: relative;
@@ -1657,7 +1667,7 @@ section {
 #footer .footer-top .footer-links ul i {
   padding-right: 2px;
   color: #ffc451;
-  font-size: calc(18px + 0.390625vw);
+  font-size: calc(10px + 0.390625vw);
   line-height: 1;
 }
 
@@ -1703,7 +1713,7 @@ section {
   bottom: 0;
   border: 0;
   background: none;
-  font-size: calc(16px + 0.390625vw);
+  font-size: calc(10px + 0.390625vw);
   padding: 0 20px;
   background: #ffc451;
   color: #151515;
@@ -1723,7 +1733,7 @@ section {
 #footer .credits {
   padding-top: 10px;
   text-align: center;
-  font-size: calc(13px + 0.390625vw);
+  font-size: calc(10px + 0.390625vw);
   color: #fff;
 }
 
