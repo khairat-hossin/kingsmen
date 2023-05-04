@@ -128,9 +128,9 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = old('university_degree') ?? '';
-            $required = 'required';
+            $required = '';
             ?>
-            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
+            {{ html()->label($field_lable, $field_name)->class('form-label') }}
             {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'university_degree', "$required", 'value' => "$value"]) }}
             @error('university_degree')
                 <span class="error">{{ $message }}</span>
@@ -146,7 +146,7 @@
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'about_team_member', "$required", 'value' => "$value"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'about_team_member', "$required"]) }}
             @error('about_team_member')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -158,12 +158,12 @@
             $field_lable = label_case($field_name);
             $field_placeholder = 'Please Select';
             $options = [
-                'top_management' => 'Top Management',
-                'sales_manager' => 'Sales Manager',
-                'sales_agent' => 'Sales Agent',
-                'project_manager' => 'Project Manager',
+                'Top Management'  => 'Top Management',
+                'Sales Manager'   => 'Sales Manager',
+                'Sales Agent'     => 'Sales Agent',
+                'Project Manager' => 'Project Manager',
             ];
-            $value = old('project_address') ?? '';
+            $value = old('position') ?? '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
@@ -175,14 +175,29 @@
 
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
+            $field_name = 'Designation';
+            $field_lable = label_case($field_name);
+            $field_placeholder = $field_lable;
+            $value = old('designation') ?? '';
+            $required = 'required';
+            ?>
+            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'designation', "$required"]) }}
+            @error('designation')
+                <span class="error">{{ $message }}</span>
+            @enderror
+        </div>
+
+        <div class="form-group col-6 col-md-4 mb-2">
+            <?php
             $field_name = 'Type';
             $field_lable = label_case($field_name);
             $field_placeholder = 'Please Select';
             $options = [
-                'master_admin' => 'Master Admin',
-                'super_admin' => 'Super Admin',
-                'admin' => 'Admin',
-                'agent' => 'Agent',
+                'Master Admin' => 'Master Admin',
+                'Super Admin'  => 'Super Admin',
+                'Admin'        => 'Admin',
+                'Agent'        => 'Agent',
             ];
             $value = old('type') ?? '';
             $required = 'required';

@@ -17,13 +17,14 @@ return new class extends Migration
             $table->string('last_name');
             $table->date('date_of_birth');
             $table->string('passport_number');
-            $table->string('passport_expiry_date');
+            $table->date('passport_expiry_date');
             $table->string('passport_photo');
             $table->string('ssn');
             $table->string('id_card');
             $table->string('university_degree');
-            $table->string('about_team_member');
+            $table->text('about_team_member');
             $table->string('position');
+            $table->string('designation');
             $table->string('type');
             $table->string('upload_photo');
             $table->string('personal_cell_number');

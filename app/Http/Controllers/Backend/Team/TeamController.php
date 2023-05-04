@@ -88,10 +88,12 @@ class TeamController extends Controller
             "university_degree"    => "required",
             "about_team_member"    => "required",
             "position"             => "required",
+            "designation"          => "required",
             "type"                 => "required",
             "upload_photo"         => "required|image",
             "personal_cell_number" => "required|unique:" . $this->module_model . ",personal_cell_number",
-            "personal_email"       => "required",
+            "personal_email"       => "required|email|unique:" . $this->module_model . ",personal_email",
+            "assigned_email"       => "required|email",
             "home_address"         => "required",
             "family_member_name"   => "required",
             "work_contract"        => "required"
@@ -127,6 +129,7 @@ class TeamController extends Controller
             $team->university_degree    = $request->university_degree;
             $team->about_team_member    = $request->about_team_member;
             $team->position             = $request->position;
+            $team->designation          = $request->designation;
             $team->type                 = $request->type;
             $team->upload_photo         = $upload_photo_url;
             $team->personal_cell_number = $request->personal_cell_number;
@@ -198,10 +201,12 @@ class TeamController extends Controller
             "university_degree"    => "required",
             "about_team_member"    => "required",
             "position"             => "required",
+            "designation"          => "required",
             "type"                 => "required",
             "upload_photo"         => "nullable|image",
             "personal_cell_number" => "required|unique:team_members,personal_cell_number," . $id.",id",
-            "personal_email"       => "required",
+            "personal_email"       => "required|email|unique:team_members" . $id . ",id",
+            "assigned_email"       => "required|email",
             "home_address"         => "required",
             "family_member_name"   => "required",
             "work_contract"        => "required"
@@ -240,6 +245,7 @@ class TeamController extends Controller
             $team->university_degree    = $request->university_degree;
             $team->about_team_member    = $request->about_team_member;
             $team->position             = $request->position;
+            $team->designation          = $request->designation;
             $team->type                 = $request->type;
             $team->personal_cell_number = $request->personal_cell_number;
             $team->personal_email       = $request->personal_email;

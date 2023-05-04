@@ -36,7 +36,7 @@ class ContactController extends Controller
         $this->module_path = 'contacts';
 
         // module icon
-        $this->module_icon = 'fas fa-donate';
+        $this->module_icon = 'fas fa-address-book';
 
         // module model name, path
         $this->module_model = "App\Models\Contact";
@@ -73,7 +73,7 @@ class ContactController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {        
+    {
         $module_title = $this->module_title;
         $module_name = $this->module_name;
         $module_path = $this->module_path;
@@ -110,7 +110,7 @@ class ContactController extends Controller
             'name_of_the_bank_you_work_with' => 'nullable:'.$module_model.',name_of_the_bank_you_work_with',
             'card_details_for_downpayment' => 'nullable:'.$module_model.',card_details_for_downpayment',
             'bank_acc_with_6_month_history' => 'nullable:'.$module_model.',bank_acc_with_6_month_history',
-            'crypto_wallet' => 'nullable:'.$module_model.',crypto_wallet',          
+            'crypto_wallet' => 'nullable:'.$module_model.',crypto_wallet',
 
         ]);
 
@@ -155,9 +155,9 @@ class ContactController extends Controller
             'bank_acc_with_6_month_history' => $validatedData['bank_acc_with_6_month_history'],
             'crypto_wallet' => $validatedData['crypto_wallet']
         ]);
-        
+
         $contact->save();
-        
+
 
 
         flash(icon().' '.Str::singular($module_title)."' Created.")->success()->important();
@@ -208,7 +208,7 @@ class ContactController extends Controller
 
         $module_action = 'Store';
 
-        
+
         $validatedData = $request->validate([
             'first_name' => 'required:'.$module_model.',first_name',
             'last_name' => 'nullable:'.$module_model.',last_name',
@@ -230,65 +230,66 @@ class ContactController extends Controller
             'passport_expiry_date' => 'nullable:'.$module_model.',passport_expiry_date',
             'photo_of_passport' => 'nullable:'.$module_model.',photo_of_passport',
             'id_card_text' => 'nullable:'.$module_model.',id_card_text',
-            'photo_of_id_card' => 'nullable:'.$module_model.',photo_of_id_card',            
+            'photo_of_id_card' => 'nullable:'.$module_model.',photo_of_id_card',
             'exact_address' => 'nullable:'.$module_model.',exact_address',
             'PO_box' => 'nullable:'.$module_model.',PO_box',
             'name_of_the_bank_you_work_with' => 'nullable:'.$module_model.',name_of_the_bank_you_work_with',
             'card_details_for_downpayment' => 'nullable:'.$module_model.',card_details_for_downpayment',
             'bank_acc_with_6_month_history' => 'nullable:'.$module_model.',bank_acc_with_6_month_history',
             'crypto_wallet' => 'nullable:'.$module_model.',crypto_wallet',
-        ]); 
+        ]);
 
 
 
-       
+
         $contact = Contact::find($id);
 
         $photo_of_passport_url = $contact->photo_of_passport;
 
         if ($request->hasFile('photo_of_passport')) {
             $photo_of_passport_url = uploadFileToPublic($request->file('photo_of_passport'), 'contact/photo_of_passport');
-        }
-    
-        $contact->photo_of_passport = $photo_of_passport_url;
-        
+
+            $contact->photo_of_passport = $photo_of_passport_url;
+
+        }        
+
 
 
         $photo_of_id_card_url = $contact->photo_of_id_card;
 
         if ($request->hasFile('photo_of_id_card')) {
             $photo_of_id_card_url = uploadFileToPublic($request->file('photo_of_id_card'), 'contact/photo_of_id_card');
-           
-        }
 
-        $contact->photo_of_id_card = $photo_of_id_card_url;
+            $contact->photo_of_id_card = $photo_of_id_card_url;
 
-        
+        }        
+
+
         $contact->first_name = $request->first_name;
         $contact->last_name = $request->last_name;
         $contact->email = $request->email;
         $contact->phone = $request->phone;
-        $contact->id_no = $request->id_no;        
-        $contact->client_type = $request->client_type;        
-        $contact->buisness_position = $request->buisness_position;        
-        $contact->budget = $request->budget;        
-        $contact->location = $request->location;        
-        $contact->added_date = $request->added_date;        
-        $contact->reffered_by = $request->reffered_by;        
-        $contact->note = $request->note;        
-        $contact->date_of_birth = $request->date_of_birth;        
-        $contact->team_member = $request->team_member;        
-        $contact->project_or_investment = $request->project_or_investment;        
-        $contact->citizenship = $request->citizenship;        
-        $contact->passport_number = $request->passport_number;               
-        $contact->passport_expiry_date = $request->passport_expiry_date;        
-        $contact->id_card_text = $request->id_card_text;                
-        $contact->exact_address = $request->exact_address;        
-        $contact->PO_box = $request->PO_box;        
-        $contact->name_of_the_bank_you_work_with = $request->name_of_the_bank_you_work_with;        
-        $contact->card_details_for_downpayment = $request->card_details_for_downpayment;        
-        $contact->bank_acc_with_6_month_history = $request->bank_acc_with_6_month_history;        
-        $contact->crypto_wallet = $request->crypto_wallet;     
+        $contact->id_no = $request->id_no;
+        $contact->client_type = $request->client_type;
+        $contact->buisness_position = $request->buisness_position;
+        $contact->budget = $request->budget;
+        $contact->location = $request->location;
+        $contact->added_date = $request->added_date;
+        $contact->reffered_by = $request->reffered_by;
+        $contact->note = $request->note;
+        $contact->date_of_birth = $request->date_of_birth;
+        $contact->team_member = $request->team_member;
+        $contact->project_or_investment = $request->project_or_investment;
+        $contact->citizenship = $request->citizenship;
+        $contact->passport_number = $request->passport_number;
+        $contact->passport_expiry_date = $request->passport_expiry_date;
+        $contact->id_card_text = $request->id_card_text;
+        $contact->exact_address = $request->exact_address;
+        $contact->PO_box = $request->PO_box;
+        $contact->name_of_the_bank_you_work_with = $request->name_of_the_bank_you_work_with;
+        $contact->card_details_for_downpayment = $request->card_details_for_downpayment;
+        $contact->bank_acc_with_6_month_history = $request->bank_acc_with_6_month_history;
+        $contact->crypto_wallet = $request->crypto_wallet;
 
         $contact->save();
 

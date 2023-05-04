@@ -24,14 +24,14 @@ return new class extends Migration
             $table->string('accepted_currency')->nullable();
             $table->date('starting_date')->nullable();
             $table->date('delivery_date')->nullable();
-            $table->double('area_starting_per_sqm', 8, 2)->nullable();
-            $table->double('price_starting_per_sqm', 8, 2)->nullable();
-            $table->double('land_price_starting', 8, 2)->nullable();
+            $table->unsignedDecimal('area_starting_per_sqm', 8, 2)->nullable();
+            $table->unsignedDecimal('price_starting_per_sqm', 8, 2)->nullable();
+            $table->unsignedDecimal('land_price_starting', 8, 2)->nullable();
             $table->string('land_number')->nullable();
             $table->string('land_category')->nullable();
-            $table->double('land_area', 8, 2)->nullable();
-            $table->double('land_price_per_sqm', 8, 2)->nullable();
-            $table->double('total_land_price', 8, 2)->nullable();
+            $table->unsignedDecimal('land_area', 8, 2)->nullable();
+            $table->unsignedDecimal('land_price_per_sqm', 8, 2)->nullable();
+            $table->unsignedDecimal('total_land_price', 8, 2)->nullable();
             $table->text('all_listings_land')->nullable();
             $table->string('interactive_map')->nullable();
             $table->string('house_type')->nullable();
@@ -41,9 +41,9 @@ return new class extends Migration
             $table->string('technical_specs')->nullable();
             $table->string('total_construction_cost')->nullable();
             $table->string('category')->nullable();
-            $table->double('total_price_with_land', 8, 2)->nullable();
-            $table->double('deposit', 8, 2)->nullable();
-            $table->double('remainingAmount_as_bankTransfer', 8, 2)->nullable();
+            $table->unsignedDecimal('total_price_with_land', 8, 2)->nullable();
+            $table->unsignedDecimal('deposit', 8, 2)->nullable();
+            $table->unsignedDecimal('remainingAmount_as_bankTransfer', 8, 2)->nullable();
             $table->string('selling_contract')->nullable();
             $table->string('company_papers')->nullable();
             $table->string('project_rules_and_regulation')->nullable();
@@ -68,49 +68,48 @@ return new class extends Migration
             $table->string('qna_page_header_paragraph')->nullable();
             $table->string('qna_page_footer_title')->nullable();
             $table->string('qna_page_footer_paragraph')->nullable();
-            
+
             $table->string('buy_home_page_banner')->nullable();
             $table->string('buy_home_page_banner_text')->nullable();
             $table->string('buy_home_page_header_title')->nullable();
             $table->string('buy_home_page_header_paragraph')->nullable();
             $table->string('buy_home_page_footer_title')->nullable();
             $table->string('buy_home_page_footer_paragraph')->nullable();
-            
+
             $table->string('buy_land_page_banner')->nullable();
             $table->string('buy_land_page_banner_text')->nullable();
             $table->string('buy_land_page_header_title')->nullable();
             $table->string('buy_land_page_header_paragraph')->nullable();
             $table->string('buy_land_page_footer_title')->nullable();
             $table->string('buy_land_page_footer_paragraph')->nullable();
-            
+
             $table->string('amenities_page_banner')->nullable();
             $table->string('amenities_page_banner_text')->nullable();
             $table->string('amenities_page_header_title')->nullable();
             $table->string('amenities_page_header_paragraph')->nullable();
             $table->string('amenities_page_footer_title')->nullable();
             $table->string('amenities_page_footer_paragraph')->nullable();
-            
+
             $table->string('financing_page_banner')->nullable();
             $table->string('financing_page_banner_text')->nullable();
             $table->string('financing_page_header_title')->nullable();
             $table->string('financing_page_header_paragraph')->nullable();
             $table->string('financing_page_footer_title')->nullable();
             $table->string('financing_page_footer_paragraph')->nullable();
-            
+
             $table->string('who_page_banner')->nullable();
             $table->string('who_page_banner_text')->nullable();
             $table->string('who_page_header_title')->nullable();
             $table->string('who_page_header_paragraph')->nullable();
             $table->string('who_page_footer_title')->nullable();
             $table->string('who_page_footer_paragraph')->nullable();
-            
+
             $table->string('contact_page_banner')->nullable();
             $table->string('contact_page_banner_text')->nullable();
             $table->string('contact_page_header_title')->nullable();
             $table->string('contact_page_header_paragraph')->nullable();
             $table->string('contact_page_footer_title')->nullable();
             $table->string('contact_page_footer_paragraph')->nullable();
-
 
             $table->string('kingsmen_details')->nullable();
             $table->string('project_address');

@@ -23,6 +23,7 @@ class Team extends Model
         "university_degree",
         "about_team_member",
         "position",
+        "designation",
         "type",
         "upload_photo",
         "personal_cell_number",

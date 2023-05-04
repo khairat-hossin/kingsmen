@@ -232,34 +232,13 @@ class CrowdfundingController extends Controller
                 $crowdfunding->banner = $banner_url;
             }
 
-
             // For Multiple photos
-            // $photos_gallery = '';
-            // $photos_gallery = $request->file('photos_gallery');
-            // dd($photos_gallery);
-            // foreach ($photos_gallery as $photo) {
-            //     $photos_gallery_url = uploadFileToPublic($photo, 'crowdfunding/photos_gallery');
-            //     $crowdfunding->photos_gallery = $photos_gallery_url;
-            // }
-            // dd($crowdfunding->photos_gallery);
-
-        // if ($request->hasFile('photos_gallery')) {
-        //     $images = $request->file('photos_gallery');
-
-        //     foreach ($images as $image) {
-        //         // Generate a unique filename for each image
-        //         $filename = uniqid() . '.' . $image->getClientOriginalExtension();
-
-        //         dd($filename);
-
-        //         // Save the image to the public disk
-        //         $image->storeAs('public/uploads/crowdfunding/photo_gallery', $filename);
-        //         $crowdfunding->photos_gallery = $filename;
-
-        //         dd($crowdfunding->photos_gallery);
-        //     }
-        // }
-
+            $photos_gallery_url = '';
+            $photos_gallery = $request->file('photos_gallery');
+            foreach ($photos_gallery as $photo) {
+                $photos_gallery_url = uploadFileToPublic($photo, 'crowdfunding/photos_gallery');
+                $crowdfunding->photos_gallery = $photos_gallery_url;
+            }
 
             $crowdfunding->banner_text          = $request->banner_text;
             $crowdfunding->title_1              = $request->title_1;
@@ -497,12 +476,6 @@ class CrowdfundingController extends Controller
             flash(icon() . ' ' . Str::singular($this->module_title) . " Creation Failed! $msg")->error()->important();
             return back()->withInput();
         }
-
-        // flash(icon().' '.Str::singular($module_title)."' Updated Successfully")->success()->important();
-
-        // logUserAccess($module_title.' '.$module_action.' | Id: '.$$module_name_singular->id);
-
-        // return redirect("admin/$module_name");
     }
 
     /**
@@ -520,7 +493,6 @@ class CrowdfundingController extends Controller
         $module_action = 'destroy';
 
         $$module_name_singular = $module_model::findOrFail($id);
-
 
         $$module_name_singular->delete();
 
