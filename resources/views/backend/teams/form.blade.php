@@ -167,7 +167,7 @@
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->select($field_name)->class('form-control form-control-sm select2')->attributes(['name' => 'position', "$required"])->value($value) }}
+            {{ html()->select($field_name)->class('form-control form-control-sm select2')->attributes(['name' => 'position', "$required"])->options($options)->value($value) }}
             @error('position')
                 <span class="error">{{ $message }}</span>
             @enderror
