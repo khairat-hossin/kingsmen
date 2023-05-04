@@ -52,8 +52,9 @@
                             </div>
                             <div class="my-5 ">
                                 <h4 class="text-center fw-bolder">{{ $team->first_name . ' ' . $team->last_name }}</h4>
-                                <h6 class="text-center">Chief Executive Officer At Kingsmen <br> - Head of Markerting
-                                    Department
+                                <h6 class="text-center"> {{ $team->designation }}  <br> @if ($team->university_degree)
+                                            - {{ $team->university_degree }}
+                                        @endif
                                 </h6><br><br>
                                 <p class="fw-light">
                                     {!! nl2br($team->about_team_member) !!}
