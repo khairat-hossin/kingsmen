@@ -20,6 +20,7 @@
         "livewire/livewire": "^2.12",
         "nasirkhan/module-manager": "^0.6.0",
         "nwidart/laravel-modules": "^10.0",
+        "pipedrive/pipedrive": "^4.0",
         "predis/predis": "^2.1",
         "spatie/laravel-activitylog": "^4.7",
         "spatie/laravel-backup": "^8.1",
