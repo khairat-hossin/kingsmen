@@ -69,6 +69,7 @@ class ProjectController extends Controller {
      * Store a newly created resource in storage.
      */
     public function store(Request $request) {
+        // dd($request->all());
         $module_action = 'store';
         $request->validate([
             "project_logo"                    => "required",
@@ -86,73 +87,73 @@ class ProjectController extends Controller {
             "price_starting_per_sqm"          => "required",
             "land_price_starting"             => "required",
 
-            "home_page_banner"                => "required",
-            "home_page_banner_text"           => "required",
-            "home_page_header_title"          => "required",
-            "home_page_header_paragraph"      => "required",
-            "home_page_footer_title"          => "required",
-            "home_page_footer_paragraph"      => "required",
-            "project_timeline"                => "required",
-            "project_management_companies"    => "required",
-            "home_page_photos_gallery"        => "required",
+            "home_page_banner"                => "nullable",
+            "home_page_banner_text"           => "nullable",
+            "home_page_header_title"          => "nullable",
+            "home_page_header_paragraph"      => "nullable",
+            "home_page_footer_title"          => "nullable",
+            "home_page_footer_paragraph"      => "nullable",
+            "project_timeline"                => "nullable",
+            "project_management_companies"    => "nullable",
+            "home_page_photos_gallery"        => "nullable",
 
-            "qna_page_banner"                 => "required",
-            "qna_page_banner_text"            => "required",
-            "qna_page_header_title"           => "required",
-            "qna_page_header_paragraph"       => "required",
-            "qna_page_footer_title"           => "required",
-            "qna_page_footer_paragraph"       => "required",
+            "qna_page_banner"                 => "nullable",
+            "qna_page_banner_text"            => "nullable",
+            "qna_page_header_title"           => "nullable",
+            "qna_page_header_paragraph"       => "nullable",
+            "qna_page_footer_title"           => "nullable",
+            "qna_page_footer_paragraph"       => "nullable",
 
-            "buy_home_page_banner"            => "required",
-            "buy_home_page_banner_text"       => "required",
-            "buy_home_page_header_title"      => "required",
-            "buy_home_page_header_paragraph"  => "required",
-            "buy_home_page_footer_title"      => "required",
-            "buy_home_page_footer_paragraph"  => "required",
+            "buy_home_page_banner"            => "nullable",
+            "buy_home_page_banner_text"       => "nullable",
+            "buy_home_page_header_title"      => "nullable",
+            "buy_home_page_header_paragraph"  => "nullable",
+            "buy_home_page_footer_title"      => "nullable",
+            "buy_home_page_footer_paragraph"  => "nullable",
 
-            "buy_land_page_banner"            => "required",
-            "buy_land_page_banner_text"       => "required",
-            "buy_land_page_header_title"      => "required",
-            "buy_land_page_header_paragraph"  => "required",
-            "buy_land_page_footer_title"      => "required",
-            "buy_land_page_footer_paragraph"  => "required",
+            "buy_land_page_banner"            => "nullable",
+            "buy_land_page_banner_text"       => "nullable",
+            "buy_land_page_header_title"      => "nullable",
+            "buy_land_page_header_paragraph"  => "nullable",
+            "buy_land_page_footer_title"      => "nullable",
+            "buy_land_page_footer_paragraph"  => "nullable",
 
-            "amenities_page_banner"           => "required",
-            "amenities_page_banner_text"      => "required",
-            "amenities_page_header_title"     => "required",
-            "amenities_page_header_paragraph" => "required",
-            "amenities_page_footer_title"     => "required",
-            "amenities_page_footer_paragraph" => "required",
+            "amenities_page_banner"           => "nullable",
+            "amenities_page_banner_text"      => "nullable",
+            "amenities_page_header_title"     => "nullable",
+            "amenities_page_header_paragraph" => "nullable",
+            "amenities_page_footer_title"     => "nullable",
+            "amenities_page_footer_paragraph" => "nullable",
 
-            "financing_page_banner"           => "required",
-            "financing_page_banner_text"      => "required",
-            "financing_page_header_title"     => "required",
-            "financing_page_header_paragraph" => "required",
-            "financing_page_footer_title"     => "required",
-            "financing_page_footer_paragraph" => "required",
+            "financing_page_banner"           => "nullable",
+            "financing_page_banner_text"      => "nullable",
+            "financing_page_header_title"     => "nullable",
+            "financing_page_header_paragraph" => "nullable",
+            "financing_page_footer_title"     => "nullable",
+            "financing_page_footer_paragraph" => "nullable",
 
-            "who_page_banner"                 => "required",
-            "who_page_banner_text"            => "required",
-            "who_page_header_title"           => "required",
-            "who_page_header_paragraph"       => "required",
-            "who_page_footer_title"           => "required",
-            "who_page_footer_paragraph"       => "required",
+            "who_page_banner"                 => "nullable",
+            "who_page_banner_text"            => "nullable",
+            "who_page_header_title"           => "nullable",
+            "who_page_header_paragraph"       => "nullable",
+            "who_page_footer_title"           => "nullable",
+            "who_page_footer_paragraph"       => "nullable",
 
-            "contact_page_banner"             => "required",
-            "contact_page_banner_text"        => "required",
-            "contact_page_header_title"       => "required",
-            "contact_page_header_paragraph"   => "required",
-            "contact_page_footer_title"       => "required",
-            "contact_page_footer_paragraph"   => "required",
+            "contact_page_banner"             => "nullable",
+            "contact_page_banner_text"        => "nullable",
+            "contact_page_header_title"       => "nullable",
+            "contact_page_header_paragraph"   => "nullable",
+            "contact_page_footer_title"       => "nullable",
+            "contact_page_footer_paragraph"   => "nullable",
 
             "kingsmen_details"                => "required",
             "phone_number"                    => "required",
             "project_address"                 => "required",
             "email"                           => "required|email",
 
-            "project_brochure"                => "required",
-            "project_elevations"              => "required",
-            "construction_rules"              => "required",
+            "project_brochure"                => "nullable",
+            "project_elevations"              => "nullable",
+            "construction_rules"              => "nullable",
             "other"                           => "nullable",
 
             "land_number"                     => "nullable",
@@ -218,8 +219,8 @@ class ProjectController extends Controller {
             $all_listings_land           = '';
             if ($request->all_listings_land) {
                 $all_listings_land = uploadFileToPublic($request->file('all_listings_land'), 'projects/all_listings_land');
+                $project->all_listings_land = $all_listings_land;
             }
-            $project->all_listings_land = $all_listings_land;
 
             // land
             $project->house_type                   = $request->house_type;
@@ -229,58 +230,58 @@ class ProjectController extends Controller {
             $all_listings_house                    = '';
             if ($request->all_listings_house) {
                 $all_listings_house = uploadFileToPublic($request->file('all_listings_house'), 'projects/all_listings_house');
+                $project->all_listings_house = $all_listings_house;
             }
-            $project->all_listings_house = $all_listings_house;
 
             $technical_specs = '';
             if ($request->technical_specs) {
                 $technical_specs = uploadFileToPublic($request->file('technical_specs'), 'projects/technical_specs');
+                $project->technical_specs = $technical_specs;
             }
-            $project->technical_specs = $technical_specs;
 
             $all_listings_house = '';
             if ($request->all_listings_house) {
                 $all_listings_house = uploadFileToPublic($request->file('all_listings_house'), 'projects/all_listings_house');
+                $project->all_listings_house = $all_listings_house;
             }
-            $project->all_listings_house = $all_listings_house;
 
             $technical_specs = '';
             if ($request->technical_specs) {
                 $technical_specs = uploadFileToPublic($request->file('technical_specs'), 'projects/technical_specs');
+                $project->technical_specs = $technical_specs;
             }
-            $project->technical_specs = $technical_specs;
 
             // Uplod Legal Documents
             $selling_contract = '';
             if ($request->selling_contract) {
                 $selling_contract = uploadFileToPublic($request->file('selling_contract'), 'projects/selling_contract');
+                $project->selling_contract = $selling_contract;
             }
-            $project->selling_contract = $selling_contract;
 
             $company_papers = '';
             if ($request->company_papers) {
                 $company_papers = uploadFileToPublic($request->file('company_papers'), 'projects/company_papers');
+                $project->company_papers = $company_papers;
             }
-            $project->company_papers = $company_papers;
 
             $project_rules_and_regulation = '';
             if ($request->project_rules_and_regulation) {
                 $project_rules_and_regulation = uploadFileToPublic($request->file('project_rules_and_regulation'), 'projects/project_rules_and_regulation');
+                $project->project_rules_and_regulation = $project_rules_and_regulation;
             }
-            $project->project_rules_and_regulation = $project_rules_and_regulation;
 
             $other_files = '';
             if ($request->other_files) {
                 $other_files = uploadFileToPublic($request->file('other_files'), 'projects/other_files');
+                $project->other_files = $other_files;
             }
-            $project->other_files = $other_files;
 
             // home page
             $home_page_banner = '';
             if ($request->home_page_banner) {
                 $home_page_banner = uploadFileToPublic($request->file('home_page_banner'), 'projects/home_page_banner');
+                $project->home_page_banner             = $home_page_banner;
             }
-            $project->home_page_banner             = $home_page_banner;
             $project->home_page_banner_text        = $request->home_page_banner_text;
             $project->home_page_header_title       = $request->home_page_header_title;
             $project->home_page_header_paragraph   = $request->home_page_header_paragraph;
@@ -288,16 +289,18 @@ class ProjectController extends Controller {
             $project->home_page_footer_paragraph   = $request->home_page_footer_paragraph;
             $project->project_timeline             = $request->project_timeline;
             $project->project_management_companies = $request->project_management_companies;
+
             $home_page_photos_gallery              = '';
             if ($request->home_page_photos_gallery) {
                 $home_page_photos_gallery = uploadFileToPublic($request->file('home_page_photos_gallery'), 'projects/home_page_photos_gallery');
+                $home_page_photos_gallery = $home_page_photos_gallery;
             }
 
             $qna_page_banner = '';
             if ($request->qna_page_banner) {
                 $qna_page_banner = uploadFileToPublic($request->file('qna_page_banner'), 'projects/qna_page_banner');
+                $project->qna_page_banner           = $qna_page_banner;
             }
-            $project->qna_page_banner           = $qna_page_banner;
             $project->qna_page_banner_text      = $request->qna_page_banner_text;
             $project->qna_page_header_title     = $request->qna_page_header_title;
             $project->qna_page_header_paragraph = $request->qna_page_header_paragraph;
@@ -362,8 +365,8 @@ class ProjectController extends Controller {
             $contact_page_banner = '';
             if ($request->contact_page_banner) {
                 $contact_page_banner = uploadFileToPublic($request->file('contact_page_banner'), 'projects/contact_page_banner');
+                $project->contact_page_banner           = $contact_page_banner;
             }
-            $project->contact_page_banner           = $contact_page_banner;
             $project->contact_page_banner_text      = $request->contact_page_banner_text;
             $project->contact_page_header_title     = $request->contact_page_header_title;
             $project->contact_page_header_paragraph = $request->contact_page_header_paragraph;
@@ -381,23 +384,23 @@ class ProjectController extends Controller {
             $other              = '';
             if ($request->project_brochure) {
                 $project_brochure = uploadFileToPublic($request->file('project_brochure'), 'projects/project_brochure');
+                $project->project_brochure   = $project_brochure;
             }
 
             if ($request->project_elevations) {
                 $project_elevations = uploadFileToPublic($request->file('project_elevations'), 'projects/project_elevations');
+                $project->project_elevations = $project_elevations;
             }
 
             if ($request->construction_rules) {
                 $construction_rules = uploadFileToPublic($request->file('construction_rules'), 'projects/construction_rules');
+                $project->construction_rules = $construction_rules;
             }
 
             if ($request->other) {
                 $other = uploadFileToPublic($request->file('other'), 'projects/other');
             }
 
-            $project->project_brochure   = $project_brochure;
-            $project->project_elevations = $project_elevations;
-            $project->construction_rules = $construction_rules;
             $project->other              = $other;
 
             $project->template              = $template;
