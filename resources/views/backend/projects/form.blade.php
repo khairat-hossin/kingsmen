@@ -439,7 +439,7 @@
         </div>
     </div>
 
-    
+
     <legend class="border-bottom w-100">Payment Method</legend>
     <div class="row">
         <div class="form-group col-6 col-md-4 mb-2">
@@ -588,7 +588,7 @@
             @enderror
         </div>
 
-        
+
 
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
@@ -611,7 +611,7 @@
             @enderror
         </div>
 
-        
+
 
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
@@ -1392,9 +1392,9 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = '';
-            $required = 'required';
+            $required = '';
             ?>
-            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
+            {{ html()->label($field_lable, $field_name)->class('form-label') }}
             {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'contact_page_banner', "$required", 'value' => "$value"]) }}
             @error('contact_page_banner')
                 <span class="error">{{ $message }}</span>
@@ -1558,7 +1558,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = '';
-            $required = 'required';
+            $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'project_brochure', "$required", 'value' => "$value"]) }}
@@ -1573,7 +1573,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = '';
-            $required = 'required';
+            $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'project_elevations', "$required", 'value' => "$value"]) }}
@@ -1588,7 +1588,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = '';
-            $required = 'required';
+            $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'construction_rules', "$required", 'value' => "$value"]) }}
@@ -1737,9 +1737,9 @@
             }
         });
 
-        // total cost 
-        
-        $("#land_price_starting").on("change",function (e) { 
+        // total cost
+
+        $("#land_price_starting").on("change",function (e) {
             let land_price_starting= $("#land_price_starting").val();
             let total_land_price= $("#total_land_price").val();
             let total_construction_cost= $("#total_construction_cost").val();
@@ -1751,8 +1751,8 @@
 
             $("#total_price_with_land").val(total);
         });
-        
-        $("#total_land_price").on("change",function (e) { 
+
+        $("#total_land_price").on("change",function (e) {
             let land_price_starting= $("#land_price_starting").val();
             let total_land_price= $("#total_land_price").val();
             let total_construction_cost= $("#total_construction_cost").val();
@@ -1764,8 +1764,8 @@
 
             $("#total_price_with_land").val(total);
         });
-        
-        $("#total_construction_cost").on("change",function (e) { 
+
+        $("#total_construction_cost").on("change",function (e) {
             let land_price_starting= $("#land_price_starting").val();
             let total_land_price= $("#total_land_price").val();
             let total_construction_cost= $("#total_construction_cost").val();
@@ -1782,7 +1782,7 @@
             return parseFloat(parseFloat(land_price_starting)+parseFloat(total_land_price)+parseFloat(total_construction_cost))
         }
 
-        $("#deposit").on("change",function (e) { 
+        $("#deposit").on("change",function (e) {
 
             let total_price_with_land= $("#total_price_with_land").val();
             let deposit= $("#deposit").val();

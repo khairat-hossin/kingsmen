@@ -205,7 +205,7 @@ class TeamController extends Controller
             "type"                 => "required",
             "upload_photo"         => "nullable|image",
             "personal_cell_number" => "required|unique:team_members,personal_cell_number," . $id.",id",
-            "personal_email"       => "required|email|unique:team_members" . $id . ",id",
+            "personal_email"       => "required|email|unique:team_members,personal_email," . $id . ",id",
             "assigned_email"       => "required|email",
             "home_address"         => "required",
             "family_member_name"   => "required",
@@ -214,7 +214,7 @@ class TeamController extends Controller
 
         DB::beginTransaction();
         try {
-            $team  = Team::find($id);
+            $team = Team::find($id);
 
             $passport_photo_url = '';
             $id_card_url = '';
