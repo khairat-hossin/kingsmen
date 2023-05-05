@@ -8,8 +8,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Foundation\Auth\Access\Authorizable;
+use Devio\Pipedrive\Pipedrive;
 use App\Models\Contact;
-
 class ContactController extends Controller
 {
     use Authorizable;
@@ -155,11 +155,50 @@ class ContactController extends Controller
             'bank_acc_with_6_month_history' => $validatedData['bank_acc_with_6_month_history'],
             'crypto_wallet' => $validatedData['crypto_wallet']
         ]);
-
         $contact->save();
 
+        // this contact is for test
+        // $contact= Contact::find(6);
 
+        $token = env('PIPEDRIVE_TOKEN');
+        $pipedrive= new Pipedrive($token);
+        $person= $pipedrive->persons()->add([
+            'name' => $validatedData['first_name']. " ". $validatedData['last_name'],
+            'first_name' => $validatedData['first_name'],
+            'last_name' => $validatedData['last_name'],
+            'email' => $validatedData['email'],
+            'phone' => $validatedData['phone'],
+            'add_time' => true,
+            'birthday' => $validatedData['date_of_birth'],
+            'postal_address' => $validatedData['location'],
+            'postal_address_postal_code' => $validatedData['PO_box'],
+            'birthday' => $validatedData['date_of_birth'],
+            'notes' => $validatedData['note'],
+        ]);
+        $person= $person->getContent();
 
+        if ($contact->photo_of_passport) {
+            $photo_of_passport = str_replace("\\", '/', $contact->photo_of_passport);
+            $file = new \SplFileInfo($photo_of_passport);
+            $pipedrive->files->add([
+                'file'   => $file,
+                'person_id' =>  $person->data->id
+            ]);
+        }
+        if ($contact->photo_of_id_card) {
+            $photo_of_id_card = str_replace("\\", '/', $contact->photo_of_id_card);
+            $file = new \SplFileInfo($photo_of_id_card);
+            $pipedrive->files->add([
+                'file'   => $file,
+                'person_id' =>  $person->data->id
+            ]);
+        }
+        
+        $user= $pipedrive->leads()->add([
+            'title' => $person->data->name,
+            'person_id' => $person->data->id
+        ]);
+       
         flash(icon().' '.Str::singular($module_title)."' Created.")->success()->important();
 
         logUserAccess($module_title.' '.$module_action.' | Id: '.$$module_name_singular->id);

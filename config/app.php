@@ -196,6 +196,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Devio\Pipedrive\PipedriveServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -226,6 +227,7 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         'Menu' => Lavary\Menu\Facade::class,
         // 'ExampleClass' => App\Example\ExampleClass::class,
+        'Pipedrive' => Devio\Pipedrive\PipedriveFacade::class,
     ])->toArray(),
 
 ];

@@ -8,6 +8,8 @@
         "php": "^8.1",
         "alexusmai/laravel-file-manager": "^3.0",
         "arcanedev/log-viewer": "^10.0",
+        "benhawker/pipedrive": "dev-master",
+        "devio/pipedrive": "^2.15",
         "guzzlehttp/guzzle": "^7.5",
         "hashids/hashids": "^5.0",
         "laracasts/flash": "^3.2",

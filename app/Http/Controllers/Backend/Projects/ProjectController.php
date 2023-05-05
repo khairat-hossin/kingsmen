@@ -444,4 +444,8 @@ class ProjectController extends Controller {
     public function destroy(string $id) {
         //
     }
+
+    public function pipe(){
+        return "hello";
+    }
 }
