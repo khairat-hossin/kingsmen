@@ -290,9 +290,8 @@ class ProjectController extends Controller {
 
             foreach ($photos_gallery as $photo) {
                 $home_page_photos_galleryurl = uploadFileToPublic($photo, 'projects/home_page_photos_gallery');
-                $home_page_photos_gallery = $home_page_photos_galleryurl;
+                $project->home_page_photos_gallery = $home_page_photos_galleryurl;
             }
-            // dd($home_page_photos_gallery);
 
 
             $qna_page_banner = '';
@@ -667,11 +666,14 @@ class ProjectController extends Controller {
             $project->project_timeline             = $request->project_timeline;
             $project->project_management_companies = $request->project_management_companies;
 
-            $home_page_photos_gallery              = '';
-            if ($request->home_page_photos_gallery) {
-                $home_page_photos_gallery = uploadFileToPublic($request->file('home_page_photos_gallery'), 'projects/home_page_photos_gallery');
-                $home_page_photos_gallery = $home_page_photos_gallery;
-            }
+           // Multple photo put to db
+           $home_page_photos_galleryurl = '';
+           $photos_gallery = $request->file('home_page_photos_gallery');
+
+           foreach ($photos_gallery as $photo) {
+               $home_page_photos_galleryurl = uploadFileToPublic($photo, 'projects/home_page_photos_gallery');
+               $project->home_page_photos_gallery = $home_page_photos_galleryurl;
+           }
 
             $qna_page_banner = '';
             if ($request->qna_page_banner) {
