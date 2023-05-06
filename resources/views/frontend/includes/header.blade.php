@@ -13,7 +13,7 @@
                             <ul>
                                 <li class="dropdown"><a class="{{ Request::is('one-tree-armenia*') ? 'active' : '' }}" href="{{ route('frontend.one_tree_armenia') }}"><span class="">One Tree Armenia</span> </a></li>
                                 <li class="dropdown"><a class="{{ Request::is('the-western-village*') ? 'active' : '' }}" href="{{ route('frontend.the_western_village') }}"><span>The Western Village</span></a></li>
-                                <li class="dropdown"><a href="#"><span>United 8 Apartments</span></a></li>
+                                <li class="dropdown"><a class="{{ Request::is('united-8-apartment*') ? 'active' : '' }}" href="{{ route('frontend.united_8_apartment') }}"><span>United 8 Apartments</span></a></li>
                             </ul>
                         </li>
                         <li class="dropdown"><a class="{{ Request::is('private-investments*') ? 'active' : '' }}" href="{{ route('frontend.privateInvestments') }}"><span>Private Investments</span></a></li>

@@ -78,6 +78,11 @@ class FrontendController extends Controller
         return view('frontend.the-western-village');
     }
 
+    public function united_8_apartment()
+    {
+        return view('frontend.united-8-apartment');
+    }
+
     public function privateInvestments()
     {
         $privateInvestments = PrivateInvestment::all();
