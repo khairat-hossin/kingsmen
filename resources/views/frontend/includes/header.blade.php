@@ -7,8 +7,8 @@
         <nav id="navbar" class="navbar order-last order-lg-0">
             <ul>
                 <li><a class="nav-link scrollto {{ Request::is('/') ? 'active' : '' }}" href="{{ route('frontend.index') }}">Home</a></li>
-                <li class="dropdown"><a href=""><span>Invests</span> <i class="bi bi-chevron-down"></i></a>
-                    <ul>
+                <li><a class="{{ Request::is('invests*') ? 'active' : '' }}" href="{{ route('frontend.invests') }}">Invests</a></li>
+                    {{-- <ul>
                         <li class="dropdown"><a class="{{ Request::is('crowdfundings') ? 'active' : '' }}" href="{{ route('frontend.crowdfundings') }}"><span class="">Crowdfunding</span> <i class="bi bi-chevron-right"></i></a>
                             <ul>
                                 <li class="dropdown"><a class="{{ Request::is('one-tree-armenia*') ? 'active' : '' }}" href="{{ route('frontend.one_tree_armenia') }}"><span class="">One Tree Armenia</span> </a></li>
@@ -17,13 +17,13 @@
                             </ul>
                         </li>
                         <li class="dropdown"><a class="{{ Request::is('private-investments*') ? 'active' : '' }}" href="{{ route('frontend.privateInvestments') }}"><span>Private Investments</span></a></li>
-                    </ul>
+                    </ul> --}}
                 </li>
                 <li><a class="nav-link scrollto {{ Request::is('projects*') ? 'active' : '' }}" href="{{ route('frontend.projects') }}">Projects</a></li>
                 <li><a class="nav-link scrollto {{ Request::is('faq*') ? 'active' : '' }}" href="{{ route('frontend.faq') }}">Frequently Asked Questions</a></li>
-                <li><a class="nav-link scrollto" href="#team">Services</a></li>
+                <li><a class="nav-link scrollto {{ Request::is('services*') ? 'active' : '' }}" href="{{ route('frontend.services') }}">Services</a></li>
                 <li><a class="nav-link scrollto {{ Request::is('team*') ? 'active' : '' }}" href="{{ route('frontend.team') }}">Meet our Team</a></li>
-                <li><a class="nav-link scrollto " href="#contact">About us</a></li>
+                <li><a class="nav-link scrollto {{ Request::is('about-us*') ? 'active' : '' }} " href="{{ route('frontend.about_us') }}">About us</a></li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->

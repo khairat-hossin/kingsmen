@@ -38,7 +38,7 @@
                             <h6><span class="text-warning"> Investment Type: </span> Agriculture &nbsp;</h6>
                             <h6><span class="text-warning"> Ticket Price: </span> 24,634 USD &nbsp;</h6>
                         </div>
-                        <a href="./one-tree-armenia.html" class="btn"> Check Project </a>
+                        <a href="{{ route('frontend.one_tree_armenia') }}" class="btn"> Check Project </a>
                     </div>
                 </div>
                 <div
@@ -56,7 +56,7 @@
                             <h6><span class="text-warning"> Investment Type: </span> Agriculture &nbsp;</h6>
                             <h6><span class="text-warning"> Ticket Price: </span> 24,634 USD &nbsp;</h6>
                         </div>
-                        <a href="the-western-village.html" class="btn"> Check Project </a>
+                        <a href="{{ route('frontend.the_western_village') }}" class="btn"> Check Project </a>
                     </div>
                 </div>
                 <div class="row row-cols-1 row-cols-lg-2 row-cols-md-2  d-flex justify-content-center align-items-center">
@@ -74,7 +74,7 @@
                             <h6><span class="text-warning"> Investment Type: </span> Agriculture &nbsp;</h6>
                             <h6><span class="text-warning"> Ticket Price: </span> 24,634 USD &nbsp;</h6>
                         </div>
-                        <a href="united-8-apartments.html" class="btn"> Check Project </a>
+                        <a href="{{ route('frontend.united_8_apartment') }}" class="btn"> Check Project </a>
                     </div>
                 </div>
             </div>

@@ -61,26 +61,33 @@ class FrontendController extends Controller
         return view('frontend.project', compact('projects'));
     }
 
+    public function invests()
+    {
+        $crowdfundings = Crowdfunding::all();
+
+        return view('frontend.invests.invest');
+    }
+
     public function crowdfunding()
     {
         $crowdfundings = Crowdfunding::all();
 
-        return view('frontend.crowdfunding', compact('crowdfundings'));
+        return view('frontend.invests.crowdfunding', compact('crowdfundings'));
     }
 
     public function one_tree_armenia()
     {
-        return view('frontend.one-tree-armenia');
+        return view('frontend.invests.one-tree-armenia');
     }
 
     public function the_western_village()
     {
-        return view('frontend.the-western-village');
+        return view('frontend.invests.the-western-village');
     }
 
     public function united_8_apartment()
     {
-        return view('frontend.united-8-apartment');
+        return view('frontend.invests.united-8-apartment');
     }
 
     public function privateInvestments()
@@ -88,6 +95,16 @@ class FrontendController extends Controller
         $privateInvestments = PrivateInvestment::all();
 
         return view('frontend.private-investments', compact('privateInvestments'));
+    }
+
+    public function services()
+    {
+         return view('frontend.service');
+    }
+
+    public function about_us()
+    {
+        return view('frontend.about-us');
     }
 
     public function faq()
