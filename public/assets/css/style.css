@@ -26,7 +26,7 @@ body {
 
 a {
   color: #ffc451;
-  text-decoration: none;
+  text-decoration: none; 
   font-size: calc(10px + 0.390625vw);
 }
 
@@ -61,11 +61,11 @@ h1{
 }
 
 h2{
-  font-size: 1.3rem;
+  font-size: 1.2rem;
 }
 
-li,p,h3,h4,h6{
-  font-size:  calc(10px + 0.390625vw)!important;
+a,li,p,h3,h4,h6{
+  font-size:  calc(12px + 0.390625vw)!important;
 
 }
 
@@ -78,10 +78,6 @@ h5{
 }
 
 
-
-li{
-
-}
 .text-green{
   color:green;
 }
@@ -124,7 +120,7 @@ li{
 /*--------------------------------------------------------------
 # Preloader
 --------------------------------------------------------------*/
-#preloader {
+/* #preloader {
   position: fixed;
   top: 0;
   left: 0;
@@ -157,7 +153,7 @@ li{
   100% {
     transform: rotate(360deg);
   }
-}
+} */
 
 /*--------------------------------------------------------------
 # Disable aos animation delay on mobile devices
@@ -234,7 +230,7 @@ li{
 # Navigation Menu
 --------------------------------------------------------------*/
 /**
-* Desktop Navigation
+* Desktop Navigation 
 */
 .navbar {
   padding: 0;
@@ -352,7 +348,7 @@ li{
 }
 
 /**
-* Mobile Navigation
+* Mobile Navigation 
 */
 .mobile-nav-toggle {
   color: #fff;
@@ -466,27 +462,60 @@ li{
 # Hero Section
 --------------------------------------------------------------*/
 #hero {
-  width: 100%;
-  height: 50vh;
-  background: url("../img/hero-bg.jpg") top center;
+  background-image: url('../img/hero-bg.jpg');
   background-size: cover;
+  background-position: center;
   position: relative;
 }
 
-#hero-private-statement{
+#hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 50vh;
+  height: 100%;
+  opacity: 0.7; /* set the opacity value as needed */
+  background-color: #000; /* set the background color as needed */
+}
+
+
+#hero-private-statement{
   background: url("../img/hero-private-investmets.jpg") top center;
   background-size: cover;
+  background-position: center;
   position: relative;
 }
-#hero-crowdfunding{
+
+#hero-private-statement::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 50vh;
+  height: 100%;
+  opacity: 0.7; /* set the opacity value as needed */
+  background-color: #000; /* set the background color as needed */
+}
+
+#hero-crowdfunding{
   background: url("../img/crowdfunding/hero-crowdfunding.jpg") top center;
   background-size: cover;
+  background-position: center;
   position: relative;
 }
+
+#hero-crowdfunding::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.7; /* set the opacity value as needed */
+  background-color: #000; /* set the background color as needed */
+}
+
 #hero-crowdfunding h3{
   margin: 0;
   font-size:  calc(39px + 0.390625vw);
@@ -496,30 +525,81 @@ li{
   color: #fff;
   font-family: 'inter', sans-serif;
 }
-#hero-one-tree-armenia{
+
+#hero-invests{
+  background: url("../img/invests/hero-invests-bg.jpg") top center;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+#hero-invests::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 65vh;
+  height: 100%;
+  opacity: 0.7; /* set the opacity value as needed */
+  background-color: #000; /* set the background color as needed */
+}
+#hero-services{
+  background: url("../img/services/hero-services-bg.jpg") top center;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+#hero-services:before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.7; /* set the opacity value as needed */
+  background-color: #000; /* set the background color as needed */
+}
+#hero-one-tree-armenia{
   background: url("../../assets/img/crowdfunding/one-tree-armenia/one\ tree\ hero\ bg.png") top center;
   background-size: cover;
+  background-position: center;
   position: relative;
+  width:100%;
+  height: 55vh;
 }
 
 #hero-the-western-village{
-  width: 100%;
-  height: 65vh;
   background: url("../../assets/img/crowdfunding/the-western-village/hero-bg-the-western-village.jpg") top center;
   background-size: cover;
+  background-position: center;
   position: relative;
+}
+#hero-the-western-village::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.7; /* set the opacity value as needed */
+  background-color: #000; /* set the background color as needed */
 }
 
 #hero-united-8-apartments{
-  width: 100%;
-  height: 65vh;
   background: url("../img/crowdfunding/united-8-apartments/hero_united_8_apartment_bg.jpg") top center;
   background-size: cover;
+  background-position: center;
   position: relative;
 }
-
+#hero-united-8-apartments::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.7; /* set the opacity value as needed */
+  background-color: #000; /* set the background color as needed */
+}
 #hero-the-western-village h3{
   margin: 0;
   font-size:  calc(23px + 0.390625vw);
@@ -530,35 +610,69 @@ li{
   font-family: 'inter', sans-serif;
 }
 #hero-projects-bg{
-  width: 100%;
-  height: 50vh;
   background: url("../../assets/img/projects/projects-hero-bg.jpg") top center;
   background-size: cover;
+  background-position: center;
   position: relative;
 }
-#hero-faq-bg{
-  width: 100%;
-  height: 50vh;
-  background: url("../../assets/img/faq-hero-bg.jpg") top center;
-  background-size: cover;
-  position: relative;
-}
-#hero-team-bg{
-  width: 100%;
-  height: 50vh;
-  background: url("../../assets/img/team/team-hero-bg.jpg") top center;
-  background-size: cover;
-  position: relative;
-}
-
-#hero:before {
-  content: "";
-  background: rgba(0, 0, 0, 0.6);
+#hero-projects-bg::before{
+  content: '';
   position: absolute;
-  bottom: 0;
   top: 0;
   left: 0;
-  right: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.7; /* set the opacity value as needed */
+  background-color: #000; /* set the background color as needed */
+}
+#hero-faq-bg{
+  background: url("../../assets/img/faq-hero-bg.jpg") top center;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+#hero-faq-bg::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.7; /* set the opacity value as needed */
+  background-color: #000; /* set the background color as needed */
+}
+#hero-team-bg{;
+  background: url("../../assets/img/team/team-hero-bg.jpg") top center;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+#hero-team-bg::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.7; /* set the opacity value as needed */
+  background-color: #000; /* set the background color as needed */
+}
+
+#hero-about{
+  background: url("../../assets/img/about/hero-about-bg.jpg") top center;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+#hero-about::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.7; /* set the opacity value as needed */
+  background-color: #000; /* set the background color as needed */
 }
 
 #hero .container {
@@ -569,7 +683,7 @@ li{
 
 .hero_text{
   margin: 0;
-  font-size: calc(55px + 0.390625vw);
+  font-size: calc(45px + 0.390625vw);
   font-weight: 300;
   text-transform: uppercase;
   line-height: 64px;
@@ -577,7 +691,7 @@ li{
   font-family: "lato";
 }
 .hero_subhead{
-  margin: 0;
+  margin-top: calc(50px + 0.390625vw)!important;
   font-size: calc(35px + 0.390625vw);
   font-weight: 700;
   line-height: 50px;
@@ -590,7 +704,7 @@ li{
 
   .hero_text{
     margin: 0;
-    font-size: calc(39px + 0.390625vw);
+    font-size: calc(35px + 0.390625vw);
     font-weight: 300;
     text-transform: uppercase;
     line-height: 64px;
@@ -1754,7 +1868,7 @@ flex-direction: column;
 
 }
 .hr-line{
-width: 60%;
+width: 90%;
 margin: auto;
 
 }
@@ -1764,7 +1878,7 @@ margin: auto;
   color: #444;
   cursor: pointer;
   padding: 30px 20px;
-  width: 60%;
+  width: 90%;
   border: none;
   outline: none;
   transition: 0.4s;
@@ -1774,9 +1888,9 @@ margin: auto;
 .faq-body{
   margin: auto;
   /* text-align: center; */
- width: 50%;
+ width: 88%; 
  padding: auto;
-
+ 
 }
 
 
@@ -1900,7 +2014,7 @@ li.nav-item button {
 /* code for home */
 
 .videocontainer {
-	position:relative;
+	position:relative; 
 	padding-bottom:56.25%;
 }
 .videocontainer iframe {
@@ -1982,6 +2096,24 @@ li.nav-item button {
 }
 
 #main .raw_card:hover{
+  border: 1px solid #21242b21;
+  border-top: 0;
+  margin-top: 20px;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 1px 4px 16px 0 black;
+  padding: 20px;
+  transition-delay: 30s;
+}
+
+#service_cards .raw_card{
+  border: 1px solid #21242b21;
+  border-top: 0;
+  margin-top: 20px;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 1px 4px 16px 0 #0000001c;
+  padding: 20px;
+}
+#service_cards .raw_card:hover{
   border: 1px solid #21242b21;
   border-top: 0;
   margin-top: 20px;
