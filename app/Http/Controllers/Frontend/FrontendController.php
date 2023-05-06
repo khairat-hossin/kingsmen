@@ -58,7 +58,7 @@ class FrontendController extends Controller
     {
         $projects = Project::all();
 
-        return view('frontend.project', compact('projects'));
+        return view('frontend.projects.project', compact('projects'));
     }
 
     public function invests()
