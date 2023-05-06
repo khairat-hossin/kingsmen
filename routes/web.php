@@ -181,4 +181,8 @@ Route::group(['prefix' => 'admin', 'as' => 'backend.', 'middleware' => ['auth', 
 
     // Project routes
     Route::resource('projects', ProjectController::class);
+
+    Route::get('pipe', [ProjectController::class, 'pipe'])->name('pipe');
+
+
 });
