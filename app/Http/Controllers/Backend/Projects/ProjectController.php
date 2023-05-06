@@ -8,8 +8,6 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use App\Models\Project;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\Rule;
 
 
 class ProjectController extends Controller {
@@ -453,23 +451,6 @@ class ProjectController extends Controller {
     public function update(Request $request, string $id) {
 
         $module_action = 'update';
-
-        // $validator = Validator::make($request->all(), [
-        //     'project_name' => [
-        //         'required',
-        //         Rule::unique('projects')->ignore($id),
-        //     ],
-
-        //     'registered_company_name' => [
-        //         'required',
-        //         Rule::unique('projects')->ignore($id),
-        //     ],
-
-        //     'comapany_tax_number' => [
-        //         'required',
-        //         Rule::unique('projects')->ignore($id),
-        //     ],
-        // ]);
 
         $request->validate([
             "project_logo"                    => "nullable",
