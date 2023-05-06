@@ -78,14 +78,14 @@ class ProjectController extends Controller {
             "project_location"                => "required",
             "registered_company_name"         => "required|unique:" . $this->module_model . ",registered_company_name",
             "comapany_tax_number"             => "required|unique:" . $this->module_model . ",comapany_tax_number",
-            "project_type"                    => "required",
-            "accepted_currency"               => "required",
-            "starting_date"                   => "required",
-            "accepted_currency"               => "required",
-            "delivery_date"                   => "required",
-            "area_starting_per_sqm"           => "required",
-            "price_starting_per_sqm"          => "required",
-            "land_price_starting"             => "required",
+            "project_type"                    => "nullable",
+            "accepted_currency"               => "nullable",
+            "starting_date"                   => "nullable",
+            "accepted_currency"               => "nullable",
+            "delivery_date"                   => "nullable",
+            "area_starting_per_sqm"           => "nullable",
+            "price_starting_per_sqm"          => "nullable",
+            "land_price_starting"             => "nullable",
 
             "home_page_banner"                => "nullable",
             "home_page_banner_text"           => "nullable",
@@ -146,10 +146,10 @@ class ProjectController extends Controller {
             "contact_page_footer_title"       => "nullable",
             "contact_page_footer_paragraph"   => "nullable",
 
-            "kingsmen_details"                => "required",
-            "phone_number"                    => "required",
-            "project_address"                 => "required",
-            "email"                           => "required|email",
+            "kingsmen_details"                => "nullable",
+            "phone_number"                    => "nullable",
+            "project_address"                 => "nullable",
+            "email"                           => "nullable|email",
 
             "project_brochure"                => "nullable",
             "project_elevations"              => "nullable",
@@ -401,9 +401,9 @@ class ProjectController extends Controller {
                 $other = uploadFileToPublic($request->file('other'), 'projects/other');
             }
 
-            $project->other              = $other;
+            $project->other              = $request->other;
 
-            $project->template              = $template;
+            $project->template              = $request->template;
 
             $project->save();
 
