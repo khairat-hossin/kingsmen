@@ -112,9 +112,9 @@ return new class extends Migration
             $table->string('contact_page_footer_paragraph')->nullable();
 
             $table->string('kingsmen_details')->nullable();
-            $table->string('project_address');
-            $table->string('phone_number');
-            $table->string('email');
+            $table->string('project_address')->nullable();
+            $table->string('phone_number')->nullable();
+            $table->string('email')->nullable();
             $table->string('project_brochure')->nullable();
             $table->string('project_elevations')->nullable();
             $table->string('construction_rules')->nullable();
