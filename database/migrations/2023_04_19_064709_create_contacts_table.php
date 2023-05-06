@@ -40,6 +40,7 @@ return new class extends Migration
             $table->string('card_details_for_downpayment')->nullable();
             $table->string('bank_acc_with_6_month_history')->nullable();
             $table->string('crypto_wallet')->nullable();
+            $table->bigInteger('person_id')->nullable();
             $table->timestamps();
         });
     }
