@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Foundation\Auth\Access\Authorizable;
 use Devio\Pipedrive\Pipedrive;
 use App\Models\Contact;
+use Faker\Provider\ar_EG\Person;
+
 class ContactController extends Controller
 {
     use Authorizable;
@@ -157,43 +159,63 @@ class ContactController extends Controller
         ]);
         $contact->save();
 
-        // this contact is for test
-        // $contact= Contact::find(6);
+        // Add a person of this contact in pipedrive
+        $this->addPersonPipeDrive($contact);
+       
+        flash(icon().' '.Str::singular($module_title)."' Created.")->success()->important();
 
+        logUserAccess($module_title.' '.$module_action.' | Id: '.$$module_name_singular->id);
+
+        return redirect("admin/$module_name");
+    }
+
+    /**
+     * Add Person Data to Pipedrive
+     */
+    public function addPersonPipeDrive(Contact $contact){
+        // $contact= Contact::find(3);
         $token = env('PIPEDRIVE_TOKEN');
         $pipedrive= new Pipedrive($token);
         $person= $pipedrive->persons()->add([
-            'name' => $validatedData['first_name']. " ". $validatedData['last_name'],
-            'first_name' => $validatedData['first_name'],
-            'last_name' => $validatedData['last_name'],
-            'email' => $validatedData['email'],
-            'phone' => $validatedData['phone'],
-            'id_no' => $validatedData['id_no'],
-            'client_type' => $validatedData['client_type'],
-            'buisness_position' => $validatedData['buisness_position'],
-            'budget' => $validatedData['budget'],
-            'location' => $validatedData['location'],
-            'added_date' => $validatedData['added_date'],
-            'reffered_by' => $validatedData['reffered_by'],
-            'notes' => $validatedData['note'],
-            'date_of_birth' => $validatedData['date_of_birth'],
-            'team_member' => $validatedData['team_member'],
-            'project_or_investment' => $validatedData['project_or_investment'],
-            'citizenship' => $validatedData['citizenship'],
-            'passport_number' => $validatedData['passport_number'],
-            'photo_of_passport' => $photo_of_passport_url,
-            'passport_expiry_date' => $validatedData['passport_expiry_date'],
-            'id_card_text' => $validatedData['id_card_text'],
-            'photo_of_id_card' => $photo_of_id_card_url,
-            'exact_address' => $validatedData['exact_address'],
-            'PO_box' => $validatedData['PO_box'],
-            'name_of_the_bank_you_work_with' => $validatedData['name_of_the_bank_you_work_with'],
-            'card_details_for_downpayment' => $validatedData['card_details_for_downpayment'],
-            'bank_acc_with_6_month_history' => $validatedData['bank_acc_with_6_month_history'],
-            'crypto_wallet' => $validatedData['crypto_wallet']
+            'name' => $contact->first_name. " ". $contact->last_name,
+            'first_name' => $contact->first_name,
+            'last_name' => $contact->last_name,
+            'email' => $contact->email,
+            'phone' => $contact->phone,
+            '2627039f0b2dd4f79a416f56ad5601456d3fb4a1' => $contact->id_no,
+            'b2726d6fd800f6488aaec764df226f2a597b9c31' => $contact->client_type,
+            '17a2cdcfe7ec4cefea178eb67d95019188c5705b' => $contact->buisness_position,
+            '504b18f2758286267160ca704b284716802aa379' => $contact->budget,
+            'f5503a6a029085bbbd6c2b314758bc9de2ef8691' => $contact->location,
+            '79f4743dfada10605a8942a0d696bea6ae763b73' => $contact->added_date,
+            'f53729c20a6f960fba7df828364bfc1c535c1273' => $contact->reffered_by,
+            'notes' => $contact->note,
+            'birthday' => $contact->date_of_birth,
+            '27d45c50f5dc8ac5614b632ddecdd2a2bad74828' => $contact->team_member,
+            '2a0db08a760d1c96b9791177793088f6de56922d' => $contact->project_or_investment,
+            'd8b4589dab295f3c1d1bbbf94b9c1a2210552962' => $contact->citizenship,
+            '7703ed23a461aa347fc7bbb6090d3ded00ea92a1' => $contact->passport_number,
+            '8ac05295fdf751d9fe82fc4b32a7779b00b7f16f' => $contact->photo_of_passport_url,
+            'c001ad4206c6bbaaa7481704d65bfe8ee939748a' => $contact->passport_expiry_date,
+            'b03a92b5703c0c889ef05d4700dfa02a5ce8128f' => $contact->id_card_text,
+            '81869845731965a8f0950a0868f355f84672083e' => $contact->photo_of_id_card_url,
+            '6fa6fb61550c43146023df967da620a358f9d8da' => $contact->exact_address,
+            'bf5224a1b4b95833bbe293b01760998255dd9937' => $contact->PO_box,
+            'bb081d9a6fb3f027bd23196db7c19b9001f5a605' => $contact->name_of_the_bank_you_work_with,
+            'ee7a6f4fc93727206991036c9cacd3dc25a1b4b8' => $contact->card_details_for_downpayment,
+            '3ebc8831a7f564f3f40a8737ef172c254aeced71' => $contact->bank_acc_with_6_month_history,
+            '3001779f2ee6021f70bca1b10d39d59b624090b1' => $contact->crypto_wallet,
+            'contactPicture' => $contact->photo_of_passport_url,
         ]);
         $person= $person->getContent();
 
+         // add lead
+         $user= $pipedrive->leads()->add([
+            'title' => $person->data->name,
+            'person_id' => $person->data->id
+        ]);
+
+        // add files
         if ($contact->photo_of_passport) {
             $photo_of_passport = str_replace("\\", '/', $contact->photo_of_passport);
             $file = new \SplFileInfo($photo_of_passport);
@@ -210,18 +232,8 @@ class ContactController extends Controller
                 'person_id' =>  $person->data->id
             ]);
         }
-        
-        $user= $pipedrive->leads()->add([
-            'title' => $person->data->name,
-            'person_id' => $person->data->id
-        ]);
-       
-        flash(icon().' '.Str::singular($module_title)."' Created.")->success()->important();
-
-        logUserAccess($module_title.' '.$module_action.' | Id: '.$$module_name_singular->id);
-
-        return redirect("admin/$module_name");
     }
+
 
     /**
      * Display the specified resource.
