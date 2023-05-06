@@ -57,14 +57,11 @@ class FrontendController extends Controller
     public function projects()
     {
         $projects = Project::all();
-
         return view('frontend.projects.project', compact('projects'));
     }
 
     public function invests()
     {
-        $crowdfundings = Crowdfunding::all();
-
         return view('frontend.invests.invest');
     }
 

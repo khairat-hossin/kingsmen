@@ -30,24 +30,17 @@
             <div class="container text-center card raw_card" data-aos="fade-up">
                 <div class="row row-cols-1 row-cols-lg-2 row-cols-md-2  d-flex justify-content-center align-items-center">
                     <div class="gx-5" style=" font-family: lato; text-align: justify; ">
+                    @if (count($projects) > 0)
+                    @foreach ($projects as $project)
                         <div>
-                            <img src="assets/img/projects/Green Hills.jpg" class="img-fluid my-5">
-                            <p>
-                                Eco Gardens provides customers with a wide selection of properties to choose from, ranging
-                                from home areas to land areas. Depending on your needs, our experts can help you customize
-                                the perfect area for your requirements. Our knowledgeable personnel will work hard to find
-                                you the ideal place, tailored to fit your exact specifications. We understand that a
-                                property needs to be both a practical and aesthetically-pleasing environment, so we strive
-                                to provide options that can fulfill all of your needs. With Eco Gardens, you can rest
-                                assured knowing that you’re making the right decision for your home or land. Visit us today
-                                and find out how we can help make your dream property a reality!
-                            </p>
+                            <img src="{{ $project->project_logo }}" class="img-fluid my-5">
+                            <p> {{ $project->home_page_header_title }} </p>
                         </div>
                     </div>
                     <div class="opportunity-slider swiper my-2">
                         <div class="swiper-wrapper align-items-center">
                             <div class="swiper-slide">
-                                <img src="assets/img/projects/p1.png" class="d-block w-100" alt="...">
+                                <img src="{{ $project->home_page_photos_gallery }}" class="d-block w-100" alt="...">
                             </div>
                             <div class="swiper-slide">
                                 <img src="assets/img/projects/p2.png" class="d-block w-100" alt="...">
@@ -70,7 +63,8 @@
                     </div>
                 </div>
             </div>
-
+            @endforeach
+        @endif
             <div class="container text-center card raw_card" data-aos="fade-up">
                 <div class="row row-cols-1 row-cols-lg-2 row-cols-md-2  d-flex justify-content-center align-items-center">
                     <div class="gx-5" style=" font-family: lato; text-align: justify; ">
