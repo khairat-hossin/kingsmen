@@ -23,7 +23,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = old('project_name') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'project_name', "$required", 'value' => "$value"]) }}
@@ -44,7 +44,7 @@
                 'Village' => 'Village',
             ];
             $value = old('address') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->select($field_name)->class('form-control form-control-sm select2')->attributes(['name' => 'address', "$required"])->options($options)->placeholder($field_placeholder)->value($value) }}
@@ -60,7 +60,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = old('project_location') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'project_location', "$required", 'value' => "$value"]) }}
@@ -75,7 +75,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = old('registered_company_name') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'registered_company_name', "$required", 'value' => "$value"]) }}
@@ -111,7 +111,7 @@
                 'Commercial' => 'Commercial',
             ];
             $value = old('project_type') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->select($field_name)->class('form-control form-control-sm select2')->attributes(['name' => 'project_type', "$required"])->options($options)->placeholder($field_placeholder)->value($value) }}
@@ -131,7 +131,7 @@
                 'AMD' => 'AMD',
             ];
             $value = old('accepted_currency') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->select($field_name)->class('form-control form-control-sm')->attributes(['name' => 'accepted_currency', "$required"])->options($options)->placeholder($field_placeholder)->value($value) }}
@@ -150,11 +150,11 @@
             $field_lable = label_case($field_name);
             $field_placeholder = 'mm/dd/yyyy';
             $value = old('starting_date') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->text($field_name)->class('form-control form-control-sm datepicker')->attributes(['name' => 'starting_date', "$required", 'id' => 'starting_date'])->placeholder($field_placeholder) }}
-            @error('accepted_currency')
+            @error('starting_date')
                 <span class="error">{{ $message }}</span>
             @enderror
         </div>
@@ -164,8 +164,8 @@
             $field_name = 'Project Delivery Date';
             $field_lable = label_case($field_name);
             $field_placeholder = 'mm/dd/yyyy';
-            $value = old('starting_date') ?? '';
-            $required = 'required';
+            $value = old('delivery_date') ?? '';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->text($field_name)->class('form-control form-control-sm datepicker')->attributes(['name' => 'delivery_date', "$required", 'id' => 'delivery_date'])->placeholder($field_placeholder) }}
@@ -180,7 +180,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = old('project_duration_in_years') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'project_duration_in_years', "$required", 'id' => 'project_duration_in_years', 'readonly' => true]) }}
@@ -199,10 +199,13 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = old('area_starting_per_sqm') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->number($field_name)->class('form-control form-control-sm')->attributes(['name' => 'area_starting_per_sqm', "$required", 'id' => 'area_starting_per_sqm', 'pattern' => '\d*', 'step' => 'any']) }}
+            @error('area_starting_per_sqm')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -211,10 +214,13 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = old('price_starting_per_sqm') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->number($field_name)->class('form-control form-control-sm')->attributes(['name' => 'price_starting_per_sqm', "$required", 'id' => 'price_starting_per_sqm', 'pattern' => '\d*', 'step' => 'any']) }}
+            @error('price_starting_per_sqm')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -227,6 +233,9 @@
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->number($field_name)->class('form-control form-control-sm')->attributes(['name' => 'land_price_starting', "$required", 'id' => 'land_price_starting', 'pattern' => '\d*', 'step' => 'any', 'readonly' => true]) }}
+            @error('land_price_starting')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
 
     </div>
@@ -241,7 +250,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = old('land_number') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'land_number', "$required", 'value' => "$value"]) }}
@@ -262,7 +271,7 @@
                 'Commercial' => 'Commercial',
             ];
             $value = old('land_category') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->select($field_name)->class('form-control form-control-sm select2')->attributes(['name' => 'land_category', "$required"])->options($options)->placeholder($field_placeholder)->value($value) }}
@@ -278,7 +287,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = old('land_area') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->number($field_name)->class('form-control form-control-sm')->attributes(['name' => 'land_area', "$required", 'id' => 'land_area', 'pattern' => '\d*', 'step' => 'any']) }}
@@ -293,7 +302,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = old('land_price_per_sqm') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->number($field_name)->class('form-control form-control-sm')->attributes(['name' => 'land_price_per_sqm', "$required", 'id' => 'land_price_per_sqm', 'pattern' => '\d*', 'step' => 'any']) }}
@@ -323,7 +332,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'all_listings_land', "$required", 'value' => "$value"]) }}
@@ -338,7 +347,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = old('interactive_map') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'interactive_map', "$required", 'value' => "$value"]) }}
@@ -360,7 +369,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = old('house_type') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'house_type', "$required", 'value' => "$value"]) }}
@@ -376,7 +385,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = old('house_area_per_sqm') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->number($field_name)->class('form-control form-control-sm')->attributes(['name' => 'house_area_per_sqm', "$required", 'id' => 'house_area_per_sqm', 'pattern' => '\d*', 'step' => 'any']) }}
@@ -388,7 +397,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = old('cost_of_construction_per_sqm') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->number($field_name)->class('form-control form-control-sm')->attributes(['name' => 'cost_of_construction_per_sqm', "$required", 'id' => 'cost_of_construction_per_sqm', 'pattern' => '\d*', 'step' => 'any']) }}
@@ -401,7 +410,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'all_listings_house', "$required", 'value' => "$value"]) }}
@@ -417,7 +426,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'technical_specs', "$required", 'value' => "$value"]) }}
@@ -515,7 +524,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'selling_contract[]', "$required", 'value' => "$value"])->multiple() }}
@@ -530,7 +539,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'company_papers[]', "$required", 'value' => "$value"])->multiple() }}
@@ -545,7 +554,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'project_rules_and_regulation[]', "$required", 'value' => "$value"])->multiple() }}
@@ -560,7 +569,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'other_files[]', "$required", 'value' => "$value"])->multiple() }}
@@ -579,7 +588,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = old('project_thumbnail') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'project_thumbnail', "$required", 'value' => "$value"]) }}
@@ -602,7 +611,7 @@
                 'Village' => 'Village',
             ];
             $value = old('title') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->select($field_name)->class('form-control form-control-sm select2')->attributes(['name' => 'title', "$required"])->options($options)->placeholder($field_placeholder)->value($value) }}
@@ -619,7 +628,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = old('description') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'description', "$required", 'value' => "$value"]) }}
@@ -645,7 +654,7 @@
                 'Template 3' => 'Template 3',
             ];
             $value = old('template') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->select($field_name)->class('form-control form-control-sm select2')->attributes(['name' => 'template', "$required"])->options($options)->placeholder($field_placeholder)->value($value) }}
@@ -665,7 +674,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'home_page_banner', "$required", 'value' => "$value"]) }}
@@ -681,7 +690,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = old('home_page_banner_text') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'home_page_banner_text', "$required", 'value' => "$value"]) }}
@@ -697,7 +706,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = old('home_page_header_title') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'home_page_header_title', "$required", 'value' => "$value"]) }}
@@ -712,7 +721,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = old('home_page_header_paragraph') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'home_page_header_paragraph', "$required", 'value' => "$value"]) }}
@@ -727,7 +736,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = old('home_page_footer_title') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'home_page_footer_title', "$required", 'value' => "$value"]) }}
@@ -742,7 +751,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = old('home_page_footer_paragraph') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'home_page_footer_paragraph', "$required", 'value' => "$value"]) }}
@@ -757,7 +766,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'home_page_photos_gallery[]', "$required", 'value' => "$value"])->multiple() }}
@@ -772,7 +781,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = old('project_timeline') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'project_timeline', "$required", 'value' => "$value"]) }}
@@ -794,7 +803,7 @@
                 'Company Name 4' => 'Company Name 4',
             ];
             $value = old('project_management_companies') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->select($field_name)->class('form-control form-control-sm select2')->attributes(['name' => 'project_management_companies', "$required"])->options($options)->placeholder($field_placeholder)->value($value) }}
@@ -815,7 +824,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'qna_page_banner', "$required", 'value' => "$value"]) }}
@@ -831,7 +840,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = old('qna_page_banner_text') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'qna_page_banner_text', "$required", 'value' => "$value"]) }}
@@ -847,7 +856,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = old('qna_page_header_title') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'qna_page_header_title', "$required", 'value' => "$value"]) }}
@@ -862,7 +871,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = old('qna_page_header_paragraph') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'qna_page_header_paragraph', "$required", 'value' => "$value"]) }}
@@ -877,7 +886,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = old('qna_page_footer_title') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'qna_page_footer_title', "$required", 'value' => "$value"]) }}
@@ -892,7 +901,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = old('qna_page_footer_paragraph') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'qna_page_footer_paragraph', "$required", 'value' => "$value"]) }}
@@ -911,7 +920,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'buy_home_page_banner', "$required", 'value' => "$value"]) }}
@@ -927,7 +936,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = old('buy_home_page_banner_text') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'buy_home_page_banner_text', "$required", 'value' => "$value"]) }}
@@ -943,7 +952,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = old('buy_home_page_header_title') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'buy_home_page_header_title', "$required", 'value' => "$value"]) }}
@@ -958,7 +967,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = old('buy_home_page_header_paragraph') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'buy_home_page_header_paragraph', "$required", 'value' => "$value"]) }}
@@ -973,7 +982,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = old('buy_home_page_footer_title') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'buy_home_page_footer_title', "$required", 'value' => "$value"]) }}
@@ -988,7 +997,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = old('buy_home_page_footer_paragraph') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'buy_home_page_footer_paragraph', "$required", 'value' => "$value"]) }}
@@ -1007,7 +1016,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'buy_land_page_banner', "$required", 'value' => "$value"]) }}
@@ -1023,7 +1032,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = old('buy_land_page_banner_text') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'buy_land_page_banner_text', "$required", 'value' => "$value"]) }}
@@ -1039,7 +1048,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = old('buy_land_page_header_title') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'buy_land_page_header_title', "$required", 'value' => "$value"]) }}
@@ -1054,7 +1063,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = old('buy_land_page_header_paragraph') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'buy_land_page_header_paragraph', "$required", 'value' => "$value"]) }}
@@ -1069,7 +1078,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = old('buy_land_page_footer_title') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'buy_land_page_footer_title', "$required", 'value' => "$value"]) }}
@@ -1084,7 +1093,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = old('buy_land_page_footer_paragraph') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'buy_land_page_footer_paragraph', "$required", 'value' => "$value"]) }}
@@ -1103,7 +1112,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'amenities_page_banner', "$required", 'value' => "$value"]) }}
@@ -1119,7 +1128,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = old('amenities_page_banner_text') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'amenities_page_banner_text', "$required", 'value' => "$value"]) }}
@@ -1135,7 +1144,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = old('amenities_page_header_title') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'amenities_page_header_title', "$required", 'value' => "$value"]) }}
@@ -1150,7 +1159,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = old('amenities_page_header_paragraph') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'amenities_page_header_paragraph', "$required", 'value' => "$value"]) }}
@@ -1165,7 +1174,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = old('amenities_page_footer_title') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'amenities_page_footer_title', "$required", 'value' => "$value"]) }}
@@ -1180,7 +1189,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = old('amenities_page_footer_paragraph') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'amenities_page_footer_paragraph', "$required", 'value' => "$value"]) }}
@@ -1200,7 +1209,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'financing_page_banner', "$required", 'value' => "$value"]) }}
@@ -1216,7 +1225,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = old('financing_page_banner_text') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'financing_page_banner_text', "$required", 'value' => "$value"]) }}
@@ -1232,7 +1241,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = old('financing_page_header_title') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'financing_page_header_title', "$required", 'value' => "$value"]) }}
@@ -1247,7 +1256,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = old('financing_page_header_paragraph') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'financing_page_header_paragraph', "$required", 'value' => "$value"]) }}
@@ -1262,7 +1271,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = old('financing_page_footer_title') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'financing_page_footer_title', "$required", 'value' => "$value"]) }}
@@ -1277,7 +1286,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = old('financing_page_footer_paragraph') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'financing_page_footer_paragraph', "$required", 'value' => "$value"]) }}
@@ -1296,7 +1305,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'who_page_banner', "$required", 'value' => "$value"]) }}
@@ -1312,7 +1321,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = old('who_page_banner_text') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'who_page_banner_text', "$required", 'value' => "$value"]) }}
@@ -1328,7 +1337,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = old('who_page_header_title') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'who_page_header_title', "$required", 'value' => "$value"]) }}
@@ -1343,7 +1352,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = old('who_page_header_paragraph') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'who_page_header_paragraph', "$required", 'value' => "$value"]) }}
@@ -1358,7 +1367,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = old('who_page_footer_title') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'who_page_footer_title', "$required", 'value' => "$value"]) }}
@@ -1373,7 +1382,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = old('who_page_footer_paragraph') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'who_page_footer_paragraph', "$required", 'value' => "$value"]) }}
@@ -1408,7 +1417,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = old('contact_page_banner_text') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'contact_page_banner_text', "$required", 'value' => "$value"]) }}
@@ -1424,7 +1433,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = old('contact_page_header_title') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'contact_page_header_title', "$required", 'value' => "$value"]) }}
@@ -1439,7 +1448,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = old('contact_page_header_paragraph') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'contact_page_header_paragraph', "$required", 'value' => "$value"]) }}
@@ -1454,7 +1463,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = old('contact_page_footer_title') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'contact_page_footer_title', "$required", 'value' => "$value"]) }}
@@ -1469,7 +1478,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = old('contact_page_footer_paragraph') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'contact_page_footer_paragraph', "$required", 'value' => "$value"]) }}
@@ -1488,7 +1497,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = old('kingsmen_details') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'kingsmen_details', "$required", 'value' => "$value"]) }}
@@ -1504,7 +1513,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = old('project_address') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'project_address', "$required", 'value' => "$value"]) }}
@@ -1520,7 +1529,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = old('phone_number') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->number($field_name)->class('form-control form-control-sm')->attributes(['name' => 'phone_number', "$required", 'value' => "$value", 'pattern' => '\d*']) }}
@@ -1536,7 +1545,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = old('email') ?? '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->email($field_name)->class('form-control form-control-sm')->attributes(['name' => 'email', "$required", 'value' => "$value"]) }}

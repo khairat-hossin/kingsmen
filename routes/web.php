@@ -43,11 +43,16 @@ Route::group(['namespace' => 'App\Http\Controllers\Frontend', 'as' => 'frontend.
     // Added by Imran
     Route::get('team', 'FrontendController@team')->name('team');
     Route::get('projects', 'FrontendController@projects')->name('projects');
+    Route::get('invests', 'FrontendController@invests')->name('invests');
     Route::get('crowdfundings', 'FrontendController@crowdfunding')->name('crowdfundings');
     Route::get('one-tree-armenia', 'FrontendController@one_tree_armenia')->name('one_tree_armenia');
     Route::get('the-western-village', 'FrontendController@the_western_village')->name('the_western_village');
+    Route::get('united-8-apartment', 'FrontendController@united_8_apartment')->name('united_8_apartment');
     Route::get('private-investments', 'FrontendController@privateInvestments')->name('privateInvestments');
+    Route::get('private-investments', 'FrontendController@privateInvestments')->name('privateInvestments');
+    Route::get('services', 'FrontendController@services')->name('services');
     Route::get('faq', 'FrontendController@faq')->name('faq');
+    Route::get('about-us', 'FrontendController@about_us')->name('about_us');
 
     Route::group(['middleware' => ['auth']], function () {
         /*
