@@ -154,7 +154,7 @@
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->text($field_name)->class('form-control form-control-sm datepicker')->attributes(['name' => 'starting_date', "$required", 'id' => 'starting_date'])->placeholder($field_placeholder) }}
-            @error('accepted_currency')
+            @error('starting_date')
                 <span class="error">{{ $message }}</span>
             @enderror
         </div>
@@ -164,7 +164,7 @@
             $field_name = 'Project Delivery Date';
             $field_lable = label_case($field_name);
             $field_placeholder = 'mm/dd/yyyy';
-            $value = old('starting_date') ?? '';
+            $value = old('delivery_date') ?? '';
             // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
@@ -203,6 +203,9 @@
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->number($field_name)->class('form-control form-control-sm')->attributes(['name' => 'area_starting_per_sqm', "$required", 'id' => 'area_starting_per_sqm', 'pattern' => '\d*', 'step' => 'any']) }}
+            @error('area_starting_per_sqm')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -215,6 +218,9 @@
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->number($field_name)->class('form-control form-control-sm')->attributes(['name' => 'price_starting_per_sqm', "$required", 'id' => 'price_starting_per_sqm', 'pattern' => '\d*', 'step' => 'any']) }}
+            @error('price_starting_per_sqm')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -227,6 +233,9 @@
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->number($field_name)->class('form-control form-control-sm')->attributes(['name' => 'land_price_starting', "$required", 'id' => 'land_price_starting', 'pattern' => '\d*', 'step' => 'any', 'readonly' => true]) }}
+            @error('land_price_starting')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
 
     </div>

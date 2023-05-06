@@ -239,18 +239,6 @@ class ProjectController extends Controller {
                 $project->technical_specs = $technical_specs;
             }
 
-            $all_listings_house = '';
-            if ($request->all_listings_house) {
-                $all_listings_house = uploadFileToPublic($request->file('all_listings_house'), 'projects/all_listings_house');
-                $project->all_listings_house = $all_listings_house;
-            }
-
-            $technical_specs = '';
-            if ($request->technical_specs) {
-                $technical_specs = uploadFileToPublic($request->file('technical_specs'), 'projects/technical_specs');
-                $project->technical_specs = $technical_specs;
-            }
-
             // Uplod Legal Documents
             $selling_contract = '';
             if ($request->selling_contract) {
