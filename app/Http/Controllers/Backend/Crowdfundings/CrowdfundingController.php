@@ -46,6 +46,8 @@ class CrowdfundingController extends Controller
      */
     public function index()
     {
+        $this->authorize('view_crowdfundings');
+
         $crowdfundings= DB::table('crowdfundings')->select('*')->get();
         return view('backend.crowdfundings.index', compact('crowdfundings'));
     }
@@ -55,6 +57,8 @@ class CrowdfundingController extends Controller
      */
     public function create()
     {
+        $this->authorize('add_crowdfundings');
+
         $module_title = $this->module_title;
         $module_name = $this->module_name;
         $module_path = $this->module_path;
@@ -279,6 +283,8 @@ class CrowdfundingController extends Controller
      */
     public function edit(request $request, string $id)
     {
+        $this->authorize('edit_crowdfundings');
+
         $module_title = $this->module_title;
         $module_name = $this->module_name;
         $module_icon = $this->module_icon;
@@ -497,6 +503,8 @@ class CrowdfundingController extends Controller
      */
     public function destroy(string $id)
     {
+        $this->authorize('delete_crowdfundings');
+
         $module_title         = $this->module_title;
         $module_name          = $this->module_name;
         $module_path          = $this->module_path;

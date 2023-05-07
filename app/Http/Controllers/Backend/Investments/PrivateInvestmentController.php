@@ -46,6 +46,8 @@ class PrivateInvestmentController extends Controller
      */
     public function index()
     {
+        $this->authorize('view_private_investments');
+
         $private_investments= DB::table('private_investments')->select('*')->get();
         return view('backend.private-investments.index', compact('private_investments'));
     }
@@ -55,6 +57,8 @@ class PrivateInvestmentController extends Controller
      */
     public function create()
     {
+        $this->authorize('add_private_investments');
+
         $module_title = $this->module_title;
         $module_name = $this->module_name;
         $module_path = $this->module_path;
@@ -259,6 +263,8 @@ class PrivateInvestmentController extends Controller
      */
     public function edit(String $id)
     {
+        $this->authorize('edit_private_investments');
+
         $module_title = $this->module_title;
         $module_name = $this->module_name;
         $module_icon = $this->module_icon;
@@ -460,6 +466,8 @@ class PrivateInvestmentController extends Controller
      */
     public function destroy(String $id)
     {
+        $this->authorize('delete_private_investments');
+
         $module_title = $this->module_title;
         $module_name = $this->module_name;
         $module_name_singular = Str::singular($module_name);

@@ -47,6 +47,9 @@ class ProjectController extends Controller {
      * Display a listing of the resource.
      */
     public function index() {
+
+        $this->authorize('view_projects');
+
         $projects = DB::table('projects')->select('*')->get();
         return view('backend.projects.index', compact('projects'));
     }
@@ -55,6 +58,9 @@ class ProjectController extends Controller {
      * Show the form for creating a new resource.
      */
     public function create() {
+
+        $this->authorize('create_projects');
+
         $module_title         = $this->module_title;
         $module_name          = $this->module_name;
         $module_path          = $this->module_path;
@@ -438,6 +444,9 @@ class ProjectController extends Controller {
      * Show the form for editing the specified resource.
      */
     public function edit(string $id) {
+
+        $this->authorize('edit_projects');
+
         $module_title = $this->module_title;
         $module_name = $this->module_name;
         $module_icon = $this->module_icon;
@@ -811,6 +820,9 @@ class ProjectController extends Controller {
      * Remove the specified resource from storage.
      */
     public function destroy(string $id) {
+
+        $this->authorize('delete_projects');
+
         $module_title = $this->module_title;
         $module_name = $this->module_name;
         $module_path = $this->module_path;
