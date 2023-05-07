@@ -20,25 +20,25 @@
             </x-slot>
             <x-slot name="toolbar">
                 @can('add_contacts')
-                <x-buttons.create route='{{ route("backend.contacts.create") }}' title="{{__('Create')}} {{ ucwords(Str::singular('contacts')) }}" />
+                    <x-buttons.create route='{{ route("backend.contacts.create") }}' title="{{__('Create')}} {{ ucwords(Str::singular('contacts')) }}" />
                 @endcan
 
                 @can('restore_contacts')
-                <div class="btn-group">
-                    <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-coreui-toggle="dropdown" aria-expanded="false">
-                        <i class="fas fa-cog"></i>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a class="dropdown-item" href='#'>
-                                <i class="fas fa-eye-slash"></i> View trash
-                            </a>
-                        </li>
-                        <!-- <li>
-                            <hr class="dropdown-divider">
-                        </li> -->
-                    </ul>
-                </div>
+                    <div class="btn-group">
+                        <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-coreui-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-cog"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href='#'>
+                                    <i class="fas fa-eye-slash"></i> View trash
+                                </a>
+                            </li>
+                            <!-- <li>
+                                <hr class="dropdown-divider">
+                            </li> -->
+                        </ul>
+                    </div>
                 @endcan
             </x-slot>
         </x-backend.section-header>
@@ -73,11 +73,19 @@
 
                             <td class="text-end">
                                 <form action="{{route('backend.contacts.destroy', $member->id)}}" method="POST">
-                                    <a href="{{route('backend.contacts.show', $member->id)}}" class="btn btn-success btn-sm mt-1" data-toggle="tooltip" title="{{__('labels.backend.show')}}"><i class="fas fa-desktop"></i></a>
-                                    <a href="{{route('backend.contacts.edit', $member->id)}}" class="btn btn-primary btn-sm mt-1" data-toggle="tooltip" title="{{__('labels.backend.edit')}}"><i class="fas fa-edit"></i></a>
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-sm mt-1" data-toggle="tooltip" title="{{__('labels.backend.delete')}}"><i class="fas fa-trash-alt"></i></button>
+                                    @can('view_contacts')
+                                        <a href="{{route('backend.contacts.show', $member->id)}}" class="btn btn-success btn-sm mt-1" data-toggle="tooltip" title="{{__('labels.backend.show')}}"><i class="fas fa-desktop"></i></a>
+                                    @endcan
+
+                                    @can('edit_contacts')
+                                        <a href="{{route('backend.contacts.edit', $member->id)}}" class="btn btn-primary btn-sm mt-1" data-toggle="tooltip" title="{{__('labels.backend.edit')}}"><i class="fas fa-edit"></i></a>
+                                    @endcan
+
+                                    @can('delete_contacts')
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger btn-sm mt-1" data-toggle="tooltip" title="{{__('labels.backend.delete')}}"><i class="fas fa-trash-alt"></i></button>
+                                    @endcan
                                 </form>
                             </td>
                         </tr>

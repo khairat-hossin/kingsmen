@@ -285,14 +285,16 @@ class ProjectController extends Controller {
 
 
             // Multple photo put to db
-            $home_page_photos_galleryurl = '';
-            $photos_gallery = $request->file('home_page_photos_gallery');
+           $home_page_photos_galleryurl = '';
+           $photos_gallery = $request->file('home_page_photos_gallery');
 
-            foreach ($photos_gallery as $photo) {
-                $home_page_photos_galleryurl = uploadFileToPublic($photo, 'projects/home_page_photos_gallery');
+           if($photos_gallery)
+           {
+                foreach ($photos_gallery as $photo) {
+                    $home_page_photos_galleryurl = uploadFileToPublic($photo, 'projects/home_page_photos_gallery');
+                }
                 $project->home_page_photos_gallery = $home_page_photos_galleryurl;
-            }
-
+           }
 
             $qna_page_banner = '';
             if ($request->qna_page_banner) {
@@ -412,7 +414,7 @@ class ProjectController extends Controller {
 
             $project->save();
 
-            flash(icon() . ' ' . Str::singular($this->module_title) . " Updated Successfully")->success()->important();
+            flash(icon() . ' ' . Str::singular($this->module_title) . " Created Successfully")->success()->important();
             logUserAccess($this->module_title . ' ' . $module_action . ' | Id: ' . $project->id);
             DB::commit();
             return redirect("admin/$this->module_name");
@@ -420,7 +422,7 @@ class ProjectController extends Controller {
         } catch (\Throwable $th) {
             DB::rollBack();
             $msg = $th->getMessage();
-            flash(icon() . ' ' . Str::singular($this->module_title) . " Update Failed! $msg")->error()->important();
+            flash(icon() . ' ' . Str::singular($this->module_title) . " Create Failed! $msg")->error()->important();
             return back()->withInput();
         }
     }
@@ -670,9 +672,12 @@ class ProjectController extends Controller {
            $home_page_photos_galleryurl = '';
            $photos_gallery = $request->file('home_page_photos_gallery');
 
-           foreach ($photos_gallery as $photo) {
-               $home_page_photos_galleryurl = uploadFileToPublic($photo, 'projects/home_page_photos_gallery');
-               $project->home_page_photos_gallery = $home_page_photos_galleryurl;
+           if($photos_gallery)
+           {
+                foreach ($photos_gallery as $photo) {
+                    $home_page_photos_galleryurl = uploadFileToPublic($photo, 'projects/home_page_photos_gallery');
+                }
+                $project->home_page_photos_gallery = $home_page_photos_galleryurl;
            }
 
             $qna_page_banner = '';

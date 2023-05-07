@@ -28,6 +28,49 @@ class Permission extends \Spatie\Permission\Models\Permission
             'create_backups',
             'download_backups',
             'delete_backups',
+
+            'view_crowdfundings',
+            'add_crowdfundings',
+            'edit_crowdfundings',
+            'delete_crowdfundings',
+            'restore_crowdfundings',
+            'block_crowdfundings',
+
+            'view_private_investments',
+            'add_private_investments',
+            'edit_private_investments',
+            'delete_private_investments',
+            'restore_private_investments',
+            'block_private_investments',
+
+            'view_projects',
+            'add_projects',
+            'edit_projects',
+            'delete_projects',
+            'restore_projects',
+            'block_projects',
+
+            'view_contacts',
+            'add_contacts',
+            'edit_contacts',
+            'delete_contacts',
+            'restore_contacts',
+            'block_contacts',
+
+            'view_teams',
+            'add_teams',
+            'edit_teams',
+            'delete_teams',
+            'restore_teams',
+            'block_teams',
+
+            'view_brokers',
+            'add_brokers',
+            'edit_brokers',
+            'delete_brokers',
+            'restore_brokers',
+            'block_brokers',
+
         ];
     }
 
