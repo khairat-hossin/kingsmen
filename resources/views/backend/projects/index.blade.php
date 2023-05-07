@@ -73,12 +73,20 @@
 
                             <td class="text-end">
                                 <form action="{{route('backend.projects.destroy', $project->id)}}" method="POST">
-                                <a href="{{route('backend.projects.show', $project->id)}}" class="btn btn-success btn-sm mt-1" data-toggle="tooltip" title="{{__('labels.backend.show')}}"><i class="fas fa-desktop"></i></a>
-                                <a href="{{route('backend.projects.edit', $project->id)}}" class="btn btn-primary btn-sm mt-1" data-toggle="tooltip" title="{{__('labels.backend.edit')}}"><i class="fas fa-edit"></i></a>
 
+                                @can('view_projects')
+                                <a href="{{route('backend.projects.show', $project->id)}}" class="btn btn-success btn-sm mt-1" data-toggle="tooltip" title="{{__('labels.backend.show')}}"><i class="fas fa-desktop"></i></a>
+                                @endcan
+
+                                @can('edit_projects')
+                                <a href="{{route('backend.projects.edit', $project->id)}}" class="btn btn-primary btn-sm mt-1" data-toggle="tooltip" title="{{__('labels.backend.edit')}}"><i class="fas fa-edit"></i></a>
+                                @endcan
+
+                                @can('delete_projects')
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger btn-sm mt-1" data-toggle="tooltip" title="{{__('labels.backend.delete')}}"><i class="fas fa-trash-alt"></i></button>
+                                @endcan
                                 </form>
                             </td>
                         </tr>

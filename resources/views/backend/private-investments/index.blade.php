@@ -19,26 +19,26 @@
                 @lang(":module_name Management Dashboard", ['module_name'=>Str::title("Private Investments")])
             </x-slot>
             <x-slot name="toolbar">
-                @can('add_investments')
-                <x-buttons.create route='{{ route("backend.private-investments.create") }}' title="{{__('Create')}} {{ ucwords(Str::singular('investments')) }}" />
+                @can('add_private_investments')
+                    <x-buttons.create route='{{ route("backend.private-investments.create") }}' title="{{__('Create')}} {{ ucwords(Str::singular('investments')) }}" />
                 @endcan
 
-                @can('restore_investments')
-                <div class="btn-group">
-                    <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-coreui-toggle="dropdown" aria-expanded="false">
-                        <i class="fas fa-cog"></i>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a class="dropdown-item" href='#'>
-                                <i class="fas fa-eye-slash"></i> View trash
-                            </a>
-                        </li>
-                        <!-- <li>
-                            <hr class="dropdown-divider">
-                        </li> -->
-                    </ul>
-                </div>
+                @can('restore_private_investments')
+                    <div class="btn-group">
+                        <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-coreui-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-cog"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href='#'>
+                                    <i class="fas fa-eye-slash"></i> View trash
+                                </a>
+                            </li>
+                            <!-- <li>
+                                <hr class="dropdown-divider">
+                            </li> -->
+                        </ul>
+                    </div>
                 @endcan
             </x-slot>
         </x-backend.section-header>
@@ -72,12 +72,19 @@
                             </td>
                             <td class="text-end">
                                 <form action="{{route('backend.private-investments.destroy', $investment->id)}}" method="POST">
-                                    <a href="{{route('backend.private-investments.show', $investment->id)}}" class="btn btn-success btn-sm mt-1" data-toggle="tooltip" title="{{__('labels.backend.show')}}"><i class="fas fa-desktop"></i></a>
-                                    <a href="{{route('backend.private-investments.edit', $investment->id)}}" class="btn btn-primary btn-sm mt-1" data-toggle="tooltip" title="{{__('labels.backend.edit')}}"><i class="fas fa-edit"></i></a>
+                                    @can('view_private_investment')
+                                        <a href="{{route('backend.private-investments.show', $investment->id)}}" class="btn btn-success btn-sm mt-1" data-toggle="tooltip" title="{{__('labels.backend.show')}}"><i class="fas fa-desktop"></i></a>
+                                    @endcan
 
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-sm mt-1" data-toggle="tooltip" title="{{__('labels.backend.delete')}}"><i class="fas fa-trash-alt"></i></button>
+                                    @can('edit_private_investment')
+                                        <a href="{{route('backend.private-investments.edit', $investment->id)}}" class="btn btn-primary btn-sm mt-1" data-toggle="tooltip" title="{{__('labels.backend.edit')}}"><i class="fas fa-edit"></i></a>
+                                    @endcan
+
+                                    @can('delete_private_investment')
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger btn-sm mt-1" data-toggle="tooltip" title="{{__('labels.backend.delete')}}"><i class="fas fa-trash-alt"></i></button>
+                                    @endcan
                                 </form>
                             </td>
                         </tr>

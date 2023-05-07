@@ -235,8 +235,11 @@ class CrowdfundingController extends Controller
             // For Multiple photos
             $photos_gallery_url = '';
             $photos_gallery = $request->file('photos_gallery');
-            foreach ($photos_gallery as $photo) {
-                $photos_gallery_url = uploadFileToPublic($photo, 'crowdfunding/photos_gallery');
+            if($photos_gallery)
+            {
+                foreach ($photos_gallery as $photo) {
+                    $photos_gallery_url = uploadFileToPublic($photo, 'crowdfunding/photos_gallery');
+                }
                 $crowdfunding->photos_gallery = $photos_gallery_url;
             }
 
@@ -458,7 +461,18 @@ class CrowdfundingController extends Controller
             $crowdfunding->paragraph_1          = $request->paragraph_1;
             $crowdfunding->title_2              = $request->title_2;
             $crowdfunding->paragraph_2          = $request->paragraph_2;
-            $crowdfunding->photos_gallery       = $request->photos_gallery;
+
+            // For Multiple photos
+            $photos_gallery_url = '';
+            $photos_gallery = $request->file('photos_gallery');
+            if($photos_gallery)
+            {
+                foreach ($photos_gallery as $photo) {
+                    $photos_gallery_url = uploadFileToPublic($photo, 'crowdfunding/photos_gallery');
+                }
+                $crowdfunding->photos_gallery = $photos_gallery_url;
+            }
+
             $crowdfunding->project_timeline     = $request->project_timeline;
             $crowdfunding->management_companies = $request->management_companies;
 

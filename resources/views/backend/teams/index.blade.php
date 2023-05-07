@@ -20,25 +20,25 @@
             </x-slot>
             <x-slot name="toolbar">
                 @can('add_teams')
-                <x-buttons.create route='{{ route("backend.teams.create") }}' title="{{__('Create')}} {{ ucwords(Str::singular('teams')) }}" />
+                    <x-buttons.create route='{{ route("backend.teams.create") }}' title="{{__('Create')}} {{ ucwords(Str::singular('teams')) }}" />
                 @endcan
 
                 @can('restore_teams')
-                <div class="btn-group">
-                    <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-coreui-toggle="dropdown" aria-expanded="false">
-                        <i class="fas fa-cog"></i>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a class="dropdown-item" href='#'>
-                                <i class="fas fa-eye-slash"></i> View trash
-                            </a>
-                        </li>
-                        <!-- <li>
-                            <hr class="dropdown-divider">
-                        </li> -->
-                    </ul>
-                </div>
+                    <div class="btn-group">
+                        <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-coreui-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-cog"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href='#'>
+                                    <i class="fas fa-eye-slash"></i> View trash
+                                </a>
+                            </li>
+                            <!-- <li>
+                                <hr class="dropdown-divider">
+                            </li> -->
+                        </ul>
+                    </div>
                 @endcan
             </x-slot>
         </x-backend.section-header>
@@ -72,12 +72,18 @@
                             </td>
                             <td class="text-end">
                                 <form action="{{route('backend.teams.destroy', $member->id)}}" method="POST">
-                                    <a href="{{route('backend.teams.show', $member->id)}}" class="btn btn-success btn-sm mt-1" data-toggle="tooltip" title="{{__('labels.backend.show')}}"><i class="fas fa-desktop"></i></a>
-                                    <a href="{{route('backend.teams.edit', $member->id)}}" class="btn btn-primary btn-sm mt-1" data-toggle="tooltip" title="{{__('labels.backend.edit')}}"><i class="fas fa-edit"></i></a>
+                                    @can('view_teams')
+                                        <a href="{{route('backend.teams.show', $member->id)}}" class="btn btn-success btn-sm mt-1" data-toggle="tooltip" title="{{__('labels.backend.show')}}"><i class="fas fa-desktop"></i></a>
+                                    @endcan
+                                    @can('edit_teams')
+                                        <a href="{{route('backend.teams.edit', $member->id)}}" class="btn btn-primary btn-sm mt-1" data-toggle="tooltip" title="{{__('labels.backend.edit')}}"><i class="fas fa-edit"></i></a>
+                                    @endcan
 
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-sm mt-1" data-toggle="tooltip" title="{{__('labels.backend.delete')}}"><i class="fas fa-trash-alt"></i></button>
+                                    @can('delete_teams')
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger btn-sm mt-1" data-toggle="tooltip" title="{{__('labels.backend.delete')}}"><i class="fas fa-trash-alt"></i></button>
+                                    @endcan
                                 </form>
                             </td>
                         </tr>
