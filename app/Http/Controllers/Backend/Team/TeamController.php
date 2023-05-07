@@ -46,6 +46,8 @@ class TeamController extends Controller
      */
     public function index()
     {
+        $this->authorize('view_teams');
+
         $teams= DB::table('team_members')->select('*')->get();
         return view('backend.teams.index', compact('teams'));
     }
@@ -55,6 +57,8 @@ class TeamController extends Controller
      */
     public function create()
     {
+        $this->authorize('add_teams');
+
         $module_title = $this->module_title;
         $module_name = $this->module_name;
         $module_path = $this->module_path;
@@ -169,6 +173,8 @@ class TeamController extends Controller
      */
     public function edit(string $id)
     {
+        $this->authorize('edit_teams');
+
         $module_title = $this->module_title;
         $module_name = $this->module_name;
         $module_icon = $this->module_icon;
@@ -276,6 +282,8 @@ class TeamController extends Controller
      */
     public function destroy(string $id)
     {
+        $this->authorize('delete_teams');
+
         $module_title = $this->module_title;
         $module_name = $this->module_name;
         $module_path = $this->module_path;

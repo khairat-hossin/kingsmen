@@ -48,6 +48,8 @@ class ContactController extends Controller
      */
     public function index()
     {
+        $this->authorize('view_contacts');
+
         $contacts = DB::table('contacts')->select('*')->get();
         return view('backend.contacts.index', compact('contacts'));
     }
@@ -57,6 +59,8 @@ class ContactController extends Controller
      */
     public function create()
     {
+        $this->authorize('add_contacts');
+
         $module_title = $this->module_title;
         $module_name = $this->module_name;
         $module_path = $this->module_path;
@@ -161,7 +165,7 @@ class ContactController extends Controller
 
         // Add a person of this contact in pipedrive
         $this->addPersonPipeDrive($contact);
-       
+        
         flash(icon().' '.Str::singular($module_title)."' Created.")->success()->important();
 
         logUserAccess($module_title.' '.$module_action.' | Id: '.$$module_name_singular->id);
@@ -248,6 +252,8 @@ class ContactController extends Controller
      */
     public function edit(request $request, string $id)
     {
+        $this->authorize('edit_contacts');
+
         $module_title = $this->module_title;
         $module_name = $this->module_name;
         $module_icon = $this->module_icon;
@@ -319,7 +325,7 @@ class ContactController extends Controller
 
             $contact->photo_of_passport = $photo_of_passport_url;
 
-        }        
+        }
 
 
 
@@ -330,7 +336,7 @@ class ContactController extends Controller
 
             $contact->photo_of_id_card = $photo_of_id_card_url;
 
-        }        
+        }
 
 
         $contact->first_name = $request->first_name;
@@ -373,6 +379,8 @@ class ContactController extends Controller
      */
     public function destroy(string $id)
     {
+        $this->authorize('delete_contacts');
+
         $module_title = $this->module_title;
         $module_name = $this->module_name;
         $module_path = $this->module_path;
