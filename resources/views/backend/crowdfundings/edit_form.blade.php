@@ -477,6 +477,7 @@
                 'Monthly' => 'Monthly',
                 'Quartertly' => 'Quartertly',
                 'Yearly' => 'Yearly',
+                'One Time Profit' => 'One Time Profit'
             ];
             $value = $crowdfunding->profit_after_return_on_investment_is ?? '';
             $required = 'required';
