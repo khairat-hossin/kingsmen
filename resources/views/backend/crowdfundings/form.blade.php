@@ -515,6 +515,7 @@
                 'Monthly' => 'Monthly',
                 'Quartertly' => 'Quartertly',
                 'Yearly' => 'Yearly',
+                'One Time Profit' => 'One Time Profit'
             ];
             $value = old('address') ?? '';
             $required = 'required';
