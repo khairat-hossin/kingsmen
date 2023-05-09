@@ -12,6 +12,7 @@
         "devio/pipedrive": "^2.15",
         "guzzlehttp/guzzle": "^7.5",
         "hashids/hashids": "^5.0",
+        "intervention/image": "^2.7",
         "laracasts/flash": "^3.2",
         "laravel/framework": "^10.0",
         "laravel/sanctum": "^3.2",
