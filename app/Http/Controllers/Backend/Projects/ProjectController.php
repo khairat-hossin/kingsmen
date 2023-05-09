@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use App\Models\Project;
+use Image;
 
 
 class ProjectController extends Controller {
@@ -290,16 +291,18 @@ class ProjectController extends Controller {
             $project->project_management_companies = $request->project_management_companies;
 
 
-            // Multple photo put to db
+            // Multiple photo put to db
            $home_page_photos_galleryurl = '';
            $photos_gallery = $request->file('home_page_photos_gallery');
+           $photoPaths = [];
 
            if($photos_gallery)
            {
                 foreach ($photos_gallery as $photo) {
                     $home_page_photos_galleryurl = uploadFileToPublic($photo, 'projects/home_page_photos_gallery');
+                    $photoPaths[] = asset($home_page_photos_galleryurl);
                 }
-                $project->home_page_photos_gallery = $home_page_photos_galleryurl;
+                $project->home_page_photos_gallery = json_encode($photoPaths);
            }
 
             $qna_page_banner = '';
@@ -615,6 +618,7 @@ class ProjectController extends Controller {
             $project->land_price_per_sqm = $request->land_price_per_sqm;
             $project->total_land_price   = $request->total_land_price;
             $project->interactive_map    = $request->interactive_map;
+            
             $all_listings_land           = '';
             if ($request->all_listings_land) {
                 $all_listings_land = uploadFileToPublic($request->file('all_listings_land'), 'projects/all_listings_land');
@@ -677,17 +681,19 @@ class ProjectController extends Controller {
             $project->project_timeline             = $request->project_timeline;
             $project->project_management_companies = $request->project_management_companies;
 
-           // Multple photo put to db
-           $home_page_photos_galleryurl = '';
-           $photos_gallery = $request->file('home_page_photos_gallery');
+            // Multiple photo put to db
+            $home_page_photos_galleryurl = '';
+            $photos_gallery = $request->file('home_page_photos_gallery');
+            $photoPaths = [];
 
-           if($photos_gallery)
-           {
-                foreach ($photos_gallery as $photo) {
-                    $home_page_photos_galleryurl = uploadFileToPublic($photo, 'projects/home_page_photos_gallery');
-                }
-                $project->home_page_photos_gallery = $home_page_photos_galleryurl;
-           }
+            if($photos_gallery)
+            {
+                 foreach ($photos_gallery as $photo) {
+                     $home_page_photos_galleryurl = uploadFileToPublic($photo, 'projects/home_page_photos_gallery');
+                     $photoPaths[] = asset($home_page_photos_galleryurl);
+                 }
+                 $project->home_page_photos_gallery = json_encode($photoPaths);
+            }
 
             $qna_page_banner = '';
             if ($request->qna_page_banner) {

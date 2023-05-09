@@ -58,7 +58,7 @@ return new class extends Migration
             $table->text('home_page_header_paragraph')->nullable();
             $table->text('home_page_footer_title')->nullable();
             $table->text('home_page_footer_paragraph')->nullable();
-            $table->string('home_page_photos_gallery')->nullable()->limit(255);
+            $table->json('home_page_photos_gallery')->nullable();
             $table->text('project_timeline')->nullable();
             $table->string('project_management_companies')->nullable()->limit(255);
 
