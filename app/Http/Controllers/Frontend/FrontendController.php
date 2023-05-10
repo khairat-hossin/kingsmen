@@ -108,6 +108,26 @@ class FrontendController extends Controller
     public function faq()
     {
         $faqs = Faq::all();
-        return view('frontend.faq', compact('faqs'));
+
+        foreach($faqs as $faq)
+         {
+            if($faq->banner)
+            {
+                $banner = $faq->banner;
+
+            }
+
+            if($faq->banner_text)
+            {
+                $banner_text = $faq->banner_text;
+            }
+
+            if($faq->video)
+            {
+                $video = $faq->video;
+            }
+        }
+//  dd($banner);
+        return view('frontend.faq', compact('faqs', 'banner', 'banner_text', 'video'));
     }
 }
