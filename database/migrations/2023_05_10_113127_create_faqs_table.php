@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('faqs', function (Blueprint $table) {
             $table->id();
-            $table->string('question')->nullable();
-            $table->string('answer')->nullable();
+            $table->text('question')->nullable();
+            $table->text('answer')->nullable();
             $table->string('banner')->nullable();
             $table->string('banner_text')->nullable();
             $table->text('video')->nullable();

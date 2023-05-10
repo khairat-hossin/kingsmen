@@ -12,7 +12,7 @@
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'question', "$required", 'value' => "$value"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'question', "$required", 'value' => "$value"]) }}
             @error('question')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -26,7 +26,7 @@
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'answer', "$required", 'value' => "$value"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'answer', "$required", 'value' => "$value"]) }}
             @error('answer')
                 <span class="error">{{ $message }}</span>
             @enderror

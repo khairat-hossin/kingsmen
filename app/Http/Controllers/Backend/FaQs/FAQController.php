@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Backend\FaQs;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Foundation\Auth\Access\Authorizable;
+// use Illuminate\Foundation\Auth\Access\Authorizable;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Log;
@@ -12,7 +12,7 @@ use App\Models\Faq;
 
 class FAQController extends Controller
 {
-    use Authorizable;
+    // use Authorizable;
 
     public $module_title;
 
@@ -46,8 +46,9 @@ class FAQController extends Controller
      */
     public function index()
     {
-       $this->authorize('view_faqs');
+    //    $this->authorize('view_faqs');
        $faqs= Faq::all();
+
        return view('backend.faqs.index', compact('faqs'));
     }
 
@@ -56,7 +57,7 @@ class FAQController extends Controller
      */
     public function create()
     {
-        $this->authorize('add_faqs');
+        // $this->authorize('add_faqs');
 
         $module_title = $this->module_title;
         $module_name = $this->module_name;
@@ -77,7 +78,50 @@ class FAQController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // $this->authorize('add_faqs');
+
+        $module_action = 'store';
+        $request->validate([
+            "question"         => "required|unique:" . $this->module_model . ",question",
+            "answer"           => "required|unique:" . $this->module_model . ",answer",
+            "banner"           => "nullable",
+            "banner_text"      => "nullable",
+            "video"            => "nullable"
+        ]);
+
+        DB::beginTransaction();
+        try {
+            $faqs  = new $this->module_model();
+
+            $faqs->question     = $request->question;
+            $faqs->answer       = $request->answer;
+            $faqs->banner_text  = $request->banner_text;
+
+            $banner_url = '';
+            if ($request->banner) {
+                $banner_url = uploadFileToPublic($request->file('banner'), 'faqs/banner');
+                $faqs->banner = $banner_url;
+            }
+
+            $video_url = '';
+            if ($request->video) {
+                $video_url = uploadFileToPublic($request->file('video'), 'faqs/video');
+                $faqs->video = $video_url;
+            }
+
+            $faqs->save();
+
+            flash(icon() . ' ' . Str::singular($this->module_title) . " Created Successfully")->success()->important();
+            logUserAccess($this->module_title . ' ' . $module_action . ' | Id: ' . $faqs->id);
+            DB::commit();
+            return redirect("admin/$this->module_name");
+
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            $msg = $th->getMessage();
+            flash(icon() . ' ' . Str::singular($this->module_title) . " Creation Failed! $msg")->error()->important();
+            return back()->withInput();
+        }
     }
 
     /**
