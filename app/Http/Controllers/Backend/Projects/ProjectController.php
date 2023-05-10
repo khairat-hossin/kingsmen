@@ -439,7 +439,7 @@ class ProjectController extends Controller {
         } catch (\Throwable $th) {
             DB::rollBack();
             $msg = $th->getMessage();
-            dd($msg);
+            
             flash(icon() . ' ' . Str::singular($this->module_title) . " Create Failed! $msg")->error()->important();
             return back()->withInput();
         }
