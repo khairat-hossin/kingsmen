@@ -46,9 +46,9 @@
                                         $photos = json_decode($data, true);
                                     @endphp
 
-                                    @foreach ($photos as $photo)
+                                    @foreach ($photos as $photo => $filename)
                                         <div class="swiper-slide">
-                                            <img src="{{ $photo }}" class="d-block w-100" alt="photo_gallery">
+                                            <img src="{{ $filename }}" class="d-block w-100" alt="photo_gallery">
                                         </div>
                                     @endforeach
                                     <div class="my-3"> </div>
