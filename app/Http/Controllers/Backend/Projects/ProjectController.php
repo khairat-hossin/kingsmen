@@ -10,6 +10,8 @@ use Illuminate\Support\Str;
 use App\Models\Project;
 use Image;
 
+use Illuminate\Support\Facades\Storage;
+
 
 class ProjectController extends Controller {
     public $module_title;
@@ -291,19 +293,25 @@ class ProjectController extends Controller {
             $project->project_management_companies = $request->project_management_companies;
 
 
-            // Multiple photo put to db
+            // Multiple photo resize and put link to db
            $home_page_photos_galleryurl = '';
            $photos_gallery = $request->file('home_page_photos_gallery');
-           $photoPaths = [];
-
+           $path = [];
            if($photos_gallery)
            {
                 foreach ($photos_gallery as $photo) {
-                    $home_page_photos_galleryurl = uploadFileToPublic($photo, 'projects/home_page_photos_gallery');
-                    $photoPaths[] = asset($home_page_photos_galleryurl);
+                    // Resize the image to a specific width and height
+                    $resizedImage = Image::make($photo); // ei line tai kaaj korse na, data null
+
+                    $filename = uniqid() . '.' . $photo->getClientOriginalExtension();
+                    $resizedImage->resize(560, 320);
+
+                    $resizedImage->save('uploads/projects/home_page_photos_gallery/'.$filename);
+                    $path[] = $resizedImage->basePath();
                 }
-                $project->home_page_photos_gallery = json_encode($photoPaths);
+                $project->home_page_photos_gallery = json_encode($path);
            }
+           //End Multiple photo resize and put link to db
 
             $qna_page_banner = '';
             if ($request->qna_page_banner) {
@@ -431,6 +439,7 @@ class ProjectController extends Controller {
         } catch (\Throwable $th) {
             DB::rollBack();
             $msg = $th->getMessage();
+            dd($msg);
             flash(icon() . ' ' . Str::singular($this->module_title) . " Create Failed! $msg")->error()->important();
             return back()->withInput();
         }
@@ -618,7 +627,7 @@ class ProjectController extends Controller {
             $project->land_price_per_sqm = $request->land_price_per_sqm;
             $project->total_land_price   = $request->total_land_price;
             $project->interactive_map    = $request->interactive_map;
-            
+
             $all_listings_land           = '';
             if ($request->all_listings_land) {
                 $all_listings_land = uploadFileToPublic($request->file('all_listings_land'), 'projects/all_listings_land');
