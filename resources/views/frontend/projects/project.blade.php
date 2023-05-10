@@ -56,14 +56,14 @@
                                         <div class="swiper-pagination"></div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <div class="my-5">
-                                <span>City: </span> Ashtarak City <br>
-                                <span>Village: </span> Parpi<br>
-                                <span>Available: </span> Private Homes <br>
-                                <span>Starting Price: </span> 85,000 USD <br>
-                                <a href="" class="btn mt-3">check project</a>
+                                <div class="my-5">
+                                    <span>City: </span> Ashtarak City <br>
+                                    <span>Village: </span> Parpi<br>
+                                    <span>Available: </span> Private Homes <br>
+                                    <span>Starting Price: </span> 85,000 USD <br>
+                                    <a href="" class="btn mt-3">check project</a>
+                                </div>
                             </div>
                         </div>
                     </div>

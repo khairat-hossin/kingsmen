@@ -10,6 +10,8 @@ use Illuminate\Support\Str;
 use App\Models\Project;
 use Image;
 
+use Illuminate\Support\Facades\Storage;
+
 
 class ProjectController extends Controller {
     public $module_title;
@@ -299,6 +301,9 @@ class ProjectController extends Controller {
            if($photos_gallery)
            {
                 foreach ($photos_gallery as $photo) {
+                    // Resize the image to a specific width and height
+                    // $resizedImage = Image::make($photo)->resize(450, 220);
+
                     $home_page_photos_galleryurl = uploadFileToPublic($photo, 'projects/home_page_photos_gallery');
                     $photoPaths[] = asset($home_page_photos_galleryurl);
                 }
@@ -618,7 +623,7 @@ class ProjectController extends Controller {
             $project->land_price_per_sqm = $request->land_price_per_sqm;
             $project->total_land_price   = $request->total_land_price;
             $project->interactive_map    = $request->interactive_map;
-            
+
             $all_listings_land           = '';
             if ($request->all_listings_land) {
                 $all_listings_land = uploadFileToPublic($request->file('all_listings_land'), 'projects/all_listings_land');
