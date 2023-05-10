@@ -57,7 +57,7 @@ class FAQController extends Controller
      */
     public function create()
     {
-        // $this->authorize('add_faqs');
+        $this->authorize('add_faqs');
 
         $module_title = $this->module_title;
         $module_name = $this->module_name;
@@ -78,7 +78,7 @@ class FAQController extends Controller
      */
     public function store(Request $request)
     {
-        // $this->authorize('add_faqs');
+        $this->authorize('add_faqs');
 
         $module_action = 'store';
         $request->validate([
@@ -137,7 +137,20 @@ class FAQController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $this->authorize('edit_teams');
+
+        $module_title = $this->module_title;
+        $module_name = $this->module_name;
+        $module_icon = $this->module_icon;
+        $module_model = $this->module_model;
+        $module_path = 'backend';
+        $module_name_singular = Str::singular($module_name);
+
+        $module_action = 'Edit';
+
+        $faq = Faq::find($id);
+
+        return view('backend.crowdfundings.edit', compact('module_title', 'module_name', 'module_icon', 'module_path', 'module_name_singular', 'module_action', 'faq'));
     }
 
     /**
@@ -145,7 +158,50 @@ class FAQController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $this->authorize('add_faqs');
+
+        $module_action = 'store';
+        $request->validate([
+            "question"         => "required|unique:" . $this->module_model . ",question," . $id . ',id',
+            "answer"           => "required|unique:" . $this->module_model . ",answer,"  . $id . ',id',
+            "banner"           => "nullable",
+            "banner_text"      => "nullable",
+            "video"            => "nullable"
+        ]);
+
+        DB::beginTransaction();
+        try {
+            $faqs  = Faq::find($id);
+
+            $faqs->question     = $request->question;
+            $faqs->answer       = $request->answer;
+            $faqs->banner_text  = $request->banner_text;
+
+            $banner_url = '';
+            if ($request->banner) {
+                $banner_url = uploadFileToPublic($request->file('banner'), 'faqs/banner');
+                $faqs->banner = $banner_url;
+            }
+
+            $video_url = '';
+            if ($request->video) {
+                $video_url = uploadFileToPublic($request->file('video'), 'faqs/video');
+                $faqs->video = $video_url;
+            }
+
+            $faqs->save();
+
+            flash(icon() . ' ' . Str::singular($this->module_title) . " Created Successfully")->success()->important();
+            logUserAccess($this->module_title . ' ' . $module_action . ' | Id: ' . $faqs->id);
+            DB::commit();
+            return redirect("admin/$this->module_name");
+
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            $msg = $th->getMessage();
+            flash(icon() . ' ' . Str::singular($this->module_title) . " Creation Failed! $msg")->error()->important();
+            return back()->withInput();
+        }
     }
 
     /**
@@ -153,6 +209,26 @@ class FAQController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $this->authorize('delete_teams');
+
+        $module_title = $this->module_title;
+        $module_name = $this->module_name;
+        $module_path = $this->module_path;
+        $module_icon = $this->module_icon;
+        $module_model = $this->module_model;
+        $module_name_singular = Str::singular($module_name);
+
+        $module_action = 'destroy';
+
+        $$module_name_singular = $module_model::findOrFail($id);
+
+
+        $$module_name_singular->delete();
+
+        flash(icon().' '.Str::singular($module_title)."' Deleted Successfully")->success()->important();
+
+        logUserAccess($module_title.' '.$module_action.' | Id: '.$$module_name_singular->id);
+
+        return redirect("admin/$module_name");
     }
 }

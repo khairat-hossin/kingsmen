@@ -21,12 +21,12 @@
                     @lang(':module_name Management Dashboard', ['module_name' => Str::title('FAQs')])
                 </x-slot>
                 <x-slot name="toolbar">
-                    {{-- @can('add_faqs') --}}
+                    @can('add_faqs')
                         <x-buttons.create route='{{ route("backend.faqs.create") }}'
                             title="{{ __('Create') }} {{ ucwords(Str::singular('faqs')) }}" />
-                    {{-- @endcan --}}
+                    @endcan
 
-                    {{-- @can('restore_faqs') --}}
+                    @can('restore_faqs')
                         <div class="btn-group">
                             <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-coreui-toggle="dropdown"
                                 aria-expanded="false">
@@ -43,7 +43,7 @@
                                     </li> -->
                             </ul>
                         </div>
-                    {{-- @endcan --}}
+                    @endcan
                 </x-slot>
             </x-backend.section-header>
 
@@ -56,50 +56,44 @@
                             <tr>
                                 <th>Question</th>
                                 <th>Answer</th>
-                                <th>Banner</th>
+                                {{-- <th>Banner</th> --}}
                                 <th>Banner Text</th>
-                                <th>Video</th>
+                                {{-- <th>Video</th> --}}
                                 <th class="text-end">{{ __('labels.backend.action') }}</th>
                             </tr>
                         </thead>
                         <tbody>
                             @forelse($faqs as $faq)
                                 <tr>
-                                    <td>
+                                    <td style="max-width: 200px">
                                         {{ Str::limit($faq->question, 50) }}
                                     </td>
-                                    <td>
+                                    <td style="max-width: 200px">
                                         {{ Str::limit($faq->answer, 50) }}
                                     </td>
-                                    <td>
-                                        {{ $faq->banner }}
-                                    </td>
-                                    <td>
-                                        {{ $faq->banner_text }}
-                                    </td>
-                                    <td>
-                                        {{ $faq->video }}
+                                    <td style="max-width: 200px">
+                                        {{ Str::limit($faq->banner_text, 50) }}
                                     </td>
                                     <td class="text-end">
                                         <form action="{{ route('backend.faqs.destroy', $faq->id) }}" method="POST">
-                                            {{-- @can('view_faqs') --}}
+                                            @can('view_faqs')
                                                 <a href="{{ route('backend.faqs.show', $faq->id) }}"
                                                     class="btn btn-success btn-sm mt-1" data-toggle="tooltip"
                                                     title="{{ __('labels.backend.show') }}"><i class="fas fa-desktop"></i></a>
-                                            {{-- @endcan --}}
-                                            {{-- @can('edit_faqs') --}}
+                                            @endcan
+                                            @can('edit_faqs')
                                                 <a href="{{ route('backend.faqs.edit', $faq->id) }}"
                                                     class="btn btn-primary btn-sm mt-1" data-toggle="tooltip"
                                                     title="{{ __('labels.backend.edit') }}"><i class="fas fa-edit"></i></a>
-                                            {{-- @endcan --}}
+                                            @endcan
 
-                                            {{-- @can('delete_faqs') --}}
+                                            @can('delete_faqs')
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger btn-sm mt-1" data-toggle="tooltip"
                                                     title="{{ __('labels.backend.delete') }}"><i
                                                         class="fas fa-trash-alt"></i></button>
-                                            {{-- @endcan --}}
+                                            @endcan
                                         </form>
                                     </td>
                                 </tr>
