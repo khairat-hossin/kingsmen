@@ -7,6 +7,7 @@ use App\Http\Controllers\Backend\Crowdfundings\CrowdfundingController;
 use App\Http\Controllers\Backend\Investments\PrivateInvestmentController;
 use App\Http\Controllers\Backend\Projects\ProjectController;
 use App\Http\Controllers\Backend\Team\TeamController;
+use App\Http\Controllers\Backend\FAQs\FAQController;
 use App\Http\Controllers\LanguageController;
 use Illuminate\Support\Facades\Route;
 
@@ -186,6 +187,9 @@ Route::group(['prefix' => 'admin', 'as' => 'backend.', 'middleware' => ['auth', 
 
     // Project routes
     Route::resource('projects', ProjectController::class);
+
+    // FAQ routes
+    Route::resource('faqs', FAQController::class);
 
     Route::get('pipe', [ProjectController::class, 'pipe'])->name('pipe');
 

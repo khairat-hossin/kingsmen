@@ -71,6 +71,12 @@ class Permission extends \Spatie\Permission\Models\Permission
             'restore_brokers',
             'block_brokers',
 
+            'view_faqs',
+            'add_faqs',
+            'edit_faqs',
+            'delete_faqs',
+            'restore_faqs',
+            'block_faqs',
         ];
     }
 
