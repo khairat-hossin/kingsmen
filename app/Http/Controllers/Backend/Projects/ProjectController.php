@@ -293,22 +293,25 @@ class ProjectController extends Controller {
             $project->project_management_companies = $request->project_management_companies;
 
 
-            // Multiple photo put to db
+            // Multiple photo resize and put link to db
            $home_page_photos_galleryurl = '';
            $photos_gallery = $request->file('home_page_photos_gallery');
-           $photoPaths = [];
-
+           $path = [];
            if($photos_gallery)
            {
                 foreach ($photos_gallery as $photo) {
                     // Resize the image to a specific width and height
-                    // $resizedImage = Image::make($photo)->resize(450, 220);
+                    $resizedImage = Image::make($photo); // ei line tai kaaj korse na, data null
 
-                    $home_page_photos_galleryurl = uploadFileToPublic($photo, 'projects/home_page_photos_gallery');
-                    $photoPaths[] = asset($home_page_photos_galleryurl);
+                    $filename = uniqid() . '.' . $photo->getClientOriginalExtension();
+                    $resizedImage->resize(560, 320);
+
+                    $resizedImage->save('uploads/projects/home_page_photos_gallery/'.$filename);
+                    $path[] = $resizedImage->basePath();
                 }
-                $project->home_page_photos_gallery = json_encode($photoPaths);
+                $project->home_page_photos_gallery = json_encode($path);
            }
+           //End Multiple photo resize and put link to db
 
             $qna_page_banner = '';
             if ($request->qna_page_banner) {
@@ -436,6 +439,7 @@ class ProjectController extends Controller {
         } catch (\Throwable $th) {
             DB::rollBack();
             $msg = $th->getMessage();
+            dd($msg);
             flash(icon() . ' ' . Str::singular($this->module_title) . " Create Failed! $msg")->error()->important();
             return back()->withInput();
         }
