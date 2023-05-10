@@ -7,6 +7,7 @@ use App\Models\Team;
 use App\Models\Project;
 use App\Models\PrivateInvestment;
 use App\Models\Crowdfunding;
+use App\Models\Faq;
 
 class FrontendController extends Controller
 {
@@ -106,6 +107,7 @@ class FrontendController extends Controller
 
     public function faq()
     {
-        return view('frontend.faq');
+        $faqs = Faq::all();
+        return view('frontend.faq', compact('faqs'));
     }
 }

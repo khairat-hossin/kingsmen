@@ -147,6 +147,20 @@ class GenerateMenus
                 'class' => 'nav-link',
             ]);
 
+            // FAQs
+            $menu->add('<i class="nav-icon fa-brands fa-stack-exchange"></i>FAQs', [
+                'route' => 'backend.faqs.index',
+                'class' => 'nav-item',
+            ])
+            ->data([
+                'order' => 9,
+                'activematches' => 'admin/faqs*',
+                'permission' => [],
+            ])
+            ->link->attr([
+                'class' => 'nav-link',
+            ]);
+
             /**
              *
              * Khairat Hossin Route Ends

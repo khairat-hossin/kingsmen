@@ -11,14 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('questions_and_answers', function (Blueprint $table) {
+        Schema::create('faqs', function (Blueprint $table) {
             $table->id();
-            $table->string('banner');
-            $table->string('banner_text');
-            $table->string('title_1');
-            $table->string('paragraph_1');
-            $table->string('title_2');
-            $table->string('paragraph_2');
+            $table->string('question')->nullable();
+            $table->string('answer')->nullable();
+            $table->string('banner')->nullable();
+            $table->string('banner_text')->nullable();
+            $table->text('video')->nullable();
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('questions_and_answers');
+        Schema::dropIfExists('faqs');
     }
 };
