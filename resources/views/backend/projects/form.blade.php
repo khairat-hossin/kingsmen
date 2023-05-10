@@ -153,7 +153,7 @@
             // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm datepicker')->attributes(['name' => 'starting_date', "$required", 'id' => 'starting_date'])->placeholder($field_placeholder) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm datepicker')->value($value)->attributes(['name' => 'starting_date', "$required", 'id' => 'starting_date'])->placeholder($field_placeholder) }}
             @error('starting_date')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -168,7 +168,7 @@
             // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm datepicker')->attributes(['name' => 'delivery_date', "$required", 'id' => 'delivery_date'])->placeholder($field_placeholder) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm datepicker')->value($value)->attributes(['name' => 'delivery_date', "$required", 'id' => 'delivery_date'])->placeholder($field_placeholder) }}
             @error('delivery_date')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -183,7 +183,7 @@
             // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'project_duration_in_years', "$required", 'id' => 'project_duration_in_years', 'readonly' => true]) }}
+            {{ html()->text($field_name)->value($value)->class('form-control form-control-sm')->attributes(['name' => 'project_duration_in_years', "$required", 'id' => 'project_duration_in_years', 'readonly' => true]) }}
             @error('project_duration_in_years')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -202,7 +202,7 @@
             // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->number($field_name)->class('form-control form-control-sm')->attributes(['name' => 'area_starting_per_sqm', "$required", 'id' => 'area_starting_per_sqm', 'pattern' => '\d*', 'step' => 'any']) }}
+            {{ html()->number($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'area_starting_per_sqm', "$required", 'id' => 'area_starting_per_sqm', 'pattern' => '\d*', 'step' => 'any']) }}
             @error('area_starting_per_sqm')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -217,7 +217,7 @@
             // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->number($field_name)->class('form-control form-control-sm')->attributes(['name' => 'price_starting_per_sqm', "$required", 'id' => 'price_starting_per_sqm', 'pattern' => '\d*', 'step' => 'any']) }}
+            {{ html()->number($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'price_starting_per_sqm', "$required", 'id' => 'price_starting_per_sqm', 'pattern' => '\d*', 'step' => 'any']) }}
             @error('price_starting_per_sqm')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -232,7 +232,7 @@
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->number($field_name)->class('form-control form-control-sm')->attributes(['name' => 'land_price_starting', "$required", 'id' => 'land_price_starting', 'pattern' => '\d*', 'step' => 'any', 'readonly' => true]) }}
+            {{ html()->number($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'land_price_starting', "$required", 'id' => 'land_price_starting', 'pattern' => '\d*', 'step' => 'any', 'readonly' => true]) }}
             @error('land_price_starting')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -709,7 +709,7 @@
             // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'home_page_header_title', "$required", 'value' => "$value"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'home_page_header_title', "$required", 'value' => "$value"]) }}
             @error('home_page_header_title')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -724,7 +724,7 @@
             // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'home_page_header_paragraph', "$required", 'value' => "$value"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'home_page_header_paragraph', "$required", 'value' => "$value"]) }}
             @error('home_page_header_paragraph')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -754,7 +754,7 @@
             // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'home_page_footer_paragraph', "$required", 'value' => "$value"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'home_page_footer_paragraph', "$required", 'value' => "$value"]) }}
             @error('home_page_footer_paragraph')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -874,7 +874,7 @@
             // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'qna_page_header_paragraph', "$required", 'value' => "$value"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'qna_page_header_paragraph', "$required", 'value' => "$value"]) }}
             @error('qna_page_header_paragraph')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -904,7 +904,7 @@
             // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'qna_page_footer_paragraph', "$required", 'value' => "$value"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'qna_page_footer_paragraph', "$required", 'value' => "$value"]) }}
             @error('qna_page_footer_paragraph')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -955,7 +955,7 @@
             // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'buy_home_page_header_title', "$required", 'value' => "$value"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'buy_home_page_header_title', "$required", 'value' => "$value"]) }}
             @error('buy_home_page_header_title')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -970,7 +970,7 @@
             // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'buy_home_page_header_paragraph', "$required", 'value' => "$value"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'buy_home_page_header_paragraph', "$required", 'value' => "$value"]) }}
             @error('buy_home_page_header_paragraph')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -1000,7 +1000,7 @@
             // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'buy_home_page_footer_paragraph', "$required", 'value' => "$value"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'buy_home_page_footer_paragraph', "$required", 'value' => "$value"]) }}
             @error('buy_home_page_footer_paragraph')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -1051,7 +1051,7 @@
             // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'buy_land_page_header_title', "$required", 'value' => "$value"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'buy_land_page_header_title', "$required", 'value' => "$value"]) }}
             @error('buy_land_page_header_title')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -1066,7 +1066,7 @@
             // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'buy_land_page_header_paragraph', "$required", 'value' => "$value"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'buy_land_page_header_paragraph', "$required", 'value' => "$value"]) }}
             @error('buy_land_page_header_paragraph')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -1096,7 +1096,7 @@
             // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'buy_land_page_footer_paragraph', "$required", 'value' => "$value"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'buy_land_page_footer_paragraph', "$required", 'value' => "$value"]) }}
             @error('buy_land_page_footer_paragraph')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -1147,7 +1147,7 @@
             // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'amenities_page_header_title', "$required", 'value' => "$value"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'amenities_page_header_title', "$required", 'value' => "$value"]) }}
             @error('amenities_page_header_title')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -1162,7 +1162,7 @@
             // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'amenities_page_header_paragraph', "$required", 'value' => "$value"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'amenities_page_header_paragraph', "$required", 'value' => "$value"]) }}
             @error('amenities_page_header_paragraph')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -1192,7 +1192,7 @@
             // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'amenities_page_footer_paragraph', "$required", 'value' => "$value"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'amenities_page_footer_paragraph', "$required", 'value' => "$value"]) }}
             @error('amenities_page_footer_paragraph')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -1244,7 +1244,7 @@
             // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'financing_page_header_title', "$required", 'value' => "$value"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'financing_page_header_title', "$required", 'value' => "$value"]) }}
             @error('financing_page_header_title')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -1259,7 +1259,7 @@
             // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'financing_page_header_paragraph', "$required", 'value' => "$value"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'financing_page_header_paragraph', "$required", 'value' => "$value"]) }}
             @error('financing_page_header_paragraph')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -1289,7 +1289,7 @@
             // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'financing_page_footer_paragraph', "$required", 'value' => "$value"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'financing_page_footer_paragraph', "$required", 'value' => "$value"]) }}
             @error('financing_page_footer_paragraph')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -1340,7 +1340,7 @@
             // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'who_page_header_title', "$required", 'value' => "$value"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'who_page_header_title', "$required", 'value' => "$value"]) }}
             @error('who_page_header_title')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -1355,7 +1355,7 @@
             // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'who_page_header_paragraph', "$required", 'value' => "$value"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'who_page_header_paragraph', "$required", 'value' => "$value"]) }}
             @error('who_page_header_paragraph')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -1385,7 +1385,7 @@
             // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'who_page_footer_paragraph', "$required", 'value' => "$value"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'who_page_footer_paragraph', "$required", 'value' => "$value"]) }}
             @error('who_page_footer_paragraph')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -1436,7 +1436,7 @@
             // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'contact_page_header_title', "$required", 'value' => "$value"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'contact_page_header_title', "$required", 'value' => "$value"]) }}
             @error('contact_page_header_title')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -1451,7 +1451,7 @@
             // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'contact_page_header_paragraph', "$required", 'value' => "$value"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'contact_page_header_paragraph', "$required", 'value' => "$value"]) }}
             @error('contact_page_header_paragraph')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -1481,7 +1481,7 @@
             // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'contact_page_footer_paragraph', "$required", 'value' => "$value"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'contact_page_footer_paragraph', "$required", 'value' => "$value"]) }}
             @error('contact_page_footer_paragraph')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -1500,7 +1500,7 @@
             // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'kingsmen_details', "$required", 'value' => "$value"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'kingsmen_details', "$required", 'value' => "$value"]) }}
             @error('kingsmen_details')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -1516,7 +1516,7 @@
             // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'project_address', "$required", 'value' => "$value"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'project_address', "$required", 'value' => "$value"]) }}
             @error('project_address')
                 <span class="error">{{ $message }}</span>
             @enderror
