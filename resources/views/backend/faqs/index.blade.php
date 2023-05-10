@@ -22,7 +22,7 @@
                 </x-slot>
                 <x-slot name="toolbar">
                     {{-- @can('add_faqs') --}}
-                        <x-buttons.create route='{{ route('backend.faqs.create') }}'
+                        <x-buttons.create route='{{ route("backend.faqs.create") }}'
                             title="{{ __('Create') }} {{ ucwords(Str::singular('faqs')) }}" />
                     {{-- @endcan --}}
 
