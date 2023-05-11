@@ -9,6 +9,8 @@ class AboutUs extends Model
 {
     use HasFactory;
 
+    protected $table = 'about_us';
+
     protected $fillable = [
         'banner',
         'banner_text',

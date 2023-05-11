@@ -518,7 +518,7 @@ class CrowdfundingController extends Controller
 
         $$module_name_singular->delete();
 
-        flash(icon().' '.Str::singular($module_title)."' Deleted Successfully")->success()->important();
+        flash(icon().' '.Str::singular($module_title)." Deleted Successfully")->success()->important();
 
         logUserAccess($module_title.' '.$module_action.' | Id: '.$$module_name_singular->id);
 

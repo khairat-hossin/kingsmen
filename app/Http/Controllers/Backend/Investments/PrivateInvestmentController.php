@@ -479,7 +479,7 @@ class PrivateInvestmentController extends Controller
 
         $private_investments->delete();
 
-        flash(icon().' '.Str::singular($module_title)."' Deleted Successfully")->success()->important();
+        flash(icon().' '.Str::singular($module_title)." Deleted Successfully")->success()->important();
 
         logUserAccess($private_investments.' '.$private_investments.' | Id: '.$private_investments->id);
 

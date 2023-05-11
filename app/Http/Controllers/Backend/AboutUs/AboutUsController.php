@@ -135,7 +135,19 @@ class AboutUsController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $this->authorize('edit_about_us');
+
+        $module_title = $this->module_title;
+        $module_name = $this->module_name;
+        $module_icon = $this->module_icon;
+        $module_model = $this->module_model;
+        $module_path = 'backend';
+        // $module_name_singular = 'about_us';
+
+        $module_action = 'Edit';
+
+        $about_us = AboutUs::find($id);
+        return view('backend.about_us.edit', compact('module_title', 'module_name', 'module_icon', 'module_path', 'module_action', 'about_us'));
     }
 
     /**
@@ -143,7 +155,53 @@ class AboutUsController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $id = $request->about_us_id;
+        // dd($id);
+        $this->authorize('add_edit_us');
+        // dd((int)$id);
+        // $id = (int)$id;
+        $module_action = 'update';
+        $request->validate([
+            "question"         => "required|unique:about_us,question," . $id . ',id',
+            "answer"           => "required|unique:about_us,answer,"  . $id . ',id',
+            "banner"           => "nullable",
+            "banner_text"      => "nullable",
+            "video"            => "nullable"
+        ]);
+
+        DB::beginTransaction();
+        try {
+            $about_us  = AboutUs::find($id);
+
+            $about_us->question     = $request->question;
+            $about_us->answer       = $request->answer;
+            $about_us->banner_text  = $request->banner_text;
+
+            $banner_url = '';
+            if ($request->banner) {
+                $banner_url = uploadFileToPublic($request->file('banner'), 'faqs/banner');
+                $about_us->banner = $banner_url;
+            }
+
+            $video_url = '';
+            if ($request->video) {
+                $video_url = uploadFileToPublic($request->file('video'), 'faqs/video');
+                $about_us->video = $video_url;
+            }
+
+            $about_us->save();
+
+            flash(icon() . ' ' . Str::singular('About Us') . " Updated Successfully")->success()->important();
+            logUserAccess($this->module_title . ' ' . $module_action . ' | Id: ' . $about_us->id);
+            DB::commit();
+            return redirect("admin/$this->module_name");
+
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            $msg = $th->getMessage();
+            flash(icon() . ' ' . Str::singular('About Us') . " Update Failed! $msg")->error()->important();
+            return back()->withInput();
+        }
     }
 
     /**
@@ -151,6 +209,26 @@ class AboutUsController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $this->authorize('delete_about_us');
+
+        $module_title = $this->module_title;
+        $module_name = $this->module_name;
+        $module_path = $this->module_path;
+        $module_icon = $this->module_icon;
+        $module_model = $this->module_model;
+        $module_name_singular = Str::singular($module_name);
+
+        $module_action = 'destroy';
+
+        $$module_name_singular = $module_model::findOrFail($id);
+
+
+        $$module_name_singular->delete();
+
+        flash(icon().' '.('About Us')." Deleted Successfully")->success()->important();
+
+        logUserAccess($module_title.' '.$module_action.' | Id: '.$$module_name_singular->id);
+
+        return redirect("admin/$module_name");
     }
 }

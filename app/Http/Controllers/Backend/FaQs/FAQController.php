@@ -36,7 +36,7 @@ class FAQController extends Controller
         $this->module_path = 'faqs';
 
         // module icon
-        $this->module_icon = 'fas fa-people-group';
+        $this->module_icon = 'fas fa-question-circle';
 
         // module model name, path
         $this->module_model = "App\Models\Faq";
@@ -160,7 +160,7 @@ class FAQController extends Controller
     {
         $this->authorize('add_faqs');
 
-        $module_action = 'store';
+        $module_action = 'update';
         $request->validate([
             "question"         => "required|unique:" . $this->module_model . ",question," . $id . ',id',
             "answer"           => "required|unique:" . $this->module_model . ",answer,"  . $id . ',id',
@@ -225,7 +225,7 @@ class FAQController extends Controller
 
         $$module_name_singular->delete();
 
-        flash(icon().' '.Str::singular($module_title)."' Deleted Successfully")->success()->important();
+        flash(icon().' '.Str::singular($module_title)." Deleted Successfully")->success()->important();
 
         logUserAccess($module_title.' '.$module_action.' | Id: '.$$module_name_singular->id);
 
