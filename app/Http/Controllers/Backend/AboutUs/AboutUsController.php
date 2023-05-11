@@ -97,13 +97,13 @@ class AboutUsController extends Controller
 
             $banner_url = '';
             if ($request->banner) {
-                $banner_url = uploadFileToPublic($request->file('banner'), 'faqs/banner');
+                $banner_url = uploadFileToPublic($request->file('banner'), 'about_us/banner');
                 $about_us->banner = $banner_url;
             }
 
             $video_url = '';
             if ($request->video) {
-                $video_url = uploadFileToPublic($request->file('video'), 'faqs/video');
+                $video_url = uploadFileToPublic($request->file('video'), 'about_us/video');
                 $about_us->video = $video_url;
             }
 
@@ -179,13 +179,13 @@ class AboutUsController extends Controller
 
             $banner_url = '';
             if ($request->banner) {
-                $banner_url = uploadFileToPublic($request->file('banner'), 'faqs/banner');
+                $banner_url = uploadFileToPublic($request->file('banner'), 'about_us/banner');
                 $about_us->banner = $banner_url;
             }
 
             $video_url = '';
             if ($request->video) {
-                $video_url = uploadFileToPublic($request->file('video'), 'faqs/video');
+                $video_url = uploadFileToPublic($request->file('video'), 'about_us/video');
                 $about_us->video = $video_url;
             }
 
