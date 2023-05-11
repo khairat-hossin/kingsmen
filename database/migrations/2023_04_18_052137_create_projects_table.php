@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('registered_company_name')->limit(255);
             $table->string('comapany_tax_number')->nullable()->limit(255);
             $table->string('project_type')->limit(255);
-            $table->integer('duration_in_years')->nullable();
+            $table->integer('project_duration_in_years')->nullable();
             $table->string('accepted_currency')->nullable()->limit(255);
             $table->date('starting_date')->nullable();
             $table->date('delivery_date')->nullable();

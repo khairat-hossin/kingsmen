@@ -179,11 +179,11 @@
             $field_name = 'Project Duration in Years';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
-            $value = $project->duration_in_years ?? '';
+            $value = $project->project_duration_in_years ?? '';
             // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->number($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'duration_in_years', "$required", 'id' => 'duration_in_years', 'readonly' => true]) }}
+            {{ html()->number($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'project_duration_in_years', "$required", 'id' => 'project_duration_in_years', 'readonly' => true]) }}
             @error('project_duration_in_years')
                 <span class="error">{{ $message }}</span>
             @enderror
