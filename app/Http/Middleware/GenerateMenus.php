@@ -175,6 +175,21 @@ class GenerateMenus
             ->link->attr([
                 'class' => 'nav-link',
             ]);
+
+
+            // Services
+            $menu->add('<i class="nav-icon fas fa-users"></i>Services', [
+                'route' => 'backend.services.index',
+                'class' => 'nav-item',
+            ])
+            ->data([
+                'order' => 9,
+                'activematches' => 'admin/services*',
+                'permission' => [],
+            ])
+            ->link->attr([
+                'class' => 'nav-link',
+            ]);
             /**
              *
              * Khairat Hossin Route Ends
