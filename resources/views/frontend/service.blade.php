@@ -1,4 +1,4 @@
-@extends('frontend.layouts.app')
+ @extends('frontend.layouts.app')
 
 @section('title')
     {{ app_name() }}
@@ -136,7 +136,7 @@
                                 needs. We provide budgeting advice and risk assessment and management, so you can make
                                 informed decisions while taking into account potential risks.</p>
                         </div>
-                        <a href="team.html" class="btn"> Meat the team </a>
+                        <a href="{{ route('frontend.team') }}" class="btn"> Meat the team </a>
                     </div>
                 </div>
             </div>

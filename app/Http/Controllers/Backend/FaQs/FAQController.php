@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Backend\FaQs;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-// use Illuminate\Foundation\Auth\Access\Authorizable;
+use Illuminate\Foundation\Auth\Access\Authorizable;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Log;
@@ -12,7 +12,7 @@ use App\Models\Faq;
 
 class FAQController extends Controller
 {
-    // use Authorizable;
+    use Authorizable;
 
     public $module_title;
 
@@ -46,7 +46,7 @@ class FAQController extends Controller
      */
     public function index()
     {
-    //    $this->authorize('view_faqs');
+       $this->authorize('view_faqs');
        $faqs= Faq::all();
 
        return view('backend.faqs.index', compact('faqs'));
@@ -137,7 +137,7 @@ class FAQController extends Controller
      */
     public function edit(string $id)
     {
-        $this->authorize('edit_teams');
+        $this->authorize('edit_faqs');
 
         $module_title = $this->module_title;
         $module_name = $this->module_name;
@@ -209,7 +209,7 @@ class FAQController extends Controller
      */
     public function destroy(string $id)
     {
-        $this->authorize('delete_teams');
+        $this->authorize('delete_faqs');
 
         $module_title = $this->module_title;
         $module_name = $this->module_name;
