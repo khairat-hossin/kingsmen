@@ -8,6 +8,7 @@ use App\Models\Project;
 use App\Models\PrivateInvestment;
 use App\Models\Crowdfunding;
 use App\Models\Faq;
+use App\Models\AboutUs;
 
 class FrontendController extends Controller
 {
@@ -102,7 +103,31 @@ class FrontendController extends Controller
 
     public function about_us()
     {
-        return view('frontend.about-us');
+        $about_us = AboutUs::all();
+
+        $banner = '';
+        $banner_text = '';
+        $video = '';
+        
+        foreach($about_us as $about)
+         {
+            if($about->banner)
+            {
+                $banner = $about->banner;
+            }
+
+            if($about->banner_text)
+            {
+                $banner_text = $about->banner_text;
+            }
+
+            if($about->video)
+            {
+                $video = $about->video;
+            }
+        }
+
+        return view('frontend.about-us', compact('about_us', 'banner', 'banner_text', 'video'));
     }
 
     public function faq()
