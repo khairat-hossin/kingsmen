@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\Backend\FaQs;
+namespace App\Http\Controllers\backend\AboutUs;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\Access\Authorizable;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Log;
-use App\Models\Faq;
+use App\Models\AboutUs;
+use Illuminate\Support\Facades\DB;
 
-class FAQController extends Controller
+class AboutUsController extends Controller
 {
     use Authorizable;
 
@@ -27,29 +27,27 @@ class FAQController extends Controller
     public function __construct()
     {
         // Page Title
-        $this->module_title = 'FAQs';
+        $this->module_title = 'About Us';
 
         // module name
-        $this->module_name = 'faqs';
+        $this->module_name = 'about-us';
 
         // directory path of the module
-        $this->module_path = 'faqs';
+        $this->module_path = 'about-us';
 
         // module icon
-        $this->module_icon = 'fas fa-question-circle';
+        $this->module_icon = 'fas fas fa-info-circle';
 
         // module model name, path
-        $this->module_model = "App\Models\Faq";
+        $this->module_model = "App\Models\AboutUs";
     }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-       $this->authorize('view_faqs');
-       $faqs= Faq::all();
-
-       return view('backend.faqs.index', compact('faqs'));
+        $about_us = AboutUs::all();
+        return view('backend.about_us.index', compact('about_us'));
     }
 
     /**
@@ -70,7 +68,7 @@ class FAQController extends Controller
 
         Log::info(label_case($module_title.' '.$module_action).' | User:'.auth()->user()->name.'(ID:'.auth()->user()->id.')');
 
-        return view('backend.faqs.create', compact('module_title', 'module_name', 'module_icon', 'module_name_singular', 'module_action'));
+        return view('backend.about_us.create', compact('module_title', 'module_name', 'module_icon', 'module_name_singular', 'module_action'));
     }
 
     /**
@@ -78,7 +76,7 @@ class FAQController extends Controller
      */
     public function store(Request $request)
     {
-        $this->authorize('add_faqs');
+        $this->authorize('add_about_us');
 
         $module_action = 'store';
         $request->validate([
@@ -91,28 +89,28 @@ class FAQController extends Controller
 
         DB::beginTransaction();
         try {
-            $faqs  = new $this->module_model();
+            $about_us  = new $this->module_model();
 
-            $faqs->question     = $request->question;
-            $faqs->answer       = $request->answer;
-            $faqs->banner_text  = $request->banner_text;
+            $about_us->question     = $request->question;
+            $about_us->answer       = $request->answer;
+            $about_us->banner_text  = $request->banner_text;
 
             $banner_url = '';
             if ($request->banner) {
                 $banner_url = uploadFileToPublic($request->file('banner'), 'faqs/banner');
-                $faqs->banner = $banner_url;
+                $about_us->banner = $banner_url;
             }
 
             $video_url = '';
             if ($request->video) {
                 $video_url = uploadFileToPublic($request->file('video'), 'faqs/video');
-                $faqs->video = $video_url;
+                $about_us->video = $video_url;
             }
 
-            $faqs->save();
+            $about_us->save();
 
-            flash(icon() . ' ' . Str::singular($this->module_title) . " Created Successfully")->success()->important();
-            logUserAccess($this->module_title . ' ' . $module_action . ' | Id: ' . $faqs->id);
+            flash(icon() . ' ' . "About Us" . " Created Successfully")->success()->important();
+            logUserAccess($this->module_title . ' ' . $module_action . ' | Id: ' . $about_us->id);
             DB::commit();
             return redirect("admin/$this->module_name");
 
@@ -137,20 +135,19 @@ class FAQController extends Controller
      */
     public function edit(string $id)
     {
-        $this->authorize('edit_faqs');
+        $this->authorize('edit_about_us');
 
         $module_title = $this->module_title;
         $module_name = $this->module_name;
         $module_icon = $this->module_icon;
         $module_model = $this->module_model;
         $module_path = 'backend';
-        $module_name_singular = Str::singular($module_name);
+        // $module_name_singular = 'about_us';
 
         $module_action = 'Edit';
 
-        $faq = Faq::find($id);
-
-        return view('backend.crowdfundings.edit', compact('module_title', 'module_name', 'module_icon', 'module_path', 'module_name_singular', 'module_action', 'faq'));
+        $about_us = AboutUs::find($id);
+        return view('backend.about_us.edit', compact('module_title', 'module_name', 'module_icon', 'module_path', 'module_action', 'about_us'));
     }
 
     /**
@@ -158,12 +155,15 @@ class FAQController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $this->authorize('add_faqs');
-
+        $id = $request->about_us_id;
+        // dd($id);
+        $this->authorize('add_edit_us');
+        // dd((int)$id);
+        // $id = (int)$id;
         $module_action = 'update';
         $request->validate([
-            "question"         => "required|unique:" . $this->module_model . ",question," . $id . ',id',
-            "answer"           => "required|unique:" . $this->module_model . ",answer,"  . $id . ',id',
+            "question"         => "required|unique:about_us,question," . $id . ',id',
+            "answer"           => "required|unique:about_us,answer,"  . $id . ',id',
             "banner"           => "nullable",
             "banner_text"      => "nullable",
             "video"            => "nullable"
@@ -171,35 +171,35 @@ class FAQController extends Controller
 
         DB::beginTransaction();
         try {
-            $faqs  = Faq::find($id);
+            $about_us  = AboutUs::find($id);
 
-            $faqs->question     = $request->question;
-            $faqs->answer       = $request->answer;
-            $faqs->banner_text  = $request->banner_text;
+            $about_us->question     = $request->question;
+            $about_us->answer       = $request->answer;
+            $about_us->banner_text  = $request->banner_text;
 
             $banner_url = '';
             if ($request->banner) {
                 $banner_url = uploadFileToPublic($request->file('banner'), 'faqs/banner');
-                $faqs->banner = $banner_url;
+                $about_us->banner = $banner_url;
             }
 
             $video_url = '';
             if ($request->video) {
                 $video_url = uploadFileToPublic($request->file('video'), 'faqs/video');
-                $faqs->video = $video_url;
+                $about_us->video = $video_url;
             }
 
-            $faqs->save();
+            $about_us->save();
 
-            flash(icon() . ' ' . Str::singular($this->module_title) . " Created Successfully")->success()->important();
-            logUserAccess($this->module_title . ' ' . $module_action . ' | Id: ' . $faqs->id);
+            flash(icon() . ' ' . Str::singular('About Us') . " Updated Successfully")->success()->important();
+            logUserAccess($this->module_title . ' ' . $module_action . ' | Id: ' . $about_us->id);
             DB::commit();
             return redirect("admin/$this->module_name");
 
         } catch (\Throwable $th) {
             DB::rollBack();
             $msg = $th->getMessage();
-            flash(icon() . ' ' . Str::singular($this->module_title) . " Creation Failed! $msg")->error()->important();
+            flash(icon() . ' ' . Str::singular('About Us') . " Update Failed! $msg")->error()->important();
             return back()->withInput();
         }
     }
@@ -209,7 +209,7 @@ class FAQController extends Controller
      */
     public function destroy(string $id)
     {
-        $this->authorize('delete_faqs');
+        $this->authorize('delete_about_us');
 
         $module_title = $this->module_title;
         $module_name = $this->module_name;
@@ -225,7 +225,7 @@ class FAQController extends Controller
 
         $$module_name_singular->delete();
 
-        flash(icon().' '.Str::singular($module_title)." Deleted Successfully")->success()->important();
+        flash(icon().' '.('About Us')." Deleted Successfully")->success()->important();
 
         logUserAccess($module_title.' '.$module_action.' | Id: '.$$module_name_singular->id);
 

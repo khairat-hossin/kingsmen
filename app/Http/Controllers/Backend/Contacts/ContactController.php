@@ -165,7 +165,7 @@ class ContactController extends Controller
 
         // Add a person of this contact in pipedrive
         $this->addPersonPipeDrive($contact);
-        
+
         flash(icon().' '.Str::singular($module_title)."' Created.")->success()->important();
 
         logUserAccess($module_title.' '.$module_action.' | Id: '.$$module_name_singular->id);
@@ -395,7 +395,7 @@ class ContactController extends Controller
 
         $$module_name_singular->delete();
 
-        flash(icon().' '.Str::singular($module_title)."' Deleted Successfully")->success()->important();
+        flash(icon().' '.Str::singular($module_title)." Deleted Successfully")->success()->important();
 
         logUserAccess($module_title.' '.$module_action.' | Id: '.$$module_name_singular->id);
 

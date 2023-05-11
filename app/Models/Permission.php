@@ -77,6 +77,13 @@ class Permission extends \Spatie\Permission\Models\Permission
             'delete_faqs',
             'restore_faqs',
             'block_faqs',
+
+            'view_about_us',
+            'add_about_us',
+            'edit_about_us',
+            'delete_about_us',
+            'restore_about_us',
+            'block_about_us'
         ];
     }
 

@@ -267,7 +267,7 @@
                                 <p class="card-text">
                                 <h3 class=" ">We are proud to introduce our partners, managers and team who have been
                                     instrumental in helping us reach the success we enjoy today</h3>
-                                <a href="team.html" class="btn">Learn more</a>
+                                <a href="{{ route('frontend.team') }}" class="btn">Learn more</a>
                                 </p>
                             </div>
                         </div>
@@ -282,7 +282,7 @@
                                 <p class="card-text">
                                 <h3 class=" ">Our goal is to provide long-term value while minimizing risk. Kingsmen
                                     Investment Opportunities is here to help you make the most of your money!</h3>
-                                <a href="team.html" class="btn">Invest with Kingsmen</a>
+                                <a href="{{ route('frontend.invests') }}" class="btn">Invest with Kingsmen</a>
                                 </p>
                             </div>
                         </div>

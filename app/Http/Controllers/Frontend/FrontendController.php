@@ -127,7 +127,6 @@ class FrontendController extends Controller
                 $video = $faq->video;
             }
         }
-//  dd($banner);
         return view('frontend.faq', compact('faqs', 'banner', 'banner_text', 'video'));
     }
 }

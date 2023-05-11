@@ -148,7 +148,7 @@ class GenerateMenus
             ]);
 
             // FAQs
-            $menu->add('<i class="nav-icon fa-brands fa-stack-exchange"></i>FAQs', [
+            $menu->add('<i class="nav-icon fas fa-question-circle"></i>FAQs', [
                 'route' => 'backend.faqs.index',
                 'class' => 'nav-item',
             ])
@@ -161,6 +161,20 @@ class GenerateMenus
                 'class' => 'nav-link',
             ]);
 
+
+            // About Us
+            $menu->add('<i class="nav-icon fas fa-info-circle"></i>About Us', [
+                'route' => 'backend.about-us.index',
+                'class' => 'nav-item',
+            ])
+            ->data([
+                'order' => 9,
+                'activematches' => 'admin/about-us*',
+                'permission' => [],
+            ])
+            ->link->attr([
+                'class' => 'nav-link',
+            ]);
             /**
              *
              * Khairat Hossin Route Ends
