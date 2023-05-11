@@ -90,6 +90,7 @@ class ProjectController extends Controller {
             "registered_company_name"         => "required|unique:" . $this->module_model . ",registered_company_name",
             "comapany_tax_number"             => "required|unique:" . $this->module_model . ",comapany_tax_number",
             "project_type"                    => "nullable",
+            "duration_in_years"               => "nullable",
             "accepted_currency"               => "nullable",
             "starting_date"                   => "nullable",
             "accepted_currency"               => "nullable",
@@ -215,12 +216,21 @@ class ProjectController extends Controller {
             $project->registered_company_name = $request->registered_company_name;
             $project->comapany_tax_number     = $request->comapany_tax_number;
             $project->project_type            = $request->project_type;
+            $project->duration_in_years       = $request->duration_in_years;
             $project->accepted_currency       = $request->accepted_currency;
             $project->starting_date           = date("Y-m-d", strtotime($request->starting_date));
             $project->delivery_date           = date("Y-m-d", strtotime($request->delivery_date));
             $project->area_starting_per_sqm   = $request->area_starting_per_sqm;
             $project->price_starting_per_sqm  = $request->price_starting_per_sqm;
             $project->land_price_starting     = $request->land_price_starting;
+            $project->project_thumbnail       =$request->project_thumbnail;
+            $project->title                   =$request->title;      
+            $project->description             =$request->description;
+            $project->total_price_with_land   =$request->total_price_with_land;
+            $project->deposit                 =$request->deposit;
+            $project->remainingAmount_as_bankTransfer             =$request->remainingAmount_as_bankTransfer;
+            $project->full_payment_usdt       =$request->full_payment_usdt;
+
 
             // land
             $project->land_number        = $request->land_number;
@@ -488,6 +498,7 @@ class ProjectController extends Controller {
             "registered_company_name"         => "required|unique:projects,registered_company_name," . $id.",id",
             "comapany_tax_number"             => "required|unique:projects,comapany_tax_number," . $id.",id",
             "project_type"                    => "nullable",
+            "duration_in_years"               => "nullable",
             "accepted_currency"               => "nullable",
             "starting_date"                   => "nullable",
             "accepted_currency"               => "nullable",
@@ -613,6 +624,7 @@ class ProjectController extends Controller {
             $project->registered_company_name = $request->registered_company_name;
             $project->comapany_tax_number     = $request->comapany_tax_number;
             $project->project_type            = $request->project_type;
+            $project->duration_in_years       =$request->duration_in_years;
             $project->accepted_currency       = $request->accepted_currency;
             $project->starting_date           = date("Y-m-d", strtotime($request->starting_date));
             $project->delivery_date           = date("Y-m-d", strtotime($request->delivery_date));

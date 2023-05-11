@@ -42,8 +42,9 @@ return new class extends Migration
             $table->string('total_construction_cost')->nullable()->limit(255);
             $table->string('category')->nullable()->limit(255);
             $table->unsignedDecimal('total_price_with_land', 8, 2)->nullable();
-            $table->unsignedDecimal('deposit', 8, 2)->nullable();
+            $table->unsignedDecimal('deposit', 8, 2)->nullable();            
             $table->unsignedDecimal('remainingAmount_as_bankTransfer', 8, 2)->nullable();
+            $table->unsignedDecimal('full_payment_usdt', 8, 2)->nullable();
             $table->string('selling_contract')->nullable()->limit(255);
             $table->string('company_papers')->nullable()->limit(255);
             $table->string('project_rules_and_regulation')->nullable()->limit(255);
