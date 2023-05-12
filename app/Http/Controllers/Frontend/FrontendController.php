@@ -108,12 +108,12 @@ class FrontendController extends Controller
         $banner = '';
         $banner_text = '';
         $video = '';
-        
+
         foreach($about_us as $about)
          {
             if($about->banner)
             {
-                $banner = $about->banner;
+                $banner = str_replace('\\','/',$about->banner);
             }
 
             if($about->banner_text)
@@ -138,7 +138,7 @@ class FrontendController extends Controller
          {
             if($faq->banner)
             {
-                $banner = $faq->banner;
+                $banner = str_replace('\\', '/', $faq->banner);
 
             }
 
