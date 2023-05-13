@@ -25,7 +25,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = '';
-            $required = 'required';
+            $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'solution_image', "$required", 'value' => "$value"]) }}

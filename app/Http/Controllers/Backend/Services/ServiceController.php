@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Log;
 use App\Models\Service;
+use Image;
 
 class ServiceController extends Controller
 {
@@ -98,15 +99,22 @@ class ServiceController extends Controller
 
             $banner_url = '';
             if ($request->banner) {
-                $banner_url = uploadFileToPublic($request->file('banner'), 'services/banner');
+                $photo = $request->file('banner');
+                $filenameToStore= time() . '.' . $photo->getClientOriginalExtension();
+                $location = $request->file('banner')->storeAs('uploads/services/banner', $filenameToStore);
+                Image::make($photo)->resize(1920, 1080)->save($location);
+                $banner_url = $location;
                 $services->banner = $banner_url;
-            }
 
+            }
 
             $solution_image_url = '';
             if ($request->solution_image) {
-                $solution_image_url = uploadFileToPublic($request->file('solution_image'), 'services/solution_image');
-                $services->solution_image = $solution_image_url;
+                $photo = $request->file('solution_image');
+                $filenameToStore = time() . '.' . $photo->getClientOriginalExtension();
+                $location = $request->file('solution_image')->storeAs('uploads/services/solution_image', $filenameToStore);
+                Image::make($photo)->resize(1280,1280)->save($location);
+                $services->solution_image = $location;
             }
 
             $services->title       = $request->title;
@@ -169,7 +177,7 @@ class ServiceController extends Controller
         $module_action = 'update';
         $request->validate([
             "solution_title"   => "required|unique:" . $this->module_model . ",solution_title,"  . $id . ',id',
-            "solution_image"   => "required",
+            "solution_image"   => "nullable",
             "solution_summary" => "required|unique:" . $this->module_model . ",solution_summary,"  . $id . ',id',
             "banner_text"      => "nullable|unique:" . $this->module_model . ",banner_text," . $id . ',id',
             "banner"           => "nullable",
@@ -184,14 +192,22 @@ class ServiceController extends Controller
 
             $banner_url = '';
             if ($request->banner) {
-                $banner_url = uploadFileToPublic($request->file('banner'), 'services/banner');
+                $photo = $request->file('banner');
+                $filename= time() . '.' . $photo->getClientOriginalExtension();
+                $location = $request->file('banner')->storeAs('uploads/services/banner', $filename);
+                Image::make($photo)->resize(1920, 1080)->save($location);
+                $banner_url = $location;
                 $services->banner = $banner_url;
+
             }
 
             $solution_image_url = '';
             if ($request->solution_image) {
-                $solution_image_url = uploadFileToPublic($request->file('solution_image'), 'services/solution_image');
-                $services->solution_image = $solution_image_url;
+                $photo = $request->file('solution_image');
+                $filenameToStore = time() . '.' . $photo->getClientOriginalExtension();
+                $location = $request->file('solution_image')->storeAs('uploads/services/solution_image', $filenameToStore);
+                Image::make($photo)->resize(1280,1280)->save($location);
+                $services->solution_image = $location;
             }
 
             $services->title            = $request->title;
