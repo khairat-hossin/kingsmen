@@ -82,12 +82,12 @@ class ServiceController extends Controller
 
         $module_action = 'store';
         $request->validate([
-            "solution_title"   => "required|unique:" . $this->module_model . ",banner_text",
+            "solution_title"   => "required|unique:" . $this->module_model . ",solution_title",
             "solution_image"   => "required",
-            "solution_summary" => "required|unique:" . $this->module_model . ",banner_text",
+            "solution_summary" => "required|unique:" . $this->module_model . ",solution_summary",
             "banner_text"      => "nullable|unique:" . $this->module_model . ",banner_text",
             "banner"           => "nullable",
-            "title"            => "nullable|unique:" . $this->module_model . ",banner_text"
+            "title"            => "nullable|unique:" . $this->module_model . ",title"
         ]);
 
         DB::beginTransaction();
