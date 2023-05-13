@@ -43,7 +43,7 @@
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'title', "$required", 'value' => "$value"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'title', "$required"]) }}
             @error('title')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -58,7 +58,7 @@
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'solution_title', "$required", 'value' => "$value"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'solution_title', "$required"]) }}
             @error('solution_title')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -88,7 +88,7 @@
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'solution_summary', "$required", 'value' => "$value"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'solution_summary', "$required"]) }}
             @error('solution_summary')
                 <span class="error">{{ $message }}</span>
             @enderror
