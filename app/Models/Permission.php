@@ -83,7 +83,14 @@ class Permission extends \Spatie\Permission\Models\Permission
             'edit_about_us',
             'delete_about_us',
             'restore_about_us',
-            'block_about_us'
+            'block_about_us',
+
+            'view_services',
+            'add_services',
+            'edit_services',
+            'delete_services',
+            'restore_services',
+            'blockservicess'
         ];
     }
 
