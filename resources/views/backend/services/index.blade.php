@@ -54,10 +54,10 @@
                     <table class="table table-hover table-responsive-sm">
                         <thead>
                             <tr>
-                                <th>Banner Text</th>
-                                <th>Title</th>
                                 <th>Solution Title</th>
                                 <th>Solution Summary</th>
+                                <th>Banner Text</th>
+                                <th>Title</th>
                                 <th class="text-end">{{ __('labels.backend.action') }}</th>
                             </tr>
                         </thead>
@@ -65,17 +65,16 @@
                             @forelse($services as $service)
                                 <tr>
                                     <td style="max-width: 200px">
+                                        {{ Str::limit($service->solution_title, 50) }}
+                                    </td>
+                                    <td style="max-width: 200px">
+                                        {{ Str::limit($service->solution_summary, 50) }}
+                                    </td>
+                                    <td style="max-width: 200px">
                                         {{ Str::limit($service->banner_text, 50) }}
                                     </td>
                                     <td style="max-width: 200px">
                                         {{ Str::limit($service->title, 50) }}
-                                    </td>
-                                    <td style="max-width: 200px">
-                                        {{ Str::limit($service->solution_title, 50) }}
-                                    </td>
-
-                                    <td style="max-width: 200px">
-                                        {{ Str::limit($service->solution_summary, 50) }}
                                     </td>
                                     <td class="text-end">
                                         <form action="{{ route('backend.services.destroy', $service->id) }}" method="POST">

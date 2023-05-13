@@ -9,6 +9,7 @@ use App\Models\PrivateInvestment;
 use App\Models\Crowdfunding;
 use App\Models\Faq;
 use App\Models\AboutUs;
+use App\Models\Service;
 
 class FrontendController extends Controller
 {
@@ -98,7 +99,32 @@ class FrontendController extends Controller
 
     public function services()
     {
-         return view('frontend.service');
+        $services = Service::all();
+
+        $banner = '';
+        $title = '';
+        $banner_text = '';
+
+        foreach($services as $service)
+        {
+           if($service->banner)
+           {
+               $banner = str_replace('\\','/',$service->banner);
+           }
+
+           if($service->title)
+           {
+               $title = $service->title;
+           }
+
+
+           if($service->banner_text)
+           {
+               $banner_text = $service->banner_text;
+           }
+       }
+
+        return view('frontend.service', compact('services', 'banner', 'title', 'banner_text'));
     }
 
     public function about_us()

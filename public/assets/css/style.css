@@ -543,7 +543,7 @@ h5{
   background-color: #000; /* set the background color as needed */
 }
 #hero-services{
-  background: url("../img/services/hero-services-bg.jpg") top center;
+  /* background: url("../img/services/hero-services-bg.jpg") top center; */
   background-size: cover;
   background-position: center;
   position: relative;

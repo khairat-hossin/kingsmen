@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('title')->nullable()->maxlength();
             $table->string('solution_title')->nullable()->maxlength();
             $table->string('solution_image')->nullable()->maxlength();
-            $table->string('solution_summary')->nullable()->maxlength();
+            $table->text('solution_summary')->nullable()->maxlength();
             $table->timestamps();
         });
     }
