@@ -124,7 +124,7 @@ class TeamController extends Controller
 
             if($request->upload_photo) {
                 $photo = $request->upload_photo;
-                $resizedImage = Image::make($photo); // ei line tai kaaj korse na, data null
+                $resizedImage = Image::make($photo);
 
                 $filename = uniqid() . '.' . $photo->getClientOriginalExtension();
                 $resizedImage->resize(400, 400);
