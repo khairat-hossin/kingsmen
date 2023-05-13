@@ -108,19 +108,22 @@ class TeamController extends Controller
             $team  = new $this->module_model();
 
             $passport_photo_url = '';
+            $id_card_url = '';
+            $upload_photo_url = '';
+
             if ($request->passport_photo) {
                 $passport_photo_url = uploadFileToPublic($request->file('passport_photo'), 'teams/passport');
+                $team->passport_photo   = $passport_photo_url;
             }
 
-            $id_card_url = '';
             if ($request->id_card) {
                 $id_card_url = uploadFileToPublic($request->file('id_card'), 'teams/id_card');
+                $team->id_card              = $id_card_url;
             }
 
-            $upload_photo_url = '';
             if($request->upload_photo) {
                 $upload_photo_url = uploadFileToPublic($request->file('upload_photo'), 'teams/photo');
-                $team->passport_photo       = $passport_photo_url;
+                $team->upload_photo         = $upload_photo_url;
             }
 
             $team->first_name           = $request->first_name;
