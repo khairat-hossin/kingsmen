@@ -9,6 +9,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Foundation\Auth\Access\Authorizable;
 use App\Models\Team;
+use Image;
 
 class TeamController extends Controller
 {
@@ -122,7 +123,14 @@ class TeamController extends Controller
             }
 
             if($request->upload_photo) {
-                $upload_photo_url = uploadFileToPublic($request->file('upload_photo'), 'teams/photo');
+                $photo = $request->upload_photo;
+                $resizedImage = Image::make($photo); // ei line tai kaaj korse na, data null
+
+                $filename = uniqid() . '.' . $photo->getClientOriginalExtension();
+                $resizedImage->resize(400, 400);
+
+                $resizedImage->save('uploads/teams/photo/'.$filename);
+                $upload_photo_url = $resizedImage->basePath();
                 $team->upload_photo         = $upload_photo_url;
             }
 
@@ -239,8 +247,16 @@ class TeamController extends Controller
                 $team->id_card              = $id_card_url;
             }
 
+
             if($request->upload_photo) {
-                $upload_photo_url = uploadFileToPublic($request->file('upload_photo'), 'teams/photo');
+                $photo = $request->upload_photo;
+                $resizedImage = Image::make($photo); // ei line tai kaaj korse na, data null
+
+                $filename = uniqid() . '.' . $photo->getClientOriginalExtension();
+                $resizedImage->resize(560, 320);
+
+                $resizedImage->save('uploads/projects/home_page_photos_gallery/'.$filename);
+                $upload_photo_url = $resizedImage->basePath();
                 $team->upload_photo         = $upload_photo_url;
             }
 
