@@ -82,12 +82,12 @@ class ServiceController extends Controller
 
         $module_action = 'store';
         $request->validate([
-            "banner_text"      => "required|unique:" . $this->module_model . ",banner_text",
+            "solution_title"   => "required|unique:" . $this->module_model . ",banner_text",
+            "solution_image"   => "required",
+            "solution_summary" => "required|unique:" . $this->module_model . ",banner_text",
+            "banner_text"      => "nullable|unique:" . $this->module_model . ",banner_text",
             "banner"           => "nullable",
-            "title"            => "nullable|unique:" . $this->module_model . ",banner_text",
-            "solution_title"   => "nullable|unique:" . $this->module_model . ",banner_text",
-            "solution_image"   => "nullable",
-            "solution_summary" => "nullable|unique:" . $this->module_model . ",banner_text"
+            "title"            => "nullable|unique:" . $this->module_model . ",banner_text"
         ]);
 
         DB::beginTransaction();
@@ -168,12 +168,12 @@ class ServiceController extends Controller
 
         $module_action = 'update';
         $request->validate([
+            "solution_title"   => "required|unique:" . $this->module_model . ",solution_title,"  . $id . ',id',
+            "solution_image"   => "required",
+            "solution_summary" => "required|unique:" . $this->module_model . ",solution_summary,"  . $id . ',id',
             "banner_text"      => "nullable|unique:" . $this->module_model . ",banner_text," . $id . ',id',
             "banner"           => "nullable",
             "title"            => "nullable|unique:" . $this->module_model . ",title,"  . $id . ',id',
-            "solution_title"   => "nullable|unique:" . $this->module_model . ",solution_title,"  . $id . ',id',
-            "solution_image"   => "nullable",
-            "solution_summary" => "nullable|unique:" . $this->module_model . ",solution_summary,"  . $id . ',id'
         ]);
 
         DB::beginTransaction();
@@ -188,16 +188,15 @@ class ServiceController extends Controller
                 $services->banner = $banner_url;
             }
 
-
             $solution_image_url = '';
-            if ($request->banner) {
-                $solution_image_url = uploadFileToPublic($request->file('banner'), 'services/solution_image');
-                $services->solution_image = $banner_url;
+            if ($request->solution_image) {
+                $solution_image_url = uploadFileToPublic($request->file('solution_image'), 'services/solution_image');
+                $services->solution_image = $solution_image_url;
             }
 
-            $services->title       = $request->title;
-            $services->solution_title  = $request->solution_title;
-            $services->solution_summary  = $request->solution_summary;
+            $services->title            = $request->title;
+            $services->solution_title   = $request->solution_title;
+            $services->solution_summary = $request->solution_summary;
 
             $services->save();
 
