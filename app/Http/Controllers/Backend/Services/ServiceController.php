@@ -104,9 +104,9 @@ class ServiceController extends Controller
 
 
             $solution_image_url = '';
-            if ($request->banner) {
-                $solution_image_url = uploadFileToPublic($request->file('banner'), 'services/solution_image');
-                $services->solution_image = $banner_url;
+            if ($request->solution_image) {
+                $solution_image_url = uploadFileToPublic($request->file('solution_image'), 'services/solution_image');
+                $services->solution_image = $solution_image_url;
             }
 
             $services->title       = $request->title;
