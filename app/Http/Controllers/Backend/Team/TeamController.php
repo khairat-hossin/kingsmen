@@ -127,7 +127,7 @@ class TeamController extends Controller
                 $resizedImage = Image::make($photo);
 
                 $filename = uniqid() . '.' . $photo->getClientOriginalExtension();
-                $resizedImage->resize(370, 370);
+                $resizedImage->resize(400, 400);
 
                 $resizedImage->save('uploads/teams/photo/'.$filename);
                 $upload_photo_url = $resizedImage->basePath();
