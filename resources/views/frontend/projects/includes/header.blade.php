@@ -8,7 +8,7 @@
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li><a href="{{ route('frontend.eco_home') }}" class="{{ Request::is('projects/ecogardens/index*') ? 'active' : '' }}">Home</a></li>
+          <li><a href="{{ route('frontend.eco_home') }}" class="{{ Request::is('projects/ecogardens/home*') ? 'active' : '' }}">Home</a></li>
           <li><a href="{{ route('frontend.eco_useful_info') }}" class="{{ Request::is('projects/ecogardens/useful-info*') ? 'active' : '' }}">Useful Information</a></li>
           <li><a href="{{ route('frontend.eco_location') }}" class="{{ Request::is('projects/ecogardens/location*') ? 'active' : '' }}">Location</a></li>
           <li><a href="{{ route('frontend.eco_choose_your_land') }}" class="{{ Request::is('projects/ecogardens/choose-your-land*') ? 'active' : '' }}">Choose your land</a></li>

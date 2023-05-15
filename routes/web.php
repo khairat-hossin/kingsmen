@@ -59,7 +59,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Frontend', 'as' => 'frontend.
     Route::get('about-us', 'FrontendController@about_us')->name('about_us');
 
     // Routes for Ecogardens
-    Route::get('projects/ecogardens/index', 'FrontendController@eco_index')->name('eco_home');
+    Route::get('projects/ecogardens/home', 'FrontendController@eco_index')->name('eco_home');
     Route::get('projects/ecogardens/useful-info', 'FrontendController@eco_useful_info')->name('eco_useful_info');
     Route::get('projects/ecogardens/location', 'FrontendController@eco_location')->name('eco_location');
     Route::get('projects/ecogardens/choose-your-land', 'FrontendController@eco_choose_your_land')->name('eco_choose_your_land');
