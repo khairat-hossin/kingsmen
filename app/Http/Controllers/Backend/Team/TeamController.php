@@ -127,7 +127,7 @@ class TeamController extends Controller
                 $resizedImage = Image::make($photo);
 
                 $filename = uniqid() . '.' . $photo->getClientOriginalExtension();
-                $resizedImage->resize(400, 400);
+                $resizedImage->resize(370, 370);
 
                 $resizedImage->save('uploads/teams/photo/'.$filename);
                 $upload_photo_url = $resizedImage->basePath();
@@ -253,9 +253,9 @@ class TeamController extends Controller
                 $resizedImage = Image::make($photo); // ei line tai kaaj korse na, data null
 
                 $filename = uniqid() . '.' . $photo->getClientOriginalExtension();
-                $resizedImage->resize(560, 320);
+                $resizedImage->resize(400, 400);
 
-                $resizedImage->save('uploads/projects/home_page_photos_gallery/'.$filename);
+                $resizedImage->save('uploads/teams/photo/'.$filename);
                 $upload_photo_url = $resizedImage->basePath();
                 $team->upload_photo         = $upload_photo_url;
             }

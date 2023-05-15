@@ -14,7 +14,7 @@
                         <div class="col-xl-10 col-lg-8">
                             <h1
                                 class="text-center text-warning fw-light hero_subhead text-uppercase lh-base mt-5 fw-light d-flex align-items-center justify-content-center ">
-                                "Rowing Towards a Unified Goal: The Power of Synchronized Teamwork"<span>.</span></h1>
+                                "Rowing Towards a Unified Goal: The Power of Synchronized Teamwork"</h1>
                         </div>
                     </div>
                 </div>
