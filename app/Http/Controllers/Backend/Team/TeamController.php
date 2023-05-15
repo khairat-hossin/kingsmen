@@ -197,7 +197,7 @@ class TeamController extends Controller
 
         $team = Team::find($id);
 
-        return view('backend.crowdfundings.edit', compact('module_title', 'module_name', 'module_icon', 'module_path', 'module_name_singular', 'module_action', 'team'));
+        return view('backend.teams.edit', compact('module_title', 'module_name', 'module_icon', 'module_path', 'module_name_singular', 'module_action', 'team'));
     }
 
     /**
