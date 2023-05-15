@@ -180,4 +180,11 @@ class FrontendController extends Controller
         }
         return view('frontend.faq', compact('faqs', 'banner', 'banner_text', 'video'));
     }
+
+    // Ecogardens functions starts here
+
+    public function eco_index()
+    {
+        return view('frontend.projects.layouts.app');
+    }
 }

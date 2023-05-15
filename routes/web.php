@@ -10,6 +10,7 @@ use App\Http\Controllers\Backend\Team\TeamController;
 use App\Http\Controllers\Backend\FAQs\FAQController;
 use App\Http\Controllers\Backend\Services\ServiceController;
 use App\Http\Controllers\Backend\AboutUs\AboutUsController;
+// use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\LanguageController;
 use Illuminate\Support\Facades\Route;
 
@@ -56,6 +57,9 @@ Route::group(['namespace' => 'App\Http\Controllers\Frontend', 'as' => 'frontend.
     Route::get('services', 'FrontendController@services')->name('services');
     Route::get('faq', 'FrontendController@faq')->name('faq');
     Route::get('about-us', 'FrontendController@about_us')->name('about_us');
+
+    // Routes for Ecogardens
+    Route::get('projects/ecogardens/index', 'FrontendController@eco_index')->name('eco_home');
 
     Route::group(['middleware' => ['auth']], function () {
         /*
