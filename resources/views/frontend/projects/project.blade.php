@@ -58,11 +58,11 @@
                                 </div>
 
                                 <div class="my-5">
-                                    <span>City: </span> Ashtarak City <br>
-                                    <span>Village: </span> Parpi<br>
-                                    <span>Available: </span> Private Homes <br>
-                                    <span>Starting Price: </span> 85,000 USD <br>
-                                    <a href="" class="btn mt-3">check project</a>
+                                    <span>City: </span> {{ $project->project_location }} <br>
+                                    <span>Village: </span> {{ $project->address }}<br>
+                                    <span>Available: </span> {{ $project->project_type }} <br>
+                                    <span>Starting Price: </span> {{ number_format($project->land_price_starting) }} USD <br>
+                                    <a href="{{ route('frontend.eco_home') }}" class="btn mt-3">check project</a>
                                 </div>
                             </div>
                         </div>

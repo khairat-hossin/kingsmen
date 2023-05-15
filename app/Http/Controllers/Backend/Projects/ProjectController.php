@@ -224,7 +224,7 @@ class ProjectController extends Controller {
             $project->price_starting_per_sqm  = $request->price_starting_per_sqm;
             $project->land_price_starting     = $request->land_price_starting;
             $project->project_thumbnail       =$request->project_thumbnail;
-            $project->title                   =$request->title;      
+            $project->title                   =$request->title;
             $project->description             =$request->description;
             $project->total_price_with_land   =$request->total_price_with_land;
             $project->deposit                 =$request->deposit;
@@ -449,7 +449,7 @@ class ProjectController extends Controller {
         } catch (\Throwable $th) {
             DB::rollBack();
             $msg = $th->getMessage();
-
+            dd($msg);
             flash(icon() . ' ' . Str::singular($this->module_title) . " Create Failed! $msg")->error()->important();
             return back()->withInput();
         }
@@ -498,7 +498,7 @@ class ProjectController extends Controller {
             "registered_company_name"         => "required|unique:projects,registered_company_name," . $id.",id",
             "comapany_tax_number"             => "required|unique:projects,comapany_tax_number," . $id.",id",
             "project_type"                    => "nullable",
-            "duration_in_years"               => "nullable",
+            "prject_duration_in_years"        => "nullable",
             "accepted_currency"               => "nullable",
             "starting_date"                   => "nullable",
             "accepted_currency"               => "nullable",
@@ -618,19 +618,19 @@ class ProjectController extends Controller {
                 $project->project_logo   = $logo_url;
             }
 
-            $project->project_name            = $request->project_name;
-            $project->address                 = $request->address;
-            $project->project_location        = $request->project_location;
-            $project->registered_company_name = $request->registered_company_name;
-            $project->comapany_tax_number     = $request->comapany_tax_number;
-            $project->project_type            = $request->project_type;
-            $project->duration_in_years       =$request->duration_in_years;
-            $project->accepted_currency       = $request->accepted_currency;
-            $project->starting_date           = date("Y-m-d", strtotime($request->starting_date));
-            $project->delivery_date           = date("Y-m-d", strtotime($request->delivery_date));
-            $project->area_starting_per_sqm   = $request->area_starting_per_sqm;
-            $project->price_starting_per_sqm  = $request->price_starting_per_sqm;
-            $project->land_price_starting     = $request->land_price_starting;
+            $project->project_name             = $request->project_name;
+            $project->address                  = $request->address;
+            $project->project_location         = $request->project_location;
+            $project->registered_company_name  = $request->registered_company_name;
+            $project->comapany_tax_number      = $request->comapany_tax_number;
+            $project->project_type             = $request->project_type;
+            $project->prject_duration_in_years =$request->prject_duration_in_years;
+            $project->accepted_currency        = $request->accepted_currency;
+            $project->starting_date            = date("Y-m-d", strtotime($request->starting_date));
+            $project->delivery_date            = date("Y-m-d", strtotime($request->delivery_date));
+            $project->area_starting_per_sqm    = $request->area_starting_per_sqm;
+            $project->price_starting_per_sqm   = $request->price_starting_per_sqm;
+            $project->land_price_starting      = $request->land_price_starting;
 
             // land
             $project->land_number        = $request->land_number;
@@ -701,6 +701,7 @@ class ProjectController extends Controller {
             $project->home_page_footer_paragraph   = $request->home_page_footer_paragraph;
             $project->project_timeline             = $request->project_timeline;
             $project->project_management_companies = $request->project_management_companies;
+            $project->full_payment_usdt            =$request->full_payment_usdt;
 
             // Multiple photo put to db
             $home_page_photos_galleryurl = '';
