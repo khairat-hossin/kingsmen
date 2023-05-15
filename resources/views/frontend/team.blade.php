@@ -70,8 +70,8 @@
                                         {!! nl2br($team->about_team_member) !!}
                                         <br>
 
-                                        <a href="callto:" class="btn mt-1"> Get number </a></a>
-                                        <a href="mailto:" class="btn mt-1"> Send email </a></a>
+                                        <a href="callto:{{ $team->assigned_cell_number }}" class="btn mt-1" id="callButton"> Get number </a></a>
+                                        <a href="mailto:{{ $team->assigned_email }}" class="btn mt-1"> Send email </a></a>
                                         <a href="video cal:" class="btn mt-1"> Fix meeting</a></a>
                                     </p>
                                 </div>
