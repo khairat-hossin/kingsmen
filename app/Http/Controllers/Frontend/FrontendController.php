@@ -185,6 +185,66 @@ class FrontendController extends Controller
 
     public function eco_index()
     {
-        return view('frontend.projects.layouts.app');
+        return view('frontend.projects.ecogardens.index');
+    }
+
+    public function eco_useful_info()
+    {
+        return view('frontend.projects.ecogardens.useful-info');
+    }
+
+    public function eco_location()
+    {
+        return view('frontend.projects.ecogardens.location');
+    }
+
+    public function eco_choose_your_land()
+    {
+        return view('frontend.projects.ecogardens.choose-your-land');
+    }
+
+    public function eco_eco_homes()
+    {
+        return view('frontend.projects.ecogardens.eco-homes');
+    }
+
+    public function eco_ready_to_move()
+    {
+        return view('frontend.projects.ecogardens.ready-to-move');
+    }
+
+    public function eco_71_sqm_eco_homes()
+    {
+        return view('frontend.projects.ecogardens.71-sqm-eco-homes');
+    }
+
+    public function eco_85_90_sqm_eco_homes()
+    {
+        return view('frontend.projects.ecogardens.85-90-sqm-eco-homes');
+    }
+
+    public function eco_116_123_sqm_eco_homes()
+    {
+        return view('frontend.projects.ecogardens.116-123-sqm-eco-homes');
+    }
+
+    public function eco_148_sqm_eco_homes()
+    {
+        return view('frontend.projects.ecogardens.148-sqm-eco-homes');
+    }
+
+    public function eco_232_sqm_eco_homes()
+    {
+        return view('frontend.projects.ecogardens.232-sqm-eco-homes');
+    }
+
+    public function eco_who_we_are()
+    {
+        return view('frontend.projects.ecogardens.who-we-are');
+    }
+
+    public function eco_testimonials()
+    {
+        return view('frontend.projects.ecogardens.testimonials');
     }
 }

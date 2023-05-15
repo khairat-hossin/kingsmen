@@ -36,7 +36,7 @@
   <link href="{{ asset('../../assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="../../assets/css/ecogardens.css" rel="stylesheet">
+  <link href="{{ asset('../../assets/css/ecogardens.css') }}" rel="stylesheet">
 
     <!-- =======================================================
   * Template Name: Ecogardens
@@ -51,7 +51,6 @@
 <body>
 
     @include('frontend.projects.includes.header')
-
 
     <main>
         @yield('content')

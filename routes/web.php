@@ -60,6 +60,18 @@ Route::group(['namespace' => 'App\Http\Controllers\Frontend', 'as' => 'frontend.
 
     // Routes for Ecogardens
     Route::get('projects/ecogardens/index', 'FrontendController@eco_index')->name('eco_home');
+    Route::get('projects/ecogardens/useful-info', 'FrontendController@eco_useful_info')->name('eco_useful_info');
+    Route::get('projects/ecogardens/location', 'FrontendController@eco_location')->name('eco_location');
+    Route::get('projects/ecogardens/choose-your-land', 'FrontendController@eco_choose_your_land')->name('eco_choose_your_land');
+    Route::get('projects/ecogardens/eco-homes', 'FrontendController@eco_eco_homes')->name('eco_eco_homes');
+    Route::get('projects/ecogardens/ready-to-move', 'FrontendController@eco_ready_to_move')->name('eco_ready_to_move');
+    Route::get('projects/ecogardens/71-sqm-eco-homes', 'FrontendController@eco_71_sqm_eco_homes')->name('eco_71_sqm_eco_homes');
+    Route::get('projects/ecogardens/85-90-sqm-eco-homes', 'FrontendController@eco_85_90_sqm_eco_homes')->name('eco_85_90_sqm_eco_homes');
+    Route::get('projects/ecogardens/116-123-sqm-eco-homes', 'FrontendController@eco_116_123_sqm_eco_homes')->name('eco_116_123_sqm_eco_homes');
+    Route::get('projects/ecogardens/148-sqm-eco-homes', 'FrontendController@eco_148_sqm_eco_homes')->name('eco_148_sqm_eco_homes');
+    Route::get('projects/ecogardens/232-sqm-eco-homes', 'FrontendController@eco_232_sqm_eco_homes')->name('eco_232_sqm_eco_homes');
+    Route::get('projects/ecogardens/who-we-are', 'FrontendController@eco_who_we_are')->name('eco_who_we_are');
+    Route::get('projects/ecogardens/testimonials', 'FrontendController@eco_testimonials')->name('eco_testimonials');
 
     Route::group(['middleware' => ['auth']], function () {
         /*
