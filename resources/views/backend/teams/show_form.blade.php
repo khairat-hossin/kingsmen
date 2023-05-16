@@ -211,7 +211,7 @@
             $value = $team->upload_photo;
             $required = 'required';
             ?>
-            {{ html()->label($field_lable, $field_name)->class('form-label') }}
+            {{ html()->label($field_lable, $field_name)->class('form-label') }} <br>
             <img src="http://localhost:8000/{{ str_replace('\\', '/', $value) }}" alt="id_card" width="170" height="100">  
         </div>
 
