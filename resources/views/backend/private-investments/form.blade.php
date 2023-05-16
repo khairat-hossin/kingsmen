@@ -702,7 +702,7 @@
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->file($field_name)->multiple()->class('form-control form-control-sm')->attributes(['name' => 'photo_gallery', "$required"]) }}
+            {{ html()->file($field_name)->multiple()->class('form-control form-control-sm')->attributes(['name' => 'photo_gallery[]', "$required"]) }}
         </div>
     </div>
 </div>
