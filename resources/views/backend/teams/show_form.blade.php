@@ -86,7 +86,7 @@
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} <br>
-            <img src="http://localhost:8000/{{ str_replace('\\', '/', $value) }}" alt="id_card" width="250" height="100"> 
+            <img src="http://localhost:8000/{{ str_replace('\\', '/', $value) }}" alt="passport_photo" width="170" height="100"> 
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -113,7 +113,7 @@
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} <br>
-            <img src="http://localhost:8000/{{ str_replace('\\', '/', $value) }}" alt="id_card" width="250" height="100">  
+            <img src="http://localhost:8000/{{ str_replace('\\', '/', $value) }}" alt="id_card" width="170" height="100">  
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -208,14 +208,11 @@
             $field_name = 'Upload Photo';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
-            $value = '';
+            $value = $team->upload_photo;
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
-            {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'upload_photo', 'value' => "$value", 'readonly' => 'true']) }}
-            @error('upload_photo')
-                <span class="error">{{ $message }}</span>
-            @enderror
+            <img src="http://localhost:8000/{{ str_replace('\\', '/', $value) }}" alt="id_card" width="170" height="100">  
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
