@@ -151,8 +151,8 @@ class CrowdfundingController extends Controller
         DB::beginTransaction();
         try {
             $crowdfunding  = new $this->module_model();
-            // $crowdfunding = new Crowdfunding;
             $crowdfunding->project_name                 = $request->project_name;
+            $crowdfunding->project_address              = $request->project_address;
             $crowdfunding->project_location             = $request->project_location;
             $crowdfunding->registered_company_name      = $request->registered_company_name;
             $crowdfunding->company_tax_number           = $request->company_tax_number;
@@ -275,7 +275,18 @@ class CrowdfundingController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $this->authorize('view_crowdfundings');
+
+        $module_title = $this->module_title;
+        $module_name = $this->module_name;
+        $module_icon = $this->module_icon;
+        $module_model = $this->module_model;
+        $module_path = 'backend';
+        $module_name_singular = Str::singular($module_name);
+
+        $module_action = 'Show';
+        $crowdfunding = Crowdfunding::find($id);
+        return view('backend.crowdfundings.show', compact('module_title', 'module_name', 'module_icon', 'module_path', 'module_name_singular', 'module_action', 'crowdfunding'));
     }
 
     /**
@@ -380,6 +391,7 @@ class CrowdfundingController extends Controller
             $crowdfunding = Crowdfunding::find($id);
 
             $crowdfunding->project_name                 = $request->project_name;
+            $crowdfunding->project_address              = $request->project_address;
             $crowdfunding->project_location             = $request->project_location;
             $crowdfunding->registered_company_name      = $request->registered_company_name;
             $crowdfunding->company_tax_number           = $request->company_tax_number;
