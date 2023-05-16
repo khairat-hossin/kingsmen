@@ -11,6 +11,7 @@ use Illuminate\Foundation\Auth\Access\Authorizable;
 use Devio\Pipedrive\Pipedrive;
 use App\Models\Contact;
 use Faker\Provider\ar_EG\Person;
+use Carbon\Carbon;
 
 class ContactController extends Controller
 {
@@ -89,78 +90,80 @@ class ContactController extends Controller
 
         $module_action = 'Store';
 
-        $validatedData = $request->validate([
+       $request->validate([
             'first_name' => 'nullable',
             'last_name' => 'nullable:',
             'email' => 'required|unique:'.$module_model.',email',
             'phone' => 'required|unique:'.$module_model.',phone',
             'id_no' => 'required|unique:'.$module_model.',id_no',
-            'client_type' => 'nullable:'.$module_model.',client_type',
-            'buisness_position' => 'nullable:'.$module_model.',buisness_position',
-            'budget' => 'nullable:'.$module_model.',budget',
-            'location' => 'nullable:'.$module_model.',location',
-            'added_date' => 'nullable:'.$module_model.',added_date',
-            'reffered_by' => 'nullable:'.$module_model.',reffered_by',
-            'note' => 'nullable:'.$module_model.',note',
-            'date_of_birth' => 'nullable',
+            'client_type' => 'nullable',
+            'buisness_position' => 'nullable',
+            'budget' => 'nullable',
+            'location' => 'nullable',
+            'added_date' => 'nullable|date',
+            'reffered_by' => 'nullable',
+            'note' => 'nullable',
+            'date_of_birth' => 'nullable|date',
             'team_member' => 'nullable',
-            'project_or_investment' => 'nullable:'.$module_model.',project_or_investment',
-            'citizenship' => 'nullable:'.$module_model.',citizenship',
+            'project_or_investment' => 'nullable',
+            'citizenship' => 'nullable',
             'passport_number' => 'nullable',
-            'passport_expiry_date' => 'nullable:'.$module_model.',passport_expiry_date',
-            'photo_of_passport' => 'nullable:'.$module_model.',photo_of_passport',
-            'id_card_text' => 'nullable:'.$module_model.',id_card_text',
-            'photo_of_id_card' => 'nullable:'.$module_model.',photo_of_id_card',
-            'exact_address' => 'nullable:'.$module_model.',exact_address',
-            'PO_box' => 'nullable:'.$module_model.',PO_box',
-            'name_of_the_bank_you_work_with' => 'nullable:'.$module_model.',name_of_the_bank_you_work_with',
-            'card_details_for_downpayment' => 'nullable:'.$module_model.',card_details_for_downpayment',
-            'bank_acc_with_6_month_history' => 'nullable:'.$module_model.',bank_acc_with_6_month_history',
-            'crypto_wallet' => 'nullable:'.$module_model.',crypto_wallet',
+            'passport_expiry_date' => 'nullable|date',
+            'photo_of_passport' => 'nullable',
+            'id_card_text' => 'nullable',
+            'photo_of_id_card' => 'nullable',
+            'exact_address' => 'nullable',
+            'PO_box' => 'nullable',
+            'name_of_the_bank_you_work_with' => 'nullable',
+            'card_details_for_downpayment' => 'nullable',
+            'bank_acc_with_6_month_history' => 'nullable',
+            'crypto_wallet' => 'nullable',
 
         ]);
 
-        $photo_of_passport_url = '';
+        $contact = new Contact;
 
+        $photo_of_passport_url = '';
         if ($request->hasFile('photo_of_passport')) {
             $photo_of_passport_url = uploadFileToPublic($request->file('photo_of_passport'), 'contact/photo_of_passport');
+            $contact->photo_of_passport = $photo_of_passport_url;
         }
 
         $photo_of_id_card_url = '';
-
         if ($request->hasFile('photo_of_id_card')) {
             $photo_of_id_card_url = uploadFileToPublic($request->file('photo_of_id_card'), 'contact/photo_of_id_card');
+            $contact->photo_of_id_card = $photo_of_id_card_url;
         }
 
-        $contact = new Contact([
-            'first_name' => $validatedData['first_name'],
-            'last_name' => $validatedData['last_name'],
-            'email' => $validatedData['email'],
-            'phone' => $validatedData['phone'],
-            'id_no' => $validatedData['id_no'],
-            'client_type' => $validatedData['client_type'],
-            'buisness_position' => $validatedData['buisness_position'],
-            'budget' => $validatedData['budget'],
-            'location' => $validatedData['location'],
-            'added_date' => $validatedData['added_date'],
-            'reffered_by' => $validatedData['reffered_by'],
-            'note' => $validatedData['note'],
-            'date_of_birth' => $validatedData['date_of_birth'],
-            'team_member' => $validatedData['team_member'],
-            'project_or_investment' => $validatedData['project_or_investment'],
-            'citizenship' => $validatedData['citizenship'],
-            'passport_number' => $validatedData['passport_number'],
-            'photo_of_passport' => $photo_of_passport_url,
-            'passport_expiry_date' => $validatedData['passport_expiry_date'],
-            'id_card_text' => $validatedData['id_card_text'],
-            'photo_of_id_card' => $photo_of_id_card_url,
-            'exact_address' => $validatedData['exact_address'],
-            'PO_box' => $validatedData['PO_box'],
-            'name_of_the_bank_you_work_with' => $validatedData['name_of_the_bank_you_work_with'],
-            'card_details_for_downpayment' => $validatedData['card_details_for_downpayment'],
-            'bank_acc_with_6_month_history' => $validatedData['bank_acc_with_6_month_history'],
-            'crypto_wallet' => $validatedData['crypto_wallet']
-        ]);
+
+        $contact->first_name = $request->first_name;
+        $contact->last_name = $request->last_name;
+        $contact->email = $request->email;
+        $contact->phone = $request->phone;
+        $contact->id_no = $request->id_no;
+        $contact->client_type = $request->client_type;
+        $contact->buisness_position = $request->buisness_position;
+        $contact->budget = $request->budget;
+        $contact->location = $request->location;
+        $contact->added_date = Carbon::parse($request->added_date)->format('Y-m-d');
+        $contact->reffered_by = $request->reffered_by;
+        $contact->note = $request->note;
+        $contact->date_of_birth = Carbon::parse($request->added_date)->format('Y-m-d');
+        $contact->team_member = $request->team_member;
+        $contact->project_or_investment = $request->project_or_investment;
+        $contact->citizenship = $request->citizenship;
+        $contact->passport_number = $request->passport_number;
+        $contact->photo_of_passport = $photo_of_passport_url;
+        $contact->passport_expiry_date = Carbon::parse($request->added_date)->format('Y-m-d');
+        $contact->id_card_text = $request->id_card_text;
+        $contact->photo_of_id_card = $photo_of_id_card_url;
+        $contact->exact_address = $request->exact_address;
+        $contact->PO_box = $request->PO_box;
+        $contact->name_of_the_bank_you_work_with = $request->name_of_the_bank_you_work_with;
+        $contact->card_details_for_downpayment = $request->card_details_for_downpayment;
+        $contact->bank_acc_with_6_month_history = $request->bank_acc_with_6_month_history;
+        $contact->crypto_wallet = $request->crypto_walle;
+
         $contact->save();
 
         // Add a person of this contact in pipedrive
@@ -283,38 +286,36 @@ class ContactController extends Controller
         $module_action = 'Store';
 
 
-        $validatedData = $request->validate([
-            'first_name' => 'required:'.$module_model.',first_name',
-            'last_name' => 'nullable:'.$module_model.',last_name',
-            'email' => 'nullable:'.$module_model.',email',
-            'id_no' => 'nullable:'.$module_model.',id_no',
+        $request->validate([
+            'first_name' => 'nullable',
+            'last_name' => 'nullable:',
+            'email' => 'required|unique:'.$module_model.',email',
             'phone' => 'required|unique:'.$module_model.',phone',
-            'client_type' => 'nullable:'.$module_model.',client_type',
-            'buisness_position' => 'nullable:'.$module_model.',buisness_position',
-            'budget' => 'nullable:'.$module_model.',budget',
-            'location' => 'nullable:'.$module_model.',location',
-            'added_date' => 'nullable:'.$module_model.',added_date',
-            'reffered_by' => 'nullable:'.$module_model.',reffered_by',
-            'note' => 'nullable:'.$module_model.',note',
-            'date_of_birth' => 'nullable',
+            'id_no' => 'required|unique:'.$module_model.',id_no',
+            'client_type' => 'nullable',
+            'buisness_position' => 'nullable',
+            'budget' => 'nullable',
+            'location' => 'nullable',
+            'added_date' => 'nullable|date',
+            'reffered_by' => 'nullable',
+            'note' => 'nullable',
+            'date_of_birth' => 'nullable|date',
             'team_member' => 'nullable',
-            'project_or_investment' => 'nullable:'.$module_model.',project_or_investment',
-            'citizenship' => 'nullable:'.$module_model.',citizenship',
+            'project_or_investment' => 'nullable',
+            'citizenship' => 'nullable',
             'passport_number' => 'nullable',
-            'passport_expiry_date' => 'nullable:'.$module_model.',passport_expiry_date',
-            'photo_of_passport' => 'nullable:'.$module_model.',photo_of_passport',
-            'id_card_text' => 'nullable:'.$module_model.',id_card_text',
-            'photo_of_id_card' => 'nullable:'.$module_model.',photo_of_id_card',
-            'exact_address' => 'nullable:'.$module_model.',exact_address',
-            'PO_box' => 'nullable:'.$module_model.',PO_box',
-            'name_of_the_bank_you_work_with' => 'nullable:'.$module_model.',name_of_the_bank_you_work_with',
-            'card_details_for_downpayment' => 'nullable:'.$module_model.',card_details_for_downpayment',
-            'bank_acc_with_6_month_history' => 'nullable:'.$module_model.',bank_acc_with_6_month_history',
-            'crypto_wallet' => 'nullable:'.$module_model.',crypto_wallet',
+            'passport_expiry_date' => 'nullable|date',
+            'photo_of_passport' => 'nullable',
+            'id_card_text' => 'nullable',
+            'photo_of_id_card' => 'nullable',
+            'exact_address' => 'nullable',
+            'PO_box' => 'nullable',
+            'name_of_the_bank_you_work_with' => 'nullable',
+            'card_details_for_downpayment' => 'nullable',
+            'bank_acc_with_6_month_history' => 'nullable',
+            'crypto_wallet' => 'nullable',
+
         ]);
-
-
-
 
         $contact = Contact::find($id);
 
@@ -322,22 +323,16 @@ class ContactController extends Controller
 
         if ($request->hasFile('photo_of_passport')) {
             $photo_of_passport_url = uploadFileToPublic($request->file('photo_of_passport'), 'contact/photo_of_passport');
-
             $contact->photo_of_passport = $photo_of_passport_url;
-
         }
-
-
 
         $photo_of_id_card_url = $contact->photo_of_id_card;
 
         if ($request->hasFile('photo_of_id_card')) {
             $photo_of_id_card_url = uploadFileToPublic($request->file('photo_of_id_card'), 'contact/photo_of_id_card');
-
             $contact->photo_of_id_card = $photo_of_id_card_url;
 
         }
-
 
         $contact->first_name = $request->first_name;
         $contact->last_name = $request->last_name;
@@ -348,22 +343,23 @@ class ContactController extends Controller
         $contact->buisness_position = $request->buisness_position;
         $contact->budget = $request->budget;
         $contact->location = $request->location;
-        $contact->added_date = $request->added_date;
+        $contact->added_date = Carbon::parse($request->added_date)->format('Y-m-d');
         $contact->reffered_by = $request->reffered_by;
         $contact->note = $request->note;
-        $contact->date_of_birth = $request->date_of_birth;
+        $contact->date_of_birth = Carbon::parse($request->added_date)->format('Y-m-d');
         $contact->team_member = $request->team_member;
         $contact->project_or_investment = $request->project_or_investment;
         $contact->citizenship = $request->citizenship;
         $contact->passport_number = $request->passport_number;
-        $contact->passport_expiry_date = $request->passport_expiry_date;
-        $contact->id_card_text = $request->id_card_text;
+        $contact->photo_of_passport = $photo_of_passport_url;
+        $contact->passport_expiry_date = Carbon::parse($request->added_date)->format('Y-m-d');
+        $contact->photo_of_id_card = $photo_of_id_card_url;
         $contact->exact_address = $request->exact_address;
         $contact->PO_box = $request->PO_box;
         $contact->name_of_the_bank_you_work_with = $request->name_of_the_bank_you_work_with;
         $contact->card_details_for_downpayment = $request->card_details_for_downpayment;
         $contact->bank_acc_with_6_month_history = $request->bank_acc_with_6_month_history;
-        $contact->crypto_wallet = $request->crypto_wallet;
+        $contact->crypto_wallet = $request->crypto_walle;
 
         $contact->save();
 

@@ -946,8 +946,8 @@
         }
 
         /**
-         * on change area starting and price price starting change land price starting
-         * land_price_starting= land_area_per_sqm * land_cost_per_sqm
+         * on change Real Estate Value and Proposed Additional Investments Cost starting change land price starting
+         * TotalCostOfInvestment= real_estate_value + proposed_additional_investment_cost
          */
 
          $('#real_estate_value').on("change", function() {

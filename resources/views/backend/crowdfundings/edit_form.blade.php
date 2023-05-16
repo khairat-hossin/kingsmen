@@ -632,24 +632,13 @@
 
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Add Project Rules And Regulations';
+            $field_name = 'Add Business Plan';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->file($field_name)->multiple()->class('form-control form-control-sm')->attributes(['name' => 'project_rules_and_regulation', "$required"]) }}
-        </div>
-
-        <div class="form-group col-6 col-md-4 mb-2">
-            <?php
-            $field_name = 'Add Other Files';
-            $field_lable = label_case($field_name);
-            $field_placeholder = $field_lable;
-            $required = '';
-            ?>
-            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->file($field_name)->multiple()->class('form-control form-control-sm')->attributes(['name' => 'other_files', "$required"]) }}
+            {{ html()->file($field_name)->multiple()->class('form-control form-control-sm')->attributes(['name' => 'buisness_plan', "$required"]) }}
         </div>
     </div>
 
