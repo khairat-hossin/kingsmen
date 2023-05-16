@@ -137,7 +137,7 @@ class PrivateInvestmentController extends Controller
 
             "title_2"           => "nullable",
             "paragraph_2"       => "nullable",
-            "photo_gallery"     => "nullable|image",
+            "photo_gallery"     => "nullable",
         ]);
 
         DB::beginTransaction();
@@ -187,28 +187,28 @@ class PrivateInvestmentController extends Controller
             $selling_contract = '';
             $company_papers = '';
             $project_rules_and_regulation = '';
+            $other_files = '';
 
             if ($request->selling_contract) {
                 $selling_contract = uploadFileToPublic($request->file('selling_contract'), 'private_investment/selling_contract');
+                $privateInvestment->selling_contract             = $selling_contract;
             }
 
             if ($request->company_papers) {
                 $company_papers = uploadFileToPublic($request->file('company_papers'), 'private_investment/company_papers');
+                $privateInvestment->company_papers               = $company_papers;
             }
 
             if ($request->project_rules_and_regulation) {
                 $project_rules_and_regulation = uploadFileToPublic($request->file('project_rules_and_regulation'), 'private_investment/project_rules_and_regulation');
+                $privateInvestment->project_rules_and_regulation = $project_rules_and_regulation;
             }
 
-            $other_files = '';
             if ($request->other_files) {
                 $other_files = uploadFileToPublic($request->file('other_files'), 'private_investment/other_files');
+                $privateInvestment->other_files                  = $other_files;
             }
 
-            $privateInvestment->selling_contract             = $selling_contract;
-            $privateInvestment->company_papers               = $company_papers;
-            $privateInvestment->project_rules_and_regulation = $project_rules_and_regulation;
-            $privateInvestment->other_files                  = $other_files;
 
             $privateInvestment->buisness_plan                = $request->buisness_plan;
             $privateInvestment->project_logo                 = $request->project_logo;
@@ -218,8 +218,8 @@ class PrivateInvestmentController extends Controller
             $banner = '';
             if ($request->banner) {
                 $banner = uploadFileToPublic($request->file('banner'), 'private_investment/banner');
+                $privateInvestment->banner          = $banner;
             }
-            $privateInvestment->banner          = $banner;
 
             $privateInvestment->description     = $request->description;
             $privateInvestment->choose_template = $request->choose_template;
@@ -227,11 +227,20 @@ class PrivateInvestmentController extends Controller
             $privateInvestment->title_1         = $request->title_1;
             $privateInvestment->paragraph_1     = $request->paragraph_1;
 
-            $photo_gallery = '';
-            if ($request->photo_gallery) {
-                $photo_gallery = uploadFileToPublic($request->file('photo_gallery'), 'private_investment/photo_gallery');
+            // Multiple photo put to db
+            $photo_galleryurl = '';
+            $photo_gallery = $request->file('photo_gallery');
+            $photoPaths = [];
+
+            if($photo_gallery)
+            {
+                 foreach ($photo_gallery as $photo) {
+                     $photo_galleryurl = uploadFileToPublic($photo, 'private_investment/photo_gallery');
+                     $photoPaths[] = asset($photo_galleryurl);
+                 }
+                 $privateInvestment->photo_gallery = json_encode($photoPaths);
             }
-            $privateInvestment->photo_gallery     = $photo_gallery;
+
             $privateInvestment->title_2           = $request->title_2;
             $privateInvestment->paragraph_2      = $request->paragraph_2;
 
@@ -253,9 +262,23 @@ class PrivateInvestmentController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(PrivateInvestment $privateInvestment)
+    public function show(String $id)
     {
-        //
+
+        $this->authorize('view_private_investments');
+
+        $module_title = $this->module_title;
+        $module_name = $this->module_name;
+        $module_icon = $this->module_icon;
+        $module_model = $this->module_model;
+        $module_path = 'backend';
+        $module_name_singular = Str::singular($module_name);
+
+        $module_action = 'Show';
+
+        $private_investment = PrivateInvestment::find($id);
+
+        return view('backend.private-investments.show', compact('module_title', 'module_name', 'module_icon', 'module_path', 'module_name_singular', 'module_action', 'private_investment'));
     }
 
     /**
@@ -347,7 +370,7 @@ class PrivateInvestmentController extends Controller
 
             "title_2"           => "nullable",
             "paragraph_2"       => "nullable",
-            "photo_gallery"     => "nullable|image",
+            "photo_gallery"     => "nullable",
         ]);
 
         DB::beginTransaction();
@@ -398,28 +421,28 @@ class PrivateInvestmentController extends Controller
             $selling_contract = '';
             $company_papers = '';
             $project_rules_and_regulation = '';
+            $other_files = '';
 
             if ($request->selling_contract) {
                 $selling_contract = uploadFileToPublic($request->file('selling_contract'), 'private_investment/selling_contract');
+                $privateInvestment->selling_contract = $selling_contract;
             }
 
             if ($request->company_papers) {
                 $company_papers = uploadFileToPublic($request->file('company_papers'), 'private_investment/company_papers');
+                $privateInvestment->company_papers = $company_papers;
             }
 
             if ($request->project_rules_and_regulation) {
                 $project_rules_and_regulation = uploadFileToPublic($request->file('project_rules_and_regulation'), 'private_investment/project_rules_and_regulation');
+                $privateInvestment->project_rules_and_regulation = $project_rules_and_regulation;
             }
 
-            $other_files = '';
             if ($request->other_files) {
                 $other_files = uploadFileToPublic($request->file('other_files'), 'private_investment/other_files');
+                $privateInvestment->other_files = $other_files;
             }
 
-            $privateInvestment->selling_contract             = $selling_contract;
-            $privateInvestment->company_papers               = $company_papers;
-            $privateInvestment->project_rules_and_regulation = $project_rules_and_regulation;
-            $privateInvestment->other_files                  = $other_files;
 
             $privateInvestment->buisness_plan                = $request->buisness_plan;
             $privateInvestment->project_logo                 = $request->project_logo;
@@ -429,8 +452,8 @@ class PrivateInvestmentController extends Controller
             $banner = '';
             if ($request->banner) {
                 $banner = uploadFileToPublic($request->file('banner'), 'private_investment/banner');
+                $privateInvestment->banner          = $banner;
             }
-            $privateInvestment->banner          = $banner;
 
             $privateInvestment->description     = $request->description;
             $privateInvestment->choose_template = $request->choose_template;
@@ -438,11 +461,21 @@ class PrivateInvestmentController extends Controller
             $privateInvestment->title_1         = $request->title_1;
             $privateInvestment->paragraph_1     = $request->paragraph_1;
 
-            $photo_gallery = '';
-            if ($request->photo_gallery) {
-                $photo_gallery = uploadFileToPublic($request->file('photo_gallery'), 'private_investment/photo_gallery');
+
+            // Multiple photo put to db
+            $photo_galleryurl = '';
+            $photo_gallery = $request->file('photo_gallery');
+            $photoPaths = [];
+
+            if($photo_gallery)
+            {
+                 foreach ($photo_gallery as $photo) {
+                     $photo_galleryurl = uploadFileToPublic($photo, 'private_investment/photo_gallery');
+                     $photoPaths[] = asset($photo_galleryurl);
+                 }
+                 $privateInvestment->photo_gallery = json_encode($photoPaths);
             }
-            $privateInvestment->photo_gallery     = $photo_gallery;
+
             $privateInvestment->title_2           = $request->title_2;
             $privateInvestment->paragraph_2      = $request->paragraph_2;
 
