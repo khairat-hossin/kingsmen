@@ -279,7 +279,7 @@
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->number($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'land_cost_per_sqm', "$required", 'id' => 'price_cost_per_sqm', 'pattern' => '\d*', 'step' => 'any']) }}
+            {{ html()->number($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'land_cost_per_sqm', "$required", 'id' => 'land_cost_per_sqm', 'pattern' => '\d*', 'step' => 'any']) }}
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -943,6 +943,35 @@
         function calculateLandPriceStarting(area, price) {
             let landPriceStarting = parseFloat(area) * parseFloat(price);
             $("#total_land_cost").val(landPriceStarting);
+        }
+
+        /**
+         * on change area starting and price price starting change land price starting
+         * land_price_starting= land_area_per_sqm * land_cost_per_sqm
+         */
+
+         $('#real_estate_value').on("change", function() {
+            let real_estate_value = $("#real_estate_value").val();
+            let proposed_additional_investment_cost = $("#proposed_additional_investment_cost").val();
+
+            if (real_estate_value && proposed_additional_investment_cost) {
+                calculateTotalCostOfInvestment(real_estate_value, proposed_additional_investment_cost);
+            }
+        });
+
+        $('#proposed_additional_investment_cost').on("change", function() {
+            let proposed_additional_investment_cost = $("#proposed_additional_investment_cost").val();
+            let real_estate_value = $("#real_estate_value").val();
+
+
+            if (real_estate_value && proposed_additional_investment_cost) {
+                calculateTotalCostOfInvestment(real_estate_value, proposed_additional_investment_cost);
+            }
+        });
+
+        function calculateTotalCostOfInvestment(value, additional_cost) {
+            let totalCostOfInvestment = parseFloat(value) + parseFloat(additional_cost);
+            $("#total_cost_of_investment").val(totalCostOfInvestment);
         }
     </script>
 @endpush
