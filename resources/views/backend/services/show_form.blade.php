@@ -89,3 +89,19 @@
         </div>
     </div>
 </div>
+
+<style>
+        input[type=text] {
+        background-color: rgb(229, 231, 233);
+    }
+
+    input[type=text]:focus {
+        background-color:rgb(229, 231, 233);
+    }
+
+    textarea {
+        width: 300px;
+        height: 100px;
+        background-color: rgb(229, 231, 233) !important;
+    }
+</style>
