@@ -127,7 +127,19 @@ class AboutUsController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $this->authorize('show_about_us');
+
+        $module_title = $this->module_title;
+        $module_name = $this->module_name;
+        $module_icon = $this->module_icon;
+        $module_model = $this->module_model;
+        $module_path = 'backend';
+        // $module_name_singular = 'about_us';
+
+        $module_action = 'Show';
+
+        $about_us = AboutUs::find($id);
+        return view('backend.about_us.show', compact('module_title', 'module_name', 'module_icon', 'module_path', 'module_action', 'about_us'));
     }
 
     /**
