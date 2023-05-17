@@ -434,7 +434,7 @@ class ProjectController extends Controller {
 
             if ($request->other) {
                 $other = uploadFileToPublic($request->file('other'), 'projects/other');
-                $project->other    = $request->other;
+                $project->other    = $other;
             }
 
             $project->template = $request->template;
