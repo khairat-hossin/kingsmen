@@ -459,7 +459,21 @@ class ProjectController extends Controller {
      * Display the specified resource.
      */
     public function show(string $id) {
-        //
+
+        $this->authorize('view_projects');
+
+        $module_title = $this->module_title;
+        $module_name = $this->module_name;
+        $module_icon = $this->module_icon;
+        $module_model = $this->module_model;
+        $module_path = 'backend';
+        $module_name_singular = Str::singular($module_name);
+
+        $module_action = 'Show';
+
+        $project = Project::find($id);
+
+        return view('backend.projects.show', compact('module_title', 'module_name', 'module_icon', 'module_path', 'module_name_singular', 'module_action', 'project'));
     }
 
     /**
@@ -498,7 +512,7 @@ class ProjectController extends Controller {
             "registered_company_name"         => "required|unique:projects,registered_company_name," . $id.",id",
             "comapany_tax_number"             => "required|unique:projects,comapany_tax_number," . $id.",id",
             "project_type"                    => "nullable",
-            "prject_duration_in_years"        => "nullable",
+            "project_duration_in_years"        => "nullable",
             "accepted_currency"               => "nullable",
             "starting_date"                   => "nullable",
             "accepted_currency"               => "nullable",
@@ -624,7 +638,7 @@ class ProjectController extends Controller {
             $project->registered_company_name  = $request->registered_company_name;
             $project->comapany_tax_number      = $request->comapany_tax_number;
             $project->project_type             = $request->project_type;
-            $project->prject_duration_in_years =$request->prject_duration_in_years;
+            $project->project_duration_in_years =$request->project_duration_in_years;
             $project->accepted_currency        = $request->accepted_currency;
             $project->starting_date            = date("Y-m-d", strtotime($request->starting_date));
             $project->delivery_date            = date("Y-m-d", strtotime($request->delivery_date));
@@ -824,7 +838,7 @@ class ProjectController extends Controller {
 
             if ($request->other) {
                 $other = uploadFileToPublic($request->file('other'), 'projects/other');
-                $project->other              = $request->other;
+                $project->other              = $other;
             }
 
             $project->template              = $request->template;
