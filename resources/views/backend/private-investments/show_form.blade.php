@@ -510,9 +510,14 @@
              $data = $private_investment->photo_gallery;
              $photos = json_decode($data, true);
             @endphp
-            @foreach ($photos as  $photo  => $fileName)
-                <img src="{{ str_replace('\\', '/', $fileName) }}" alt="photo_gallery" width="170" height="100">
-            @endforeach
+
+            <div class="row">
+                @foreach ($photos as  $photo  => $fileName)
+                    <div class="col-4">
+                        <img src="{{ str_replace('\\', '/', $fileName) }}" alt="photo_gallery" width="170" height="100">
+                    </div>
+                @endforeach
+            </div>
         </div>
     </div>
 </div>
