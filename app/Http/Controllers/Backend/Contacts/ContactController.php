@@ -247,7 +247,20 @@ class ContactController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $this->authorize('view_contacts');
+
+        $module_title = $this->module_title;
+        $module_name = $this->module_name;
+        $module_icon = $this->module_icon;
+        $module_model = $this->module_model;
+        $module_path = 'backend';
+        $module_name_singular = Str::singular($module_name);
+
+        $module_action = 'Show';
+
+        $contact = Contact::find($id);
+
+        return view('backend.contacts.show', compact('module_title', 'module_name', 'module_icon', 'module_path', 'module_name_singular', 'module_action', 'contact'));
     }
 
     /**
