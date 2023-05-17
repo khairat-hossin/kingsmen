@@ -151,20 +151,13 @@
             $field_name = 'Position';
             $field_lable = label_case($field_name);
             $field_placeholder = 'Please Select';
-            $options = [
-                'Top Management' => 'Top Management',
-                'Sales Manager' => 'Sales Manager',
-                'Sales Agent' => 'Sales Agent',
-                'Project Manager' => 'Project Manager',
-            ];
+            
             $value = ($team->position) ?? '';
-            $required = 'required';
+            
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->select($field_name)->class('form-control form-control-sm select2')->attributes(['name' => 'position', "$required", 'readonly' => 'true'])->options($options)->value($value)}}
-            @error('position')
-                <span class="error">{{ $message }}</span>
-            @enderror
+            {{ html()->text($field_name)->class('form-control form-control-sm select2')->attributes(['name' => 'position', 'readonly' => 'true'])->value($value)}}
+            
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -338,3 +331,21 @@
 
     </div>
 </div>
+
+<style>
+
+    input[type=text] {
+        background-color: rgb(229, 231, 233);
+    }
+
+    input[type=text]:focus {
+        background-color:rgb(229, 231, 233);
+    }
+
+    textarea {
+        width: 300px;
+        height: 100px;
+        background-color: rgb(229, 231, 233) !important;
+    }
+    
+</style>
