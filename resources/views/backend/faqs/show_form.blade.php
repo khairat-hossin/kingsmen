@@ -1,6 +1,6 @@
 <div class="mb-3">
     <legend class="border-bottom w-100">
-        Show About Us
+        Show FAQs
     </legend>
     <div class="row">
         <div class="form-group col-6 col-md-4 mb-2">
@@ -8,10 +8,9 @@
             $field_name = 'Question';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
-            $value = $about_us->question ?? '';
+            $value = $faq->question ?? '';
             $required = 'required';
             ?>
-            <input type="hidden" id="about_us_id" name="about_us_id" value="{{ $about_us->id }}">
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->textarea($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'question', "$required", 'readonly'=>'true']) }}
             @error('question')
@@ -23,7 +22,7 @@
             $field_name = 'Answer';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
-            $value = $about_us->answer ?? '';
+            $value = $faq->answer ?? '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
@@ -38,12 +37,11 @@
             $field_name = 'Banner';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
-            $value = $about_us->banner;
+            $value = $faq->banner;
             $required = '';
             ?>
-            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!} <br>            
+            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!} <br>
             <img src="http://localhost:8000/{{ str_replace('\\', '/', $value) }}" alt="banner" width="250" height="100">            
-
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -51,7 +49,7 @@
             $field_name = 'Banner Text';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
-            $value = $about_us->banner_text ?? '';
+            $value = $faq->banner_text ?? '';
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
@@ -64,12 +62,12 @@
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
             $field_name = 'Video';
-            $field_label = label_case($field_name);
-            $field_placeholder = $field_label;
-            $value = $about_us->video;
+            $field_lable = label_case($field_name);
+            $field_placeholder = $field_lable;
+            $value = $faq->video;
             $required = '';
             ?>
-            {{ html()->label($field_label, $field_name)->class('form-label') }}           
+            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!} <br>
             <video width="320" height="240" controls>
                 <source src="http://localhost:8000/{{ str_replace('\\', '/', $value) }}" type="video/mp4">
             </video>
