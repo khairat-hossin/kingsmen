@@ -99,7 +99,7 @@
             $value = $project->starting_date ?? '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
-            {{ html()->text($field_name)->class('form-control form-control-sm datepicker')->value($value)->attributes(['readonly' => true, 'name' => 'starting_date',  'id' => 'starting_date']) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm ')->value($value)->attributes(['readonly' => true, 'name' => 'starting_date',  'id' => 'starting_date']) }}
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -109,7 +109,7 @@
             $value = $project->delivery_date ?? '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
-            {{ html()->text($field_name)->class('form-control form-control-sm datepicker')->value($value)->attributes(['readonly' => true, 'name' => 'delivery_date',  'id' => 'delivery_date']) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm ')->value($value)->attributes(['readonly' => true, 'name' => 'delivery_date',  'id' => 'delivery_date']) }}
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -467,7 +467,6 @@
 
     <legend class="border-bottom w-100">Home Page</legend>
     <div class="row">
-
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
             $field_name = 'Banner';
@@ -478,7 +477,6 @@
             <img src="http://localhost:8000/{{ str_replace('\\', '/', $project->home_page_banner) }}" alt="home_page_banner" width="170" height="100">
         </div>
 
-
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
             $field_name = 'Banner Text';
@@ -488,7 +486,6 @@
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
             {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['readonly' => true, 'name' => 'home_page_banner_text',  'value' => "$value"]) }}
         </div>
-
 
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
@@ -532,23 +529,6 @@
 
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Photo Gallery';
-            $field_lable = label_case($field_name);
-            $value = '';
-            ?>
-            {{ html()->label($field_lable, $field_name)->class('form-label') }}
-            @php
-                $data = $project->home_page_photos_gallery;
-                $photos = json_decode($data, true);
-            @endphp
-
-            @foreach ($photos as  $photo  => $fileName)
-                <img src="{{ str_replace('\\', '/', $fileName) }}" alt="home_page_photos_gallery" width="170" height="100">
-            @endforeach
-        </div>
-
-        <div class="form-group col-6 col-md-4 mb-2">
-            <?php
             $field_name = 'Project Timline';
             $field_lable = label_case($field_name);
             $value = $project->project_timeline ?? '';
@@ -567,6 +547,28 @@
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
             {{ html()->text($field_name)->class('form-control form-control-sm select2')->attributes(['readonly' => true, 'name' => 'project_management_companies', ])->value($value) }}
+        </div>
+
+        <div class="row">
+            <div class="form-group col-6 col-md-4 mb-2">
+                <?php
+                $field_name = 'Photo Gallery';
+                $field_lable = label_case($field_name);
+                $value = '';
+                ?>
+                {{ html()->label($field_lable, $field_name)->class('form-label') }}
+                @php
+                    $data = $project->home_page_photos_gallery;
+                    $photos = json_decode($data, true);
+                @endphp
+                <div class="row">
+                    @foreach ($photos as  $photo  => $fileName)
+                    <div class="col-4">
+                        <img src="{{ str_replace('\\', '/', $fileName) }}" class="px-2" alt="home_page_photos_gallery" width="170" height="100">
+                    </div>
+                    @endforeach
+            </div>
+            </div>
         </div>
 
     </div>
@@ -604,7 +606,7 @@
             $value = $project->qna_page_header_title ?? '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
-            {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['readonly' => true, 'name' => 'qna_page_header_title',  'value' => "$value"]) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['readonly' => true, 'name' => 'qna_page_header_title',  'value' => "$value"]) }}
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
