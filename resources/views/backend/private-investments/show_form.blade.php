@@ -365,7 +365,11 @@
             $field_lable = label_case($field_name);
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
-            <embed src="{{ asset( str_replace('\\', '/', $private_investment->selling_contract) ) }}" width="100%" height="260px" type="application/pdf">
+            @if ($private_investment->selling_contract)
+                <embed src="{{ asset( str_replace('\\', '/', $private_investment->selling_contract) ) }}" width="100%" height="260px" type="application/pdf">
+            @else
+                  <br>empty
+            @endif
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -374,7 +378,11 @@
             $field_lable = label_case($field_name);
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
-            <embed src="{{ asset( str_replace('\\', '/', $private_investment->company_papers) ) }}" alt="company_papers" width="100%" height="260px" type="application/pdf">
+            @if ($private_investment->company_papers)
+                <embed src="{{ asset( str_replace('\\', '/', $private_investment->company_papers) ) }}" alt="company_papers" width="100%" height="260px" type="application/pdf">
+            @else
+                <br>empty
+            @endif
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -383,7 +391,11 @@
             $field_lable = label_case($field_name);
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
-            <embed src="{{ asset( str_replace('\\', '/', $private_investment->project_rules_and_regulation) ) }}" alt="project_rules_and_regulations" width="100%" height="260px" type="application/pdf">
+            @if ($private_investment->project_rules_and_regulation)
+                <embed src="{{ asset( str_replace('\\', '/', $private_investment->project_rules_and_regulation) ) }}" alt="project_rules_and_regulations" width="100%" height="260px" type="application/pdf">
+            @else
+                <br>empty
+            @endif
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -392,7 +404,11 @@
             $field_lable = label_case($field_name);
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
-            <embed src="{{ asset( str_replace('\\', '/', $private_investment->other_files) ) }}" alt="other_files" width="100%" height="260px" type="application/pdf">
+            @if ($private_investment->other_files)
+                <embed src="{{ asset( str_replace('\\', '/', $private_investment->other_files) ) }}" alt="other_files" width="100%" height="260px" type="application/pdf">
+            @else
+                <br>empty
+            @endif
         </div>
     </div>
 
@@ -496,6 +512,7 @@
             $value = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
+            <br>
             <img src="http://localhost:8000/{{ str_replace('\\', '/', $private_investment->banner) }}" alt="banner" width="170" height="100">
         </div>
     </div>
@@ -514,6 +531,7 @@
             <div class="row">
                 @foreach ($photos as  $photo  => $fileName)
                     <div class="col-4">
+                        <br>
                         <img src="{{ str_replace('\\', '/', $fileName) }}" alt="photo_gallery" width="170" height="100">
                     </div>
                 @endforeach

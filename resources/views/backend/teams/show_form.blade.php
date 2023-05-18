@@ -7,333 +7,247 @@
             <?php
             $field_name = 'First Name';
             $field_lable = label_case($field_name);
-            $field_placeholder = $field_lable;
             $value = ($team->first_name) ?? '';
-            $required = 'required';
+
             ?>
-            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'first_name', "$required", 'value' => "$value", 'readonly' => 'true']) }}
-            @error('first_name')
-                <span class="error">{{ $message }}</span>
-            @enderror
+            {{ html()->label($field_lable, $field_name)->class('form-label') }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'first_name',  'value' => "$value", 'readonly' => 'true']) }}
         </div>
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
             $field_name = 'Last Name';
             $field_lable = label_case($field_name);
-            $field_placeholder = $field_lable;
             $value = ($team->last_name) ?? '';
-            $required = 'required';
+
             ?>
-            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'last_name', "$required", 'value' => "$value", 'readonly' => 'true']) }}
-            @error('last_name')
-                <span class="error">{{ $message }}</span>
-            @enderror
+            {{ html()->label($field_lable, $field_name)->class('form-label') }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'last_name',  'value' => "$value", 'readonly' => 'true']) }}
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
             $field_name = 'Date of Birth';
             $field_lable = label_case($field_name);
-            $field_placeholder = $field_lable;
             $value = ($team->date_of_birth) ?? '';
-            $required = 'required';
+
             ?>
-            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->date($field_name)->class('form-control form-control-sm')->attributes(['name' => 'date_of_birth', "$required", 'value' => "$value", 'readonly' => 'true']) }}
-            @error('date_of_birth')
-                <span class="error">{{ $message }}</span>
-            @enderror
+            {{ html()->label($field_lable, $field_name)->class('form-label') }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'date_of_birth',  'value' => "$value", 'readonly' => 'true']) }}
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
             $field_name = 'Passport Number';
             $field_lable = label_case($field_name);
-            $field_placeholder = $field_lable;
             $value = ($team->passport_number) ?? '';
-            $required = 'required';
+
             ?>
-            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'passport_number', "$required", 'value' => "$value", 'readonly' => 'true']) }}
-            @error('passport_number')
-                <span class="error">{{ $message }}</span>
-            @enderror
+            {{ html()->label($field_lable, $field_name)->class('form-label') }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'passport_number',  'value' => "$value", 'readonly' => 'true']) }}
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
             $field_name = 'Passport Expiry Date';
             $field_lable = label_case($field_name);
-            $field_placeholder = $field_lable;
             $value = ($team->passport_expiry_date) ?? '';
-            $required = 'required';
+
             ?>
-            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->date($field_name)->class('form-control form-control-sm')->attributes(['name' => 'passport_expiry_date', "$required", 'value' => "$value", 'readonly' => 'true']) }}
-            @error('passprot_expiry_date')
-                <span class="error">{{ $message }}</span>
-            @enderror
+            {{ html()->label($field_lable, $field_name)->class('form-label') }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'passport_expiry_date',  'value' => "$value", 'readonly' => 'true']) }}
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
             $field_name = 'Passport Photo';
             $field_lable = label_case($field_name);
-            $field_placeholder = $field_lable;
             $value = $team->passport_photo;
-            $required = 'required';
+
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} <br>
-            <img src="http://localhost:8000/{{ str_replace('\\', '/', $value) }}" alt="passport_photo" width="170" height="100"> 
+            <img src="http://localhost:8000/{{ str_replace('\\', '/', $value) }}" alt="passport_photo" width="170" height="100">
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
             $field_name = 'SSN';
             $field_lable = label_case($field_name);
-            $field_placeholder = $field_lable;
             $value = ($team->ssn) ?? '';
-            $required = 'required';
+
             ?>
-            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'ssn', "$required", 'value' => "$value", 'readonly' => 'true']) }}
-            @error('ssn')
-                <span class="error">{{ $message }}</span>
-            @enderror
+            {{ html()->label($field_lable, $field_name)->class('form-label') }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'ssn',  'value' => "$value", 'readonly' => 'true']) }}
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
             $field_name = 'ID CARD';
             $field_lable = label_case($field_name);
-            $field_placeholder = $field_lable;
             $value = $team->id_card;
-            $required = 'required';
+
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} <br>
-            <img src="http://localhost:8000/{{ str_replace('\\', '/', $value) }}" alt="id_card" width="170" height="100">  
+            <img src="http://localhost:8000/{{ str_replace('\\', '/', $value) }}" alt="id_card" width="170" height="100">
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
             $field_name = 'University Degree';
             $field_lable = label_case($field_name);
-            $field_placeholder = $field_lable;
             $value = ($team->university_degree) ?? '';
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'university_degree', "$required", 'value' => "$value", 'readonly' => 'true']) }}
-            @error('university_degree')
-                <span class="error">{{ $message }}</span>
-            @enderror
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'university_degree',  'value' => "$value", 'readonly' => 'true']) }}
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
             $field_name = 'About Team Member';
             $field_lable = label_case($field_name);
-            $field_placeholder = $field_lable;
             $value = ($team->about_team_member) ?? '';
-            $required = 'required';
+
             ?>
-            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->textarea($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'about_team_member', "$required", 'readonly' => 'true']) }}
-            @error('about_team_member')
-                <span class="error">{{ $message }}</span>
-            @enderror
+            {{ html()->label($field_lable, $field_name)->class('form-label') }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'about_team_member',  'readonly' => 'true']) }}
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
             $field_name = 'Position';
             $field_lable = label_case($field_name);
-            $field_placeholder = 'Please Select';
-            
             $value = ($team->position) ?? '';
-            
+
             ?>
-            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
+            {{ html()->label($field_lable, $field_name)->class('form-label') }}
             {{ html()->text($field_name)->class('form-control form-control-sm select2')->attributes(['name' => 'position', 'readonly' => 'true'])->value($value)}}
-            
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
             $field_name = 'Designation';
             $field_lable = label_case($field_name);
-            $field_placeholder = $field_lable;
             $value = $team->designation ?? '';
-            $required = 'required';
+
             ?>
-            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->textarea($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'designation', "$required", 'readonly' => 'true']) }}
-            @error('designation')
-                <span class="error">{{ $message }}</span>
-            @enderror
+            {{ html()->label($field_lable, $field_name)->class('form-label') }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'designation',  'readonly' => 'true']) }}
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
             $field_name = 'Type';
             $field_lable = label_case($field_name);
-            $field_placeholder = 'Please Select';
-            $options = [
-                'Master Admin' => 'Master Admin',
-                'Super Admin' => 'Super Admin',
-                'Admin' => 'Admin',
-                'Agent' => 'Agent',
-            ];
+
             $value = $team->type ?? '';
-            $required = 'required';
+
             ?>
-            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->select($field_name)->class('form-control form-control-sm select2')->attributes(['name' => 'type', "$required", 'readonly' => 'true'])->options($options)->value($value) }}
-            @error('type')
-                <span class="error">{{ $message }}</span>
-            @enderror
+            {{ html()->label($field_lable, $field_name)->class('form-label') }}
+            {{ html()->text($field_name)->class('form-control form-control-sm select2')->attributes(['name' => 'type', 'readonly' => 'true'])->value($value) }}
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
             $field_name = 'Upload Photo';
             $field_lable = label_case($field_name);
-            $field_placeholder = $field_lable;
             $value = $team->upload_photo;
-            $required = 'required';
+
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} <br>
-            <img src="http://localhost:8000/{{ str_replace('\\', '/', $value) }}" alt="id_card" width="170" height="100">  
+            <img src="http://localhost:8000/{{ str_replace('\\', '/', $value) }}" alt="id_card" width="170" height="100">
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
             $field_name = 'Personal Cell Number';
             $field_lable = label_case($field_name);
-            $field_placeholder = $field_lable;
             $value = ($team->personal_cell_number) ?? '';
-            $required = 'required';
+
             ?>
-            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'personal_cell_number', "$required", 'value' => "$value", 'readonly' => 'true']) }}
-            @error('personal_cell_number')
-                <span class="error">{{ $message }}</span>
-            @enderror
+            {{ html()->label($field_lable, $field_name)->class('form-label') }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'personal_cell_number',  'value' => "$value", 'readonly' => 'true']) }}
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
             $field_name = 'Personal Email ';
             $field_lable = label_case($field_name);
-            $field_placeholder = $field_lable;
             $value = ($team->personal_email) ?? '';
             $required = '';
             ?>
-            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'personal_email', "$required", 'value' => "$value", 'readonly' => 'true']) }}
-            @error('personal_email')
-                <span class="error">{{ $message }}</span>
-            @enderror
+            {{ html()->label($field_lable, $field_name)->class('form-label') }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'personal_email',  'value' => "$value", 'readonly' => 'true']) }}
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
             $field_name = 'Assigned Cell Number ';
             $field_lable = label_case($field_name);
-            $field_placeholder = $field_lable;
             $value = ($team->assigned_cell_number) ?? '';
             $required = '';
             ?>
-            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'assigned_cell_number', "$required", 'value' => "$value", 'readonly' => 'true']) }}
-            @error('assigned_cell_number')
-                <span class="error">{{ $message }}</span>
-            @enderror
+            {{ html()->label($field_lable, $field_name)->class('form-label') }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'assigned_cell_number',  'value' => "$value", 'readonly' => 'true']) }}
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
             $field_name = 'Assigned Email ';
             $field_lable = label_case($field_name);
-            $field_placeholder = $field_lable;
             $value = ($team->assigned_email) ?? '';
             $required = '';
             ?>
-            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'assigned_email', "$required", 'value' => "$value", 'readonly' => 'true']) }}
-            @error('assigned_email')
-                <span class="error">{{ $message }}</span>
-            @enderror
+            {{ html()->label($field_lable, $field_name)->class('form-label') }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'assigned_email',  'value' => "$value", 'readonly' => 'true']) }}
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
             $field_name = 'Home Address ';
             $field_lable = label_case($field_name);
-            $field_placeholder = $field_lable;
             $value = ($team->home_address) ?? '';
             $required = '';
             ?>
-            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'home_address', "$required", 'value' => "$value", 'readonly' => 'true']) }}
-            @error('home_address')
-                <span class="error">{{ $message }}</span>
-            @enderror
+            {{ html()->label($field_lable, $field_name)->class('form-label') }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'home_address',  'value' => "$value", 'readonly' => 'true']) }}
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
             $field_name = 'Family Member Name ';
             $field_lable = label_case($field_name);
-            $field_placeholder = $field_lable;
             $value = ($team->family_member_name) ?? '';
             $required = '';
             ?>
-            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'family_member_name', "$required", 'value' => "$value", 'readonly' => 'true']) }}
-            @error('family_member_name')
-                <span class="error">{{ $message }}</span>
-            @enderror
+            {{ html()->label($field_lable, $field_name)->class('form-label') }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'family_member_name',  'value' => "$value", 'readonly' => 'true']) }}
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
             $field_name = 'Family Member Number';
             $field_lable = label_case($field_name);
-            $field_placeholder = $field_lable;
             $value = ($team->family_member_number) ?? '';
             $required = '';
             ?>
-            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'family_member_number', "$required", 'value' => "$value", 'readonly' => 'true']) }}
-            @error('family_member_number')
-                <span class="error">{{ $message }}</span>
-            @enderror
+            {{ html()->label($field_lable, $field_name)->class('form-label') }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'family_member_number',  'value' => "$value", 'readonly' => 'true']) }}
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
             $field_name = 'Work Contract';
             $field_lable = label_case($field_name);
-            $field_placeholder = $field_lable;
             $value = ($team->work_contract) ?? '';
             $required = '';
             ?>
-            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'work_contract', "$required", 'value' => "$value", 'readonly' => 'true']) }}
-            @error('work_contract')
-                <span class="error">{{ $message }}</span>
-            @enderror
+            {{ html()->label($field_lable, $field_name)->class('form-label') }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'work_contract',  'value' => "$value", 'readonly' => 'true']) }}
         </div>
-
-
     </div>
 </div>
 
 <style>
-
     input[type=text] {
         background-color: rgb(229, 231, 233);
     }
@@ -347,5 +261,4 @@
         height: 100px;
         background-color: rgb(229, 231, 233) !important;
     }
-    
 </style>

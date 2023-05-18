@@ -221,6 +221,7 @@
 
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
+            <br>
             <img src="http://localhost:8000/{{ str_replace('\\', '/', $contact->photo_of_passport) }}" alt="home_page_banner" width="170" height="100">
         </div>
     </div>
@@ -243,6 +244,7 @@
 
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
+            <br>
             <img src="http://localhost:8000/{{ str_replace('\\', '/', $contact->photo_of_id_card) }}" alt="photo_of_id_card" width="170" height="100">
         </div>
     </div>
