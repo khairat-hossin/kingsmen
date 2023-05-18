@@ -650,9 +650,9 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = '';
-            $required = 'required';
+            $required = '';
             ?>
-            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
+            {{ html()->label($field_lable, $field_name)->class('form-label') }}
             {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'project_logo', 'value' => "$value"]) }}
             @error('project_logo')
                 <span class="error">{{ $message }}</span>

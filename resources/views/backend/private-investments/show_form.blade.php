@@ -365,8 +365,9 @@
             $field_lable = label_case($field_name);
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
-            <br>
-            <a href="{{ asset($private_investment->shares_selling_contract) }}" target="_blank" class="btn btn-sm btn-success">Download</a>
+            @if ($private_investment->selling_contract)
+                <a href="{{ asset( str_replace('\\', '/', $private_investment->selling_contract)) }}" class="btn btn-sm btn-success">Download</a>
+            @endif
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -375,8 +376,9 @@
             $field_lable = label_case($field_name);
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
-            <br>
-            <a href="{{ asset($private_investment->company_papers) }}" target="_blank" class="btn btn-sm btn-success">Download</a>
+            @if ($private_investment->company_papers)
+                <a href="{{ asset( str_replace('\\', '/', $private_investment->company_papers)) }}" class="btn btn-sm btn-success">Download</a>
+            @endif
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -385,9 +387,21 @@
             $field_lable = label_case($field_name);
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
-            <br>
-            <a href="{{ asset($private_investment->buisness_plan) }}" target="_blank" class="btn btn-sm btn-success">Download</a>
-        </div>        
+            @if ($private_investment->project_rules_and_regulation)
+                <a href="{{ asset( str_replace('\\', '/', $private_investment->project_rules_and_regulation)) }}" class="btn btn-sm btn-success">Download</a>
+            @endif
+        </div>
+
+        <div class="form-group col-6 col-md-4 mb-2">
+            <?php
+            $field_name = 'Other Files';
+            $field_lable = label_case($field_name);
+            ?>
+            {{ html()->label($field_lable, $field_name)->class('form-label') }}
+            @if ($private_investment->other_files)
+                <a href="{{ asset( str_replace('\\', '/', $private_investment->other_files)) }}" class="btn btn-sm btn-success">Download</a>
+            @endif
+        </div>
     </div>
 
     <legend class="border-bottom w-100">Website Project Cover and Social Media Share</legend>
@@ -491,7 +505,9 @@
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
             <br>
-            <img src="http://localhost:8000/{{ str_replace('\\', '/', $private_investment->banner) }}" alt="banner" width="170" height="100">
+            @if ($private_investment->banner)
+                <img src="http://localhost:8000/{{ str_replace('\\', '/', $private_investment->banner) }}" alt="banner" width="170" height="100">
+            @endif
         </div>
     </div>
 
@@ -507,12 +523,14 @@
             @endphp
 
             <div class="row">
-                @foreach ($photos as  $photo  => $fileName)
-                    <div class="col-4">
-                        <br>
-                        <img src="{{ str_replace('\\', '/', $fileName) }}" alt="photo_gallery" width="170" height="100">
-                    </div>
-                @endforeach
+                @if($photos)
+                    @foreach ($photos as  $photo  => $fileName)
+                        <div class="col-4">
+                            <br>
+                            <img src="{{ str_replace('\\', '/', $fileName) }}" class="mx-5" alt="photo_gallery" width="170" height="100">
+                        </div>
+                    @endforeach
+                @endif
             </div>
         </div>
     </div>

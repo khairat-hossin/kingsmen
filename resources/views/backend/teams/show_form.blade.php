@@ -65,7 +65,7 @@
 
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} <br>
-            <img src="http://localhost:8000/{{ str_replace('\\', '/', $value) }}" alt="passport_photo" width="170" height="100">
+            <img src="http://localhost:8000/{{ str_replace('\\', '/', $value) }}" alt="passport_photo" width="250" height="100">
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -87,7 +87,7 @@
 
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} <br>
-            <img src="http://localhost:8000/{{ str_replace('\\', '/', $value) }}" alt="id_card" width="170" height="100">
+            <img src="http://localhost:8000/{{ str_replace('\\', '/', $value) }}" alt="id_card" width="250" height="100">
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -154,7 +154,7 @@
 
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} <br>
-            <img src="http://localhost:8000/{{ str_replace('\\', '/', $value) }}" alt="id_card" width="170" height="100">
+            <img src="http://localhost:8000/{{ str_replace('\\', '/', $value) }}" alt="id_card" width="200" height="100">
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
