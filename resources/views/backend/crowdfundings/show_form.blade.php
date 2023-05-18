@@ -184,7 +184,7 @@
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->number($field_name)->class('form-control form-control-sm')->value($value)->attributes([ 'readonly' => true, 'name' => 'land_area_per_sqm', "$required", 'id' => 'land_area_per_sqm', 'pattern' => '\d*', 'step' => 'any']) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->value($value)->attributes([ 'readonly' => true, 'name' => 'land_area_per_sqm', "$required", 'id' => 'land_area_per_sqm', 'pattern' => '\d*', 'step' => 'any']) }}
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -196,7 +196,7 @@
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->number($field_name)->class('form-control form-control-sm')->value($value)->attributes([ 'readonly' => true, 'name' => 'land_cost_per_sqm', "$required", 'id' => 'price_cost_per_sqm', 'pattern' => '\d*', 'step' => 'any']) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->value($value)->attributes([ 'readonly' => true, 'name' => 'land_cost_per_sqm', "$required", 'id' => 'price_cost_per_sqm', 'pattern' => '\d*', 'step' => 'any']) }}
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -208,7 +208,7 @@
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->number($field_name)->class('form-control form-control-sm')->value($value)->attributes([ 'readonly' => true, 'name' => 'total_land_cost', "$required", 'id' => 'total_land_cost', 'pattern' => '\d*', 'step' => 'any', 'readonly' => 'true']) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->value($value)->attributes([ 'readonly' => true, 'name' => 'total_land_cost', "$required", 'id' => 'total_land_cost', 'pattern' => '\d*', 'step' => 'any', 'readonly' => 'true']) }}
         </div>
     </div>
 
@@ -235,7 +235,7 @@
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->number($field_name)->class('form-control form-control-sm')->value($value)->attributes([ 'readonly' => true, 'name' => 'built_up_area_size_per_sqm', "$required", 'id' => 'built_up_area_size_per_sqm', 'pattern' => '\d*']) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->value($value)->attributes([ 'readonly' => true, 'name' => 'built_up_area_size_per_sqm', "$required", 'id' => 'built_up_area_size_per_sqm', 'pattern' => '\d*']) }}
         </div>
 
 
@@ -248,7 +248,7 @@
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->number($field_name)->class('form-control form-control-sm')->value($value)->attributes([ 'readonly' => true, 'name' => 'built_area_value_per_sqm', "$required", 'id' => 'built_area_value_per_sqm', 'pattern' => '\d*', 'step' => 'any']) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->value($value)->attributes([ 'readonly' => true, 'name' => 'built_area_value_per_sqm', "$required", 'id' => 'built_area_value_per_sqm', 'pattern' => '\d*', 'step' => 'any']) }}
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -260,7 +260,7 @@
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->number($field_name)->class('form-control form-control-sm')->value($value)->attributes([ 'readonly' => true, 'name' => 'total_built_up_area_value', "$required", 'id' => 'total_built_up_area_value', 'pattern' => '\d*', 'step' => 'any', 'readonly' => 'true']) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->value($value)->attributes([ 'readonly' => true, 'name' => 'total_built_up_area_value', "$required", 'id' => 'total_built_up_area_value', 'pattern' => '\d*', 'step' => 'any', 'readonly' => 'true']) }}
         </div>
     </div>
 
@@ -287,7 +287,7 @@
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->number($field_name)->class('form-control form-control-sm')->value($value)->attributes([ 'readonly' => true, 'name' => 'total_built_up_area_value', "$required", 'id' => 'total_built_up_area_value', 'pattern' => '\d*', 'step' => 'any']) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->value($value)->attributes([ 'readonly' => true, 'name' => 'total_built_up_area_value', "$required", 'id' => 'total_built_up_area_value', 'pattern' => '\d*', 'step' => 'any']) }}
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -299,7 +299,7 @@
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->number($field_name)->class('form-control form-control-sm')->value($value)->attributes([ 'readonly' => true, 'name' => 'total_number_of_investment_in', "$required", 'id' => 'total_number_of_investment_in', 'pattern' => '\d*', 'step' => 'any']) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->value($value)->attributes([ 'readonly' => true, 'name' => 'total_number_of_investment_in', "$required", 'id' => 'total_number_of_investment_in', 'pattern' => '\d*', 'step' => 'any']) }}
         </div>
     </div>
 
@@ -314,7 +314,7 @@
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->number($field_name)->class('form-control form-control-sm')->value($value)->attributes([ 'readonly' => true, 'name' => 'real_estate_value', "$required", 'id' => 'real_estate_value', 'pattern' => '\d*', 'step' => 'any']) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->value($value)->attributes([ 'readonly' => true, 'name' => 'real_estate_value', "$required", 'id' => 'real_estate_value', 'pattern' => '\d*', 'step' => 'any']) }}
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -326,7 +326,7 @@
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->number($field_name)->class('form-control form-control-sm')->value($value)->attributes([ 'readonly' => true, 'name' => 'proposed_additional_investment_cost', "$required", 'id' => 'proposed_additional_investment_cost', 'pattern' => '\d*', 'step' => 'any']) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->value($value)->attributes([ 'readonly' => true, 'name' => 'proposed_additional_investment_cost', "$required", 'id' => 'proposed_additional_investment_cost', 'pattern' => '\d*', 'step' => 'any']) }}
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -338,7 +338,7 @@
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->number($field_name)->class('form-control form-control-sm')->value($value)->attributes([ 'readonly' => true, 'name' => 'total_cost_of_investment', "$required", 'id' => 'total_cost_of_investment', 'pattern' => '\d*', 'step' => 'any']) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->value($value)->attributes([ 'readonly' => true, 'name' => 'total_cost_of_investment', "$required", 'id' => 'total_cost_of_investment', 'pattern' => '\d*', 'step' => 'any']) }}
         </div>
     </div>
 
@@ -353,7 +353,7 @@
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->number($field_name)->class('form-control form-control-sm')->value($value)->attributes([ 'readonly' => true, 'name' => 'project_duration_in_years', "$required", 'id' => 'project_duration_in_years', 'pattern' => '\d*', 'step' => 'any']) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->value($value)->attributes([ 'readonly' => true, 'name' => 'project_duration_in_years', "$required", 'id' => 'project_duration_in_years', 'pattern' => '\d*', 'step' => 'any']) }}
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -365,7 +365,7 @@
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->number($field_name)->class('form-control form-control-sm')->value($value)->attributes([ 'readonly' => true, 'name' => 'investment_break_even_expected_after_year', "$required", 'id' => 'investment_break_even_expected_after_year', 'pattern' => '\d*', 'step' => 'any']) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->value($value)->attributes([ 'readonly' => true, 'name' => 'investment_break_even_expected_after_year', "$required", 'id' => 'investment_break_even_expected_after_year', 'pattern' => '\d*', 'step' => 'any']) }}
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -389,7 +389,7 @@
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->number($field_name)->class('form-control form-control-sm')->value($value)->attributes([ 'readonly' => true, 'name' => 'expected_profit_after_break_even', "$required", 'id' => 'expected_profit_after_break_even', 'pattern' => '\d*', 'step' => 'any']) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->value($value)->attributes([ 'readonly' => true, 'name' => 'expected_profit_after_break_even', "$required", 'id' => 'expected_profit_after_break_even', 'pattern' => '\d*', 'step' => 'any']) }}
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -401,7 +401,7 @@
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->number($field_name)->class('form-control form-control-sm')->value($value)->attributes([ 'readonly' => true, 'name' => 'expected_profit_percent_after_break_even_as_per_study', "$required", 'id' => 'expected_profit_percent_after_break_even_as_per_study', 'pattern' => '\d*', 'step' => 'any', 'readonly' => 'true']) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->value($value)->attributes([ 'readonly' => true, 'name' => 'expected_profit_percent_after_break_even_as_per_study', "$required", 'id' => 'expected_profit_percent_after_break_even_as_per_study', 'pattern' => '\d*', 'step' => 'any', 'readonly' => 'true']) }}
         </div>
     </div>
         <legend class="border-bottom w-100">1 Share's value in assets</legend>
@@ -415,7 +415,7 @@
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->number($field_name)->class('form-control form-control-sm')->value($value)->attributes([ 'readonly' => true, 'name' => 'one_shares_of_ownership_of_the_land_in_sqm', "$required", 'id' => 'one_shares_of_ownership_of_the_land_in_sqm', 'pattern' => '\d*', 'step' => 'any']) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->value($value)->attributes([ 'readonly' => true, 'name' => 'one_shares_of_ownership_of_the_land_in_sqm', "$required", 'id' => 'one_shares_of_ownership_of_the_land_in_sqm', 'pattern' => '\d*', 'step' => 'any']) }}
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -427,7 +427,7 @@
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->number($field_name)->class('form-control form-control-sm')->value($value)->attributes([ 'readonly' => true, 'name' => 'one_shares_of_ownership_of_the_land_in_sqm', "$required", 'id' => 'one_shares_of_ownership_of_the_land_in_sqm', 'pattern' => '\d*', 'step' => 'any']) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->value($value)->attributes([ 'readonly' => true, 'name' => 'one_shares_of_ownership_of_the_land_in_sqm', "$required", 'id' => 'one_shares_of_ownership_of_the_land_in_sqm', 'pattern' => '\d*', 'step' => 'any']) }}
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -439,7 +439,7 @@
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->number($field_name)->class('form-control form-control-sm')->value($value)->attributes([ 'readonly' => true, 'name' => 'one_shares_of_ownership_in_number_of_investing_in', "$required", 'id' => 'one_shares_of_ownership_in_number_of_investing_in', 'pattern' => '\d*', 'step' => 'any']) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->value($value)->attributes([ 'readonly' => true, 'name' => 'one_shares_of_ownership_in_number_of_investing_in', "$required", 'id' => 'one_shares_of_ownership_in_number_of_investing_in', 'pattern' => '\d*', 'step' => 'any']) }}
         </div>
     </div>
 
@@ -454,7 +454,7 @@
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->number($field_name)->class('form-control form-control-sm')->value($value)->attributes([ 'readonly' => true, 'name' => 'share_price', "$required", 'id' => 'share_price', 'pattern' => '\d*', 'step' => 'any']) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->value($value)->attributes([ 'readonly' => true, 'name' => 'share_price', "$required", 'id' => 'share_price', 'pattern' => '\d*', 'step' => 'any']) }}
         </div>
     </div>
 
@@ -469,7 +469,7 @@
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->number($field_name)->class('form-control form-control-sm')->value($value)->attributes([ 'readonly' => true, 'name' => 'deposit', "$required", 'id' => 'deposit', 'pattern' => '\d*', 'step' => 'any']) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->value($value)->attributes([ 'readonly' => true, 'name' => 'deposit', "$required", 'id' => 'deposit', 'pattern' => '\d*', 'step' => 'any']) }}
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -481,7 +481,7 @@
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->number($field_name)->class('form-control form-control-sm')->value($value)->attributes([ 'readonly' => true, 'name' => 'remaining_amount_as_bank_transfer', "$required", 'id' => 'remaining_amount_as_bank_transfer', 'pattern' => '\d*', 'step' => 'any']) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->value($value)->attributes([ 'readonly' => true, 'name' => 'remaining_amount_as_bank_transfer', "$required", 'id' => 'remaining_amount_as_bank_transfer', 'pattern' => '\d*', 'step' => 'any']) }}
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -493,7 +493,7 @@
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->number($field_name)->class('form-control form-control-sm')->value($value)->attributes([ 'readonly' => true, 'name' => 'full_payment_in_USDT_bLockchain', "$required", 'id' => 'full_payment_in_USDT_bLockchain', 'pattern' => '\d*', 'step' => 'any']) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->value($value)->attributes([ 'readonly' => true, 'name' => 'full_payment_in_USDT_bLockchain', "$required", 'id' => 'full_payment_in_USDT_bLockchain', 'pattern' => '\d*', 'step' => 'any']) }}
         </div>
     </div>
 
@@ -508,7 +508,9 @@
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             <br>
-            <img src="http://localhost:8000/{{ str_replace('\\', '/', $crowdfunding->selling_contract) }}" alt="selling_contract" width="170" height="100">
+            @if ($crowdfunding->selling_contract)
+                <a href="{{ asset( str_replace('\\', '/', $crowdfunding->selling_contract)) }}"></a>
+            @endif
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -520,7 +522,9 @@
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             <br>
-            <img src="http://localhost:8000/{{ str_replace('\\', '/', $crowdfunding->company_papers) }}" alt="company_papers" width="170" height="100">
+            @if ($crowdfunding->company_papers)
+                <a href="{{ asset($crowdfunding->company_papers) }}" target="_blank" class="btn btn-sm btn-success">Download</a>
+            @endif
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -532,7 +536,9 @@
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
             <br>
-            <img src="http://localhost:8000/{{ str_replace('\\', '/', $crowdfunding->buisness_plan) }}" alt="buisness_plan" width="170" height="100">
+            @if ($crowdfunding->buisness_plan)
+                <a href="{{ asset($crowdfunding->buisness_plan) }}" target="_blank" class="btn btn-sm btn-success">Download</a>
+            @endif
         </div>
     </div>
 
@@ -547,7 +553,9 @@
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
             <br>
-            <img src="http://localhost:8000/{{ str_replace('\\', '/', $crowdfunding->project_logo) }}" alt="project_logo" width="170" height="100">
+            @if ($crowdfunding->project_logo)
+                <img src="http://localhost:8000/{{ str_replace('\\', '/', $crowdfunding->project_logo) }}" alt="project_logo" width="170" height="100">
+            @endif
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -694,7 +702,9 @@
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
             <br>
-            <img src="http://localhost:8000/{{ str_replace('\\', '/', $crowdfunding->banner) }}" alt="banner" width="250" height="100">
+            @if ($crowdfunding->banner)
+                <img src="http://localhost:8000/{{ str_replace('\\', '/', $crowdfunding->banner) }}" alt="banner" width="250" height="100">
+            @endif
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -706,7 +716,9 @@
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
             <br>
-            <img src="http://localhost:8000/{{ str_replace('\\', '/', $crowdfunding->photos_gallery) }}" alt="photos_gallery" width="250" height="100">
+            @if ($crowdfunding->photos_gallery)
+                <img src="http://localhost:8000/{{ str_replace('\\', '/', $crowdfunding->photos_gallery) }}" alt="photos_gallery" width="250" height="100">
+            @endif
         </div>
     </div>
 </div>
@@ -718,12 +730,5 @@
 
     input[type=text]:focus {
         background-color:rgb(229, 231, 233);
-    }
-    input[type=number] {
-        background-color: rgb(229, 231, 233);
-    }
-
-    input[type=number]:focus {
-        background-color: rgb(229, 231, 233);
     }
 </style>

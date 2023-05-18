@@ -11,7 +11,9 @@
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
             <br>
-            <img src="http://localhost:8000/{{ str_replace('\\', '/', $project->project_logo) }}" alt="project_logo" width="170" height="100">
+            @if ($project->project_logo)
+                <img src="http://localhost:8000/{{ str_replace('\\', '/', $project->project_logo) }}" alt="project_logo" width="250" height="100">
+            @endif
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -225,7 +227,9 @@
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
             <br>
-            <a href="{{ asset($project->all_listings_land) }}" target="_blank" class="btn btn-sm btn-success">Download</a>
+            @if ($project->all_listings_land)
+                <a href="{{ asset($project->all_listings_land) }}" target="_blank" class="btn btn-sm btn-success">Download</a>
+            @endif
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -283,7 +287,9 @@
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
             <br>
-            <a href="{{ asset($project->all_listings_house) }}" target="_blank" class="btn btn-sm btn-success">Download</a>
+            @if ($project->all_listings_house)
+                <a href="{{ asset($project->all_listings_house) }}" target="_blank" class="btn btn-sm btn-success">Download</a>
+            @endif
         </div>
 
 
@@ -295,7 +301,9 @@
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
             <br>
-            <a href="{{ asset($project->technical_specs) }}" target="_blank" class="btn btn-sm btn-success">Download</a>
+            @if ($project->technical_specs)
+                <a href="{{ asset($project->technical_specs) }}" target="_blank" class="btn btn-sm btn-success">Download</a>
+            @endif
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -372,7 +380,9 @@
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
             <br>
-            <a href="{{ asset($project->selling_contract) }}" target="_blank" class="btn btn-sm btn-success">Download</a>
+            @if ($project->selling_contract)
+                <a href="{{ asset($project->selling_contract) }}" target="_blank" class="btn btn-sm btn-success">Download</a>
+            @endif
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -383,7 +393,9 @@
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
             <br>
-            <a href="{{ asset($project->company_papers) }}" target="_blank" class="btn btn-sm btn-success">Download</a>
+            @if ($project->company_papers)
+                <a href="{{ asset($project->company_papers) }}" target="_blank" class="btn btn-sm btn-success">Download</a>
+            @endif
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -394,7 +406,9 @@
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
             <br>
-            <a href="{{ asset($project->project_rules_and_regulation) }}" target="_blank" class="btn btn-sm btn-success">Download</a>
+            @if ($project->project_rules_and_regulation)
+                <a href="{{ asset($project->project_rules_and_regulation) }}" target="_blank" class="btn btn-sm btn-success">Download</a>
+            @endif
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -405,7 +419,9 @@
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
             <br>
-            <a href="{{ asset($project->other_files) }}" target="_blank" class="btn btn-sm btn-success">Download</a>
+            @if ($project->other_files)
+                <a href="{{ asset($project->other_files) }}" target="_blank" class="btn btn-sm btn-success">Download</a>
+            @endif
         </div>
     </div>
 
@@ -476,7 +492,9 @@
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
             <br>
-            <img src="http://localhost:8000/{{ str_replace('\\', '/', $project->home_page_banner) }}" alt="home_page_banner" width="170" height="100">
+            @if ($project->home_page_banner)
+                <img src="http://localhost:8000/{{ str_replace('\\', '/', $project->home_page_banner) }}" alt="home_page_banner" width="250" height="100">
+            @endif
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -564,11 +582,13 @@
                     $photos = json_decode($data, true);
                 @endphp
                 <div class="row">
-                    @foreach ($photos as  $photo  => $fileName)
-                    <div class="col-4">
-                        <img src="{{ str_replace('\\', '/', $fileName) }}" class="px-2" alt="home_page_photos_gallery" width="170" height="100">
-                    </div>
-                    @endforeach
+                    @if($photos)
+                        @foreach ($photos as  $photo  => $fileName)
+                        <div class="col-4">
+                            <img src="{{ str_replace('\\', '/', $fileName) }}" class="px-2" alt="home_page_photos_gallery" width="250" height="100">
+                        </div>
+                        @endforeach
+                    @endif
             </div>
             </div>
         </div>
@@ -587,7 +607,9 @@
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
             <br>
-            <img src="http://localhost:8000/{{ str_replace('\\', '/', $project->qna_page_banner) }}" alt="qna_page_banner" width="170" height="100">
+            @if ($project->qna_page_banner)
+                <img src="http://localhost:8000/{{ str_replace('\\', '/', $project->qna_page_banner) }}" alt="qna_page_banner" width="250" height="100">
+            @endif
         </div>
 
 
@@ -654,7 +676,9 @@
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
             <br>
-            <img src="http://localhost:8000/{{ str_replace('\\', '/', $project->buy_home_page_banner) }}" alt="banner" width="170" height="100">
+            @if ($project->buy_home_page_banner)
+                <img src="http://localhost:8000/{{ str_replace('\\', '/', $project->buy_home_page_banner) }}" alt="banner" width="250" height="100">
+            @endif
         </div>
 
 
@@ -721,7 +745,9 @@
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
             <br>
-            <img src="http://localhost:8000/{{ str_replace('\\', '/', $project->buy_land_page_banner) }}" alt="banner" width="170" height="100">
+            @if ($project->buy_land_page_banner)
+                <img src="http://localhost:8000/{{ str_replace('\\', '/', $project->buy_land_page_banner) }}" alt="banner" width="250" height="100">
+            @endif
         </div>
 
 
@@ -788,7 +814,9 @@
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
             <br>
-            <img src="http://localhost:8000/{{ str_replace('\\', '/', $project->amenities_page_banner) }}" alt="amenities_page_banner" width="170" height="100">
+            @if ($project->amenities_page_banner)
+                <img src="http://localhost:8000/{{ str_replace('\\', '/', $project->amenities_page_banner) }}" alt="amenities_page_banner" width="250" height="100">
+            @endif
         </div>
 
 
@@ -856,7 +884,9 @@
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
             <br>
-            <img src="http://localhost:8000/{{ str_replace('\\', '/', $project->financing_page_banner) }}" alt="banner" width="170" height="100">
+            @if ($project->financing_page_banner)
+                <img src="http://localhost:8000/{{ str_replace('\\', '/', $project->financing_page_banner) }}" alt="banner" width="250" height="100">
+            @endif
         </div>
 
 
@@ -923,7 +953,9 @@
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
             <br>
-            <img src="http://localhost:8000/{{ str_replace('\\', '/', $project->who_page_banner) }}" alt="who_page_banner" width="170" height="100">
+            @if ($project->who_page_banner)
+                <img src="http://localhost:8000/{{ str_replace('\\', '/', $project->who_page_banner) }}" alt="who_page_banner" width="250" height="100">
+            @endif
         </div>
 
 
@@ -991,7 +1023,9 @@
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
             <br>
-            <img src="http://localhost:8000/{{ str_replace('\\', '/', $project->contact_page_banner) }}" alt="contact_page_banner" width="170" height="100">
+            @if ($project->contact_page_banner)
+                <img src="http://localhost:8000/{{ str_replace('\\', '/', $project->contact_page_banner) }}" alt="contact_page_banner" width="250" height="100">
+            @endif
         </div>
 
 
@@ -1105,7 +1139,9 @@
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
             <br>
-            <a href="{{ asset($project->project_brochure) }}" target="_blank" class="btn btn-sm btn-success">Download</a>
+            @if ($project->project_brochure)
+                <a href="{{ asset($project->project_brochure) }}" target="_blank" class="btn btn-sm btn-success">Download</a>
+            @endif
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -1117,7 +1153,9 @@
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
             <br>
-            <a href="{{ asset($project->project_elevations) }}" target="_blank" class="btn btn-sm btn-success">Download</a>
+            @if ($project->project_elevations)
+                <a href="{{ asset($project->project_elevations) }}" target="_blank" class="btn btn-sm btn-success">Download</a>
+            @endif
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -1129,7 +1167,9 @@
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
             <br>
-            <a href="{{ asset($project->construction_rules) }}" target="_blank" class="btn btn-sm btn-success">Download</a>
+            @if ($project->construction_rules)
+                <a href="{{ asset($project->construction_rules) }}" target="_blank" class="btn btn-sm btn-success">Download</a>
+            @endif
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -1141,7 +1181,9 @@
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
             <br>
-            <a href="{{ asset($project->other) }}" target="_blank" class="btn btn-sm btn-success">Download</a>
+            @if ($project->other)
+                <a href="{{ asset($project->other) }}" target="_blank" class="btn btn-sm btn-success">Download</a>
+            @endif
         </div>
     </div>
 </div>

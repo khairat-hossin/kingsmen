@@ -41,7 +41,7 @@
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!} <br>
-            <img src="http://localhost:8000/{{ str_replace('\\', '/', $value) }}" alt="banner" width="250" height="100">            
+            <img src="http://localhost:8000/{{ str_replace('\\', '/', $value) }}" alt="banner" width="250" height="100">
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -68,7 +68,7 @@
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!} <br>
-            <video width="320" height="240" controls>
+            <video width="320" height="200" controls>
                 <source src="http://localhost:8000/{{ str_replace('\\', '/', $value) }}" type="video/mp4">
             </video>
         </div>

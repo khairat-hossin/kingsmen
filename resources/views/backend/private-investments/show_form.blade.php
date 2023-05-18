@@ -366,9 +366,7 @@
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
             @if ($private_investment->selling_contract)
-                <embed src="{{ asset( str_replace('\\', '/', $private_investment->selling_contract) ) }}" width="100%" height="260px" type="application/pdf">
-            @else
-                  <br>empty
+                <a href="{{ asset( str_replace('\\', '/', $private_investment->selling_contract)) }}" class="btn btn-sm btn-success">Download</a>
             @endif
         </div>
 
@@ -379,9 +377,7 @@
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
             @if ($private_investment->company_papers)
-                <embed src="{{ asset( str_replace('\\', '/', $private_investment->company_papers) ) }}" alt="company_papers" width="100%" height="260px" type="application/pdf">
-            @else
-                <br>empty
+                <a href="{{ asset( str_replace('\\', '/', $private_investment->company_papers)) }}" class="btn btn-sm btn-success">Download</a>
             @endif
         </div>
 
@@ -392,9 +388,7 @@
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
             @if ($private_investment->project_rules_and_regulation)
-                <embed src="{{ asset( str_replace('\\', '/', $private_investment->project_rules_and_regulation) ) }}" alt="project_rules_and_regulations" width="100%" height="260px" type="application/pdf">
-            @else
-                <br>empty
+                <a href="{{ asset( str_replace('\\', '/', $private_investment->project_rules_and_regulation)) }}" class="btn btn-sm btn-success">Download</a>
             @endif
         </div>
 
@@ -405,9 +399,7 @@
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
             @if ($private_investment->other_files)
-                <embed src="{{ asset( str_replace('\\', '/', $private_investment->other_files) ) }}" alt="other_files" width="100%" height="260px" type="application/pdf">
-            @else
-                <br>empty
+                <a href="{{ asset( str_replace('\\', '/', $private_investment->other_files)) }}" class="btn btn-sm btn-success">Download</a>
             @endif
         </div>
     </div>
@@ -513,7 +505,9 @@
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
             <br>
-            <img src="http://localhost:8000/{{ str_replace('\\', '/', $private_investment->banner) }}" alt="banner" width="170" height="100">
+            @if ($private_investment->banner)
+                <img src="http://localhost:8000/{{ str_replace('\\', '/', $private_investment->banner) }}" alt="banner" width="170" height="100">
+            @endif
         </div>
     </div>
 
@@ -529,12 +523,14 @@
             @endphp
 
             <div class="row">
-                @foreach ($photos as  $photo  => $fileName)
-                    <div class="col-4">
-                        <br>
-                        <img src="{{ str_replace('\\', '/', $fileName) }}" alt="photo_gallery" width="170" height="100">
-                    </div>
-                @endforeach
+                @if($photos)
+                    @foreach ($photos as  $photo  => $fileName)
+                        <div class="col-4">
+                            <br>
+                            <img src="{{ str_replace('\\', '/', $fileName) }}" class="mx-5" alt="photo_gallery" width="170" height="100">
+                        </div>
+                    @endforeach
+                @endif
             </div>
         </div>
     </div>
