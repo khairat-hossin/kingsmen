@@ -10,6 +10,7 @@
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
+            <br>
             <img src="http://localhost:8000/{{ str_replace('\\', '/', $project->project_logo) }}" alt="project_logo" width="170" height="100">
         </div>
 
@@ -474,6 +475,7 @@
             $value = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
+            <br>
             <img src="http://localhost:8000/{{ str_replace('\\', '/', $project->home_page_banner) }}" alt="home_page_banner" width="170" height="100">
         </div>
 
@@ -584,6 +586,7 @@
             $value = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
+            <br>
             <img src="http://localhost:8000/{{ str_replace('\\', '/', $project->qna_page_banner) }}" alt="qna_page_banner" width="170" height="100">
         </div>
 
@@ -650,6 +653,7 @@
             $value = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
+            <br>
             <img src="http://localhost:8000/{{ str_replace('\\', '/', $project->buy_home_page_banner) }}" alt="banner" width="170" height="100">
         </div>
 
@@ -716,6 +720,7 @@
             $value = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
+            <br>
             <img src="http://localhost:8000/{{ str_replace('\\', '/', $project->buy_land_page_banner) }}" alt="banner" width="170" height="100">
         </div>
 
@@ -782,6 +787,7 @@
             $value = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
+            <br>
             <img src="http://localhost:8000/{{ str_replace('\\', '/', $project->amenities_page_banner) }}" alt="amenities_page_banner" width="170" height="100">
         </div>
 
@@ -849,6 +855,7 @@
             $value = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
+            <br>
             <img src="http://localhost:8000/{{ str_replace('\\', '/', $project->financing_page_banner) }}" alt="banner" width="170" height="100">
         </div>
 
@@ -915,6 +922,7 @@
             $value = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
+            <br>
             <img src="http://localhost:8000/{{ str_replace('\\', '/', $project->who_page_banner) }}" alt="who_page_banner" width="170" height="100">
         </div>
 
@@ -982,6 +990,7 @@
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
+            <br>
             <img src="http://localhost:8000/{{ str_replace('\\', '/', $project->contact_page_banner) }}" alt="contact_page_banner" width="170" height="100">
         </div>
 
@@ -1081,7 +1090,7 @@
             $value = $project->email ?? '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
-            {{ html()->email($field_name)->class('form-control form-control-sm')->attributes(['readonly' => true, 'name' => 'email',  'value' => "$value"]) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['readonly' => true, 'name' => 'email',  'value' => "$value"]) }}
         </div>
     </div>
 

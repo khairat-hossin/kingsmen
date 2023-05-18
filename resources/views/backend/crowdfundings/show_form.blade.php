@@ -507,6 +507,7 @@
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
+            <br>
             <img src="http://localhost:8000/{{ str_replace('\\', '/', $crowdfunding->selling_contract) }}" alt="selling_contract" width="170" height="100">
         </div>
 
@@ -518,6 +519,7 @@
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
+            <br>
             <img src="http://localhost:8000/{{ str_replace('\\', '/', $crowdfunding->company_papers) }}" alt="company_papers" width="170" height="100">
         </div>
 
@@ -529,6 +531,7 @@
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
+            <br>
             <img src="http://localhost:8000/{{ str_replace('\\', '/', $crowdfunding->buisness_plan) }}" alt="buisness_plan" width="170" height="100">
         </div>
     </div>
@@ -543,6 +546,7 @@
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
+            <br>
             <img src="http://localhost:8000/{{ str_replace('\\', '/', $crowdfunding->project_logo) }}" alt="project_logo" width="170" height="100">
         </div>
 
@@ -689,6 +693,7 @@
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
+            <br>
             <img src="http://localhost:8000/{{ str_replace('\\', '/', $crowdfunding->banner) }}" alt="banner" width="250" height="100">
         </div>
 
@@ -700,6 +705,7 @@
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
+            <br>
             <img src="http://localhost:8000/{{ str_replace('\\', '/', $crowdfunding->photos_gallery) }}" alt="photos_gallery" width="250" height="100">
         </div>
     </div>
