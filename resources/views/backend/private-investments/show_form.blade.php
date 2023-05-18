@@ -365,8 +365,9 @@
             $field_lable = label_case($field_name);
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
-            @if ($private_investment->selling_contract)
-                <a href="{{ asset( str_replace('\\', '/', $private_investment->selling_contract)) }}" class="btn btn-sm btn-success">Download</a>
+            @if ($private_investment->shares_selling_contract)
+            <br>
+                <a href="{{ asset( str_replace('\\', '/', $private_investment->shares_selling_contract)) }}" class="btn btn-sm btn-success">Download</a>
             @endif
         </div>
 
@@ -375,8 +376,9 @@
             $field_name = 'Company Papers';
             $field_lable = label_case($field_name);
             ?>
-            {{ html()->label($field_lable, $field_name)->class('form-label') }}
+            {{ html()->label($field_lable, $field_name)->class('form-label') }}            
             @if ($private_investment->company_papers)
+            <br>
                 <a href="{{ asset( str_replace('\\', '/', $private_investment->company_papers)) }}" class="btn btn-sm btn-success">Download</a>
             @endif
         </div>
@@ -387,19 +389,9 @@
             $field_lable = label_case($field_name);
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
-            @if ($private_investment->project_rules_and_regulation)
-                <a href="{{ asset( str_replace('\\', '/', $private_investment->project_rules_and_regulation)) }}" class="btn btn-sm btn-success">Download</a>
-            @endif
-        </div>
-
-        <div class="form-group col-6 col-md-4 mb-2">
-            <?php
-            $field_name = 'Other Files';
-            $field_lable = label_case($field_name);
-            ?>
-            {{ html()->label($field_lable, $field_name)->class('form-label') }}
-            @if ($private_investment->other_files)
-                <a href="{{ asset( str_replace('\\', '/', $private_investment->other_files)) }}" class="btn btn-sm btn-success">Download</a>
+            @if ($private_investment->buisness_plan)
+                <br>
+                <a href="{{ asset( str_replace('\\', '/', $private_investment->buisness_plan)) }}" class="btn btn-sm btn-success">Download</a>
             @endif
         </div>
     </div>
