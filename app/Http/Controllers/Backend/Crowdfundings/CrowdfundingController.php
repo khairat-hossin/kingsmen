@@ -9,6 +9,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Foundation\Auth\Access\Authorizable;
 use App\Models\Crowdfunding;
+use Image;
 
 class CrowdfundingController extends Controller
 {
@@ -128,7 +129,7 @@ class CrowdfundingController extends Controller
             'deposit'                           => 'nullable',
             'remaining_amount_as_bank_transfer' => 'nullable',
             'full_payment_in_USDT_bLockchain'   => 'nullable',
-            'shares_selling_contract'           => 'nullable',
+            'selling_contract'                  => 'nullable',
 
             'company_papers'       => 'nullable',
             'buisness_plan'        => 'nullable',
@@ -237,15 +238,37 @@ class CrowdfundingController extends Controller
             }
 
             // For Multiple photos
-            $photos_gallery_url = '';
-            $photos_gallery = $request->file('photos_gallery');
-            if($photos_gallery)
-            {
+            // $photos_gallery_url = [];
+            // $photos_gallery = $request->file('photos_gallery');
+            // if($photos_gallery)
+            // {
+            //     foreach ($photos_gallery as $photo) {
+            //         $photos_gallery_url[] = uploadFileToPublic($photo, 'crowdfunding/photos_gallery');
+            //     }
+            //     $crowdfunding->photos_gallery = json_encode($photos_gallery_url);
+            // }
+
+            // ===================================
+             // Multiple photo resize and put link to db
+           $photos_gallery_url = '';
+           $photos_gallery = $request->file('photos_gallery');
+           $path = [];
+           if($photos_gallery)
+           {
                 foreach ($photos_gallery as $photo) {
-                    $photos_gallery_url = uploadFileToPublic($photo, 'crowdfunding/photos_gallery');
+                    // Resize the image to a specific width and height
+                    $resizedImage = Image::make($photo); // ei line tai kaaj korse na, data null
+
+                    $filename = uniqid() . '.' . $photo->getClientOriginalExtension();
+                    $resizedImage->resize(560, 320);
+
+                    $resizedImage->save('uploads/crowdfunding/photos_gallery/'.$filename);
+                    $path[] = $resizedImage->basePath();
                 }
-                $crowdfunding->photos_gallery = $photos_gallery_url;
-            }
+                $crowdfunding->photos_gallery = json_encode($path);
+           }
+           //End Multiple photo resize and put link to db
+            // ===================================
 
             $crowdfunding->banner_text          = $request->banner_text;
             $crowdfunding->title_1              = $request->title_1;
@@ -527,6 +550,29 @@ class CrowdfundingController extends Controller
         $module_action = 'destroy';
 
         $$module_name_singular = $module_model::findOrFail($id);
+
+            // Delete the associated image & files
+            $fileFields = ['selling_contract', 'company_papers', 'buisness_plan', 'project_logo', 'crowfund_thumbnail', 'banner'];
+            foreach ($fileFields as $fileField) {
+                $filePath = public_path($$module_name_singular->{$fileField});
+                if (file_exists($filePath) && is_file($filePath)) {
+                    unlink($filePath);
+                }
+            }
+
+            $imagePaths = json_decode($$module_name_singular->photos_gallery, true);
+
+            // Delete Multiple image
+            if ($imagePaths !== null) {
+                foreach ($imagePaths as $imagePath) {
+                    if (file_exists($imagePath)) {
+                        unlink($imagePath);
+                    }
+                }
+            }
+
+
+
 
         $$module_name_singular->delete();
 

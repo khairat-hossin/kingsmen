@@ -61,20 +61,5 @@
                 <span class="error">{{ $message }}</span>
             @enderror
         </div>
-
-        <div class="form-group col-6 col-md-4 mb-2">
-            <?php
-            $field_name = 'Video';
-            $field_lable = label_case($field_name);
-            $field_placeholder = $field_lable;
-            $value = '';
-            $required = '';
-            ?>
-            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'video', "$required", 'value' => "$value"]) }}
-            @error('video')
-                <span class="error">{{ $message }}</span>
-            @enderror
-        </div>
     </div>
 </div>

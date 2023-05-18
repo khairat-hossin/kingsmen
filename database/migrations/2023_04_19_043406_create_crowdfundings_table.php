@@ -68,7 +68,7 @@ return new class extends Migration
             $table->string('paragraph_1')->nullable();
             $table->string('title_2')->nullable();
             $table->string('paragraph_2')->nullable();
-            $table->string('photos_gallery')->nullable();
+            $table->json('photos_gallery')->nullable();
             $table->string('project_timeline')->nullable();
             $table->string('management_companies')->nullable();
             $table->timestamps();
