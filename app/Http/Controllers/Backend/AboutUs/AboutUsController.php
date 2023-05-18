@@ -234,6 +234,9 @@ class AboutUsController extends Controller
 
         $$module_name_singular = $module_model::findOrFail($id);
 
+        if (file_exists(public_path($$module_name_singular->banner))) {
+            unlink(public_path($$module_name_singular->banner));
+        }
 
         $$module_name_singular->delete();
 

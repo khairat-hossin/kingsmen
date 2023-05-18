@@ -716,9 +716,21 @@
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
             <br>
-            @if ($crowdfunding->photos_gallery)
-                <img src="http://localhost:8000/{{ str_replace('\\', '/', $crowdfunding->photos_gallery) }}" alt="photos_gallery" width="250" height="100">
-            @endif
+            @php
+                $data = $crowdfunding->photos_gallery;
+                $data = json_decode($data, true);
+            @endphp
+
+            <div class="row">
+                @if ($data)
+                    @foreach ($data as $photo => $fileName)
+                        <div class="col-3 col-sm-3 col-md-3">
+                            <img src="{{ asset($fileName) }}" alt="photos_gallery" width="250" height="100">
+                        </div>
+                    @endforeach
+                @endif
+            </div>
+
         </div>
     </div>
 </div>

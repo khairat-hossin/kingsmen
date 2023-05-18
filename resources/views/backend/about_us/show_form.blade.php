@@ -47,19 +47,6 @@
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
             {{ html()->text($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'banner_text',  'readonly'=>'true']) }}
         </div>
-
-        <div class="form-group col-6 col-md-4 mb-2">
-            <?php
-            $field_name = 'Video';
-            $field_label = label_case($field_name);
-            $field_placeholder = $field_label;
-            $value = $about_us->video;
-            ?>
-            {{ html()->label($field_label, $field_name)->class('form-label') }}
-            <video width="320" height="240" controls>
-                <source src="http://localhost:8000/{{ str_replace('\\', '/', $value) }}" type="video/mp4">
-            </video>
-        </div>
     </div>
 </div>
 
