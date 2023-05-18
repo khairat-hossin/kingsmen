@@ -361,15 +361,12 @@
     <div class="row">
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Selling Contract';
+            $field_name = 'Shares Selling Contract';
             $field_lable = label_case($field_name);
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
-            @if ($private_investment->selling_contract)
-                <embed src="{{ asset( str_replace('\\', '/', $private_investment->selling_contract) ) }}" width="100%" height="260px" type="application/pdf">
-            @else
-                  <br>empty
-            @endif
+            <br>
+            <a href="{{ asset($private_investment->shares_selling_contract) }}" target="_blank" class="btn btn-sm btn-success">Download</a>
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -378,38 +375,19 @@
             $field_lable = label_case($field_name);
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
-            @if ($private_investment->company_papers)
-                <embed src="{{ asset( str_replace('\\', '/', $private_investment->company_papers) ) }}" alt="company_papers" width="100%" height="260px" type="application/pdf">
-            @else
-                <br>empty
-            @endif
+            <br>
+            <a href="{{ asset($private_investment->company_papers) }}" target="_blank" class="btn btn-sm btn-success">Download</a>
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Project Rules And Regulations';
+            $field_name = 'Buisness Plan';
             $field_lable = label_case($field_name);
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
-            @if ($private_investment->project_rules_and_regulation)
-                <embed src="{{ asset( str_replace('\\', '/', $private_investment->project_rules_and_regulation) ) }}" alt="project_rules_and_regulations" width="100%" height="260px" type="application/pdf">
-            @else
-                <br>empty
-            @endif
-        </div>
-
-        <div class="form-group col-6 col-md-4 mb-2">
-            <?php
-            $field_name = 'Other Files';
-            $field_lable = label_case($field_name);
-            ?>
-            {{ html()->label($field_lable, $field_name)->class('form-label') }}
-            @if ($private_investment->other_files)
-                <embed src="{{ asset( str_replace('\\', '/', $private_investment->other_files) ) }}" alt="other_files" width="100%" height="260px" type="application/pdf">
-            @else
-                <br>empty
-            @endif
-        </div>
+            <br>
+            <a href="{{ asset($private_investment->buisness_plan) }}" target="_blank" class="btn btn-sm btn-success">Download</a>
+        </div>        
     </div>
 
     <legend class="border-bottom w-100">Website Project Cover and Social Media Share</legend>

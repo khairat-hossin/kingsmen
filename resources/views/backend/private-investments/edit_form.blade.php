@@ -512,18 +512,18 @@
     <div class="row">
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Add  Selling Contract';
+            $field_name = 'Shares Selling Contract';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->file($field_name)->multiple()->class('form-control form-control-sm')->attributes(['name' => 'selling_contract', "$required"]) }}
+            {{ html()->file($field_name)->multiple()->class('form-control form-control-sm')->attributes(['name' => 'shares_selling_contract', "$required"]) }}
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Add Company Papers';
+            $field_name = 'Company Papers';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $required = '';
@@ -534,25 +534,14 @@
 
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Add Project Rules And Regulations';
+            $field_name = 'Buisness Plan';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->file($field_name)->multiple()->class('form-control form-control-sm')->attributes(['name' => 'project_rules_and_regulation', "$required"]) }}
-        </div>
-
-        <div class="form-group col-6 col-md-4 mb-2">
-            <?php
-            $field_name = 'Add Other Files';
-            $field_lable = label_case($field_name);
-            $field_placeholder = $field_lable;
-            $required = '';
-            ?>
-            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->file($field_name)->multiple()->class('form-control form-control-sm')->attributes(['name' => 'other_files', "$required"]) }}
-        </div>
+            {{ html()->file($field_name)->multiple()->class('form-control form-control-sm')->attributes(['name' => 'Buisness Plan', "$required"]) }}
+        </div>        
     </div>
 
     <legend class="border-bottom w-100">Website Project Cover and Social Media Share</legend>

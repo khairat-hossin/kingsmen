@@ -48,11 +48,9 @@ return new class extends Migration
             $table->double('expected_profit_percent_after_break_even_as_per_study',8,2)->nullable();
             $table->double('deposit', 8, 2)->nullable();
             $table->double('remaining_amount_as_bank_transfer',8,2)->nullable();
-            $table->string('selling_contract')->nullable();
+            $table->string('shares_selling_contract')->nullable();
             $table->string('company_papers')->nullable();
-            $table->string('project_rules_and_regulation')->nullable();
-            $table->string('other_files')->nullable();
-            $table->string('buisness_plan')->nullable();
+            $table->string('buisness_plan')->nullable();          
             $table->string('project_logo')->nullable();
             $table->string('crowfund_thumbnail')->nullable();
             $table->string('title')->nullable();

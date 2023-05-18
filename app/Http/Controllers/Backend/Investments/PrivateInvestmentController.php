@@ -118,12 +118,10 @@ class PrivateInvestmentController extends Controller
             "expected_profit_percent_after_break_even_as_per_study" => "nullable",
             "deposit"                                               => "nullable",
             "remaining_amount_as_bank_transfer"                     => "nullable",
-            "selling_contract"                                      => "nullable|mimes:pdf",
+            "shares_selling_contract"                               => "nullable|mimes:pdf",
             "company_papers"                                        => "nullable|mimes:pdf",
-
-            "project_rules_and_regulation" => "nullable",
-            "other_files"                  => "nullable",
-            "buisness_plan"                => "nullable|mimes:pdf",
+            "buisness_plan"                                         => "nullable|mimes:pdf",  
+           
             "project_logo"                 => "nullable",
             "crowfund_thumbnail"           => "nullable",
             "title"                        => "nullable",
@@ -184,14 +182,13 @@ class PrivateInvestmentController extends Controller
             $privateInvestment->deposit                                               = $request->deposit;
             $privateInvestment->remaining_amount_as_bank_transfer                     = $request->remaining_amount_as_bank_transfer;
 
-            $selling_contract = '';
+            $shares_selling_contract = '';
             $company_papers = '';
-            $project_rules_and_regulation = '';
-            $other_files = '';
+            $buisness_plan = '';           
 
-            if ($request->selling_contract) {
-                $selling_contract = uploadFileToPublic($request->file('selling_contract'), 'private_investment/selling_contract');
-                $privateInvestment->selling_contract             = $selling_contract;
+            if ($request->shares_selling_contract) {
+                $shares_selling_contract = uploadFileToPublic($request->file('shares_selling_contract'), 'private_investment/shares_selling_contract');
+                $privateInvestment->shares_selling_contract             = $shares_selling_contract;
             }
 
             if ($request->company_papers) {
@@ -199,18 +196,12 @@ class PrivateInvestmentController extends Controller
                 $privateInvestment->company_papers               = $company_papers;
             }
 
-            if ($request->project_rules_and_regulation) {
-                $project_rules_and_regulation = uploadFileToPublic($request->file('project_rules_and_regulation'), 'private_investment/project_rules_and_regulation');
-                $privateInvestment->project_rules_and_regulation = $project_rules_and_regulation;
+            if ($request->buisness_plan) {
+                $buisness_plan = uploadFileToPublic($request->file('buisness_plan'), 'private_investment/buisness_plan');
+                $privateInvestment->buisness_plan = $buisness_plan;
             }
 
-            if ($request->other_files) {
-                $other_files = uploadFileToPublic($request->file('other_files'), 'private_investment/other_files');
-                $privateInvestment->other_files                  = $other_files;
-            }
-
-
-            $privateInvestment->buisness_plan                = $request->buisness_plan;
+           
             $privateInvestment->project_logo                 = $request->project_logo;
             $privateInvestment->crowfund_thumbnail           = $request->crowfund_thumbnail;
             $privateInvestment->title                        = $request->title;
@@ -351,12 +342,10 @@ class PrivateInvestmentController extends Controller
             "expected_profit_percent_after_break_even_as_per_study" => "nullable",
             "deposit"                                               => "nullable",
             "remaining_amount_as_bank_transfer"                     => "nullable",
-            "selling_contract"                                      => "nullable|mimes:pdf",
+            "shares_selling_contract"                               => "nullable|mimes:pdf",
             "company_papers"                                        => "nullable|mimes:pdf",
+            "buisness_plan"                                         => "nullable|mimes:pdf",    
 
-            "project_rules_and_regulation" => "nullable",
-            "other_files"                  => "nullable",
-            "buisness_plan"                => "nullable|mimes:pdf",
             "project_logo"                 => "nullable",
             "crowfund_thumbnail"           => "nullable",
             "title"                        => "nullable",
@@ -418,14 +407,13 @@ class PrivateInvestmentController extends Controller
             $privateInvestment->deposit                                               = $request->deposit;
             $privateInvestment->remaining_amount_as_bank_transfer                     = $request->remaining_amount_as_bank_transfer;
 
-            $selling_contract = '';
+            $shares_selling_contract = '';
             $company_papers = '';
-            $project_rules_and_regulation = '';
-            $other_files = '';
+            $buisness_plan = '';           
 
-            if ($request->selling_contract) {
-                $selling_contract = uploadFileToPublic($request->file('selling_contract'), 'private_investment/selling_contract');
-                $privateInvestment->selling_contract = $selling_contract;
+            if ($request->shares_selling_contract) {
+                $shares_selling_contract = uploadFileToPublic($request->file('shares_selling_contract'), 'private_investment/shares_selling_contract');
+                $privateInvestment->shares_selling_contract = $shares_selling_contract;
             }
 
             if ($request->company_papers) {
@@ -433,18 +421,12 @@ class PrivateInvestmentController extends Controller
                 $privateInvestment->company_papers = $company_papers;
             }
 
-            if ($request->project_rules_and_regulation) {
-                $project_rules_and_regulation = uploadFileToPublic($request->file('project_rules_and_regulation'), 'private_investment/project_rules_and_regulation');
-                $privateInvestment->project_rules_and_regulation = $project_rules_and_regulation;
-            }
-
-            if ($request->other_files) {
-                $other_files = uploadFileToPublic($request->file('other_files'), 'private_investment/other_files');
-                $privateInvestment->other_files = $other_files;
+            if ($request->buisness_plan) {
+                $buisness_plan = uploadFileToPublic($request->file('buisness_plan'), 'private_investment/buisness_plan');
+                $privateInvestment->buisness_plan = $buisness_plan;
             }
 
 
-            $privateInvestment->buisness_plan                = $request->buisness_plan;
             $privateInvestment->project_logo                 = $request->project_logo;
             $privateInvestment->crowfund_thumbnail           = $request->crowfund_thumbnail;
             $privateInvestment->title                        = $request->title;
