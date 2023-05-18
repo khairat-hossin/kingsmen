@@ -1,6 +1,6 @@
 <div class="mb-3">
     <legend class="border-bottom w-100">
-        Add Team Member
+        Edit FAQs
     </legend>
     <div class="row">
         <div class="form-group col-6 col-md-4 mb-2">
