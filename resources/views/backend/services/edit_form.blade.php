@@ -1,6 +1,6 @@
 <div class="mb-3">
     <legend class="border-bottom w-100">
-        Add Services
+        Edit Services
     </legend>
     <div class="row">
 
