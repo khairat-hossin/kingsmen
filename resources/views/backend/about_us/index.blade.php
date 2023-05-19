@@ -56,9 +56,7 @@
                             <tr>
                                 <th>Question</th>
                                 <th>Answer</th>
-                                {{-- <th>Banner</th> --}}
                                 <th>Banner Text</th>
-                                {{-- <th>Video</th> --}}
                                 <th class="text-end">{{ __('labels.backend.action') }}</th>
                             </tr>
                         </thead>
