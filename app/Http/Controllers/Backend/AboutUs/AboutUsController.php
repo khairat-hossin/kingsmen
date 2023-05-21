@@ -84,7 +84,6 @@ class AboutUsController extends Controller
             "answer"           => "required|unique:" . $this->module_model . ",answer",
             "banner"           => "nullable",
             "banner_text"      => "nullable",
-            "video"            => "nullable"
         ]);
 
         DB::beginTransaction();
@@ -101,11 +100,6 @@ class AboutUsController extends Controller
                 $about_us->banner = $banner_url;
             }
 
-            $video_url = '';
-            if ($request->video) {
-                $video_url = uploadFileToPublic($request->file('video'), 'about_us/video');
-                $about_us->video = $video_url;
-            }
 
             $about_us->save();
 
@@ -177,8 +171,7 @@ class AboutUsController extends Controller
             "question"         => "required|unique:about_us,question," . $id . ',id',
             "answer"           => "required|unique:about_us,answer,"  . $id . ',id',
             "banner"           => "nullable",
-            "banner_text"      => "nullable",
-            "video"            => "nullable"
+            "banner_text"      => "nullable",           
         ]);
 
         DB::beginTransaction();
@@ -195,11 +188,6 @@ class AboutUsController extends Controller
                 $about_us->banner = $banner_url;
             }
 
-            $video_url = '';
-            if ($request->video) {
-                $video_url = uploadFileToPublic($request->file('video'), 'about_us/video');
-                $about_us->video = $video_url;
-            }
 
             $about_us->save();
 

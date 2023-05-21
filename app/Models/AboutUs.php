@@ -15,7 +15,6 @@ class AboutUs extends Model
         'banner',
         'banner_text',
         'question',
-        'answer',
-        'video'
+        'answer',        
     ];
 }
