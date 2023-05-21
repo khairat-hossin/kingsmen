@@ -367,7 +367,7 @@
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
             @if ($private_investment->shares_selling_contract)
             <br>
-                <a href="{{ asset( str_replace('\\', '/', $private_investment->shares_selling_contract)) }}" class="btn btn-sm btn-success">Download</a>
+                <a href="{{ asset( str_replace('\\', '/', $private_investment->shares_selling_contract)) }}" target="_blank" class="btn btn-sm btn-success">Download</a>
             @endif
         </div>
 
@@ -376,10 +376,10 @@
             $field_name = 'Company Papers';
             $field_lable = label_case($field_name);
             ?>
-            {{ html()->label($field_lable, $field_name)->class('form-label') }}            
+            {{ html()->label($field_lable, $field_name)->class('form-label') }}
             @if ($private_investment->company_papers)
             <br>
-                <a href="{{ asset( str_replace('\\', '/', $private_investment->company_papers)) }}" class="btn btn-sm btn-success">Download</a>
+                <a href="{{ asset( str_replace('\\', '/', $private_investment->company_papers)) }}" target="_blank" class="btn btn-sm btn-success">Download</a>
             @endif
         </div>
 
@@ -391,7 +391,7 @@
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
             @if ($private_investment->buisness_plan)
                 <br>
-                <a href="{{ asset( str_replace('\\', '/', $private_investment->buisness_plan)) }}" class="btn btn-sm btn-success">Download</a>
+                <a href="{{ asset( str_replace('\\', '/', $private_investment->buisness_plan)) }}" target="_blank" class="btn btn-sm btn-success">Download</a>
             @endif
         </div>
     </div>
