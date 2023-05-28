@@ -75,9 +75,16 @@ class FrontendController extends Controller
         return view('frontend.invests.crowdfunding', compact('crowdfundings'));
     }
 
-    public function one_tree_armenia()
+    public function one_tree_armenia(String $id)
     {
-        return view('frontend.invests.one-tree-armenia');
+        $crowdfunding_project = Crowdfunding::find($id);
+
+        if($crowdfunding_project->banner)
+           {
+               $banner = str_replace('\\','/',$crowdfunding_project->banner);
+           }
+
+        return view('frontend.invests.one-tree-armenia', compact('crowdfunding_project', 'banner'));
     }
 
     public function the_western_village()

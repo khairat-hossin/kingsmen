@@ -12,6 +12,7 @@ class Crowdfunding extends Model
     protected $fillable = [
         'project_name',
         'project_location',
+        'project_address',
         'registered_company_name',
         'company_tax_number',
         'project_type',

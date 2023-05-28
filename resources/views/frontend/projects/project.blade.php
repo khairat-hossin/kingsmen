@@ -45,12 +45,13 @@
                                         $data = $project->home_page_photos_gallery;
                                         $photos = json_decode($data, true);
                                     @endphp
-
-                                    @foreach ($photos as $photo => $filename)
+                                    @if($photos)
+                                        @foreach ($photos as $photo => $filename)
                                         <div class="swiper-slide">
-                                            <img src="{{ $filename }}" class="d-block w-100" alt="photo_gallery">
-                                        </div>
-                                    @endforeach
+                                                <img src="{{ $filename }}" class="d-block w-100" alt="photo_gallery">
+                                            </div>
+                                        @endforeach
+                                    @endif
                                     <div class="my-3"> </div>
                                     <div class="row">
                                         <div class="swiper-pagination"></div>

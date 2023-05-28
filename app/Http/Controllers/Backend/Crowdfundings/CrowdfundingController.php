@@ -90,6 +90,7 @@ class CrowdfundingController extends Controller
 
         $request->validate([
             'project_name'                             => 'required|unique:'.$module_model.',project_name',
+            'project_address'                          => 'nullable',
             'project_location'                         => 'nullable',
             'registered_company_name'                  => 'nullable',
             'company_tax_number'                       => 'nullable',
@@ -237,18 +238,6 @@ class CrowdfundingController extends Controller
                 $crowdfunding->banner = $banner_url;
             }
 
-            // For Multiple photos
-            // $photos_gallery_url = [];
-            // $photos_gallery = $request->file('photos_gallery');
-            // if($photos_gallery)
-            // {
-            //     foreach ($photos_gallery as $photo) {
-            //         $photos_gallery_url[] = uploadFileToPublic($photo, 'crowdfunding/photos_gallery');
-            //     }
-            //     $crowdfunding->photos_gallery = json_encode($photos_gallery_url);
-            // }
-
-            // ===================================
              // Multiple photo resize and put link to db
            $photos_gallery_url = '';
            $photos_gallery = $request->file('photos_gallery');
@@ -268,7 +257,6 @@ class CrowdfundingController extends Controller
                 $crowdfunding->photos_gallery = json_encode($path);
            }
            //End Multiple photo resize and put link to db
-            // ===================================
 
             $crowdfunding->banner_text          = $request->banner_text;
             $crowdfunding->title_1              = $request->title_1;
@@ -349,6 +337,7 @@ class CrowdfundingController extends Controller
 
         $request->validate([
             'project_name'                  => 'required|unique:private_investments,project_name,' . $id.',id',
+            'project_address'               => 'nullable',
             'project_location'              => 'nullable',
             'registered_company_name'       => 'nullable',
             'company_tax_number'            => 'nullable',
@@ -503,16 +492,26 @@ class CrowdfundingController extends Controller
             $crowdfunding->title_2              = $request->title_2;
             $crowdfunding->paragraph_2          = $request->paragraph_2;
 
-            // For Multiple photos
-            $photos_gallery_url = '';
-            $photos_gallery = $request->file('photos_gallery');
-            if($photos_gallery)
-            {
+           // Multiple photo resize and put link to db
+           $photos_gallery_url = '';
+           $photos_gallery = $request->file('photos_gallery');
+           $path = [];
+           if($photos_gallery)
+           {
                 foreach ($photos_gallery as $photo) {
-                    $photos_gallery_url = uploadFileToPublic($photo, 'crowdfunding/photos_gallery');
+                    // Resize the image to a specific width and height
+                    $resizedImage = Image::make($photo); // ei line tai kaaj korse na, data null
+
+                    $filename = uniqid() . '.' . $photo->getClientOriginalExtension();
+                    $resizedImage->resize(560, 320);
+
+                    $resizedImage->save('uploads/crowdfunding/photos_gallery/'.$filename);
+                    $path[] = $resizedImage->basePath();
                 }
-                $crowdfunding->photos_gallery = $photos_gallery_url;
-            }
+                $crowdfunding->photos_gallery = json_encode($path);
+           }
+           //End Multiple photo resize and put link to db
+
 
             $crowdfunding->project_timeline     = $request->project_timeline;
             $crowdfunding->management_companies = $request->management_companies;

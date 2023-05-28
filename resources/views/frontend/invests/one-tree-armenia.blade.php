@@ -13,7 +13,7 @@
     <section id="one-tree-armenia" class="">
       <div class="container-fluid text-center">
         <div class="row " style="  font-family: 'Inter', sans-serif;">
-          <h2 class="text-dark fw-bold my-sm-0" >Secure Your Financial Future Investment , Say Goodbye to Unstable Currencies!</h2>
+          <h2 class="text-dark fw-bold my-sm-0">{{ $crowdfunding_project->title_2 }}</h2>
           <div id="sign-up" class="container" data-aos="fade-up" >
             <div class="row gy-2 mt-5 justify-content-center" data-aos="zoom-in" data-aos-delay="250">
               <div class="col-12 col-sm-6 col-xl-5 col-md-5">
@@ -27,37 +27,25 @@
       <div class="container-fluid text-center card raw_card" data-aos="fade-up">
         <div class="row row-cols-1 row-cols-lg-2 row-cols-md-2  d-flex justify-content-center align-items-center">
           <div class="gx-5" style="   font-family: 'Inter', sans-serif; text-align: justify; ">
-            <p><strong class=""> The One Tree Armenia </strong> is an ambitious agriculture project located in
-            Aragatsavan Village in the Aragatsotn Region of Armenia. With a total area of 475,000 square meters and
-            15,333 walnut trees planted on the site, this project is set to revolutionize the local agricultural
-            industry.</p>
             <p>
-              Investing in <strong> The One Tree Armenia </strong> through Kingsmen Investments will give you the
-              protection and stability you need to reap the rewards of this exclusive investment opportunity.
-              Registered at the Register of the Legal Entities of the Ministry of Justice of the Republic of Armenia,
-              your investment will be secure, allowing you to realize your long-term goals and unlock the potential
-              growth that comes with investing in The One Tree Armenia Orchard. Take control of your financial future
-              today – invest in The One Tree Armenia and secure your financial freedom!
-            </p><br>
-            <p>
-              Offered at 2,463,475 USD with 100 total shares of which only 45 shares are listed at a price of
-              24,634.75 USD each, Every One Share purchased will represent 4500 square meters of land with 144 trees
-              attached – you can start generating income as early as 2027! Don’t miss out on your chance to secure
-              your financial future – invest in <strong>One Tree Armenia Walnut</strong>today!
+                {{ $crowdfunding_project->paragraph_2 }}
             </p>
           </div>
           <div class="opportunity-slider swiper my-2">
-            <div class="swiper-wrapper align-items-center">
-              <div class="swiper-slide">
-                <img src="../../assets/img/crowdfunding/one-tree-armenia/Aragatsavan.JPG" class="img-fluid"></img>
-              </div>
-              <div class="swiper-slide">
-                <img src="../../assets/img/crowdfunding/one-tree-armenia/DJI_0497.JPG" class="img-fluid my-4"></img>
-              </div>
-              <div class="swiper-slide">
-                <img src="../../assets/img/crowdfunding/one-tree-armenia/DJI_0497.JPG" class="img-fluid my-4"></img>
-              </div>
-            </div>
+            <div class="swiper-wrapper align-items-center"
+            @php
+                $data = $crowdfunding_project->photos_gallery;
+                $photos = json_decode($data, true);
+            @endphp>
+
+            @if($photos)
+            @foreach($photos as $photo)
+                <div class="swiper-slide">
+                    <img src="{{ asset($photo) }}" class="img-fluid my-4"> </img>
+                </div>
+            @endforeach
+            @endif
+                </div>
             <div class="swiper-pagination"></div>
           </div>
         </div>
@@ -74,28 +62,28 @@
             <h2 class="text-warning f">Project highlights</h2>
             <ul>
               <li>
-                <h6 class="text-warning f">Project Name:</h6>The One Tree Armenia
+                <h6 class="text-warning f">Project Name:</h6>{{ $crowdfunding_project->project_name }}
               </li>
               <li>
-                <h6 class="text-warning f">Investment Type:</h6> Agriculture
+                <h6 class="text-warning f">Investment Type:</h6> {{ $crowdfunding_project->type_of_investment }}
               </li>
               <li>
-                <h6 class="text-warning">Investing In:</h6>Walnut Plantation
+                <h6 class="text-warning">Investing In:</h6>{{ $crowdfunding_project->investment_in }}
               </li>
               <li>
-                <h6 class="text-warning">Plot Area: </h6>470,000 Sqm
+                <h6 class="text-warning">Plot Area: </h6>{{ $crowdfunding_project->built_up_area_size_per_sqm }}sqm
               </li>
               <li>
-                <h6 class="text-warning">Number of Trees:</h6> 15,333
+                <h6 class="text-warning">Number of Trees:</h6> 15,333(!!!!)
               </li>
               <li>
-                <h6 class="text-warning">Project Location:</h6>Aragatsavan
+                <h6 class="text-warning">Project Location:</h6>{{ $crowdfunding_project->project_location }}
               </li>
               <li>
-                <h6 class="text-warning">Started Planting:</h6>November 2021
+                <h6 class="text-warning">Started Planting:</h6>November 2021(!!!!)
               </li>
               <li>
-                <h6 class="text-warning">First Harvest Expected:</h6>September 2028
+                <h6 class="text-warning">First Harvest Expected:</h6>September 2028(!!!!)
               </li>
             </ul>
           </div>
@@ -103,25 +91,25 @@
             <h2 class="text-warning">Financial Highlights </h2>
             <ul>
               <li>
-                <h6 class="text-warning">Invested Amount till Date:</h6> 2,400,000$
+                <h6 class="text-warning">Invested Amount till Date:</h6> {{ $crowdfunding_project->total_cost_of_investment }}$
               </li>
               <li>
-                <h6 class="text-warning">Remaing to Invest until 1st Harvest:</h6>452,884$
+                <h6 class="text-warning">Remaing to Invest until 1st Harvest:</h6>452,884$(!!!!)
               </li>
               <li>
-                <h6 class="text-warning">Offered at :</h6>2,463,475 USD
+                <h6 class="text-warning">Offered at :</h6>2,463,475 USD(!!!!)
               </li>
               <li>
-                <h6 class="text-warning">Total Shares number:</h6>100
+                <h6 class="text-warning">Total Shares number:</h6>{{ $crowdfunding_project->total_registered_shares_at_local_authoritise }}
               </li>
               <li>
-                <h6 class="text-warning">Maximum Shares:</h6>For Sale: 45
+                <h6 class="text-warning">Maximum Shares:</h6>For Sale: {{ $crowdfunding_project->shares_listed_for_sale }}
               </li>
               <li>
-                <h6 class="text-warning">Price of 1 Share:</h6>24,634 USD
+                <h6 class="text-warning">Price of 1 Share:</h6>{{ $crowdfunding_project->share_price }}$
               </li>
               <li>
-                <h6 class="text-warning">Payment method:</h6>One time Payment
+                <h6 class="text-warning">Payment method:</h6>One Time Payment
               </li>
               <li>
                 <h6 class="text-warning">Minimum Number of Shares :</h6>1
@@ -188,12 +176,12 @@
                     <img src="../../assets/img/crowdfunding/one-tree-armenia/tree.jpg" class="img-fluid">
                   </div>
                   <div class="" style="text-align: justify;   font-family: 'Inter', sans-serif;">
-                    <h6 class="">Each 1 Share Value is offered for : <span class="text-info">24,634.75 USD</span></h6>
+                    <h6 class="">Each 1 Share Value is offered for : <span class="text-info">{{ $crowdfunding_project->share_price }} USD</span></h6>
                     <h6 class=" ">Each 1 Share Value Represents The Following : 4,500 sqm of Land - Number of Trees
                       : <span class="text-info">144</span></h6>
-                    <h6 class=" ">Capital Return Duration: <span class="text-info">10</span>Years Starting
-                      Year:<span class="text-info">2023</span></h6>
-                    <h6 class=" ">Starting Year <span class="text-info">2033 : 41 % </span>Per Year Annual Income
+                    <h6 class=" ">Capital Return Duration: <span class="text-info">{{ $crowdfunding_project->investment_duration_in_years }}</span>Years Starting
+                      Year:<span class="text-info">{{ $crowdfunding_project->project_starting_date }}</span></h6>
+                    <h6 class=" ">Starting Year <span class="text-info">{{ $crowdfunding_project->project_starting_date }} : {{ $crowdfunding_project->expected_profit_percent_after_break_even_as_per_study }}% </span>Per Year Annual Income
                     </h6>
                     <a href="./one-tree-armenia.html" class="btn mt-5">Invest now
                       </a>
@@ -318,42 +306,24 @@
           <div class="tab-pane fade" id="tab4" role="tabpanel" aria-labelledby="tab4-tab">
             <section class=" tab_gallery ">
               <article class="row row-cols-1 row-cols-sm-2 g-2 d-flex justify-content-center">
-                <div class="col-sm-6 col-md-3 p-2 m-0 text-center">
-                  <a data-fancybox="gallery"
-                    data-src="https://res.cloudinary.com/demo/image/upload/w_1000,c_scale,q_auto/castle.jpg"
-                    data-caption="Castle on a Hill">
-                    <img src="https://res.cloudinary.com/demo/image/upload/w_200,h_155,c_lfill,q_auto/castle.jpg" />
-                  </a>
-                </div>
-                <div class="col-sm-6 col-md-3 p-2 m-0 text-center">
-                  <a data-fancybox="gallery"
-                    data-src="https://res.cloudinary.com/demo/image/upload/w_1000,c_scale,q_auto/sofa_cat.jpg"
-                    data-caption="Sofa Cat">
-                    <img src="https://res.cloudinary.com/demo/image/upload/w_200,h_155,c_lfill,q_auto/sofa_cat.jpg" />
-                  </a>
-                </div>
-                <div class="col-sm-6 col-md-3 p-2 m-0 text-center">
-                  <a data-fancybox="gallery"
-                    data-src="https://res.cloudinary.com/demo/image/upload/w_1000,c_scale,q_auto/car_lady_dog.jpg"
-                    data-caption="Lady and Dog">
-                    <img src="https://res.cloudinary.com/demo/image/upload/w_200,c_scale,q_auto/car_lady_dog.jpg" />
-                  </a>
-                </div>
-                <div class="col-sm-6 col-md-3 p-2 m-0 text-center">
-                  <a data-fancybox="gallery"
-                    data-src="https://res.cloudinary.com/demo/image/upload/w_1000,c_scale,q_auto/cld_popsicles.jpg"
-                    data-caption="Popsicles">
-                    <img
-                      src="https://res.cloudinary.com/demo/image/upload/w_200,h_155,c_lfill,q_auto/cld_popsicles.jpg" />
-                  </a>
-                </div>
-                <div class="col-sm-6 col-md-3 p-2 m-0 text-center">
-                  <a data-fancybox="gallery"
-                    data-src="https://res.cloudinary.com/demo/image/upload/w_1000,c_scale,q_auto/sheep.jpg"
-                    data-caption="Sheep">
-                    <img src="https://res.cloudinary.com/demo/image/upload/w_200,h_155,c_lfill,q_auto/sheep.jpg" />
-                  </a>
-                </div>
+                @php
+                    $data = $crowdfunding_project->photos_gallery;
+                    $photos = json_decode($data, true);
+                @endphp
+
+                @if($photos)
+                    @foreach ($photos as $photo => $filename)
+                        <div class="col-sm-6 col-md-3 p-2 m-0 text-center">
+                        {{-- <a data-fancybox="gallery"
+                            data-src="https://res.cloudinary.com/demo/image/upload/w_1000,c_scale,q_auto/castle.jpg"
+                            data-caption="Castle on a Hill">
+                            <img src="https://res.cloudinary.com/demo/image/upload/w_200,h_155,c_lfill,q_auto/castle.jpg" />
+                        </a> --}}
+                            <img src="{{ asset($filename) }}" alt="photo gallery">
+                        </div>
+                    @endforeach
+                @endif
+
               </article>
             </section>
 
@@ -397,3 +367,9 @@
     </section>
   </main><!-- End #main -->
 @endsection
+
+<style>
+    #hero-one-tree-armenia{
+        background: url("{{ asset($banner) }}") top center;
+    }
+</style>

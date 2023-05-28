@@ -342,7 +342,7 @@
         </div>
     </div>
 
-    <legend class="border-bottom w-100">Investment Cost</legend>
+    <legend class="border-bottom w-100">Return On Investment</legend>
     <div class="row">
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
@@ -579,7 +579,7 @@
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->value($value)->attributes([ 'readonly' => true, 'name' => 'title', "$required"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->value($value)->attributes([ 'readonly' => true, 'name' => 'title', "$required"]) }}
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -591,7 +591,7 @@
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->value($value)->attributes([ 'readonly' => true, 'name' => 'description']) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->value($value)->attributes([ 'readonly' => true, 'name' => 'description']) }}
         </div>
     </div>
 
@@ -630,7 +630,7 @@
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes([ 'readonly' => true, 'name' => 'title_1', 'value' => "$value"]) }}
+            {{ html()->textarea($field_name)->value($value)->class('form-control form-control-sm')->attributes([ 'readonly' => true, 'name' => 'title_1']) }}
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -642,7 +642,7 @@
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes([ 'readonly' => true, 'name' => 'paragraph_1', 'value' => "$value"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->value($value)->attributes([ 'readonly' => true, 'name' => 'paragraph_1']) }}
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -654,7 +654,7 @@
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes([ 'readonly' => true, 'name' => 'title_2', 'value' => "$value"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->value($value)->attributes([ 'readonly' => true, 'name' => 'title_2']) }}
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -666,7 +666,7 @@
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes([ 'readonly' => true, 'name' => 'paragraph_2', 'value' => "$value"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->value($value)->attributes([ 'readonly' => true, 'name' => 'paragraph_2']) }}
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -742,5 +742,9 @@
 
     input[type=text]:focus {
         background-color:rgb(229, 231, 233);
+    }
+
+    textarea {
+        background-color: rgb(229, 231, 233) !important;
     }
 </style>
