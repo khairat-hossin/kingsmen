@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('crowdfundings', function (Blueprint $table) {
             $table->id();
             $table->string('project_name');
+            $table->string('project_address');
             $table->string('project_location');
             $table->string('registered_company_name');
             $table->string('company_tax_number')->nullable();
@@ -40,8 +41,8 @@ return new class extends Migration
             $table->double('total_cost_of_investment', 8, 2)->nullable();
             $table->double('total_registered_shares_at_local_authoritise', 8, 2)->nullable();
             $table->double('shares_listed_for_sale', 8, 2)->nullable();
+            
             $table->double('project_duration_in_years', 8,2)->nullable();
-
             $table->double('investment_break_even_expected_after_year', 8, 2)->nullable();
             $table->string('profit_after_return_of_investment_is')->nullable();
             $table->double('expected_profit_after_break_even', 8, 2)->nullable();
@@ -54,20 +55,20 @@ return new class extends Migration
             $table->double('remaining_amount_as_bank_transfer',8,2)->nullable();
             $table->double('full_payment_in_USDT_bLockchain',8,2)->nullable();
 
-            $table->string('selling_contract')->nullable();
-            $table->string('company_papers')->nullable();
-            $table->string('buisness_plan')->nullable();
+            $table->text('selling_contract')->nullable();
+            $table->text('company_papers')->nullable();
+            $table->text('buisness_plan')->nullable();
             $table->string('project_logo')->nullable();
             $table->string('crowfund_thumbnail')->nullable();
-            $table->string('title')->nullable();
+            $table->text('title')->nullable();
             $table->text('description')->nullable();
             $table->string('choose_template')->nullable();
             $table->string('banner')->nullable();
             $table->string('banner_text')->nullable();
-            $table->string('title_1')->nullable();
-            $table->string('paragraph_1')->nullable();
-            $table->string('title_2')->nullable();
-            $table->string('paragraph_2')->nullable();
+            $table->text('title_1')->nullable();
+            $table->text('paragraph_1')->nullable();
+            $table->text('title_2')->nullable();
+            $table->text('paragraph_2')->nullable();
             $table->json('photos_gallery')->nullable();
             $table->string('project_timeline')->nullable();
             $table->string('management_companies')->nullable();

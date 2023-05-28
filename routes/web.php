@@ -49,7 +49,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Frontend', 'as' => 'frontend.
     Route::get('projects', 'FrontendController@projects')->name('projects');
     Route::get('invests', 'FrontendController@invests')->name('invests');
     Route::get('crowdfundings', 'FrontendController@crowdfunding')->name('crowdfundings');
-    Route::get('one-tree-armenia', 'FrontendController@one_tree_armenia')->name('one_tree_armenia');
+    Route::get('one-tree-armenia/{id}', 'FrontendController@one_tree_armenia')->name('one_tree_armenia');
     Route::get('the-western-village', 'FrontendController@the_western_village')->name('the_western_village');
     Route::get('united-8-apartment', 'FrontendController@united_8_apartment')->name('united_8_apartment');
     Route::get('private-investments', 'FrontendController@privateInvestments')->name('privateInvestments');

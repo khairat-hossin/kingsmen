@@ -442,7 +442,7 @@
         </div>
     </div>
 
-    <legend class="border-bottom w-100">Investment Cost</legend>
+    <legend class="border-bottom w-100">Return On Investment</legend>
     <div class="row">
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
@@ -680,7 +680,7 @@
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'title', "$required"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'title', "$required"]) }}
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -692,7 +692,7 @@
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'description']) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'description']) }}
         </div>
     </div>
 
@@ -741,14 +741,14 @@
 
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Title 1 As per Design';
+            $field_name = 'Title 1';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = $crowdfunding->title_1 ?? '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'title_1', 'value' => "$value"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'title_1']) }}
             @error('title_1')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -756,14 +756,14 @@
 
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Paragraph 1 As Per Dessign';
+            $field_name = 'Paragraph 1 ';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = $crowdfunding->paragraph_1 ?? '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'paragraph_1', 'value' => "$value"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'paragraph_1']) }}
             @error('paragraph_1')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -778,7 +778,7 @@
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'title_2', 'value' => "$value"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'title_2']) }}
             @error('title_2')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -786,14 +786,14 @@
 
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Paragraph 2 As Per Dessign';
+            $field_name = 'Paragraph 2 ';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = $crowdfunding->paragraph_2 ?? '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'paragraph_2', 'value' => "$value"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'paragraph_2']) }}
             @error('paragraph_2')
                 <span class="error">{{ $message }}</span>
             @enderror
