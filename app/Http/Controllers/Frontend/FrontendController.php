@@ -192,7 +192,8 @@ class FrontendController extends Controller
 
     public function eco_index()
     {
-        return view('frontend.projects.ecogardens.index');
+        $projects = Project::all();
+        return view('frontend.projects.ecogardens.index', compact('projects'));
     }
 
     public function eco_useful_info()
