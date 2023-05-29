@@ -75,33 +75,27 @@ class FrontendController extends Controller
         return view('frontend.invests.crowdfunding', compact('crowdfundings'));
     }
 
-    public function one_tree_armenia(String $id)
+    public function crowdfunding_project(String $slug)
     {
-        $crowdfunding_project = Crowdfunding::find($id);
+        $crowdfunding_project = Crowdfunding::where('slug', $slug)->firstOrFail();
 
         if($crowdfunding_project->banner)
-           {
-               $banner = str_replace('\\','/',$crowdfunding_project->banner);
-           }
+        {
+            $banner = str_replace('\\','/',$crowdfunding_project->banner);
+            return view('frontend.invests.crowdfunding-project', compact('crowdfunding_project', 'banner'));
+        }
+        else
+        {
+            return view('frontend.invests.crowdfunding-project', compact('crowdfunding_project'));
+        }
 
-        return view('frontend.invests.one-tree-armenia', compact('crowdfunding_project', 'banner'));
-    }
-
-    public function the_western_village()
-    {
-        return view('frontend.invests.the-western-village');
-    }
-
-    public function united_8_apartment()
-    {
-        return view('frontend.invests.united-8-apartment');
     }
 
     public function privateInvestments()
     {
         $privateInvestments = PrivateInvestment::all();
 
-        return view('frontend.private-investments', compact('privateInvestments'));
+        return view('frontend.invests.private-investments', compact('privateInvestments'));
     }
 
     public function services()

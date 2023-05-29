@@ -90,7 +90,8 @@ class CrowdfundingController extends Controller
 
         $request->validate([
             'project_name'                             => 'required|unique:'.$module_model.',project_name',
-            'project_address'                          => 'nullable',
+            'slug'                                     => 'nullable',
+            'project_location'                         => 'nullable',
             'project_location'                         => 'nullable',
             'registered_company_name'                  => 'nullable',
             'company_tax_number'                       => 'nullable',
@@ -154,6 +155,7 @@ class CrowdfundingController extends Controller
         try {
             $crowdfunding  = new $this->module_model();
             $crowdfunding->project_name                 = $request->project_name;
+            $crowdfunding->slug                         = Str::slug($request->project_name);
             $crowdfunding->project_address              = $request->project_address;
             $crowdfunding->project_location             = $request->project_location;
             $crowdfunding->registered_company_name      = $request->registered_company_name;
@@ -337,6 +339,7 @@ class CrowdfundingController extends Controller
 
         $request->validate([
             'project_name'                  => 'required|unique:private_investments,project_name,' . $id.',id',
+            'slug           '               => 'nullable',
             'project_address'               => 'nullable',
             'project_location'              => 'nullable',
             'registered_company_name'       => 'nullable',
@@ -403,6 +406,7 @@ class CrowdfundingController extends Controller
             $crowdfunding = Crowdfunding::find($id);
 
             $crowdfunding->project_name                 = $request->project_name;
+            $crowdfunding->slug                         = Str::slug($request->project_name);
             $crowdfunding->project_address              = $request->project_address;
             $crowdfunding->project_location             = $request->project_location;
             $crowdfunding->registered_company_name      = $request->registered_company_name;
