@@ -74,16 +74,16 @@
                 <h6 class="text-warning">Plot Area: </h6>{{ $crowdfunding_project->built_up_area_size_per_sqm }}sqm
               </li>
               <li>
-                <h6 class="text-warning">Number of Trees:</h6> 15,333(!!!!)
+                <h6 class="text-warning">Number of Trees:</h6> 15,333
               </li>
               <li>
                 <h6 class="text-warning">Project Location:</h6>{{ $crowdfunding_project->project_location }}
               </li>
               <li>
-                <h6 class="text-warning">Started Planting:</h6>November 2021(!!!!)
+                <h6 class="text-warning">Started Planting:</h6>November 2021
               </li>
               <li>
-                <h6 class="text-warning">First Harvest Expected:</h6>September 2028(!!!!)
+                <h6 class="text-warning">First Harvest Expected:</h6>September 2028
               </li>
             </ul>
           </div>
@@ -94,10 +94,10 @@
                 <h6 class="text-warning">Invested Amount till Date:</h6> {{ $crowdfunding_project->total_cost_of_investment }}$
               </li>
               <li>
-                <h6 class="text-warning">Remaing to Invest until 1st Harvest:</h6>452,884$(!!!!)
+                <h6 class="text-warning">Remaing to Invest until 1st Harvest:</h6>452,884$
               </li>
               <li>
-                <h6 class="text-warning">Offered at :</h6>2,463,475 USD(!!!!)
+                <h6 class="text-warning">Offered at :</h6>2,463,475 USD
               </li>
               <li>
                 <h6 class="text-warning">Total Shares number:</h6>{{ $crowdfunding_project->total_registered_shares_at_local_authoritise }}
@@ -132,7 +132,7 @@
                 <h6 class="text-warning">Insurance Type:</h6>Fire , Natural Disaster, War , Labor
               </li>
               <li>
-                <h6 class="text-warning">Planted and Managed by:</h6> Agroworks LLC
+                <h6 class="text-warning">Planted and Managed by:</h6> {{ $crowdfunding_project->management_companies }}
               </li>
             </ul>
           </div>
@@ -183,8 +183,7 @@
                       Year:<span class="text-info">{{ $crowdfunding_project->project_starting_date }}</span></h6>
                     <h6 class=" ">Starting Year <span class="text-info">{{ $crowdfunding_project->project_starting_date }} : {{ $crowdfunding_project->expected_profit_percent_after_break_even_as_per_study }}% </span>Per Year Annual Income
                     </h6>
-                    <a href="./one-tree-armenia.html" class="btn mt-5">Invest now
-                      </a>
+                    <a href="./one-tree-armenia.html" class="btn mt-5">Invest now</a>
                   </div>
                 </div>
               </div>
@@ -370,6 +369,8 @@
 
 <style>
     #hero-one-tree-armenia{
-        background: url("{{ asset($banner) }}") top center;
+        @if(isset($banner))
+            background: url("{{ asset($banner) }}") top center;
+        @endif
     }
 </style>

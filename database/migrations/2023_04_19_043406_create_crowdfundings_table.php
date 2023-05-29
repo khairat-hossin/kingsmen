@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('crowdfundings', function (Blueprint $table) {
             $table->id();
             $table->string('project_name');
+            $table->string('slug');
             $table->string('project_address');
             $table->string('project_location');
             $table->string('registered_company_name');
@@ -41,7 +42,7 @@ return new class extends Migration
             $table->double('total_cost_of_investment', 8, 2)->nullable();
             $table->double('total_registered_shares_at_local_authoritise', 8, 2)->nullable();
             $table->double('shares_listed_for_sale', 8, 2)->nullable();
-            
+
             $table->double('project_duration_in_years', 8,2)->nullable();
             $table->double('investment_break_even_expected_after_year', 8, 2)->nullable();
             $table->string('profit_after_return_of_investment_is')->nullable();
