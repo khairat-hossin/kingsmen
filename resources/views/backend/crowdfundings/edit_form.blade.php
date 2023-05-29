@@ -416,24 +416,6 @@
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->number($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'real_estate_value', "$required", 'id' => 'real_estate_value', 'pattern' => '\d*', 'step' => 'any']) }}
         </div>
-    <legend class="border-bottom w-100">Shares And Values</legend>
-        <div class="row">
-            <div class="form-group col-6 col-md-4 mb-2">
-                <?php
-                $field_name = 'Total registered Shares at Local Authoritise';
-                $field_lable = label_case($field_name);
-                $field_placeholder = $field_lable;
-                $value = $crowdfunding->total_registered_shares_at_local_authoritise ?? '';
-
-                $required = '';
-                ?>
-                {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-                {{ html()->number($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'total_registered_shares_at_local_authoritise', "$required", 'pattern' => '\d*', 'step' => 'any']) }}
-                @error('total_registered_shares_at_local_authoritise')
-                    <span class="error">{{ $message }}</span>
-                @enderror
-            </div>
-
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
             $field_name = 'Proposed additional Investment Cost ( As per Study )';
@@ -457,7 +439,38 @@
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->number($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'total_cost_of_investment', "$required", 'id' => 'total_cost_of_investment', 'pattern' => '\d*', 'step' => 'any']) }}
         </div>
-    </div>
+
+    <legend class="border-bottom w-100">Shares And Values</legend>
+        <div class="row">
+            <div class="form-group col-6 col-md-4 mb-2">
+                <?php
+                $field_name = 'Total registered Shares at Local Authoritise';
+                $field_lable = label_case($field_name);
+                $field_placeholder = $field_lable;
+                $value = $crowdfunding->total_registered_shares_at_local_authoritise ?? '';
+                $required = '';
+                ?>
+                {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
+                {{ html()->number($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'total_registered_shares_at_local_authoritise', "$required", 'pattern' => '\d*', 'step' => 'any']) }}
+                @error('total_registered_shares_at_local_authoritise')
+                    <span class="error">{{ $message }}</span>
+                @enderror
+            </div>
+            <div class="form-group col-6 col-md-4 mb-2">
+                <?php
+                $field_name = 'Shares Listed for Sale';
+                $field_lable = label_case($field_name);
+                $field_placeholder = $field_lable;
+                $value = $crowdfunding->shares_listed_for_sale ?? '';
+                $required = '';
+                ?>
+                {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
+                {{ html()->number($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'shares_listed_for_sale', "$required", 'pattern' => '\d*', 'step' => 'any']) }}
+                @error('shares_listed_for_sale')
+                    <span class="error">{{ $message }}</span>
+                @enderror
+            </div>        
+        </div>
 
     <legend class="border-bottom w-100">Return On Investment</legend>
     <div class="row">
@@ -926,6 +939,120 @@
         function calculateLandPriceStarting(area, price) {
             let landPriceStarting = parseFloat(area) * parseFloat(price);
             $("#land_price_starting").val(landPriceStarting);
+        }
+
+
+        /**
+         * on change area starting and price price starting change land price starting
+         * land_price_starting= land_area_per_sqm * land_cost_per_sqm
+         */
+
+         $('#land_area_per_sqm').on("change", function() {
+            let land_area_per_sqm = $("#land_area_per_sqm").val();
+            let land_cost_per_sqm = $("#land_cost_per_sqm").val();
+
+            if (land_area_per_sqm && land_cost_per_sqm) {
+                calculateLandPriceStarting(land_area_per_sqm, land_cost_per_sqm);
+            }
+        });
+
+        $('#land_cost_per_sqm').on("change", function() {
+            let land_area_per_sqm = $("#land_area_per_sqm").val();
+            let land_cost_per_sqm = $("#land_cost_per_sqm").val();
+
+            if (land_area_per_sqm && land_cost_per_sqm) {
+                calculateLandPriceStarting(land_area_per_sqm, land_cost_per_sqm);
+            }
+        });
+
+        function calculateLandPriceStarting(area, price) {
+            let landPriceStarting = parseFloat(area) * parseFloat(price);
+            $("#total_land_cost").val(landPriceStarting);
+        }
+
+        /**
+         * on change Real Estate Value and Proposed Additional Investments Cost starting change land price starting
+         * TotalCostOfInvestment= real_estate_value + proposed_additional_investment_cost
+         */
+
+         $('#real_estate_value').on("change", function() {
+            let real_estate_value = $("#real_estate_value").val();
+            let proposed_additional_investment_cost = $("#proposed_additional_investment_cost").val();
+
+            if (real_estate_value && proposed_additional_investment_cost) {
+                calculateTotalCostOfInvestment(real_estate_value, proposed_additional_investment_cost);
+            }
+        });
+
+        $('#proposed_additional_investment_cost').on("change", function() {
+            let proposed_additional_investment_cost = $("#proposed_additional_investment_cost").val();
+            let real_estate_value = $("#real_estate_value").val();
+
+
+            if (real_estate_value && proposed_additional_investment_cost) {
+                calculateTotalCostOfInvestment(real_estate_value, proposed_additional_investment_cost);
+            }
+        });
+
+        function calculateTotalCostOfInvestment(value, additional_cost) {
+            let totalCostOfInvestment = parseFloat(value) + parseFloat(additional_cost);
+            $("#total_cost_of_investment").val(totalCostOfInvestment);
+        }
+
+        /**
+         * on change Expected Profit After Break Even ( As Per Study) and Total Cost Of Investment
+         * expected_profit_percent_after_break_even_as_per_study = expected_profit_after_break_even / total_cost_of_investment
+         */
+
+         $('#total_cost_of_investment').on("change", function() {
+            let total_cost_of_investment = $("#total_cost_of_investment").val();
+            let expected_profit_after_break_even = $("#expected_profit_after_break_even").val();
+
+            if (total_cost_of_investment && expected_profit_after_break_even) {
+                calculateExpectedProfitAfterBreakEven(total_cost_of_investment, expected_profit_after_break_even);
+            }
+        });
+
+        $('#expected_profit_after_break_even').on("change", function() {
+            let expected_profit_after_break_even = $("#expected_profit_after_break_even").val();
+            let total_cost_of_investment = $("#total_cost_of_investment").val();
+
+            if (total_cost_of_investment && expected_profit_after_break_even) {
+                calculateExpectedProfitAfterBreakEven(total_cost_of_investment, expected_profit_after_break_even);
+            }
+        });
+
+        function calculateExpectedProfitAfterBreakEven(total_cost_of_investment, expected_profit_after_break_even) {
+            let ExpectedProfitAfterBreakEven = parseFloat(expected_profit_after_break_even) / parseFloat(total_cost_of_investment);
+            $("#expected_profit_percent_after_break_even_as_per_study").val(ExpectedProfitAfterBreakEven);
+        }
+
+        /**
+         * on change Built Up Area Size /Sqm and Built Area Value /Sqm
+         * totalBuiltUpAreaValue= built_area_value_per_sqm + built_up_area_size_per_sqm
+         */
+
+         $('#built_up_area_size_per_sqm').on("change", function() {
+            let built_up_area_size_per_sqm = $("#built_up_area_size_per_sqm").val();
+            let built_area_value_per_sqm = $("#built_area_value_per_sqm").val();
+
+            if (built_up_area_size_per_sqm && built_area_value_per_sqm) {
+                calculateTotalBuiltUpAreaValue(built_up_area_size_per_sqm, built_area_value_per_sqm);
+            }
+        });
+
+        $('#built_area_value_per_sqm').on("change", function() {
+            let built_area_value_per_sqm = $("#built_area_value_per_sqm").val();
+            let built_up_area_size_per_sqm = $("#built_up_area_size_per_sqm").val();
+
+            if (built_up_area_size_per_sqm && built_area_value_per_sqm) {
+                calculateTotalBuiltUpAreaValue(built_up_area_size_per_sqm, built_area_value_per_sqm);
+            }
+        });
+
+        function calculateTotalBuiltUpAreaValue(built_area_value_per_sqm, built_up_area_size_per_sqm) {
+            let totalBuiltUpAreaValue = parseFloat(built_area_value_per_sqm) * parseFloat(built_up_area_size_per_sqm);
+            $("#total_built_up_area_value").val(totalBuiltUpAreaValue);
         }
     </script>
 @endpush

@@ -316,6 +316,29 @@
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->text($field_name)->class('form-control form-control-sm')->value($value)->attributes([ 'readonly' => true, 'name' => 'real_estate_value', "$required", 'id' => 'real_estate_value', 'pattern' => '\d*', 'step' => 'any']) }}
         </div>
+        <div class="form-group col-6 col-md-4 mb-2">
+            <?php
+            $field_name = 'Proposed additional Investment Cost ( As per Study )';
+            $field_lable = label_case($field_name);
+            $field_placeholder = $field_lable;
+            $value = $crowdfunding->proposed_additional_investment_cost ?? '';
+            $required = '';
+            ?>
+            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'proposed_additional_investment_cost', "$required", 'id' => 'proposed_additional_investment_cost', 'pattern' => '\d*', 'step' => 'any']) }}
+        </div>
+
+        <div class="form-group col-6 col-md-4 mb-2">
+            <?php
+            $field_name = 'Total Cost of Investment';
+            $field_lable = label_case($field_name);
+            $field_placeholder = $field_lable;
+            $value = $crowdfunding->total_cost_of_investment ?? '';
+            $required = '';
+            ?>
+            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'total_cost_of_investment', "$required", 'id' => 'total_cost_of_investment', 'pattern' => '\d*', 'step' => 'any']) }}
+        </div>
     <legend class="border-bottom w-100">Shares And Values</legend>
         <div class="row">
             <div class="form-group col-6 col-md-4 mb-2">
@@ -328,32 +351,19 @@
                 ?>
                 {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
                 {{ html()->text($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'total_registered_shares_at_local_authoritise', "$required", 'pattern' => '\d*', 'step' => 'any']) }}
-            </div>    
-
-        <div class="form-group col-6 col-md-4 mb-2">
-            <?php
-            $field_name = 'Proposed additional Investment Cost ( As per Study )';
-            $field_lable = label_case($field_name);
-            $field_placeholder = $field_lable;
-            $value = $crowdfunding->proposed_additional_investment_cost ?? '';
-            $required = '';
-            ?>
-            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->value($value)->attributes([ 'readonly' => true, 'name' => 'proposed_additional_investment_cost', "$required", 'id' => 'proposed_additional_investment_cost', 'pattern' => '\d*', 'step' => 'any']) }}
-        </div>
-
-        <div class="form-group col-6 col-md-4 mb-2">
-            <?php
-            $field_name = 'Total Cost of Investment';
-            $field_lable = label_case($field_name);
-            $field_placeholder = $field_lable;
-            $value = $crowdfunding->total_cost_of_investment ?? '';
-            $required = '';
-            ?>
-            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->value($value)->attributes([ 'readonly' => true, 'name' => 'total_cost_of_investment', "$required", 'id' => 'total_cost_of_investment', 'pattern' => '\d*', 'step' => 'any']) }}
-        </div>
-    </div>
+            </div>
+            <div class="form-group col-6 col-md-4 mb-2">
+                <?php
+                $field_name = 'Shares Listed for Sale';
+                $field_lable = label_case($field_name);
+                $field_placeholder = $field_lable;
+                $value = $crowdfunding->shares_listed_for_sale ?? '';
+                $required = '';
+                ?>
+                {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
+                {{ html()->text($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'shares_listed_for_sale', "$required", 'pattern' => '\d*', 'step' => 'any']) }}
+            </div>            
+        </div>       
 
     <legend class="border-bottom w-100">Return On Investment</legend>
     <div class="row">
