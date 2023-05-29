@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('email');
             $table->string('client_type')->nullable();
             $table->string('buisness_position')->nullable();
-            $table->double('budget', 8, 2)->nullable();
+            $table->unsignedDecimal('budget', 20, 2)->nullable();
             $table->string('location')->nullable();
             $table->string('reffered_by')->nullable();
             $table->text('note')->nullable();
@@ -33,7 +33,7 @@ return new class extends Migration
             $table->string('passport_expiry_date')->nullable();
             $table->string('photo_of_passport')->nullable();
             $table->string('id_card_text')->nullable();
-            $table->string('photo_of_id_card')->nullable();            
+            $table->string('photo_of_id_card')->nullable();
             $table->string('exact_address')->nullable();
             $table->string('PO_box')->nullable();
             $table->string('name_of_the_bank_you_work_with')->nullable();

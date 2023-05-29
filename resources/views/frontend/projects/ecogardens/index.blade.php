@@ -11,7 +11,7 @@
     <div class="container" data-aos="fade-up">
       <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="150">
         <div class="col-12 col-sm-12 col-xl-8 col-lg-8 mt-5">
-                  <h1 class="text-white text-center fw-lighter text-uppercase lh-base mt-2 fw-light">The Eco Gardens Transferred from Architectural Drawings into Reality  <span>!</span></h1>
+                  <h1 class="text-white text-center fw-lighter text-uppercase lh-base mt-2 fw-light">{{ $projects->home_page_banner_text }}<span>!</span></h1>
               </div>
           </div>
       </div>
@@ -32,15 +32,16 @@
         <div id="home-slide">
           <div  class="swiper mySwiper"  data-aos="fade-up">
             <div class="swiper-wrapper  mt-lg-5 mt-xl-5 ">
-              <div class="swiper-slide"><img src="../../assets/img/ecogardens/home/s1.jpg"  loading="lazy" alt="img" class="img-fluid"></div>
-              <div class="swiper-slide"><img src="../../assets/img/ecogardens/home/s2.png" loading="lazy"  alt="img" class="img-fluid"></div>
-              <!-- <div class="swiper-slide"><img src="../../assets/img/ecogardens/home/s3.png" loading="lazy"  alt="img" class="img-fluid"></div> -->
-              <div class="swiper-slide"><img src="../../assets/img/ecogardens/home/s4.png" loading="lazy"  alt="img" class="img-fluid"></div>
-              <div class="swiper-slide"><img src="../../assets/img/ecogardens/home/s5.png"  loading="lazy" alt="img" class="img-fluid"></div>
-              <div class="swiper-slide"><img src="../../assets/img/ecogardens/home/s6.jpg"  loading="lazy" alt="img" class="img-fluid"></div>
-              <div class="swiper-slide"><img src="../../assets/img/ecogardens/home/s7.jpg"  loading="lazy" alt="img" class="img-fluid"></div>
-              <div class="swiper-slide"><img src="../../assets/img/ecogardens/home/s8.jpg"  loading="lazy" alt="img" class="img-fluid"></div>
-              <div class="swiper-slide"><img src="../../assets/img/ecogardens/home/s9.jpg"  loading="lazy" alt="img" class="img-fluid"></div>
+                @php
+                    $data = $projects->home_page_photos_gallery;
+                    $photos = json_decode($data, true);
+                @endphp
+
+                @if ($photos)
+                @foreach ($photos as $photos => $fileName)
+                    <div class="swiper-slide"><img src="{{ asset($fileName) }}" loading="lazy" alt="img" class="img-fluid"></div>
+                @endforeach
+                @endif
             </div>
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
@@ -121,3 +122,9 @@
   </main><!-- End #main -->
 
   @endsection
+
+  <style>
+    #hero{
+        background: url('{{ asset($banner) }}') top center;
+    }
+  </style>

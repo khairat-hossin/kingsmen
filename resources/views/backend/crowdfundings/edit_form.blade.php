@@ -118,7 +118,7 @@
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->select($field_name)->class('form-control form-control-sm select2')->attributes(['name' => 'investment_duration', "$required"])->options($options)->placeholder($field_placeholder)->value($value) }}
+            {{ html()->select($field_name)->class('form-control form-control-sm select2')->attributes(['name' => 'investment_duration', "$required"])->options($options)->value($value) }}
             @error('investment_duration')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -372,7 +372,7 @@
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->select($field_name)->class('form-control form-control-sm')->attributes(['name' => 'investment_in', "$required"])->options($options)->placeholder($field_placeholder)->value($value) }}
+            {{ html()->select($field_name)->class('form-control form-control-sm')->attributes(['name' => 'investment_in', "$required"])->options($options)->value($value) }}
             @error('investment_in')
                 <span class="error">{{ $message }}</span>
             @enderror

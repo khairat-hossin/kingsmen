@@ -186,8 +186,18 @@ class FrontendController extends Controller
 
     public function eco_index()
     {
-        $projects = Project::all();
-        return view('frontend.projects.ecogardens.index', compact('projects'));
+        $project_name = 'Eco Gardens';
+        $projects = Project::where('project_name', $project_name)->firstOrFail();
+
+        if($projects->home_page_banner)
+        {
+            $banner = str_replace('\\','/',$projects->home_page_banner);
+            return view('frontend.projects.ecogardens.index', compact('projects', 'banner'));
+        }
+        else
+        {
+            return view('frontend.projects.ecogardens.index', compact('projects'));
+        }
     }
 
     public function eco_useful_info()
@@ -202,7 +212,10 @@ class FrontendController extends Controller
 
     public function eco_choose_your_land()
     {
-        return view('frontend.projects.ecogardens.choose-your-land');
+        $project_name = 'Eco Gardens';
+        $projects = Project::where('project_name', $project_name)->firstOrFail();
+
+        return view('frontend.projects.ecogardens.choose-your-land', compact('projects'));
     }
 
     public function eco_eco_homes()

@@ -168,7 +168,7 @@
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'type_of_investment', "$required", 'id' => 'type_of_investment'])->placeholder($field_placeholder) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'type_of_investment', "$required", 'id' => 'type_of_investment']) }}
             @error('type_of_investment')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -346,7 +346,7 @@
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->number($field_name)->class('form-control form-control-sm')->attributes(['name' => 'built_area_value_per_sqm', "$required", 'id' => 'built_area_value_per_sqm', 'pattern' => '\d*', 'step' => 'any']) }}
+            {{ html()->number($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'built_area_value_per_sqm', "$required", 'id' => 'built_area_value_per_sqm', 'pattern' => '\d*', 'step' => 'any']) }}
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -358,7 +358,7 @@
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->number($field_name)->class('form-control form-control-sm')->attributes(['name' => 'total_built_up_area_value', "$required", 'id' => 'total_built_up_area_value', 'pattern' => '\d*', 'step' => 'any', 'readonly' => 'true']) }}
+            {{ html()->number($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'total_built_up_area_value', "$required", 'id' => 'total_built_up_area_value', 'pattern' => '\d*', 'step' => 'any', 'readonly' => 'true']) }}
         </div>
     </div>
 
@@ -515,7 +515,7 @@
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->select($field_name)->class('form-control form-control-sm select2')->attributes(['name' => 'profit_after_return_of_investment_is', "$required"])->options($options)->placeholder($field_placeholder) }}
+            {{ html()->select($field_name)->class('form-control form-control-sm select2')->value($value)->attributes(['name' => 'profit_after_return_of_investment_is', "$required"])->options($options) }}
             @error('profit_after_return_of_investment_is')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -693,9 +693,10 @@
 
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Add Crowfund Thumbnail';
+            $field_name = 'Add Crowdfund Thumbnail';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = old('crowfund_thumbnail') ?? '';
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
@@ -707,6 +708,7 @@
             $field_name = 'Add Title';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = old('title') ?? '';
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
@@ -718,6 +720,7 @@
             $field_name = 'Add Description';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $value = old('description') ?? '';
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
@@ -777,7 +780,7 @@
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
-            {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'title_1', 'value' => "$value"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'title_1']) }}
             @error('title_1')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -792,7 +795,7 @@
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
-            {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'paragraph_1', 'value' => "$value"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'paragraph_1']) }}
             @error('paragraph_1')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -807,7 +810,7 @@
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
-            {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'title_2', 'value' => "$value"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'title_2']) }}
             @error('title_2')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -822,7 +825,7 @@
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
-            {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'paragraph_2', 'value' => "$value"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'paragraph_2']) }}
             @error('paragraph_2')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -848,7 +851,7 @@
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'project_timeline', 'value' => "$value"]) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'project_timeline']) }}
             @error('project_timeline')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -863,7 +866,7 @@
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'management_companies', 'value' => "$value"]) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'management_companies']) }}
             @error('management_companies')
                 <span class="error">{{ $message }}</span>
             @enderror
