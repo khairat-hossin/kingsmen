@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('project_name')->limit(255);
             $table->text('address');
             $table->string('project_location')->limit(255);
+            $table->string('slug');
             $table->string('registered_company_name')->limit(255);
             $table->string('comapany_tax_number')->nullable()->limit(255);
             $table->string('project_type')->limit(255);
