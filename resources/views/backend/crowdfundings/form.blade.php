@@ -32,7 +32,7 @@
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->select($field_name)->class('form-control form-control-sm select2')->attributes(['name' => 'project_address', "$required"])->options($options)->placeholder($field_placeholder)->value($value) }}
+            {{ html()->select($field_name)->class('form-control form-control-sm select2')->attributes(['name' => 'project_address', "$required"])->options($options)->value($value) }}
             @error('project_address')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -44,11 +44,17 @@
             $field_name = 'Project Location';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
+            $field_placeholder = 'Please Select';
+            $options = [
+                'Armenia' => 'Armenia',
+                'Aragatsanan' => 'Aragatsanan',
+                'Aragats' => 'Aragats',
+            ];
             $value = old('project_location') ?? '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'project_location', "$required", 'value' => "$value"]) }}
+            {{ html()->select($field_name)->class('form-control form-control-sm')->value($value)->options($options)->attributes(['name' => 'project_location', "$required"]) }}
             @error('project_location')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -111,9 +117,9 @@
             $field_lable = label_case($field_name);
             $field_placeholder = 'Please Select';
             $options = [
-                'short_term' => 'Short-term',
-                'medium_term' => 'Medium-term',
-                'long_term' => 'Long-term',
+                'Short Term' => 'Short-Term',
+                'Medium Term' => 'Medium-Term',
+                'Long Term' => 'Long-Term',
             ];
             $value = old('investment_duration') ?? '';
             $required = 'required';
@@ -200,7 +206,7 @@
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm datepicker')->attributes(['name' => 'project_starting_date', "$required", 'id' => 'project_starting_date'])->placeholder($field_placeholder) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm datepicker')->value($value)->attributes(['name' => 'project_starting_date', "$required", 'id' => 'project_starting_date']) }}
             @error('project_starting_date')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -215,7 +221,7 @@
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm datepicker')->attributes(['name' => 'project_delivery_date', "$required", 'id' => 'project_delivery_date'])->placeholder($field_placeholder) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm datepicker')->attributes(['name' => 'project_delivery_date', "$required", 'id' => 'project_delivery_date'])->value($value) }}
             @error('project_delivery_date')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -364,10 +370,10 @@
             $field_lable = label_case($field_name);
             $field_placeholder = 'Please Select';
             $options = [
-                'walnut_trees' => 'Walnut trees',
-                'lands_for_sale' => 'Lands For Sale',
-                'hotel_rooms' => 'Hotel Rooms ',
-                'apartments' => 'Apartments ',
+                'Walnut Trees' => 'Walnut Trees',
+                'Lands For Sale' => 'Lands For Sale',
+                'Hotel Rooms' => 'Hotel Rooms ',
+                'Apartments' => 'Apartments ',
             ];
             $value = old('investment_in') ?? '';
             $required = 'required';
@@ -377,18 +383,6 @@
             @error('investment_in')
                 <span class="error">{{ $message }}</span>
             @enderror
-        </div>
-
-        <div class="form-group col-6 col-md-4 mb-2">
-            <?php
-            $field_name = 'Total Built up Area Value';
-            $field_lable = label_case($field_name);
-            $field_placeholder = $field_lable;
-            $value = old('total_built_up_area_value') ?? '';
-            $required = '';
-            ?>
-            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->number($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'total_built_up_area_value', "$required", 'id' => 'total_built_up_area_value', 'pattern' => '\d*', 'step' => 'any']) }}
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -716,7 +710,7 @@
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'title', "$required"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'title', "$required"]) }}
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -727,7 +721,7 @@
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'description']) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'description']) }}
         </div>
     </div>
 
@@ -783,7 +777,7 @@
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'title_1', 'value' => "$value"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'title_1', 'value' => "$value"]) }}
             @error('title_1')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -798,7 +792,7 @@
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'paragraph_1', 'value' => "$value"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'paragraph_1', 'value' => "$value"]) }}
             @error('paragraph_1')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -813,7 +807,7 @@
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'title_2', 'value' => "$value"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'title_2', 'value' => "$value"]) }}
             @error('title_2')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -828,7 +822,7 @@
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'paragraph_2', 'value' => "$value"]) }}
+            {{ html()->textarea($field_name)->class('form-control form-control-sm')->attributes(['name' => 'paragraph_2', 'value' => "$value"]) }}
             @error('paragraph_2')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -972,6 +966,62 @@
         function calculateTotalCostOfInvestment(value, additional_cost) {
             let totalCostOfInvestment = parseFloat(value) + parseFloat(additional_cost);
             $("#total_cost_of_investment").val(totalCostOfInvestment);
+        }
+
+        /**
+         * on change Expected Profit After Break Even ( As Per Study) and Total Cost Of Investment
+         * expected_profit_percent_after_break_even_as_per_study = expected_profit_after_break_even / total_cost_of_investment
+         */
+
+         $('#total_cost_of_investment').on("change", function() {
+            let total_cost_of_investment = $("#total_cost_of_investment").val();
+            let expected_profit_after_break_even = $("#expected_profit_after_break_even").val();
+
+            if (total_cost_of_investment && expected_profit_after_break_even) {
+                calculateExpectedProfitAfterBreakEven(total_cost_of_investment, expected_profit_after_break_even);
+            }
+        });
+
+        $('#expected_profit_after_break_even').on("change", function() {
+            let expected_profit_after_break_even = $("#expected_profit_after_break_even").val();
+            let total_cost_of_investment = $("#total_cost_of_investment").val();
+
+            if (total_cost_of_investment && expected_profit_after_break_even) {
+                calculateExpectedProfitAfterBreakEven(total_cost_of_investment, expected_profit_after_break_even);
+            }
+        });
+
+        function calculateExpectedProfitAfterBreakEven(total_cost_of_investment, expected_profit_after_break_even) {
+            let ExpectedProfitAfterBreakEven = parseFloat(expected_profit_after_break_even) / parseFloat(total_cost_of_investment);
+            $("#expected_profit_percent_after_break_even_as_per_study").val(ExpectedProfitAfterBreakEven);
+        }
+
+        /**
+         * on change Built Up Area Size /Sqm and Built Area Value /Sqm
+         * totalBuiltUpAreaValue= built_area_value_per_sqm + built_up_area_size_per_sqm
+         */
+
+         $('#built_up_area_size_per_sqm').on("change", function() {
+            let built_up_area_size_per_sqm = $("#built_up_area_size_per_sqm").val();
+            let built_area_value_per_sqm = $("#built_area_value_per_sqm").val();
+
+            if (built_up_area_size_per_sqm && built_area_value_per_sqm) {
+                calculateTotalBuiltUpAreaValue(built_up_area_size_per_sqm, built_area_value_per_sqm);
+            }
+        });
+
+        $('#built_area_value_per_sqm').on("change", function() {
+            let built_area_value_per_sqm = $("#built_area_value_per_sqm").val();
+            let built_up_area_size_per_sqm = $("#built_up_area_size_per_sqm").val();
+
+            if (built_up_area_size_per_sqm && built_area_value_per_sqm) {
+                calculateTotalBuiltUpAreaValue(built_up_area_size_per_sqm, built_area_value_per_sqm);
+            }
+        });
+
+        function calculateTotalBuiltUpAreaValue(built_area_value_per_sqm, built_up_area_size_per_sqm) {
+            let totalBuiltUpAreaValue = parseFloat(built_area_value_per_sqm) * parseFloat(built_up_area_size_per_sqm);
+            $("#total_built_up_area_value").val(totalBuiltUpAreaValue);
         }
     </script>
 @endpush
