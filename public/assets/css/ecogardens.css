@@ -1,4 +1,4 @@
-/* 
+/*
 * Template Name: Ecogarden
 * Updated: May 6 2023 with Bootstrap v5.2.3
 * Template URL: https://masirul-codify.github.io/ecogarden/
@@ -19,7 +19,7 @@ body {
 }
 
 
- 
+
 .btn{
   background:white;
   border: 0;
@@ -32,10 +32,10 @@ body {
 
 .btn:hover{
   background: #1bbd36;
-  color: white; 
+  color: white;
   transition: 0.2s;
   border-radius: 4px;
-} 
+}
 
 a {
   color: #1bbd36;
@@ -190,7 +190,7 @@ h6 {
 # Navigation Menu
 --------------------------------------------------------------*/
 /**
-* Desktop Navigation 
+* Desktop Navigation
 */
 .navbar {
   padding: 0;
@@ -305,7 +305,7 @@ h6 {
 }
 
 /**
-* Mobile Navigation 
+* Mobile Navigation
 */
 .mobile-nav-toggle {
   color: #111;
@@ -417,7 +417,6 @@ h6 {
 # Hero Section
 --------------------------------------------------------------*/
 #hero{
-  background: url("../img/ecogardens/home/hero-ecogardens.jpg") top center;
   background-size: cover;
   background-position: center;
   position: relative;
@@ -708,7 +707,7 @@ section {
 .portfolio .portfolio-item:hover .portfolio-info {
   opacity: 1;
   bottom: 20px;
-}  
+}
 
 /*--------------------------------------------------------------
 # Portfolio Details
@@ -773,7 +772,7 @@ section {
 
 .portfolio-details .portfolio-description p {
   padding: 0;
-}  
+}
 /*--------------------------------------------------------------
 # Clients
 --------------------------------------------------------------*/
@@ -816,7 +815,7 @@ section {
 .clients .client-logo:hover img {
   filter: none;
   transform: scale(1.1);
-}  
+}
 /*--------------------------------------------------------------
 # About Us
 --------------------------------------------------------------*/
@@ -1576,7 +1575,7 @@ section {
 # Testimonials
 --------------------------------------------------------------*/
 .testimonials {
-  padding: 80px 0;  
+  padding: 80px 0;
   position: relative;
 }
 

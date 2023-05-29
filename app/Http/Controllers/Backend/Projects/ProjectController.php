@@ -85,6 +85,7 @@ class ProjectController extends Controller {
         $request->validate([
             "project_logo"                    => "required",
             "project_name"                    => "required|unique:" . $this->module_model . ",project_name",
+            "slug"                            => "nullable",
             "address"                         => "required",
             "project_location"                => "required",
             "registered_company_name"         => "required|unique:" . $this->module_model . ",registered_company_name",
@@ -211,6 +212,7 @@ class ProjectController extends Controller {
             }
 
             $project->project_name            = $request->project_name;
+            $project->slug                    = Str::slug($request->project_name);
             $project->address                 = $request->address;
             $project->project_location        = $request->project_location;
             $project->registered_company_name = $request->registered_company_name;
@@ -449,7 +451,6 @@ class ProjectController extends Controller {
         } catch (\Throwable $th) {
             DB::rollBack();
             $msg = $th->getMessage();
-            dd($msg);
             flash(icon() . ' ' . Str::singular($this->module_title) . " Create Failed! $msg")->error()->important();
             return back()->withInput();
         }
@@ -507,6 +508,7 @@ class ProjectController extends Controller {
         $request->validate([
             "project_logo"                    => "nullable",
             "project_name"                    => "required|unique:projects,project_name," . $id .",id",
+            "slug"                            => "nullable",
             "address"                         => "required",
             "project_location"                => "required",
             "registered_company_name"         => "required|unique:projects,registered_company_name," . $id.",id",
@@ -633,6 +635,7 @@ class ProjectController extends Controller {
             }
 
             $project->project_name             = $request->project_name;
+            $project->slug                    = Str::slug($request->project_name);
             $project->address                  = $request->address;
             $project->project_location         = $request->project_location;
             $project->registered_company_name  = $request->registered_company_name;

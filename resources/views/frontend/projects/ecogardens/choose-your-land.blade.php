@@ -23,8 +23,10 @@
   <section>
     <div class="container" data-aos="fade-up">
         <div class="row row-cols-1">
-            <h3 class="text-center">INTERACTIVE MAP</h3>
-            <iframe src="https://widgets.scribblemaps.com/sm/?d=true&z=true&l=true&id=JgqNrndXUJ&s" allow="geolocation" allowfullscreen width="720" height="550" frameborder="0" title="DD" loading="lazy" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+            @if ($projects->interactive_map)
+                <h3 class="text-center">INTERACTIVE MAP</h3>
+                <iframe src="{{ $projects->interactive_map }}" allow="geolocation" allowfullscreen width="720" height="550" frameborder="0" title="DD" loading="lazy" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+            @endif
         </div>
     </div>
 </section>

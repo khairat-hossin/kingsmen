@@ -320,7 +320,7 @@
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->number($field_name)->class('form-control form-control-sm')->attributes(['name' => 'total_land_price', "$required", 'id' => 'total_land_price', 'pattern' => '\d*', 'step' => 'any', 'readonly' => true]) }}
+            {{ html()->number($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'total_land_price', "$required", 'id' => 'total_land_price', 'pattern' => '\d*', 'step' => 'any', 'readonly' => true]) }}
             @error('total_land_price')
                 <span class="error">{{ $message }}</span>
             @enderror
