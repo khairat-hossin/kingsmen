@@ -316,6 +316,19 @@
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->text($field_name)->class('form-control form-control-sm')->value($value)->attributes([ 'readonly' => true, 'name' => 'real_estate_value', "$required", 'id' => 'real_estate_value', 'pattern' => '\d*', 'step' => 'any']) }}
         </div>
+    <legend class="border-bottom w-100">Shares And Values</legend>
+        <div class="row">
+            <div class="form-group col-6 col-md-4 mb-2">
+                <?php
+                $field_name = 'Total registered Shares at Local Authoritise';
+                $field_lable = label_case($field_name);
+                $field_placeholder = $field_lable;
+                $value = $crowdfunding->total_registered_shares_at_local_authoritise ?? '';
+                $required = '';
+                ?>
+                {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
+                {{ html()->text($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'total_registered_shares_at_local_authoritise', "$required", 'pattern' => '\d*', 'step' => 'any']) }}
+            </div>    
 
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
@@ -373,11 +386,11 @@
             $field_name = 'Profit After Return on investment is';
             $field_lable = label_case($field_name);
             $field_placeholder = '';
-            $value = $crowdfunding->profit_after_return_on_investment_is ?? '';
+            $value = $crowdfunding->profit_after_return_of_investment_is ?? '';
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm select2')->value($value)->attributes([ 'readonly' => true, 'name' => 'profit_after_return_on_investment_is', "$required"]) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm select2')->value($value)->attributes([ 'readonly' => true, 'name' => 'profit_after_return_of_investment_is', "$required"]) }}
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
