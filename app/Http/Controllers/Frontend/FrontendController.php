@@ -255,7 +255,36 @@ class FrontendController extends Controller
 
     public function eco_who_we_are()
     {
-        return view('frontend.projects.ecogardens.who-we-are');
+        $projects = project::all();
+
+        $latestBanner = Project::whereNotNull('who_page_banner')
+                        ->where('who_page_banner', '!=', '')
+                        ->latest()
+                        ->first();
+
+        $latestBanner = str_replace('\\','/',$latestBanner->who_page_banner);
+
+        $latestBannerText = Project::whereNotNull('who_page_banner_text')
+                            ->where('who_page_banner_text', '!=', '')
+                            ->latest()
+                            ->first();
+        $latestBannerText = $latestBannerText->who_page_banner_text;
+
+        if($latestBanner && $latestBannerText){
+            return view('frontend.projects.ecogardens.who-we-are', compact('projects', 'latestBanner', 'latestBannerText'));
+        }
+        elseif($latestBanner)
+        {
+            return view('frontend.projects.ecogardens.who-we-are', compact('projects', 'latestBanner'));
+        }
+        elseif($latestBannerText)
+        {
+            return view('frontend.projects.ecogardens.who-we-are', compact('projects', 'latestBannerText'));
+        }
+        else
+        {
+            return view('frontend.projects.ecogardens.who-we-are', compact('projects'));
+        }
     }
 
     public function eco_testimonials()
