@@ -161,12 +161,14 @@ class FrontendController extends Controller
     {
         $faqs = Faq::all();
 
+        $banner = '';
+        $banner_text = '';
+        $video = '';
         foreach($faqs as $faq)
          {
             if($faq->banner)
             {
                 $banner = str_replace('\\', '/', $faq->banner);
-
             }
 
             if($faq->banner_text)

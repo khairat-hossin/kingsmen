@@ -77,20 +77,6 @@
                 </div>
             </div>
         </section>
-
-        <section class="">
-            <div class="container-fluid">
-                <div class="row text-center ">
-                    <div></div>
-                    <div>
-                        <a href=""> <img src="assets/img/kmen.png" class="img-fluid"> </a>
-                    </div>
-                    <div></div>
-                </div>
-            </div>
-        </section>
-
-
         <br> <br>
     </main><!-- End #main -->
 @endsection

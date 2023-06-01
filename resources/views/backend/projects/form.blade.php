@@ -762,7 +762,7 @@
 
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Add Photos to Galary';
+            $field_name = 'Add Photos to Gallery';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = '';
