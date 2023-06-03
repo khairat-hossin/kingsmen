@@ -66,13 +66,13 @@
                             @forelse($faqs as $faq)
                                 <tr>
                                     <td style="max-width: 200px">
-                                        {{ Str::limit($faq->question, 50) }}
+                                        {{ \Str::limit($faq->question, 50) }}
                                     </td>
                                     <td style="max-width: 200px">
-                                        {{ Str::limit($faq->answer, 50) }}
+                                        {{ \Str::limit($faq->answer, 50) }}
                                     </td>
                                     <td style="max-width: 200px">
-                                        {{ Str::limit($faq->banner_text, 50) }}
+                                        {{ \Str::limit($faq->banner_text, 50) }}
                                     </td>
                                     <td class="text-end">
                                         <form action="{{ route('backend.faqs.destroy', $faq->id) }}" method="POST">

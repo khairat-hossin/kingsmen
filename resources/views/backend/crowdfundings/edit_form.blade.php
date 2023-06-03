@@ -278,7 +278,7 @@
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->number($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'land_cost_per_sqm', "$required", 'id' => 'price_cost_per_sqm', 'pattern' => '\d*', 'step' => 'any']) }}
+            {{ html()->number($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'land_cost_per_sqm', "$required", 'id' => 'land_cost_per_sqm', 'pattern' => '\d*', 'step' => 'any']) }}
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -469,7 +469,7 @@
                 @error('shares_listed_for_sale')
                     <span class="error">{{ $message }}</span>
                 @enderror
-            </div>        
+            </div>
         </div>
 
     <legend class="border-bottom w-100">Return On Investment</legend>
@@ -1053,6 +1053,34 @@
         function calculateTotalBuiltUpAreaValue(built_area_value_per_sqm, built_up_area_size_per_sqm) {
             let totalBuiltUpAreaValue = parseFloat(built_area_value_per_sqm) * parseFloat(built_up_area_size_per_sqm);
             $("#total_built_up_area_value").val(totalBuiltUpAreaValue);
+        }
+
+        /**
+         * on change area starting and price price starting change land price starting
+         * land_price_starting= land_area_per_sqm * land_cost_per_sqm
+         */
+
+         $('#land_area_per_sqm').on("change", function() {
+            let land_area_per_sqm = $("#land_area_per_sqm").val();
+            let land_cost_per_sqm = $("#land_cost_per_sqm").val();
+
+            if (land_area_per_sqm && land_cost_per_sqm) {
+                calculateLandPriceStarting(land_area_per_sqm, land_cost_per_sqm);
+            }
+        });
+
+        $('#land_cost_per_sqm').on("change", function() {
+            let land_area_per_sqm = $("#land_area_per_sqm").val();
+            let land_cost_per_sqm = $("#land_cost_per_sqm").val();
+
+            if (land_area_per_sqm && land_cost_per_sqm) {
+                calculateLandPriceStarting(land_area_per_sqm, land_cost_per_sqm);
+            }
+        });
+
+        function calculateLandPriceStarting(area, price) {
+            let landPriceStarting = parseFloat(area) * parseFloat(price);
+            $("#total_land_cost").val(landPriceStarting);
         }
     </script>
 @endpush

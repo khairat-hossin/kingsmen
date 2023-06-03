@@ -171,7 +171,7 @@ class AboutUsController extends Controller
             "question"         => "required|unique:about_us,question," . $id . ',id',
             "answer"           => "required|unique:about_us,answer,"  . $id . ',id',
             "banner"           => "nullable",
-            "banner_text"      => "nullable",           
+            "banner_text"      => "nullable",
         ]);
 
         DB::beginTransaction();
@@ -222,7 +222,9 @@ class AboutUsController extends Controller
 
         $$module_name_singular = $module_model::findOrFail($id);
 
-        if (file_exists(public_path($$module_name_singular->banner))) {
+        $file = is_file(public_path($$module_name_singular->banner));
+
+        if (file_exists($file)) {
             unlink(public_path($$module_name_singular->banner));
         }
 
