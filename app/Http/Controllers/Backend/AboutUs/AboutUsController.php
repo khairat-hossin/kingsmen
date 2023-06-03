@@ -224,7 +224,7 @@ class AboutUsController extends Controller
 
         $file = is_file(public_path($$module_name_singular->banner));
 
-        if (file_exists(file)) {
+        if (file_exists($file)) {
             unlink(public_path($$module_name_singular->banner));
         }
 
