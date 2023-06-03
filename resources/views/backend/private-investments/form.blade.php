@@ -250,7 +250,7 @@
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->number($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'land_cost_per_sqm', "$required", 'id' => 'price_cost_per_sqm', 'pattern' => '\d*', 'step' => 'any']) }}
+            {{ html()->number($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'land_cost_per_sqm', "$required", 'id' => 'land_cost_per_sqm', 'pattern' => '\d*', 'step' => 'any']) }}
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -410,7 +410,7 @@
         </div>
     </div>
 
-    <legend class="border-bottom w-100">Investment Cost</legend>
+    <legend class="border-bottom w-100">Return on Investment</legend>
     <div class="row">
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
@@ -743,27 +743,84 @@
          * land_price_starting= area_starting_per_sqm * price_starting_per_sqm
          */
 
-        $('#area_starting_per_sqm').on("change", function() {
-            let area_starting_per_sqm = $("#area_starting_per_sqm").val();
-            let price_starting_per_sqm = $("#price_starting_per_sqm").val();
+        $('#land_area_in_sqm').on("change", function() {
+            let land_area_in_sqm = $("#land_area_in_sqm").val();
+            let land_cost_per_sqm = $("#land_cost_per_sqm").val();
 
-            if (area_starting_per_sqm && price_starting_per_sqm) {
-                calculateLandPriceStarting(area_starting_per_sqm, price_starting_per_sqm);
+            if (land_area_in_sqm && land_cost_per_sqm) {
+                calculateLandPriceStarting(land_area_in_sqm, land_cost_per_sqm);
             }
         });
 
-        $('#price_starting_per_sqm').on("change", function() {
-            let area_starting_per_sqm = $("#area_starting_per_sqm").val();
-            let price_starting_per_sqm = $("#price_starting_per_sqm").val();
+        $('#land_cost_per_sqm').on("change", function() {
+            let land_area_in_sqm = $("#land_area_in_sqm").val();
+            let land_cost_per_sqm = $("#land_cost_per_sqm").val();
 
-            if (area_starting_per_sqm && price_starting_per_sqm) {
-                calculateLandPriceStarting(area_starting_per_sqm, price_starting_per_sqm);
+            if (land_area_in_sqm && land_cost_per_sqm) {
+                calculateLandPriceStarting(land_area_in_sqm, land_cost_per_sqm);
             }
         });
 
         function calculateLandPriceStarting(area, price) {
             let landPriceStarting = parseFloat(area) * parseFloat(price);
-            $("#land_price_starting").val(landPriceStarting);
+            $("#total_land_cost").val(landPriceStarting);
+        }
+
+        /**
+         * on change Built Up Area Size /Sqm and Built Area Value /Sqm
+         * totalBuiltUpAreaValue= built_up_area_value_per_sqm + built_up_area_size_per_sqm
+         */
+
+         $('#built_up_area_size_per_sqm').on("change", function() {
+            let built_up_area_size_per_sqm = $("#built_up_area_size_per_sqm").val();
+            let built_up_area_value_per_sqm = $("#built_up_area_value_per_sqm").val();
+
+            if (built_up_area_size_per_sqm && built_up_area_value_per_sqm) {
+                calculateTotalBuiltUpAreaValue(built_up_area_size_per_sqm, built_up_area_value_per_sqm);
+            }
+        });
+
+        $('#built_up_area_value_per_sqm').on("change", function() {
+            let built_up_area_value_per_sqm = $("#built_up_area_value_per_sqm").val();
+            let built_up_area_size_per_sqm = $("#built_up_area_size_per_sqm").val();
+
+            if (built_up_area_size_per_sqm && built_up_area_value_per_sqm) {
+                calculateTotalBuiltUpAreaValue(built_up_area_size_per_sqm, built_up_area_value_per_sqm);
+            }
+        });
+
+        function calculateTotalBuiltUpAreaValue(built_up_area_value_per_sqm, built_up_area_size_per_sqm) {
+            let totalBuiltUpAreaValue = parseFloat(built_up_area_value_per_sqm) * parseFloat(built_up_area_size_per_sqm);
+            $("#total_built_up_area_value").val(totalBuiltUpAreaValue);
+        }
+
+        /**
+         * on change Real Estate Value and Proposed Additional Investments Cost starting change land price starting
+         * TotalCostOfInvestment= real_estate_value + proposed_additional_investment_cost
+         */
+
+         $('#real_estate_value').on("change", function() {
+            let real_estate_value = $("#real_estate_value").val();
+            let proposed_additional_investment_cost = $("#proposed_additional_investment_cost").val();
+
+            if (real_estate_value && proposed_additional_investment_cost) {
+                calculateTotalCostOfInvestment(real_estate_value, proposed_additional_investment_cost);
+            }
+        });
+
+        $('#proposed_additional_investment_cost').on("change", function() {
+            let proposed_additional_investment_cost = $("#proposed_additional_investment_cost").val();
+            let real_estate_value = $("#real_estate_value").val();
+
+
+            if (real_estate_value && proposed_additional_investment_cost) {
+                calculateTotalCostOfInvestment(real_estate_value, proposed_additional_investment_cost);
+            }
+        });
+
+        function calculateTotalCostOfInvestment(value, additional_cost) {
+            let totalCostOfInvestment = parseFloat(value) + parseFloat(additional_cost);
+            $("#total_cost_of_investment").val(totalCostOfInvestment);
         }
     </script>
 @endpush

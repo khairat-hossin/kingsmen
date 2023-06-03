@@ -276,7 +276,7 @@
         </div>
     </div>
 
-    <legend class="border-bottom w-100">Investment Cost</legend>
+    <legend class="border-bottom w-100">Return on Investment</legend>
     <div class="row">
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
