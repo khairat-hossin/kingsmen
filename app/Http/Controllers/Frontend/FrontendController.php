@@ -79,15 +79,12 @@ class FrontendController extends Controller
     {
         $crowdfunding_project = Crowdfunding::where('slug', $slug)->firstOrFail();
 
-        if($crowdfunding_project->banner)
-        {
+       
+            $banner = '';
+            $banner_text = '';
             $banner = str_replace('\\','/',$crowdfunding_project->banner);
-            return view('frontend.invests.crowdfunding-project', compact('crowdfunding_project', 'banner'));
-        }
-        else
-        {
-            return view('frontend.invests.crowdfunding-project', compact('crowdfunding_project'));
-        }
+            $banner_text = str_replace('\\','/',$crowdfunding_project->banner_text);
+            return view('frontend.invests.crowdfunding-project', compact('crowdfunding_project', 'banner', 'banner_text'));
 
     }
 

@@ -4,16 +4,23 @@
 
 @section('content')
  <!-- ======= Hero Section ======= -->
- <section id="hero-one-tree-armenia" class="d-flex align-items-center justify-content-center">
-    <div class="container" data-aos="fade-up">
-      <div class="row"></div>
+ <section id="hero-one-tree-armenia" class="d-flex align-items-center justify-content-center foo">
+    <div class="container aos-init aos-animate" data-aos="fade-up">
+      <div class="col-xl-10 col-lg-8">
+        <h1 class="text-warning fw-light hero_subhead text-uppercase lh-base mt-2 fw-light">
+          @if($banner_text)
+            {{ $banner_text }}
+          @endif<span>.</span>
+        </h1>
+        <div class="row"></div>
+      </div>
     </div>
   </section><!-- End Hero -->
   <main id="main">
     <section id="one-tree-armenia" class="">
       <div class="container-fluid text-center">
         <div class="row " style="  font-family: 'Inter', sans-serif;">
-          <h2 class="text-dark fw-bold my-sm-0">{{ $crowdfunding_project->title_2 }}</h2>
+          <h2 class="text-dark fw-bold my-sm-0"></h2>
           <div id="sign-up" class="container" data-aos="fade-up" >
             <div class="row gy-2 mt-5 justify-content-center" data-aos="zoom-in" data-aos-delay="250">
               <div class="col-12 col-sm-6 col-xl-5 col-md-5">
@@ -372,5 +379,15 @@
         @if(isset($banner))
             background: url("{{ asset($banner) }}") top center;
         @endif
+    }
+    #hero-one-tree-armenia::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.7;
+      background-color: #000;
     }
 </style>
