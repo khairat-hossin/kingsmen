@@ -65,14 +65,14 @@
                         <tbody>
                             @forelse($faqs as $faq)
                                 <tr>
-                                    <td style="max-width: 200px">
-                                        {{ substr($faq->question, 50) }}
+                                    <td class="text-truncate" style="max-width: 200px">
+                                        {{ $faq->question }}
                                     </td>
-                                    <td style="max-width: 200px">
-                                        {{ substr($faq->answer, 50) }}
+                                    <td class="text-truncate" style="max-width: 200px">
+                                        {{ $faq->answer }}
                                     </td>
-                                    <td style="max-width: 200px">
-                                        {{ substr($faq->banner_text, 50) }}
+                                    <td class="text-truncate" style="max-width: 200px">
+                                        {{ $faq->banner_text }}
                                     </td>
                                     <td class="text-end">
                                         <form action="{{ route('backend.faqs.destroy', $faq->id) }}" method="POST">
