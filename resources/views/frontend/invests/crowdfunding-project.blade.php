@@ -20,7 +20,7 @@
     <section id="one-tree-armenia" class="">
       <div class="container-fluid text-center">
         <div class="row " style="  font-family: 'Inter', sans-serif;">
-          <h2 class="text-dark fw-bold my-sm-0"></h2>
+          <h2 class="text-dark fw-bold my-sm-0">{{ $crowdfunding_project->title_2 }}</h2>
           <div id="sign-up" class="container" data-aos="fade-up" >
             <div class="row gy-2 mt-5 justify-content-center" data-aos="zoom-in" data-aos-delay="250">
               <div class="col-12 col-sm-6 col-xl-5 col-md-5">
