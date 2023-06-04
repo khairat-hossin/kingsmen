@@ -1,7 +1,7 @@
  <!-- ======= Header ======= -->
  <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center justify-content-between">
-      <!-- Uncomment below if you prefer to use an text logo -->
+      <!-- Uncomment below if you prefer to use a text logo -->
       <!-- <h1 class="logo me-auto"><a href="index.html"><span>Eco</span>gardens</a></h1> -->
 
       <a href="index.html" class="logo me-auto me-lg-0"><img src="../../assets/img/ecogardens/portfolio/Green Hills.jpg"  loading="lazy" alt="logo" class="img-fluid"></a>
