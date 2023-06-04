@@ -215,9 +215,14 @@ class FrontendController extends Controller
     public function eco_choose_your_land()
     {
         $project_name = 'Eco Gardens';
+
         $projects = Project::where('project_name', $project_name)->firstOrFail();
 
-        return view('frontend.projects.ecogardens.choose-your-land', compact('projects'));
+        $banner = '';
+        $banner_text = '';
+            $banner = str_replace('\\','/',$projects->buy_land_page_banner);
+            $banner_text = str_replace('\\','/',$projects->buy_land_page_banner_text);
+            return view('frontend.projects.ecogardens.choose-your-land', compact('projects', 'banner', 'banner_text'));
     }
 
     public function eco_eco_homes()
