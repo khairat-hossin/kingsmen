@@ -18,9 +18,9 @@
   </section><!-- End Hero -->
   <main id="main">
     <section id="one-tree-armenia" class="">
-      <div class="container-fluid text-center">
+      <div class="container text-justify">
         <div class="row " style="  font-family: 'Inter', sans-serif;">
-          <h2 class="text-dark fw-bold my-sm-0">{{ $crowdfunding_project->title_2 }}</h2>
+          <p class="text-dark fw-bold my-sm-0">{{ $crowdfunding_project->title_2 }}</p>
           <div id="sign-up" class="container" data-aos="fade-up" >
             <div class="row gy-2 mt-5 justify-content-center" data-aos="zoom-in" data-aos-delay="250">
               <div class="col-12 col-sm-6 col-xl-5 col-md-5">
@@ -380,6 +380,7 @@
             background: url("{{ asset($banner) }}") top center;
         @endif
     }
+    
     #hero-one-tree-armenia::before {
       content: '';
       position: absolute;
@@ -390,4 +391,6 @@
       opacity: 0.7;
       background-color: #000;
     }
+
+
 </style>
