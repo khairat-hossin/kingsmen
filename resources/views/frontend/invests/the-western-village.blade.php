@@ -11,7 +11,7 @@
             <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="150">
                 <div class="col-xl-10 col-lg-8">
                     <h1 class="text-warning fw-light hero_subhead text-uppercase lh-base mt-2 fw-light">
-                        "Invest in the Future of Upscale Living Today!"<span>.</span></h1>
+                       {{ $crowdfunding_project->banner_text }}<span>.</span></h1>
                 </div>
             </div>
             <div class="row"></div>
@@ -21,7 +21,7 @@
     <main id="main">
         <section id="the-western-village" class="">
             <div class="container-fluid text-center">
-                <h2>Invest In Real Estate , Say Goodbye to Unstable Currencies!</h2>
+                <p>{{ $crowdfunding_project->title_1 }}</p>
                 <div class="row " style="font-family: Inter, Helvetica, sans-serif;">
                     <div id="sign-up" class="container" data-aos="fade-up">
                         <div class="row gy-2  justify-content-center" data-aos="zoom-in" data-aos-delay="250">
@@ -36,15 +36,8 @@
                 <div class="container-fluid text-center card raw_card" data-aos="fade-up">
                     <div class="row row-cols-1 d-flex justify-content-center align-items-center">
                         <div class="gy-5" style="   font-family: 'Inter', sans-serif;text-align: justify; ">
-                            <p><strong> The Western Village </strong> is an ambitious new project located in the Parpi
-                                Ashtarak Region that is currently under development. Designed to be a cutting-edge
-                                residential development, the project aims to transform the land from agricultural to
-                                residential use by providing top-of-the-line infrastructure. and with the help of government
-                                friends. <br>
-
-                                10 KM from Western Village the government is Building 8 Universities , You can check it out
-                                By Pressing <a href=" https://news.am/eng/news/718191.html " target="_blank"> "8
-                                    Universities Link."" </a>
+                            <p>
+                                {!! nl2br(htmlspecialchars($crowdfunding_project->paragraph_1)) !!}
                             </p>
                         </div>
                         <div class="col-5 opportunity-slider swiper my-2">
@@ -87,21 +80,8 @@
                         </div>
                         <div class="gy-5" style=" font-family: 'Inter', sans-serif;text-align: justify; "class="gx-5"
                             style="   font-family: 'Inter', sans-serif;text-align: justify; ">
-
-                            Next to Western Village on 20,000 Sqm We built the <a
-                                href="https://sites.google.com/kmen.me/the-eco-gardens-armenia/eco-homes?authuser=0"
-                                target="_blank"> "www.theecogardens.com" </a>in two Years we managed to Break Even and yet
-                            we own 40% of the Remaining Plots. We are only Selling For the Highest Prices 60 - 70 USD per
-                            Sqm while our cost those not exceed the 30USD .<br>
-
-                            <p> <strong> Designed By Jamil Hannouche ( We are in the Phase of Developing the project full
-                                    identity we Always target the armenian Diaspora for end-user homes , since they prefer
-                                    to buy a finished product and usually the competition only sells core and shell with
-                                    very low quality and higher prices. )
-
-                                    Our Latest Project Green Hills can give you an Idea about the concepts we are Building
-                                    :<a href="https://sites.google.com/kmen.me/greenhills1?usp=sharing" target="_blank">
-                                        Greenhills.am </a></strong>
+                            <p>
+                                {!! nl2br($crowdfunding_project->paragraph_2) !!}
                             </p>
                         </div>
                     </div>
@@ -118,22 +98,22 @@
                         <h2 class="text-warning f">Project highlights</h2>
                         <ul>
                             <li>
-                                <h6 class="text-warning f">Project Name:</h6>The Western Village
+                                <h6 class="text-warning f">Project Name:</h6> {{ $crowdfunding_project->project_name }}
                             </li>
                             <li>
-                                <h6 class="text-warning f">Investment Type:</h6> Residential
+                                <h6 class="text-warning f">Investment Type:</h6> {{ $crowdfunding_project->type_of_investment }}
                             </li>
                             <li>
-                                <h6 class="text-warning">Investing In:</h6>Urban Project
+                                <h6 class="text-warning">Investing In:</h6> {{ $crowdfunding_project->investment_in }}
                             </li>
                             <li>
-                                <h6 class="text-warning">Plot Area: </h6>104,215 Sqm
+                                <h6 class="text-warning">Plot Area: </h6>{{ $crowdfunding_project->built_up_area_size_per_sqm }}
                             </li>
                             <li>
-                                <h6 class="text-warning">Project Location:</h6>Parpi Ashtarak
+                                <h6 class="text-warning">Project Location:</h6>{{ $crowdfunding_project->project_location }}
                             </li>
                             <li>
-                                <h6 class="text-warning">Project Launching: </h6>June 2023
+                                <h6 class="text-warning">Project Launching: </h6>{{ $crowdfunding_project->project_starting_date }}
                             </li>
                         </ul>
                     </div>
@@ -150,19 +130,19 @@
                                 <h6 class="text-warning">Offered at :</h6>2,326,360 USD
                             </li>
                             <li>
-                                <h6 class="text-warning">Total Shares number:</h6>20
+                                <h6 class="text-warning">Total Shares number:</h6>{{ $crowdfunding_project->total_registered_shares_at_local_authoritise }}
                             </li>
                             <li>
                                 <h6 class="text-warning">Minimum Shares for sale:</h6>For Sale: 5
                             </li>
                             <li>
-                                <h6 class="text-warning">Maximum Shares for sale:</h6>For Sale: 9
+                                <h6 class="text-warning">Maximum Shares for sale:</h6>{{ $crowdfunding_project->shares_listed_for_sale }}
                             </li>
                             <li>
                                 <h6 class="text-warning">Sold Shares:</h6>2
                             </li>
                             <li>
-                                <h6 class="text-warning">Price of 1 Share:</h6>116,318 USD
+                                <h6 class="text-warning">Price of 1 Share:</h6>{{ $crowdfunding_project->share_price }}$
                             </li>
                             <li>
                                 <h6 class="text-warning">Payment method:</h6>One time Payment
@@ -328,3 +308,11 @@
         </section>
     </main><!-- End #main -->
 @endsection
+
+@if(isset($banner))
+    <style>
+        #hero-the-western-village {
+            background: url("{{ asset($banner) }}") top center;
+        }
+    </style>
+@endif

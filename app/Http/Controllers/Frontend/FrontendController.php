@@ -79,12 +79,30 @@ class FrontendController extends Controller
     {
         $crowdfunding_project = Crowdfunding::where('slug', $slug)->firstOrFail();
 
-       
+
             $banner = '';
             $banner_text = '';
-            $banner = str_replace('\\','/',$crowdfunding_project->banner);
-            $banner_text = str_replace('\\','/',$crowdfunding_project->banner_text);
-            return view('frontend.invests.crowdfunding-project', compact('crowdfunding_project', 'banner', 'banner_text'));
+
+            $banner = str_replace('\\', '/', ($crowdfunding_project->banner ?? ''));
+            $banner_text = str_replace('\\', '/', ($crowdfunding_project->banner_text ?? ''));
+
+            if($crowdfunding_project->choose_template == 'One Tree Armenia')
+            {
+                return view('frontend.invests.crowdfunding-project', compact('crowdfunding_project', 'banner', 'banner_text'));
+            }
+            elseif($crowdfunding_project->choose_template == 'The Western Village')
+            {
+                return view('frontend.invests.the-western-village', compact('crowdfunding_project', 'banner', 'banner_text'));
+            }
+            elseif($crowdfunding_project->choose_template == 'United 8 Apartment')
+            {
+                return view('frontend.invests.united-8-apartment', compact('crowdfunding_project', 'banner', 'banner_text'));
+            }
+            else
+            {
+                return view('frontend.invests.crowdfunding-project', compact('crowdfunding_project', 'banner', 'banner_text'));
+            }
+
 
     }
 

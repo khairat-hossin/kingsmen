@@ -8,7 +8,7 @@
     <div class="container aos-init aos-animate" data-aos="fade-up">
       <div class="col-xl-10 col-lg-8">
         <h1 class="text-warning fw-light hero_subhead text-uppercase lh-base mt-2 fw-light">
-          @if($banner_text)
+          @if(isset($banner_text))
             {{ $banner_text }}
           @endif<span>.</span>
         </h1>
@@ -35,7 +35,7 @@
         <div class="row row-cols-1 row-cols-lg-2 row-cols-md-2  d-flex justify-content-center align-items-center">
           <div class="gx-5" style="   font-family: 'Inter', sans-serif; text-align: justify; ">
             <p>
-                {{ $crowdfunding_project->paragraph_2 }}
+                {!! nl2br(htmlspecialchars($crowdfunding_project->paragraph_2)) !!}
             </p>
           </div>
           <div class="opportunity-slider swiper my-2">
@@ -380,7 +380,7 @@
             background: url("{{ asset($banner) }}") top center;
         @endif
     }
-    
+
     #hero-one-tree-armenia::before {
       content: '';
       position: absolute;

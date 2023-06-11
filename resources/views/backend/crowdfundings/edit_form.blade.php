@@ -734,10 +734,9 @@
             $field_lable = label_case($field_name);
             $field_placeholder = 'Please Select';
             $options = [
-                'Template 1' => 'Template 1',
-                'Template 2' => 'Template 2',
-                'Template 3' => 'Template 3',
-                'Template 4' => 'Template 4',
+                'One Tree Armenia'    => 'One Tree Armenia',
+                'The Western Village' => 'The Western Village',
+                'United 8 Apartment'  => 'United 8 Apartment'
             ];
             $value = $crowdfunding->choose_template ?? '';
             $required = 'required';
