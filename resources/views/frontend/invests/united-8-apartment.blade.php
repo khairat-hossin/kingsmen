@@ -12,7 +12,10 @@
         <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="150">
             <div class="col-xl-10 col-lg-8">
                 <h1 class="text-warning fw-light hero_subhead text-uppercase lh-base mt-2 fw-light">
-                  "Invest in the Future of Upscale Living Today!"<span>.</span></h1>
+                    @if (isset($banner_text))
+                     {{ $banner_text }}
+                    @endif
+                 <span>.</span></h1>
            </div>
   </div>
   <div class="row"></div>
@@ -24,7 +27,7 @@
   <main id="main">
     <section id="the-western-village" class="">
       <div class="container text-justify">
-        <p>By investing starting 99,000 Euro  in this lucrative venture, you can enjoy a profit-sharing model that guarantees significant returns. What's more, the prime location of the apartments ensures a steady stream of guests, making it a safe investment. With 8 fully-furnished apartments featuring state-of-the-art amenities, this investment has everything that discerning travelers need to have a comfortable and relaxing stay.</p>
+        <p>{{ $crowdfunding_project->title_2 }}</p>
         <div class="row ">
           <div id="sign-up" class="container" data-aos="fade-up" >
             <div class="row gy-2  justify-content-center" data-aos="zoom-in" data-aos-delay="250">
@@ -51,21 +54,20 @@
               <button class="bg-dark"  type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
             </div>
             <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="../../assets/img/crowdfunding/united-8-apartments/occupancy.png" class="d-block w-100" alt="...">
-              </div>
-              <div class="carousel-item">
-                <img src="../../assets/img/crowdfunding/united-8-apartments/ing.png" class="d-block w-100" alt="...">
-              </div>
-              <div class="carousel-item">
-                <img src="../../assets/img/crowdfunding/united-8-apartments/booked.png" class="d-block w-100" alt="...">
-              </div>
-              <div class="carousel-item">
-                <img src="../../assets/img/crowdfunding/united-8-apartments/booked2.png" class="d-block w-100" alt="...">
-              </div>
-              <div class="carousel-item">
-                <img src="../../assets/img/crowdfunding/united-8-apartments/booked3.png" class="d-block w-100" alt="...">
-              </div>
+              {{-- <div class="carousel-item"> --}}
+                    @php
+                        $data = $crowdfunding_project->photos_gallery;
+                        $photos = json_decode($data, true);
+                    @endphp>
+
+                    @if($photos)
+                        @foreach($photos as $photo)
+                            <div class="carousel-item active">
+                                <img src="{{ asset($photo) }}" class="d-block w-100" alt="..."> </img>
+                            </div>
+                        @endforeach
+                    @endif
+                {{-- </div> --}}
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
               <span class="carousel-control-prev-icon bg-dark" aria-hidden="true"></span>
@@ -99,7 +101,7 @@
               <tbody>
                 <tr>
                   <th scope="row">
-                    <h6><span class="text-warning f">Project Name:</span> United 8 Apts</h6>
+                    <h6><span class="text-warning f">Project Name:</span> {{ $crowdfunding_project->project_name }}</h6>
                   </th>
                   <td>
                     <h6><span class="text-warning">Invested Amount till Date:</h6>  €940,000.00</h6>
@@ -121,7 +123,7 @@
                 </tr>
                 <tr>
                   <th scope="row">
-                    <h6><span class="text-warning">Investing In:</span> Rental - Selling</h6>
+                    <h6><span class="text-warning">Investing In:</span> {{ $crowdfunding_project->investment_in  }}</h6>
                   </th>
                   <td>
                     <h6><span class="text-warning">Offered at :</span>€990,000.00</h6>
@@ -135,7 +137,7 @@
                     <h6> <span class="text-warning">Total sellable area: </span> 420 Sqm</h6>
                   </th>
                   <td>
-                    <h6><span class="text-warning">Total Shares number:</span>10 </h6>
+                    <h6><span class="text-warning">Total Shares number:</span> {{ $crowdfunding_project->total_registered_shares_at_local_authoritise }} </h6>
                   </td>
                   <td>
                     <!-- null -->
@@ -167,7 +169,8 @@
                     <h6><span class="text-warning">Investment Duration: </span> 5 years</h6>
                   </th>
                   <td>
-                    <h6><span class="text-warning">Price of 1 Share:</span> €99,000
+                    <h6><span class="text-warning">Price of 1 Share:</span> {{ $crowdfunding_project->share_price }}$
+                    </li>
                   </td>
                   <td>
                          <!-- null -->
@@ -179,7 +182,7 @@
                   </th>
                   <td>
                     <h6><span class="text-warning">Payment method:  </span>One time</h6>
-                    <h6><span class="text-warning">Minimum Number of Shares :</span>1</h6>
+                    <h6><span class="text-warning">Minimum Number of Shares :</span>  {{ $crowdfunding_project->shares_listed_for_sale }}</h6>
                   </td>
                   <td>
                          <!-- null -->
