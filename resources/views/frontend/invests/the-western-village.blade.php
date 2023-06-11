@@ -61,18 +61,18 @@
                         </div>
                         <div class="gx-5 col-5 opportunity-slider swiper my-2">
                             <div class="swiper-wrapper align-items-center">
-                                <div class="swiper-slide">
-                                    <img src="../../assets/img/crowdfunding/one-tree-armenia/Aragatsavan.JPG"
-                                        class="img-fluid"></img>
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="../../assets/img/crowdfunding/one-tree-armenia/DJI_0497.JPG"
-                                        class="img-fluid my-4"></img>
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="../../assets/img/crowdfunding/one-tree-armenia/DJI_0497.JPG"
-                                        class="img-fluid my-4"></img>
-                                </div>
+                                @php
+                                    $data = $crowdfunding_project->photos_gallery;
+                                    $photos = json_decode($data, true);
+                                @endphp>
+
+                                @if($photos)
+                                    @foreach($photos as $photo)
+                                        <div class="swiper-slide">
+                                            <img src="{{ asset($photo) }}" class="img-fluid"></img>
+                                        </div>
+                                    @endforeach
+                                @endif
                             </div>
                             <div class="swiper-pagination p-5"></div>
                             <div class=" "></div>
