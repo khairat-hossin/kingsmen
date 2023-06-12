@@ -4,7 +4,7 @@
             <div class="row text-center ">
                 <div></div>
                 <div>
-                    <a href=""> <img src="assets/img/kmen.png" class="img-fluid"> </a>
+                    <a href=""> <img src="{{ asset('assets/img/kmen.png') }}" class="img-fluid"> </a>
                 </div>
                 <div></div>
             </div>
