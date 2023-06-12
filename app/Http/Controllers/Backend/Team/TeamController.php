@@ -90,7 +90,7 @@ class TeamController extends Controller
             "passport_photo"       => "required|image",
             "ssn"                  => "required|unique:" . $this->module_model . ",ssn",
             "id_card"              => "required|image",
-            "university_degree"    => "required",
+            "university_degree"    => "nullable",
             "about_team_member"    => "required",
             "position"             => "required",
             "designation"          => "required",
@@ -220,15 +220,15 @@ class TeamController extends Controller
     {
         $module_action = 'update';
         $request->validate([
-            "first_name"           => "required|unique:team_members,first_name," . $id.",id",
-            "last_name"            => "required|unique:team_members,last_name," . $id.",id",
+            "first_name"           => "required",
+            "last_name"            => "required",
             "date_of_birth"        => "required",
             "passport_number"      => "required|unique:team_members,passport_number," . $id.",id",
             "passport_expiry_date" => "required",
             "passport_photo"       => "nullable|image",
             "ssn"                  => "required|unique:team_members,ssn," . $id.",id",
             "id_card"              => "nullable|image",
-            "university_degree"    => "required",
+            "university_degree"    => "nullable",
             "about_team_member"    => "required",
             "position"             => "required",
             "designation"          => "required",
