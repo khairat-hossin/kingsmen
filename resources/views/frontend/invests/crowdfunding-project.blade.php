@@ -18,7 +18,7 @@
   </section><!-- End Hero -->
   <main id="main">
     <section id="one-tree-armenia" class="">
-      <div class="container text-justify">
+      <div class="container text-center">
         <div class="row " style="  font-family: 'Inter', sans-serif;">
           <p class="text-dark fw-bold my-sm-0">{{ $crowdfunding_project->title_2 }}</p>
           <div id="sign-up" class="container" data-aos="fade-up" >
@@ -57,10 +57,11 @@
           </div>
         </div>
       </div>
-            <div>
-              <a href="./one-tree-armenia.html" class="btn my-5">Invest
-              now</a>
+        <div class="row text-center">
+            <div class="col-12">
+              <a href="#" class="btn my-5">Invest now</a>
             </div>
+        </div>
     </section>
     <section  class="bg-dark p-3">
       <div class="container text-white">

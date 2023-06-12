@@ -31,7 +31,7 @@
                             <div class="my-2">
                                 <h6><span class="text-warning">Community: </span>{{ $crowdfunding->project_location }} &nbsp;</h6>
                                 <h6><span class="text-warning"> Investment Type: </span> {{ $crowdfunding->type_of_investment     }} &nbsp;</h6>
-                                <h6><span class="text-warning"> Ticket Price: </span> {{ $crowdfunding->share_price }} USD &nbsp;</h6>
+                                <h6><span class="text-warning"> Ticket Price: </span> {{ number_format($crowdfunding->share_price) }} USD &nbsp;</h6>
                             </div>
                             <a href="{{ route('frontend.crowdfunding_project', ['slug' => $crowdfunding->slug]) }}" class="btn"> Check Project </a>
                         </div>

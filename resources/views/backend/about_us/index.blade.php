@@ -64,13 +64,13 @@
                             @forelse($about_us as $about)
                                 <tr>
                                     <td style="max-width: 200px">
-                                        {{ Str::limit($about->question, 50) }}
+                                        {{ substr($about->question, 50) }}
                                     </td>
                                     <td style="max-width: 200px">
-                                        {{ Str::limit($about->answer, 50) }}
+                                        {{ substr($about->answer, 50) }}
                                     </td>
                                     <td style="max-width: 200px">
-                                        {{ Str::limit($about->banner_text, 50) }}
+                                        {{ substr($about->banner_text, 50) }}
                                     </td>
                                     <td class="text-end">
                                         <form action="{{ route('backend.about-us.destroy', $about->id) }}" method="POST">

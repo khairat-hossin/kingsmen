@@ -62,7 +62,7 @@
                     <img src="assets/img/products/qna.jpg" class="card-img-top" alt="...">
                     <h3 class="mt-3">Frequently Asked Questions</h3>
                     <div class="card_inner mt-3">
-                        <a href="" class="btn">Learn more</a>
+                        <a href="{{ route('frontend.faq') }}" class="btn">Learn more</a>
                     </div>
                 </div>
             </div>
@@ -71,7 +71,7 @@
                     <img src="assets/img/products/gtc.jpg" class="card-img-top" alt="...">
                     <h3 class="mt-3">Get to know the company</h3>
                     <div class="card_inner mt-3">
-                        <a href="" class="btn">Learn more</a>
+                        <a href="{{ route('frontend.about_us') }}" class="btn">Learn more</a>
                     </div>
                 </div>
             </div>
@@ -80,7 +80,7 @@
                     <img src="assets/img/products/gtk.jpg" class="card-img-top" alt="...">
                     <h3 class="mt-3">Get to know the team</h3>
                     <div class="card_inner mt-3">
-                        <a href="" class="btn">Learn more</a>
+                        <a href="{{ route('frontend.team') }}" class="btn">Learn more</a>
                     </div>
                 </div>
             </div>
