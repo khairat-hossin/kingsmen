@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('passport_photo');
             $table->string('ssn');
             $table->string('id_card');
-            $table->string('university_degree');
+            $table->string('university_degree')->nullable();
             $table->text('about_team_member');
             $table->string('position');
             $table->string('designation');

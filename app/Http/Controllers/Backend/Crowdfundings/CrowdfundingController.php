@@ -471,9 +471,16 @@ class CrowdfundingController extends Controller
                 $crowdfunding->buisness_plan = $buisness_plan_url;
             }
 
-            if ($request->project_logo) {
-                $project_logo_url = uploadFileToPublic($request->file('project_logo'), 'crowdfunding/project_logo');
 
+            // Delete previous logo on update
+            if($request->hasFile('project_logo')){
+                if ($oldImage = $crowdfunding->project_logo) {
+                    $filePath = public_path($oldImage);
+                    if (file_exists($filePath)) {
+                        unlink($filePath);
+                    }
+                }
+                $project_logo_url = uploadFileToPublic($request->file('project_logo'), 'crowdfunding/project_logo');
                 $crowdfunding->project_logo = $project_logo_url;
             }
 

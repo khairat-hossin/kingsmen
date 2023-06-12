@@ -65,17 +65,17 @@
                             @forelse($services as $service)
                                 <tr>
                                     <td style="max-width: 200px">
-                                        {{ Str::limit($service->solution_title, 50) }}
+                                        {{ substr($service->solution_title, 50) }}
                                     </td>
                                     <td style="max-width: 200px">
-                                        {{ Str::limit($service->solution_summary, 50) }}
+                                        {{ substr($service->solution_summary, 50) }}
                                     </td>
                                     <td style="max-width: 200px">
-                                        {{ Str::limit($service->banner_text, 50) }}
+                                        {{ substr($service->banner_text, 50) }}
                                     </td>
                                     <td style="max-width: 200px">
-                                        {{ Str::limit($service->title, 50) }}
-                                    </td>
+                                        {{ substr($service->title, 50) }}
+                                    </td>subst
                                     <td class="text-end">
                                         <form action="{{ route('backend.services.destroy', $service->id) }}" method="POST">
                                             @can('view_services')
