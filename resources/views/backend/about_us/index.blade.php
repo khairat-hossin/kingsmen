@@ -63,14 +63,14 @@
                         <tbody>
                             @forelse($about_us as $about)
                                 <tr>
-                                    <td style="max-width: 200px">
-                                        {{ substr($about->question, 50) }}
+                                    <td class="text-truncate"  style="max-width: 200px">
+                                        {{ $about->question  }}
                                     </td>
-                                    <td style="max-width: 200px">
-                                        {{ substr($about->answer, 50) }}
+                                    <td class="text-truncate"  style="max-width: 200px">
+                                        {{ $about->answer  }}
                                     </td>
-                                    <td style="max-width: 200px">
-                                        {{ substr($about->banner_text, 50) }}
+                                    <td class="text-truncate"  style="max-width: 200px">
+                                        {{ $about->banner_text  }}
                                     </td>
                                     <td class="text-end">
                                         <form action="{{ route('backend.about-us.destroy', $about->id) }}" method="POST">

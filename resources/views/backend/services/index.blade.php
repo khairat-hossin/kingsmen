@@ -64,18 +64,18 @@
                         <tbody>
                             @forelse($services as $service)
                                 <tr>
-                                    <td style="max-width: 200px">
-                                        {{ substr($service->solution_title, 50) }}
+                                    <td class="text-truncate"  style="max-width: 200px">
+                                        {{ $service->solution_title }}
                                     </td>
-                                    <td style="max-width: 200px">
-                                        {{ substr($service->solution_summary, 50) }}
+                                    <td class="text-truncate"  style="max-width: 200px">
+                                        {{ $service->solution_summary }}
                                     </td>
-                                    <td style="max-width: 200px">
-                                        {{ substr($service->banner_text, 50) }}
+                                    <td class="text-truncate"  style="max-width: 200px">
+                                        {{ $service->banner_text }}
                                     </td>
-                                    <td style="max-width: 200px">
-                                        {{ substr($service->title, 50) }}
-                                    </td>subst
+                                    <td class="text-truncate"  style="max-width: 200px">
+                                        {{ $service->title }}
+                                    </td>
                                     <td class="text-end">
                                         <form action="{{ route('backend.services.destroy', $service->id) }}" method="POST">
                                             @can('view_services')

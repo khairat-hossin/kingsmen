@@ -1,15 +1,19 @@
+@if(Request::is('/'))
+
+@else
 <div class="flex justify-center space-x-6">
     <section class="">
         <div class="container-fluid">
             <div class="row text-center ">
                 <div></div>
-                <div>
-                    <a href=""> <img src="{{ asset('assets/img/kmen.png') }}" class="img-fluid"> </a>
-                </div>
+                    <div>
+                        <a href=""> <img src="{{ asset('assets/img/kmen.png') }}" class="img-fluid"> </a>
+                    </div>
                 <div></div>
             </div>
         </div>
     </section>
+@endif
     <!-- ======= Footer ======= -->
     <footer id="footer">
         <div class="footer-top">

@@ -42,12 +42,18 @@
             <?php
             $field_name = 'Project Location';
             $field_lable = label_case($field_name);
-            $field_placeholder = $field_lable;
+            $field_placeholder = 'Please Select';
+            $options = [
+                'Armenia' => 'Armenia',
+                'Aragatsanan' => 'Aragatsanan',
+                'Aragats' => 'Aragats',
+            ];
             $value = $crowdfunding->project_location ?? '';
             $required = 'required';
             ?>
+
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'project_location', "$required", 'value' => "$value"]) }}
+            {{ html()->select($field_name)->class('form-control form-control-sm select2')->attributes(['name' => 'project_location', "$required"])->options($options)->value($value) }}
             @error('project_location')
                 <span class="error">{{ $message }}</span>
             @enderror
