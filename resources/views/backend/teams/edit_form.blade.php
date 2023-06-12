@@ -41,7 +41,7 @@
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->date($field_name)->class('form-control form-control-sm')->attributes(['name' => 'date_of_birth', "$required", 'value' => "$value"]) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm datepicker')->attributes(['name' => 'date_of_birth', "$required", 'value' => "$value"]) }}
             @error('date_of_birth')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -71,7 +71,7 @@
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->date($field_name)->class('form-control form-control-sm')->attributes(['name' => 'passport_expiry_date', "$required", 'value' => "$value"]) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm datepicker')->attributes(['name' => 'passport_expiry_date', "$required", 'value' => "$value"]) }}
             @error('passprot_expiry_date')
                 <span class="error">{{ $message }}</span>
             @enderror
