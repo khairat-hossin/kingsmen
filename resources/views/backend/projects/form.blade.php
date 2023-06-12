@@ -42,6 +42,7 @@
                 'Region' => 'Region',
                 'City' => 'City',
                 'Village' => 'Village',
+                'Parpi' => 'Parpi'
             ];
             $value = old('address') ?? '';
             // $required = 'required';
@@ -109,6 +110,7 @@
                 'Residential' => 'Residential',
                 'Indurstrial' => 'Indurstrial',
                 'Commercial' => 'Commercial',
+                'Private Homes' => 'Private Homes'
             ];
             $value = old('project_type') ?? '';
             // $required = 'required';
