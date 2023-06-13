@@ -742,7 +742,8 @@
             $options = [
                 'One Tree Armenia'    => 'One Tree Armenia',
                 'The Western Village' => 'The Western Village',
-                'United 8 Apartment'  => 'United 8 Apartment'
+                'United 8 Apartment'  => 'United 8 Apartment',
+                'Other'               => 'Other'
             ];
             $value = $crowdfunding->choose_template ?? '';
             $required = 'required';
