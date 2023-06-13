@@ -8,14 +8,14 @@
 @if($crowdfunding_project->choose_template == 'One Tree Armenia')
 
  <!-- ======= Hero Section ======= -->
- <section id="hero-one-tree-armenia" class="d-flex align-items-center justify-content-center foo">
+ <section id="hero-one-tree-armenia" class="d-flex align-items-center justify-content-center foo mt-0">
     <div class="container aos-init aos-animate" data-aos="fade-up">
       <div class="col-xl-10 col-lg-8">
-        <h1 class="text-warning fw-light hero_subhead text-uppercase lh-base mt-2 fw-light">
+        {{-- <h1 class="text-warning fw-light hero_subhead text-uppercase lh-base mt-2 fw-light">
           @if(isset($banner_text))
             {{ $banner_text }}
           @endif<span>.</span>
-        </h1>
+        </h1> --}}
         <div class="row"></div>
       </div>
     </div>
@@ -325,11 +325,6 @@
                 @if($photos)
                     @foreach ($photos as $photo => $filename)
                         <div class="col-sm-6 col-md-3 p-2 m-0 text-center">
-                        {{-- <a data-fancybox="gallery"
-                            data-src="https://res.cloudinary.com/demo/image/upload/w_1000,c_scale,q_auto/castle.jpg"
-                            data-caption="Castle on a Hill">
-                            <img src="https://res.cloudinary.com/demo/image/upload/w_200,h_155,c_lfill,q_auto/castle.jpg" />
-                        </a> --}}
                             <img src="{{ asset($filename) }}" alt="photo gallery">
                         </div>
                     @endforeach
@@ -384,17 +379,6 @@
         @if(isset($banner))
             background: url("{{ asset($banner) }}") top center;
         @endif
-    }
-
-    #hero-one-tree-armenia::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      opacity: 0.7;
-      background-color: #000;
     }
 </style>
 {{-- One Tree Armenia Template End --}}
