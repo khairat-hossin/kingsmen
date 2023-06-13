@@ -470,27 +470,27 @@
         </section>
         <section class="bg-dark p-3">
             <div class="container text-white">
-                <div class="row  row-cols-1 row-cols-lg-3 row-cols-md-3  d-flex justify-content-center align-items-center">
+                <div class="row  row-cols-1 row-cols-lg-3 row-cols-md-3  d-flex justify-content-center mt-3">
                     <div id=" highlights ">
                         <h2 class="text-warning f">Project highlights</h2>
                         <ul>
                             <li>
-                                <h6 class="text-warning f">Project Name:</h6> {{ $crowdfunding_project->project_name }}
+                                <h6> <span class="text-warning f">Project Name:</span> {{ $crowdfunding_project->project_name }}</h6>
                             </li>
                             <li>
-                                <h6 class="text-warning f">Investment Type:</h6> {{ $crowdfunding_project->type_of_investment }}
+                                <h6><span class="text-warning f">Investment Type:</span> {{ $crowdfunding_project->type_of_investment }}</h6>
                             </li>
                             <li>
-                                <h6 class="text-warning">Investing In:</h6> {{ $crowdfunding_project->investment_in }}
+                                <h6><span class="text-warning">Investing In:</span> {{ $crowdfunding_project->investment_in }}</h6>
                             </li>
                             <li>
-                                <h6 class="text-warning">Plot Area: </h6>{{ $crowdfunding_project->built_up_area_size_per_sqm }}
+                                <h6><span class="text-warning">Plot Area:</span> {{ $crowdfunding_project->built_up_area_size_per_sqm }} </h6>
                             </li>
                             <li>
-                                <h6 class="text-warning">Project Location:</h6>{{ $crowdfunding_project->project_location }}
+                                <h6><span class="text-warning">Project Location:</span> {{ $crowdfunding_project->project_location }}</h6>
                             </li>
                             <li>
-                                <h6 class="text-warning">Project Launching: </h6>{{ $crowdfunding_project->project_starting_date }}
+                                <h6><span class="text-warning">Project Launching:</span> {{ $crowdfunding_project->project_starting_date }}</h6>
                             </li>
                         </ul>
                     </div>
@@ -498,34 +498,34 @@
                         <h2 class="text-warning">Financial Highlights </h2>
                         <ul>
                             <li>
-                                <h6 class="text-warning">Invested Amount till Date:</h6> 1,265,000$
+                                <h6><span class="text-warning">Invested Amount till Date:</span> 1,265,000$ </h6>
                             </li>
                             <li>
-                                <h6 class="text-warning">Remaing to Invest until 1st Harvest:</h6>1,061,360$
+                                <h6><span class="text-warning">Remaing to Invest until 1st Harvest:</span> 1,061,360$</h6>
                             </li>
                             <li>
-                                <h6 class="text-warning">Offered at :</h6>2,326,360 USD
+                                <h6><span class="text-warning">Offered at :</span> 2,326,360 USD</h6>
                             </li>
                             <li>
-                                <h6 class="text-warning">Total Shares number:</h6>{{ $crowdfunding_project->total_registered_shares_at_local_authoritise }}
+                                <h6><span class="text-warning">Total Shares number:</span> {{ $crowdfunding_project->total_registered_shares_at_local_authoritise }}</h6>
                             </li>
                             <li>
-                                <h6 class="text-warning">Minimum Shares for sale:</h6>For Sale: 5
+                                <h6><span class="text-warning">Minimum Shares for sale:</span> For Sale: 5</h6>
                             </li>
                             <li>
-                                <h6 class="text-warning">Maximum Shares for sale:</h6>{{ $crowdfunding_project->shares_listed_for_sale }}
+                                <h6><span class="text-warning">Maximum Shares for sale:</span> {{ $crowdfunding_project->shares_listed_for_sale }}</h6>
                             </li>
                             <li>
-                                <h6 class="text-warning">Sold Shares:</h6>2
+                                <h6><span class="text-warning">Sold Shares:</span> 2</h6>
                             </li>
                             <li>
-                                <h6 class="text-warning">Price of 1 Share:</h6>{{ $crowdfunding_project->share_price }}$
+                                <h6><span class="text-warning">Price of 1 Share:</span> {{ $crowdfunding_project->share_price }} $ </h6>
                             </li>
                             <li>
-                                <h6 class="text-warning">Payment method:</h6>One time Payment
+                                <h6><span class="text-warning">Payment method:</span> One time Payment</h6>
                             </li>
                             <li>
-                                <h6 class="text-warning">Minimum Number of Shares :</h6>1
+                                <h6><span class="text-warning">Minimum Number of Shares : </span>1</h6>
                             </li>
                         </ul>
                     </div>
@@ -533,24 +533,24 @@
                         <h2 class="text-warning">Ownership & Securities</h2>
                         <ul>
                             <li>
-                                <h6 class="text-warning">Registration Type:</h6> Full Ownership at The Armenian Companies
-                                Register
+                                <h6><span class="text-warning">Registration Type:</span> Full Ownership at The Armenian Companies
+                                Register </h6>
                             </li>
                             <li>
-                                <h6 class="text-warning">Capital Security :</h6>up to 100%
+                                <h6><span class="text-warning">Capital Security :</span> up to 100%</h6>
                             </li>
                             <li>
-                                <h6 class="text-warning">Security Asset:</h6>Land Value
+                                <h6><span class="text-warning">Security Asset:</span> Land Value</h6>
                             </li>
                             <li>
-                                <h6 class="text-warning">Planted and Managed by:</h6> Kingsmen Investments
+                                <h6><span class="text-warning">Planted and Managed by:</span> Kingsmen Investments</h6>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="row text-center">
                     <div class="col-12">
-                        <a href="./one-tree-armenia.html" class="btn">Request</a>
+                        <a href="./one-tree-armenia.html" class="btn">Invest Now</a>
                     </div>
                 </div>
             </div>
@@ -698,6 +698,13 @@
 {{-- The United 8 Apartment Template Start --}}
 
 @elseif ($crowdfunding_project->choose_template == 'United 8 Apartment')
+@extends('frontend.layouts.app')
+
+@section('title')
+    {{ app_name() }}
+@endsection
+
+@section('content')
     <!-- ======= Hero Section ======= -->
     <section id="hero-the-western-village" class=" d-flex align-items-center justify-content-center">
         <div class="container" data-aos="fade-up">
@@ -1013,7 +1020,7 @@
 
 @else
  <!-- ======= Hero Section ======= -->
- <section id="hero-other" class="d-flex align-items-center justify-content-center foo">
+ <section id="hero-one-tree-armenia" class="d-flex align-items-center justify-content-center foo">
     <div class="container aos-init aos-animate" data-aos="fade-up">
       <div class="col-xl-10 col-lg-8">
         <h1 class="text-warning fw-light hero_subhead text-uppercase lh-base mt-2 fw-light">
@@ -1168,13 +1175,13 @@
 @endsection
 
 <style>
-    #hero-other{
+    #hero-one-tree-armenia{
         @if(isset($banner))
             background: url("{{ asset($banner) }}") top center;
         @endif
     }
 
-    #hero-other {
+    #hero-one-tree-armenia::before {
       content: '';
       position: absolute;
       top: 0;
