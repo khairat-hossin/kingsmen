@@ -162,7 +162,7 @@
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'type_of_investment', "$required", 'id' => 'type_of_investment'])->placeholder($field_placeholder) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'type_of_investment', "$required", 'id' => 'type_of_investment']) }}
             @error('type_of_investment')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -542,7 +542,7 @@
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->file($field_name)->multiple()->class('form-control form-control-sm')->attributes(['name' => 'buisness_plan', "$required"]) }}
         </div>
-        
+
     </div>
 
     <legend class="border-bottom w-100">Website Project Cover and Social Media Share</legend>
@@ -606,7 +606,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = '';
-            $required = 'required';
+            $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'banner', "$required", 'value' => "$value"]) }}
