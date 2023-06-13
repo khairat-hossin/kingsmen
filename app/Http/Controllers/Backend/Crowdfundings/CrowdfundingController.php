@@ -533,8 +533,19 @@ class CrowdfundingController extends Controller
            $photos_gallery_url = '';
            $photos_gallery = $request->file('photos_gallery');
            $path = [];
-           if($photos_gallery)
-           {
+
+           // Delete previous files on update
+           if($request->hasFile('photos_gallery')){
+                $imagePaths = json_decode($crowdfunding->photos_gallery, true);
+                if ($imagePaths !== null) {
+                    foreach ($imagePaths as $imagePath) {
+                        if (file_exists($imagePath)) {
+                            unlink($imagePath);
+                        }
+                    }
+                }
+
+                // Put new files
                 foreach ($photos_gallery as $photo) {
                     // Resize the image to a specific width and height
                     $resizedImage = Image::make($photo); // ei line tai kaaj korse na, data null
