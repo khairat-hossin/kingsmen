@@ -11,10 +11,7 @@
  <section id="hero-one-tree-armenia" class="d-flex align-items-center justify-content-center foo mt-0">
     <div class="container aos-init aos-animate" data-aos="fade-up">
       <div class="col-xl-10 col-lg-8">
-        {{-- <h1 class="text-warning fw-light hero_subhead text-uppercase lh-base mt-2 fw-light">
-          @if(isset($banner_text))
-            {{ $banner_text }}
-          @endif<span>.</span>
+
         </h1> --}}
         <div class="row"></div>
       </div>
