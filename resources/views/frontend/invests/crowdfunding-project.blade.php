@@ -66,33 +66,33 @@
     </section>
     <section  class="bg-dark p-3">
       <div class="container text-white">
-        <div class="row  row-cols-1 row-cols-lg-3 row-cols-md-3  d-flex justify-content-center align-items-center">
+        <div class="row  row-cols-1 row-cols-lg-3 row-cols-md-3  d-flex justify-content-center">
           <div  id=" highlights ">
             <h2 class="text-warning f">Project highlights</h2>
             <ul>
               <li>
-                <h6 class="text-warning f">Project Name:</h6>{{ $crowdfunding_project->project_name }}
+                <h6><span class="text-warning f">Project Name:</span> {{ $crowdfunding_project->project_name }}</h6>
               </li>
               <li>
-                <h6 class="text-warning f">Investment Type:</h6> {{ $crowdfunding_project->type_of_investment }}
+                <h6><span class="text-warning f">Investment Type:</span> {{ $crowdfunding_project->type_of_investment }}</h6>
               </li>
               <li>
-                <h6 class="text-warning">Investing In:</h6>{{ $crowdfunding_project->investment_in }}
+                <h6><span class="text-warning">Investing In:</span> {{ $crowdfunding_project->investment_in }}</h6>
               </li>
               <li>
-                <h6 class="text-warning">Plot Area: </h6>{{ number_format($crowdfunding_project->built_up_area_size_per_sqm) }}sqm
+                <h6><span class="text-warning">Plot Area: </span> {{ number_format($crowdfunding_project->built_up_area_size_per_sqm) }} sqm </h6>
               </li>
               <li>
-                <h6 class="text-warning">Number of Trees:</h6> 15,333
+                <h6><span class="text-warning">Number of Trees:</span> 15,333</h6>
               </li>
               <li>
-                <h6 class="text-warning">Project Location:</h6>{{ $crowdfunding_project->project_location }}
+                <h6><span class="text-warning">Project Location:</span> {{ $crowdfunding_project->project_location }}</h6>
               </li>
               <li>
-                <h6 class="text-warning">Started Planting:</h6>November 2021
+                <h6><span class="text-warning">Started Planting:</span> November 2021 </h6>
               </li>
               <li>
-                <h6 class="text-warning">First Harvest Expected:</h6>September 2028
+                <h6><span class="text-warning">First Harvest Expected:</span> September 2028 </h6>
               </li>
             </ul>
           </div>
@@ -100,28 +100,28 @@
             <h2 class="text-warning">Financial Highlights </h2>
             <ul>
               <li>
-                <h6 class="text-warning">Invested Amount till Date:</h6> {{ number_format($crowdfunding_project->total_cost_of_investment) }}$
+                <h6><span class="text-warning">Invested Amount till Date:</span> {{ number_format($crowdfunding_project->total_cost_of_investment) }}$ </h6>
               </li>
               <li>
-                <h6 class="text-warning">Remaing to Invest until 1st Harvest:</h6>452,884$
+                <h6><span class="text-warning">Remaing to Invest until 1st Harvest:</span> 452,884 $ </h6>
               </li>
               <li>
-                <h6 class="text-warning">Offered at :</h6>2,463,475 USD
+                <h6><span class="text-warning">Offered at :</span> 2,463,475 USD </h6>
               </li>
               <li>
-                <h6 class="text-warning">Total Shares number:</h6>{{ number_format($crowdfunding_project->total_registered_shares_at_local_authoritise) }}
+                <h6><span class="text-warning">Total Shares number:</span> {{ number_format($crowdfunding_project->total_registered_shares_at_local_authoritise) }} </h6>
               </li>
               <li>
-                <h6 class="text-warning">Maximum Shares:</h6>For Sale: {{ number_format($crowdfunding_project->shares_listed_for_sale) }}
+                <h6><span class="text-warning">Maximum Shares:</span>For Sale: {{ number_format($crowdfunding_project->shares_listed_for_sale) }} </h6>
               </li>
               <li>
-                <h6 class="text-warning">Price of 1 Share:</h6>{{ number_format($crowdfunding_project->share_price) }}$
+                <h6><span class="text-warning">Price of 1 Share:</span> {{ number_format($crowdfunding_project->share_price) }} $ </h6>
               </li>
               <li>
-                <h6 class="text-warning">Payment method:</h6>One Time Payment
+                <h6><span class="text-warning">Payment method:</span> One Time Payment </h6>
               </li>
               <li>
-                <h6 class="text-warning">Minimum Number of Shares :</h6>1
+                <h6><span class="text-warning">Minimum Number of Shares :</span>1 </h6>
               </li>
             </ul>
           </div>
@@ -129,19 +129,19 @@
             <h2 class="text-warning">Ownership & Securities</h2>
             <ul>
               <li>
-                <h6 class="text-warning">Registration Type:</h6>Full Ownership at The Armenian Companies Register
+                <h6><span class="text-warning">Registration Type:</span> Full Ownership at The Armenian Companies Register </h6>
               </li>
               <li>
-                <h6 class="text-warning">Capital Security :</h6>up to 100%
+                <h6><span class="text-warning">Capital Security :</span> up to 100% </h6>
               </li>
               <li>
-                <h6 class="text-warning">Security Asset:</h6>Land Value, Insurance Policy
+                <h6><span class="text-warning">Security Asset:</span>Land Value, Insurance Policy </h6>
               </li>
               <li>
-                <h6 class="text-warning">Insurance Type:</h6>Fire , Natural Disaster, War , Labor
+                <h6><span class="text-warning">Insurance Type:</span>Fire , Natural Disaster, War , Labor </h6>
               </li>
               <li>
-                <h6 class="text-warning">Planted and Managed by:</h6> {{ $crowdfunding_project->management_companies }}
+                <h6><span class="text-warning">Planted and Managed by:</span> {{ $crowdfunding_project->management_companies }} </h6>
               </li>
             </ul>
           </div>
