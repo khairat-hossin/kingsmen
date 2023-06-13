@@ -51,26 +51,21 @@
                     <thead>
                         <tr>
                             <th>{{ __('labels.text.name') }}</th>
-                            <th>{{ __('labels.text.date_of_birth') }}</th>
-                            <th>{{ __('labels.text.SSN') }}</th>
-                            <th>{{ __('labels.text.passportNumber') }}</th>
+                            <th>{{ __('labels.text.designation') }}</th>
+                            <th>{{ __('labels.text.assigned_email') }}</th>
+                            <th>{{ __('labels.text.assigned_cell_number') }}</th>
                             <th class="text-end">{{ __('labels.backend.action') }}</th>
                         </tr>
                     </thead>
                     <tbody>
                         @forelse ($teams as $member)
                         <tr>
-                            <td>
-                                {{ $member->first_name }} {{ $member->last_name }}
-                            </td>
-                            <td>{{ $member->date_of_birth }}</td>
-                            <td>
-                                {{ $member->ssn }}
-                            </td>
-                            <td>
-                                {{ $member->passport_number }}
-                            </td>
-                            <td class="text-end">
+                            <td class="w-15">{{ $member->first_name .' '.$member->last_name }}</td>
+                            <td class="w-30">{{ $member->designation }}</td>
+                            <td class="w-20">{{ $member->assigned_email }}</td>
+                            <td class="w-15">{{ $member->assigned_cell_number }}</td>
+
+                            <td class="text-end w-15">
                                 <form action="{{route('backend.teams.destroy', $member->id)}}" method="POST">
                                     @can('view_teams')
                                         <a href="{{route('backend.teams.show', $member->id)}}" class="btn btn-success btn-sm mt-1" data-toggle="tooltip" title="{{__('labels.backend.show')}}"><i class="fas fa-desktop"></i></a>
@@ -116,3 +111,15 @@
 </div>
 
 @endsection
+
+<style>
+    .w-15 {
+        width: 150px;
+    }
+    .w-20 {
+        width: 200px;
+    }
+    .w-30 {
+        width: 300px;
+    }
+</style>
