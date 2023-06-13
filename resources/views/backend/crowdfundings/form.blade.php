@@ -374,6 +374,7 @@
                 'Lands For Sale' => 'Lands For Sale',
                 'Hotel Rooms' => 'Hotel Rooms ',
                 'Apartments' => 'Apartments ',
+                'Urban Project' => 'Urban Project'
             ];
             $value = old('investment_in') ?? '';
             $required = 'required';
