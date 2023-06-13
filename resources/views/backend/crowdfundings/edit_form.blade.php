@@ -373,6 +373,8 @@
                 'lands_for_sale' => 'Lands For Sale',
                 'hotel_rooms' => 'Hotel Rooms ',
                 'apartments' => 'Apartments ',
+                'Urban Project' => 'Urban Project'
+
             ];
             $value = $crowdfunding->investment_in ?? '';
             $required = 'required';
