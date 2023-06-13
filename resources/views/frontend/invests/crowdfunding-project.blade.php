@@ -1023,7 +1023,7 @@
 
 @else
  <!-- ======= Hero Section ======= -->
- <section id="hero-one-tree-armenia" class="d-flex align-items-center justify-content-center foo">
+ <section id="hero-other" class="d-flex align-items-center justify-content-center foo">
     <div class="container aos-init aos-animate" data-aos="fade-up">
       <div class="col-xl-10 col-lg-8">
         <h1 class="text-warning fw-light hero_subhead text-uppercase lh-base mt-2 fw-light">
@@ -1178,13 +1178,13 @@
 @endsection
 
 <style>
-    #hero-one-tree-armenia{
+    #hero-other{
         @if(isset($banner))
             background: url("{{ asset($banner) }}") top center;
         @endif
     }
 
-    #hero-one-tree-armenia::before {
+    #hero-other {
       content: '';
       position: absolute;
       top: 0;
