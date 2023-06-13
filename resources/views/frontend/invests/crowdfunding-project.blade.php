@@ -701,13 +701,6 @@
 {{-- The United 8 Apartment Template Start --}}
 
 @elseif ($crowdfunding_project->choose_template == 'United 8 Apartment')
-@extends('frontend.layouts.app')
-
-@section('title')
-    {{ app_name() }}
-@endsection
-
-@section('content')
     <!-- ======= Hero Section ======= -->
     <section id="hero-the-western-village" class=" d-flex align-items-center justify-content-center">
         <div class="container" data-aos="fade-up">
