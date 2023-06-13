@@ -11,10 +11,7 @@
  <section id="hero-one-tree-armenia" class="d-flex align-items-center justify-content-center foo mt-0">
     <div class="container aos-init aos-animate" data-aos="fade-up">
       <div class="col-xl-10 col-lg-8">
-        {{-- <h1 class="text-warning fw-light hero_subhead text-uppercase lh-base mt-2 fw-light">
-          @if(isset($banner_text))
-            {{ $banner_text }}
-          @endif<span>.</span>
+
         </h1> --}}
         <div class="row"></div>
       </div>
@@ -701,13 +698,6 @@
 {{-- The United 8 Apartment Template Start --}}
 
 @elseif ($crowdfunding_project->choose_template == 'United 8 Apartment')
-@extends('frontend.layouts.app')
-
-@section('title')
-    {{ app_name() }}
-@endsection
-
-@section('content')
     <!-- ======= Hero Section ======= -->
     <section id="hero-the-western-village" class=" d-flex align-items-center justify-content-center">
         <div class="container" data-aos="fade-up">
@@ -1023,7 +1013,7 @@
 
 @else
  <!-- ======= Hero Section ======= -->
- <section id="hero-one-tree-armenia" class="d-flex align-items-center justify-content-center foo">
+ <section id="hero-other" class="d-flex align-items-center justify-content-center foo">
     <div class="container aos-init aos-animate" data-aos="fade-up">
       <div class="col-xl-10 col-lg-8">
         <h1 class="text-warning fw-light hero_subhead text-uppercase lh-base mt-2 fw-light">
@@ -1178,13 +1168,13 @@
 @endsection
 
 <style>
-    #hero-one-tree-armenia{
+    #hero-other{
         @if(isset($banner))
             background: url("{{ asset($banner) }}") top center;
         @endif
     }
 
-    #hero-one-tree-armenia::before {
+    #hero-other {
       content: '';
       position: absolute;
       top: 0;
