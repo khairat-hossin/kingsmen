@@ -162,7 +162,7 @@
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'type_of_investment', "$required", 'value' => "$value"]) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'type_of_investment', "$required"]) }}
             @error('type_of_investment')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -541,7 +541,7 @@
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->file($field_name)->multiple()->class('form-control form-control-sm')->attributes(['name' => 'Buisness Plan', "$required"]) }}
-        </div>        
+        </div>
     </div>
 
     <legend class="border-bottom w-100">Website Project Cover and Social Media Share</legend>
@@ -691,7 +691,7 @@
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
-            {{ html()->file($field_name)->multiple()->class('form-control form-control-sm')->attributes(['name' => 'photo_gallery']) }}
+            {{ html()->file($field_name)->multiple()->class('form-control form-control-sm')->attributes(['name' => 'photo_gallery[]']) }}
         </div>
     </div>
 </div>
