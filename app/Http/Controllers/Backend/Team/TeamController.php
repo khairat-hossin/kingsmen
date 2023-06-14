@@ -252,7 +252,7 @@ class TeamController extends Controller
 
              // Delete previous files on update
              if($request->hasFile('passport_photo')){
-                if ($oldFile = $passport_photo_url->passport_photo) {
+                if ($oldFile = $team->passport_photo) {
                     $filePath = public_path($oldFile);
                     if (file_exists($filePath)) {
                         unlink($filePath);
@@ -271,7 +271,7 @@ class TeamController extends Controller
                     }
                 }
                 $id_card_url = uploadFileToPublic($request->file('id_card'), 'teams/id_card');
-                $team->id_card              = $id_card_url;
+                $team->id_card   = $id_card_url;
             }
 
 
