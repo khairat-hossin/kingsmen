@@ -549,6 +549,25 @@ class PrivateInvestmentController extends Controller
 
         $private_investments = PrivateInvestment::findOrFail($id);
 
+        // Delete the associated files & images
+        $fileFields = ['shares_selling_contract', 'company_papers', 'buisness_plan', 'banner'];
+        foreach ($fileFields as $fileField) {
+            $filePath = public_path($private_investments->{$fileField});
+            if (file_exists($filePath) && is_file($filePath)) {
+                unlink($filePath);
+            }
+        }
+
+        $imagePaths = json_decode($private_investments->photo_gallery, true);
+
+        // Delete Multiple image
+        if ($imagePaths !== null) {
+            foreach ($imagePaths as $imagePath) {
+                if (file_exists($imagePath)) {
+                    unlink($imagePath);
+                }
+            }
+        }
 
         $private_investments->delete();
 
