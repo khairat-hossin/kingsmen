@@ -124,13 +124,29 @@ class ContactController extends Controller
         $contact = new Contact;
 
         $photo_of_passport_url = '';
-        if ($request->hasFile('photo_of_passport')) {
+        // Delete previous files on update
+        if($request->hasFile('photo_of_passport')){
+            if ($oldFile = $contact->photo_of_passport) {
+                $filePath = public_path($oldFile);
+                if (file_exists($filePath)) {
+                    unlink($filePath);
+                }
+            }
+            // Set new file
             $photo_of_passport_url = uploadFileToPublic($request->file('photo_of_passport'), 'contact/photo_of_passport');
             $contact->photo_of_passport = $photo_of_passport_url;
         }
 
         $photo_of_id_card_url = '';
-        if ($request->hasFile('photo_of_id_card')) {
+
+         if($request->hasFile('photo_of_id_card')){
+            if ($oldFile = $contact->photo_of_id_card) {
+                $filePath = public_path($oldFile);
+                if (file_exists($filePath)) {
+                    unlink($filePath);
+                }
+            }
+
             $photo_of_id_card_url = uploadFileToPublic($request->file('photo_of_id_card'), 'contact/photo_of_id_card');
             $contact->photo_of_id_card = $photo_of_id_card_url;
         }

@@ -191,13 +191,29 @@ class FAQController extends Controller
             $faqs->banner_text  = $request->banner_text;
 
             $banner_url = '';
-            if ($request->banner) {
+             // Delete previous files on update
+             if($request->hasFile('banner')){
+                if ($oldFile = $faqs->banner) {
+                    $filePath = public_path($oldFile);
+                    if (file_exists($filePath)) {
+                        unlink($filePath);
+                    }
+                }
+                // Set new file
                 $banner_url = uploadFileToPublic($request->file('banner'), 'faqs/banner');
                 $faqs->banner = $banner_url;
             }
 
             $video_url = '';
-            if ($request->video) {
+            // Delete previous files on update
+            if($request->hasFile('video')){
+                if ($oldFile = $faqs->video) {
+                    $filePath = public_path($oldFile);
+                    if (file_exists($filePath)) {
+                        unlink($filePath);
+                    }
+                }
+                // Set new file
                 $video_url = uploadFileToPublic($request->file('video'), 'faqs/video');
                 $faqs->video = $video_url;
             }

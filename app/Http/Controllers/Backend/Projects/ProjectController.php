@@ -780,19 +780,8 @@ class ProjectController extends Controller {
             $project->project_management_companies = $request->project_management_companies;
             $project->full_payment_usdt            =$request->full_payment_usdt;
 
-            // Multiple photo put to db
-            $home_page_photos_galleryurl = '';
-            $photos_gallery = $request->file('home_page_photos_gallery');
-            $photoPaths = [];
 
-            // if($photos_gallery)
-            // {
-            //      foreach ($photos_gallery as $photo) {
-            //          $home_page_photos_galleryurl = uploadFileToPublic($photo, 'projects/home_page_photos_gallery');
-            //          $photoPaths[] = asset($home_page_photos_galleryurl);
-            //      }
-            //      $project->home_page_photos_gallery = json_encode($photoPaths);
-            // }
+            $photos_gallery = $request->file('home_page_photos_gallery');
 
             //Delete previous files on update
             if($request->hasFile('home_page_photos_gallery')){
@@ -834,7 +823,7 @@ class ProjectController extends Controller {
                 $qna_page_banner = uploadFileToPublic($request->file('qna_page_banner'), 'projects/qna_page_banner');
                 $project->qna_page_banner           = $qna_page_banner;
             }
-            
+
             $project->qna_page_banner_text      = $request->qna_page_banner_text;
             $project->qna_page_header_title     = $request->qna_page_header_title;
             $project->qna_page_header_paragraph = $request->qna_page_header_paragraph;

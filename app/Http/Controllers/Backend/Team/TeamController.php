@@ -250,20 +250,42 @@ class TeamController extends Controller
             $id_card_url = '';
             $upload_photo_url = '';
 
-            if ($request->passport_photo) {
+             // Delete previous files on update
+             if($request->hasFile('passport_photo')){
+                if ($oldFile = $passport_photo_url->passport_photo) {
+                    $filePath = public_path($oldFile);
+                    if (file_exists($filePath)) {
+                        unlink($filePath);
+                    }
+                }
+                // Set new file
                 $passport_photo_url = uploadFileToPublic($request->file('passport_photo'), 'teams/passport');
                 $team->passport_photo   = $passport_photo_url;
             }
 
-            if ($request->id_card) {
+            if($request->hasFile('id_card')){
+                if ($oldFile = $team->id_card) {
+                    $filePath = public_path($oldFile);
+                    if (file_exists($filePath)) {
+                        unlink($filePath);
+                    }
+                }
                 $id_card_url = uploadFileToPublic($request->file('id_card'), 'teams/id_card');
                 $team->id_card              = $id_card_url;
             }
 
 
-            if($request->upload_photo) {
+            // Delete previous files on update
+            if($request->hasFile('upload_photo')){
+                if ($oldFile = $team->upload_photo) {
+                    $filePath = public_path($oldFile);
+                    if (file_exists($filePath)) {
+                        unlink($filePath);
+                    }
+                }
+                // Resize and save new file
                 $photo = $request->upload_photo;
-                $resizedImage = Image::make($photo); // ei line tai kaaj korse na, data null
+                $resizedImage = Image::make($photo);
 
                 $filename = uniqid() . '.' . $photo->getClientOriginalExtension();
                 $resizedImage->resize(400, 400);
