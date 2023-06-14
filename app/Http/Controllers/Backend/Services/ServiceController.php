@@ -141,7 +141,7 @@ class ServiceController extends Controller
      */
     public function show(string $id)
     {
-       
+
         $this->authorize('show_services');
 
         $module_title = $this->module_title;
@@ -205,7 +205,15 @@ class ServiceController extends Controller
             $services->banner_text     = $request->banner_text;
 
             $banner_url = '';
-            if ($request->banner) {
+            // Delete previous files on update
+            if($request->hasFile('banner')){
+                if ($oldFile = $services->banner) {
+                    $filePath = public_path($oldFile);
+                    if (file_exists($filePath)) {
+                        unlink($filePath);
+                    }
+                }
+                // Set new file
                 $photo = $request->file('banner');
                 $filename= time() . '.' . $photo->getClientOriginalExtension();
                 $location = $request->file('banner')->storeAs('uploads/services/banner', $filename);
@@ -216,7 +224,14 @@ class ServiceController extends Controller
             }
 
             $solution_image_url = '';
-            if ($request->solution_image) {
+             if($request->hasFile('solution_image')){
+                if ($oldFile = $services->solution_image) {
+                    $filePath = public_path($oldFile);
+                    if (file_exists($filePath)) {
+                        unlink($filePath);
+                    }
+                }
+                
                 $photo = $request->file('solution_image');
                 $filenameToStore = time() . '.' . $photo->getClientOriginalExtension();
                 $location = $request->file('solution_image')->storeAs('uploads/services/solution_image', $filenameToStore);
