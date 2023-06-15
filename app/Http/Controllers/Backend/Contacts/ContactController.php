@@ -185,7 +185,7 @@ class ContactController extends Controller
         // Add a person of this contact in pipedrive
         $this->addPersonPipeDrive($contact);
 
-        flash(icon().' '.Str::singular($module_title)."' Created.")->success()->important();
+        flash(icon().' '."Contact Created Successfully.")->success()->important();
 
         logUserAccess($module_title.' '.$module_action.' | Id: '.$$module_name_singular->id);
 
@@ -318,9 +318,9 @@ class ContactController extends Controller
         $request->validate([
             'first_name' => 'nullable',
             'last_name' => 'nullable:',
-            'email' => 'required|unique:'.$module_model.',email',
-            'phone' => 'required|unique:'.$module_model.',phone',
-            'id_no' => 'required|unique:'.$module_model.',id_no',
+            'email' => 'required|unique:'.$module_model.',email,' . $id.',id',
+            'phone' => 'required|unique:'.$module_model.',phone,' . $id.',id',
+            'id_no' => 'required|unique:'.$module_model.',id_no,' . $id.',id',
             'client_type' => 'nullable',
             'buisness_position' => 'nullable',
             'budget' => 'nullable',
@@ -350,18 +350,31 @@ class ContactController extends Controller
 
         $photo_of_passport_url = $contact->photo_of_passport;
 
-        if ($request->hasFile('photo_of_passport')) {
+        // Delete previous file on update
+        if($request->hasFile('project_logo')){
+            if ($oldImage = $contact->photo_of_passport) {
+                $filePath = public_path($oldImage);
+                if (file_exists($filePath)) {
+                    unlink($filePath);
+                }
+            }
+            // Put new file
             $photo_of_passport_url = uploadFileToPublic($request->file('photo_of_passport'), 'contact/photo_of_passport');
             $contact->photo_of_passport = $photo_of_passport_url;
         }
 
         $photo_of_id_card_url = $contact->photo_of_id_card;
 
-        if ($request->hasFile('photo_of_id_card')) {
-            $photo_of_id_card_url = uploadFileToPublic($request->file('photo_of_id_card'), 'contact/photo_of_id_card');
-            $contact->photo_of_id_card = $photo_of_id_card_url;
-
-        }
+        if($request->hasFile('photo_of_id_card')){
+             if ($oldImage = $contact->photo_of_id_card) {
+                 $filePath = public_path($oldImage);
+                 if (file_exists($filePath)) {
+                     unlink($filePath);
+                 }
+             }
+                 $photo_of_id_card_url = uploadFileToPublic($request->file('photo_of_id_card'), 'contact/photo_of_id_card');
+                 $contact->photo_of_id_card = $photo_of_id_card_url;
+         }
 
         $contact->first_name = $request->first_name;
         $contact->last_name = $request->last_name;
@@ -392,7 +405,7 @@ class ContactController extends Controller
 
         $contact->save();
 
-        flash(icon().' '.Str::singular($module_title)."' Updated Successfully")->success()->important();
+        flash(icon().' '."Contact Updated Successfully")->success()->important();
 
         logUserAccess($module_title.' '.$module_action.' | Id: '.$$module_name_singular->id);
 
@@ -417,10 +430,18 @@ class ContactController extends Controller
 
         $$module_name_singular = $module_model::findOrFail($id);
 
+        // Delete the associated image & files
+        $fileFields = ['photo_of_passport','photo_of_id_card'];
+        foreach ($fileFields as $fileField) {
+            $filePath = public_path($$module_name_singular->{$fileField});
+            if (file_exists($filePath) && is_file($filePath)) {
+                unlink($filePath);
+            }
+        }
 
         $$module_name_singular->delete();
 
-        flash(icon().' '.Str::singular($module_title)." Deleted Successfully")->success()->important();
+        flash(icon().' '."Contact Deleted Successfully")->success()->important();
 
         logUserAccess($module_title.' '.$module_action.' | Id: '.$$module_name_singular->id);
 
