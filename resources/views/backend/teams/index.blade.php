@@ -59,9 +59,12 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @php
+                            $i = 1;
+                        @endphp
                         @forelse ($teams as $member)
                         <tr>
-                            <td>{{ $member->id }}</td>
+                            <td>{{ $i++ }}</td>
                             <td class="w-15">{{ $member->first_name .' '.$member->last_name }}</td>
                             <td class="w-30">{{ $member->designation }}</td>
                             <td class="w-20">{{ $member->assigned_email }}</td>
@@ -116,12 +119,12 @@
 
 <style>
     .w-15 {
-        width: 150px;
+        max-width: 150px;
     }
     .w-20 {
-        width: 200px;
+        max-width: 200px;
     }
     .w-30 {
-        width: 300px;
+        max-width: 300px;
     }
 </style>

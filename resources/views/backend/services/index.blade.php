@@ -54,6 +54,7 @@
                     <table class="table table-hover table-responsive-sm">
                         <thead>
                             <tr>
+                                <th>#</th>
                                 <th>Solution Title</th>
                                 <th>Solution Summary</th>
                                 <th>Banner Text</th>
@@ -62,8 +63,12 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @php
+                                $i = 1;
+                            @endphp
                             @forelse($services as $service)
                                 <tr>
+                                    <td>{{ $i++ }}</td>
                                     <td class="text-truncate"  style="max-width: 200px">
                                         {{ $service->solution_title }}
                                     </td>
