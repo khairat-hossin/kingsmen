@@ -197,11 +197,17 @@
             <?php
             $field_name = 'Project Or Investment';
             $field_lable = label_case($field_name);
-            $field_placeholder = $field_lable;
+            $field_placeholder = "Please Select";
+            $options = [
+                'Please select' => 'Please select',
+                'Green Hills' => 'Green Hills',
+                'One Tree Armenia' => 'One Tree Armenia',
+                'Eco Gardens' => 'Eco Gardens',
+            ];
             $required = "";
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(["name" => "project_or_investment", "$required"]) }}
+            {{ html()->select($field_name)->class('form-control form-control-sm')->attributes(["name" => "project_or_investment","$required"])->options($options)->value($value) }}
         </div>
     </div>
 </div>
