@@ -54,6 +54,7 @@
                     <table class="table table-hover table-responsive-sm">
                         <thead>
                             <tr>
+                                <th>#</th>
                                 <th>Question</th>
                                 <th>Answer</th>
                                 <th>Banner Text</th>
@@ -61,8 +62,12 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @php
+                                $i = 1;
+                            @endphp
                             @forelse($about_us as $about)
-                                <tr>
+                            <tr>
+                                    <td>{{ $i++ }}</td>
                                     <td class="text-truncate"  style="max-width: 200px">
                                         {{ $about->question  }}
                                     </td>
