@@ -349,6 +349,14 @@ class TeamController extends Controller
 
         $$module_name_singular = $module_model::findOrFail($id);
 
+        // Delete the associated image/files
+        $fileFields = ['passport_photo','id_card','upload_photo'];
+        foreach ($fileFields as $fileField) {
+            $filePath = public_path($$module_name_singular->{$fileField});
+            if (file_exists($filePath) && is_file($filePath)) {
+                unlink($filePath);
+            }
+        }
 
         $$module_name_singular->delete();
 
