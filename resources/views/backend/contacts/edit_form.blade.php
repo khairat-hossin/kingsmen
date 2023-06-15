@@ -71,7 +71,7 @@
                 'Investor' => 'Investor',
                 'Connection' => 'Connection',
             ];
-            $value = old('client_type') ?? '';
+            $value = $contact->client_type ?? '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
@@ -115,7 +115,7 @@
                 'Country' => 'Country',
                 'City' => 'City',
             ];
-            $value = old('location') ?? '';
+            $value = $contact->location ?? '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
@@ -197,11 +197,17 @@
             <?php
             $field_name = 'Project Or Investment';
             $field_lable = label_case($field_name);
-            $field_placeholder = $field_lable;
+            $field_placeholder = 'Please Select';
+            $options = [
+                'Green Hills' => 'Green Hills',
+                'One Tree Armenia' => 'One Tree Armenia',
+                'Eco Gardens' => 'Eco Gardens',
+            ];
+            $value = $contact->project_or_investment ?? '';
             $required = "";
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->value($contact->project_or_investment)->class('form-control form-control-sm')->attributes(["name" => "project_or_investment", "$required"]) }}
+            {{ html()->select($field_name)->value($contact->project_or_investment)->class('form-control form-control-sm select2')->attributes(["name" => "project_or_investment", "$required"])->options($options)->value($value) }}
         </div>
     </div>
 </div>
