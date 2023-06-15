@@ -147,11 +147,11 @@
 
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }}
-            {{ html()->text($field_name)->value($contact->date_of_birth)->class('form-control form-control-sm')->attributes(['readonly' => true, "name" => "date_of_birth", ]) }}
+            {{ html()->text($field_name)->value($contact->date_of_birth)->class('form-control form-control-sm ')->attributes(['readonly' => true, "name" => "date_of_birth", ]) }}
         </div>
     </div>
 </div>
-<legend class="border-bottom w-100">Assing to</legend>
+<legend class="border-bottom w-100">Assign to</legend>
 <div class="row mb-3">
     <div class="col-6 col-md-6">
         <div class="form-group">

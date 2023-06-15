@@ -161,16 +161,16 @@ class ContactController extends Controller
         $contact->buisness_position = $request->buisness_position;
         $contact->budget = $request->budget;
         $contact->location = $request->location;
-        $contact->added_date = Carbon::parse($request->added_date)->format('Y-m-d');
+        $contact->added_date = Carbon::parse($request->added_date)->format('m-d-Y');
         $contact->reffered_by = $request->reffered_by;
         $contact->note = $request->note;
-        $contact->date_of_birth = Carbon::parse($request->added_date)->format('Y-m-d');
+        $contact->date_of_birth = Carbon::parse($request->date_of_birth)->format('m-d-Y');
         $contact->team_member = $request->team_member;
         $contact->project_or_investment = $request->project_or_investment;
         $contact->citizenship = $request->citizenship;
         $contact->passport_number = $request->passport_number;
         $contact->photo_of_passport = $photo_of_passport_url;
-        $contact->passport_expiry_date = Carbon::parse($request->added_date)->format('Y-m-d');
+        $contact->passport_expiry_date = Carbon::parse($request->passport_expiry_date)->format('m-d-Y');
         $contact->id_card_text = $request->id_card_text;
         $contact->photo_of_id_card = $photo_of_id_card_url;
         $contact->exact_address = $request->exact_address;
@@ -178,7 +178,7 @@ class ContactController extends Controller
         $contact->name_of_the_bank_you_work_with = $request->name_of_the_bank_you_work_with;
         $contact->card_details_for_downpayment = $request->card_details_for_downpayment;
         $contact->bank_acc_with_6_month_history = $request->bank_acc_with_6_month_history;
-        $contact->crypto_wallet = $request->crypto_walle;
+        $contact->crypto_wallet = $request->crypto_wallet;
 
         $contact->save();
 
@@ -385,23 +385,23 @@ class ContactController extends Controller
         $contact->buisness_position = $request->buisness_position;
         $contact->budget = $request->budget;
         $contact->location = $request->location;
-        $contact->added_date = Carbon::parse($request->added_date)->format('Y-m-d');
+        $contact->added_date = Carbon::parse($request->added_date)->format('m-d-Y');
         $contact->reffered_by = $request->reffered_by;
         $contact->note = $request->note;
-        $contact->date_of_birth = Carbon::parse($request->added_date)->format('Y-m-d');
+        $contact->date_of_birth = Carbon::parse($request->date_of_birth)->format('m-d-Y');
         $contact->team_member = $request->team_member;
         $contact->project_or_investment = $request->project_or_investment;
         $contact->citizenship = $request->citizenship;
         $contact->passport_number = $request->passport_number;
         $contact->photo_of_passport = $photo_of_passport_url;
-        $contact->passport_expiry_date = Carbon::parse($request->added_date)->format('Y-m-d');
+        $contact->passport_expiry_date = Carbon::parse($request->passport_expiry_date)->format('m-d-Y');
         $contact->photo_of_id_card = $photo_of_id_card_url;
         $contact->exact_address = $request->exact_address;
         $contact->PO_box = $request->PO_box;
         $contact->name_of_the_bank_you_work_with = $request->name_of_the_bank_you_work_with;
         $contact->card_details_for_downpayment = $request->card_details_for_downpayment;
         $contact->bank_acc_with_6_month_history = $request->bank_acc_with_6_month_history;
-        $contact->crypto_wallet = $request->crypto_walle;
+        $contact->crypto_wallet = $request->crypto_wallet;
 
         $contact->save();
 
