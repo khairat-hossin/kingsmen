@@ -184,10 +184,10 @@ class ProjectController extends Controller {
             "technical_specs"                 => "nullable|mimes:pdf",
             "total_construction_cost"         => "nullable",
 
-            "selling_contract"                => "nullable|mimes:pdf",
-            "company_papers"                  => "nullable|mimes:pdf",
-            "project_rules_and_regulation"    => "nullable|mimes:pdf",
-            "other_files"                     => "nullable",
+            "selling_contract.*"              => "nullable|mimes:pdf",
+            "company_papers.*"                  => "nullable|mimes:pdf",
+            "project_rules_and_regulation.*"    => "nullable|mimes:pdf",
+            "other_files.*"                     => "nullable",
 
             "project_thumbnail"               => "nullable",
             "title"                           => "nullable",
@@ -264,30 +264,62 @@ class ProjectController extends Controller {
                 $project->technical_specs = $technical_specs;
             }
 
-            // Upload Legal Documents
-            $selling_contract = '';
-            if ($request->selling_contract) {
-                $selling_contract = uploadFileToPublic($request->file('selling_contract'), 'projects/selling_contract');
-                $project->selling_contract = $selling_contract;
-            }
+               // Multiple files save to db
+               $selling_contract_url = '';
+               $selling_contracts = $request->file('selling_contract');
+               $filePath = [];
 
-            $company_papers = '';
-            if ($request->company_papers) {
-                $company_papers = uploadFileToPublic($request->file('company_papers'), 'projects/company_papers');
-                $project->company_papers = $company_papers;
-            }
+               if($selling_contracts)
+               {
+                    foreach ($selling_contracts as $selling_contract) {
+                        $selling_contract_url = uploadFileToPublic($selling_contract, 'projects/selling_contract');
+                        $filePath[] = public_path($selling_contract_url);
+                    }
+                    $project->selling_contract = json_encode($filePath);
+               }
 
-            $project_rules_and_regulation = '';
-            if ($request->project_rules_and_regulation) {
-                $project_rules_and_regulation = uploadFileToPublic($request->file('project_rules_and_regulation'), 'projects/project_rules_and_regulation');
-                $project->project_rules_and_regulation = $project_rules_and_regulation;
-            }
+            //    Company papers
+               $company_papers_url = [];
+               $company_papers = $request->file('company_papers');
+               $filePath = [];
 
-            $other_files = '';
-            if ($request->other_files) {
-                $other_files = uploadFileToPublic($request->file('other_files'), 'projects/other_files');
-                $project->other_files = $other_files;
-            }
+               if($company_papers)
+               {
+                    foreach ($company_papers as $company_paper) {
+                        $company_papers_url = uploadFileToPublic($company_paper, 'projects/company_papers');
+                        $filePath[] = public_path($company_papers_url);
+                    }
+                    $project->company_papers = json_encode($filePath);
+               }
+
+            //    Project rules and regulations
+               $project_rules_and_regulation_url = [];
+               $project_rules_and_regulations = $request->file('project_rules_and_regulation');
+               $filePath = [];
+
+               if($project_rules_and_regulations)
+               {
+                    foreach ($project_rules_and_regulations as $project_rules_and_regulation) {
+                        $project_rules_and_regulation_url = uploadFileToPublic($project_rules_and_regulation, 'projects/project_rules_and_regulation');
+                        $filePath[] = public_path($project_rules_and_regulation_url);
+                    }
+                    $project->project_rules_and_regulation = json_encode($filePath);
+               }
+
+            //    Other Files
+               $other_files_url = [];
+               $other_files = $request->file('other_files');
+               $filePath = [];
+
+               if($other_files)
+               {
+                    foreach ($other_files as $other_file) {
+                        $other_files_url = uploadFileToPublic($other_file, 'projects/other_files');
+                        $filePath[] = public_path($other_files_url);
+                    }
+                    $project->other_files = json_encode($filePath);
+               }
+
 
             // home page
             $home_page_banner = '';
@@ -607,10 +639,10 @@ class ProjectController extends Controller {
             "technical_specs"                 => "nullable|mimes:pdf",
             "total_construction_cost"         => "nullable",
 
-            "selling_contract"                => "nullable|mimes:pdf",
-            "company_papers"                  => "nullable|mimes:pdf",
-            "project_rules_and_regulation"    => "nullable|mimes:pdf",
-            "other_files"                     => "nullable",
+            "selling_contract.*"                => "nullable|mimes:pdf",
+            "company_papers.*"                  => "nullable|mimes:pdf",
+            "project_rules_and_regulation.*"    => "nullable|mimes:pdf",
+            "other_files.*"                     => "nullable",
 
             "project_thumbnail"               => "nullable",
             "title"                           => "nullable",
@@ -710,54 +742,107 @@ class ProjectController extends Controller {
                 $project->technical_specs = $technical_specs;
             }
 
-            // Uplod Legal Documents
-            $selling_contract = '';
-            if($request->hasFile('selling_contract')){
-                if ($oldFile = $project->selling_contract) {
-                    $filePath = public_path($oldFile);
-                    if (file_exists($filePath)) {
-                        unlink($filePath);
-                    }
+            // Multiple files save to db
+            $selling_contract_url = '';
+            $selling_contracts = $request->file('selling_contract');
+            $path = [];
+
+            if($request->hasFile('selling_contract'))
+            {
+                 $filePaths = json_decode($project->selling_contract, true);
+                 if ($filePaths !== null) {
+                     foreach ($filePaths as $filePath) {
+                         if (file_exists($filePath)) {
+                             unlink($filePath);
+                         }
+                     }
+                 }
+
+
+                if($selling_contracts)
+                {
+                        foreach ($selling_contracts as $selling_contract) {
+                            $selling_contract_url = uploadFileToPublic($selling_contract, 'projects/selling_contract');
+                            $path[] = public_path($selling_contract_url);
+                        }
+                        $project->selling_contract = json_encode($path);
                 }
-                $selling_contract = uploadFileToPublic($request->file('selling_contract'), 'projects/selling_contract');
-                $project->selling_contract = $selling_contract;
             }
 
-            $company_papers = '';
-            if($request->hasFile('company_papers')){
-                if ($oldFile = $project->company_papers) {
-                    $filePath = public_path($oldFile);
-                    if (file_exists($filePath)) {
-                        unlink($filePath);
-                    }
-                }
-                $company_papers = uploadFileToPublic($request->file('company_papers'), 'projects/company_papers');
-                $project->company_papers = $company_papers;
-            }
+            //    Company papers
+               $company_papers_url = [];
+               $company_papers = $request->file('company_papers');
+               $path = [];
 
-            $project_rules_and_regulation = '';
-            if($request->hasFile('project_rules_and_regulation')){
-                if ($oldFile = $project->project_rules_and_regulation) {
-                    $filePath = public_path($oldFile);
-                    if (file_exists($filePath)) {
-                        unlink($filePath);
+               if($request->hasFile('company_papers'))
+               {
+                    $filePaths = json_decode($project->company_papers, true);
+                    if ($filePaths !== null) {
+                        foreach ($filePaths as $filePath) {
+                            if (file_exists($filePath)) {
+                                unlink($filePath);
+                            }
+                        }
                     }
-                }
-                $project_rules_and_regulation = uploadFileToPublic($request->file('project_rules_and_regulation'), 'projects/project_rules_and_regulation');
-                $project->project_rules_and_regulation = $project_rules_and_regulation;
-            }
 
-            $other_files = '';
-            if($request->hasFile('other_files')){
-                if ($oldFile = $project->other_files) {
-                    $filePath = public_path($oldFile);
-                    if (file_exists($filePath)) {
-                        unlink($filePath);
+                    if($company_papers)
+                    {
+                            foreach ($company_papers as $company_paper) {
+                                $company_papers_url = uploadFileToPublic($company_paper, 'projects/company_papers');
+                                $path[] = public_path($company_papers_url);
+                            }
+                            $project->company_papers = json_encode($path);
                     }
                 }
-                $other_files = uploadFileToPublic($request->file('other_files'), 'projects/other_files');
-                $project->other_files = $other_files;
-            }
+
+            //    Project rules and regulations
+               $project_rules_and_regulation_url = [];
+               $project_rules_and_regulations = $request->file('project_rules_and_regulation');
+               $path = [];
+
+               if($request->hasFile('project_rules_and_regulation'))
+               {
+                    $filePaths = json_decode($project->project_rules_and_regulation, true);
+                    if ($filePaths !== null) {
+                        foreach ($filePaths as $filePath) {
+                            if (file_exists($filePath)) {
+                                unlink($filePath);
+                            }
+                        }
+                    }
+
+                    if($project_rules_and_regulations)
+                    {
+                            foreach ($project_rules_and_regulations as $project_rules_and_regulation) {
+                                $project_rules_and_regulation_url = uploadFileToPublic($project_rules_and_regulation, 'projects/project_rules_and_regulation');
+                                $path[] = public_path($project_rules_and_regulation_url);
+                            }
+                            $project->project_rules_and_regulation = json_encode($path);
+                    }
+                }
+
+            //    Other Files
+               $other_files_url = [];
+               $other_files = $request->file('other_files');
+               $path = [];
+
+               if($request->hasFile('other_files'))
+               {
+                    $filePaths = json_decode($project->other_files, true);
+                    if ($filePaths !== null) {
+                        foreach ($filePaths as $filePath) {
+                            if (file_exists($filePath)) {
+                                unlink($filePath);
+                            }
+                        }
+                    }
+
+                    foreach ($other_files as $other_file) {
+                        $other_files_url = uploadFileToPublic($other_file, 'projects/other_files');
+                        $path[] = public_path($other_files_url);
+                    }
+                    $project->other_files = json_encode($path);
+               }
 
             // home page
             $home_page_banner = '';
@@ -1025,6 +1110,28 @@ class ProjectController extends Controller {
 
         $$module_name_singular = $module_model::findOrFail($id);
 
+        // Delete the associated files & images
+        $fileFields = ['project_logo', 'all_listings_land','all_listings_house','technical_specs','home_page_banner','qna_page_banner','buy_home_page_banner','buy_land_page_banner','amenities_page_banner','financing_page_banner','who_page_banner','contact_page_banner','project_brochure','project_elevations', 'construction_rules','other'];
+
+        foreach ($fileFields as $fileField) {
+            $filePath = public_path($$module_name_singular->{$fileField});
+            if (file_exists($filePath) && is_file($filePath)) {
+                unlink($filePath);
+            }
+        }
+
+        $multipleFileFields = ['selling_contract','company_papers','project_rules_and_regulation','other_files','home_page_photos_gallery'];
+        foreach($multipleFileFields as $multipleFileField){
+
+            $multipleFilePaths = json_decode($$module_name_singular->{$multipleFileField}, true);
+            if ($multipleFilePaths !== null) {
+                foreach ($multipleFilePaths as $filePath) {
+                    if (file_exists($filePath)) {
+                        unlink($filePath);
+                    }
+                }
+            }
+        }
 
         $$module_name_singular->delete();
 
