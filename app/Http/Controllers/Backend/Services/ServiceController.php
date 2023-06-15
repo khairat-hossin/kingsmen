@@ -231,7 +231,7 @@ class ServiceController extends Controller
                         unlink($filePath);
                     }
                 }
-                
+
                 $photo = $request->file('solution_image');
                 $filenameToStore = time() . '.' . $photo->getClientOriginalExtension();
                 $location = $request->file('solution_image')->storeAs('uploads/services/solution_image', $filenameToStore);
@@ -276,6 +276,15 @@ class ServiceController extends Controller
 
         $$module_name_singular = $module_model::findOrFail($id);
 
+        // Delete the associated image/files
+        $fileFields = ['solution_image','banner'];
+        foreach ($fileFields as $fileField) {
+            $filePath = public_path($$module_name_singular->{$fileField});
+            if (file_exists($filePath) && is_file($filePath)) {
+                unlink($filePath);
+            }
+        }
+        
         $$module_name_singular->delete();
 
         flash(icon().' '.Str::singular($module_title)." Deleted Successfully")->success()->important();

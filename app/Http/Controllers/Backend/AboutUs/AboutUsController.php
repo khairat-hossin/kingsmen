@@ -228,10 +228,9 @@ class AboutUsController extends Controller
 
         $$module_name_singular = $module_model::findOrFail($id);
 
-        $file = is_file(public_path($$module_name_singular->banner));
-
-        if (file_exists($file)) {
-            unlink(public_path($$module_name_singular->banner));
+        $filePath = public_path($$module_name_singular->banner);
+        if (file_exists($filePath) && is_file($filePath)) {
+            unlink($filePath);
         }
 
         $$module_name_singular->delete();
