@@ -31,7 +31,7 @@
                         <ul class="dropdown-menu">
                             <li>
                                 <a class="dropdown-item" href='#'>
-                                    <i class="fas fa-eye-slash"></i> View trash
+                                    {{-- <i class="fas fa-eye-slash"></i> View trash --}}
                                 </a>
                             </li>
                             <!-- <li>
@@ -50,6 +50,7 @@
                 <table class="table table-hover table-responsive-sm">
                     <thead>
                         <tr>
+                            <th>#</th>
                             <th>{{ __('labels.text.name') }}</th>
                             <th>{{ __('labels.text.designation') }}</th>
                             <th>{{ __('labels.text.assigned_email') }}</th>
@@ -60,6 +61,7 @@
                     <tbody>
                         @forelse ($teams as $member)
                         <tr>
+                            <td>{{ $member->id }}</td>
                             <td class="w-15">{{ $member->first_name .' '.$member->last_name }}</td>
                             <td class="w-30">{{ $member->designation }}</td>
                             <td class="w-20">{{ $member->assigned_email }}</td>

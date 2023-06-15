@@ -351,7 +351,7 @@ class ContactController extends Controller
         $photo_of_passport_url = $contact->photo_of_passport;
 
         // Delete previous file on update
-        if($request->hasFile('project_logo')){
+        if($request->hasFile('photo_of_passport')){
             if ($oldImage = $contact->photo_of_passport) {
                 $filePath = public_path($oldImage);
                 if (file_exists($filePath)) {
