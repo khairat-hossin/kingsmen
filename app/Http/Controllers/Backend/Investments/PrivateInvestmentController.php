@@ -9,6 +9,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Foundation\Auth\Access\Authorizable;
 use App\Models\PrivateInvestment;
+use Image;
 
 class PrivateInvestmentController extends Controller
 {
@@ -120,8 +121,8 @@ class PrivateInvestmentController extends Controller
             "remaining_amount_as_bank_transfer"                     => "nullable",
             "shares_selling_contract"                               => "nullable|mimes:pdf",
             "company_papers"                                        => "nullable|mimes:pdf",
-            "buisness_plan"                                         => "nullable|mimes:pdf",  
-           
+            "buisness_plan"                                         => "nullable|mimes:pdf",
+
             "project_logo"                 => "nullable",
             "crowfund_thumbnail"           => "nullable",
             "title"                        => "nullable",
@@ -184,7 +185,7 @@ class PrivateInvestmentController extends Controller
 
             $shares_selling_contract = '';
             $company_papers = '';
-            $buisness_plan = '';           
+            $buisness_plan = '';
 
             if ($request->shares_selling_contract) {
                 $shares_selling_contract = uploadFileToPublic($request->file('shares_selling_contract'), 'private_investment/shares_selling_contract');
@@ -201,7 +202,7 @@ class PrivateInvestmentController extends Controller
                 $privateInvestment->buisness_plan = $buisness_plan;
             }
 
-           
+
             $privateInvestment->project_logo                 = $request->project_logo;
             $privateInvestment->crowfund_thumbnail           = $request->crowfund_thumbnail;
             $privateInvestment->title                        = $request->title;
@@ -218,19 +219,25 @@ class PrivateInvestmentController extends Controller
             $privateInvestment->title_1         = $request->title_1;
             $privateInvestment->paragraph_1     = $request->paragraph_1;
 
-            // Multiple photo put to db
-            $photo_galleryurl = '';
-            $photo_gallery = $request->file('photo_gallery');
-            $photoPaths = [];
+            // Multiple photo resize and put link to db
+           $photos_gallery = $request->file('photo_gallery');
+           $path = [];
 
-            if($photo_gallery)
-            {
-                 foreach ($photo_gallery as $photo) {
-                     $photo_galleryurl = uploadFileToPublic($photo, 'private_investment/photo_gallery');
-                     $photoPaths[] = asset($photo_galleryurl);
-                 }
-                 $privateInvestment->photo_gallery = json_encode($photoPaths);
-            }
+           if($photos_gallery)
+           {
+                foreach ($photos_gallery as $photo) {
+                    // Resize the image to a specific width and height
+                    $resizedImage = Image::make($photo);
+
+                    $filename = uniqid() . '.' . $photo->getClientOriginalExtension();
+                    $resizedImage->resize(560, 320);
+
+                    $resizedImage->save('uploads/private_investment/photo_gallery/'.$filename);
+                    $path[] = $resizedImage->basePath();
+                }
+                $privateInvestment->photo_gallery = json_encode($path);
+           }
+           //End Multiple photo resize and put link to db
 
             $privateInvestment->title_2           = $request->title_2;
             $privateInvestment->paragraph_2      = $request->paragraph_2;
@@ -344,7 +351,7 @@ class PrivateInvestmentController extends Controller
             "remaining_amount_as_bank_transfer"                     => "nullable",
             "shares_selling_contract"                               => "nullable|mimes:pdf",
             "company_papers"                                        => "nullable|mimes:pdf",
-            "buisness_plan"                                         => "nullable|mimes:pdf",    
+            "buisness_plan"                                         => "nullable|mimes:pdf",
 
             "project_logo"                 => "nullable",
             "crowfund_thumbnail"           => "nullable",
@@ -409,30 +416,63 @@ class PrivateInvestmentController extends Controller
 
             $shares_selling_contract = '';
             $company_papers = '';
-            $buisness_plan = '';           
+            $buisness_plan = '';
 
-            if ($request->shares_selling_contract) {
+            // Delete previous files on update
+            if($request->hasFile('shares_selling_contract')){
+                if ($oldFile = $privateInvestment->shares_selling_contract) {
+                    $filePath = public_path($oldFile);
+                    if (file_exists($filePath)) {
+                        unlink($filePath);
+                    }
+                }
+                // Set new file
                 $shares_selling_contract = uploadFileToPublic($request->file('shares_selling_contract'), 'private_investment/shares_selling_contract');
-                $privateInvestment->shares_selling_contract = $shares_selling_contract;
+                $privateInvestment->shares_selling_contract             = $shares_selling_contract;
             }
 
-            if ($request->company_papers) {
+
+
+            if($request->hasFile('company_papers')){
+                if ($oldFile = $privateInvestment->company_papers) {
+                    $filePath = public_path($oldFile);
+                    if (file_exists($filePath)) {
+                        unlink($filePath);
+                    }
+                }
+
                 $company_papers = uploadFileToPublic($request->file('company_papers'), 'private_investment/company_papers');
-                $privateInvestment->company_papers = $company_papers;
+                $privateInvestment->company_papers               = $company_papers;
             }
 
-            if ($request->buisness_plan) {
+            if($request->hasFile('buisness_plan')){
+                if ($oldFile = $privateInvestment->buisness_plan) {
+                    $filePath = public_path($oldFile);
+                    if (file_exists($filePath)) {
+                        unlink($filePath);
+                    }
+                }
+
                 $buisness_plan = uploadFileToPublic($request->file('buisness_plan'), 'private_investment/buisness_plan');
                 $privateInvestment->buisness_plan = $buisness_plan;
             }
 
 
+
+
             $privateInvestment->project_logo                 = $request->project_logo;
             $privateInvestment->crowfund_thumbnail           = $request->crowfund_thumbnail;
-            $privateInvestment->title                        = $request->title;
-
+            $privateInvestment->title
+                                   = $request->title;
             $banner = '';
-            if ($request->banner) {
+            if($request->hasFile('banner')){
+                if ($oldFile = $privateInvestment->banner) {
+                    $filePath = public_path($oldFile);
+                    if (file_exists($filePath)) {
+                        unlink($filePath);
+                    }
+                }
+
                 $banner = uploadFileToPublic($request->file('banner'), 'private_investment/banner');
                 $privateInvestment->banner          = $banner;
             }
@@ -444,26 +484,44 @@ class PrivateInvestmentController extends Controller
             $privateInvestment->paragraph_1     = $request->paragraph_1;
 
 
-            // Multiple photo put to db
-            $photo_galleryurl = '';
-            $photo_gallery = $request->file('photo_gallery');
-            $photoPaths = [];
+            $photos_gallery = $request->file('photo_gallery');
+            $path = [];
 
-            if($photo_gallery)
-            {
-                 foreach ($photo_gallery as $photo) {
-                     $photo_galleryurl = uploadFileToPublic($photo, 'private_investment/photo_gallery');
-                     $photoPaths[] = asset($photo_galleryurl);
-                 }
-                 $privateInvestment->photo_gallery = json_encode($photoPaths);
+            //Delete previous files on update
+            if($request->hasFile('photo_gallery')){
+                $imagePaths = json_decode($privateInvestment->photo_gallery, true);
+                if ($imagePaths !== null) {
+                    foreach ($imagePaths as $imagePath) {
+                        if (file_exists($imagePath)) {
+                            unlink($imagePath);
+                        }
+                    }
+                }
+
+            // Put new files
+            if($photos_gallery)
+                {
+                    foreach ($photos_gallery as $photo) {
+                        // Resize the image to a specific width and height
+                        $resizedImage = Image::make($photo);
+
+                        $filename = uniqid() . '.' . $photo->getClientOriginalExtension();
+                        $resizedImage->resize(560, 320);
+
+                        $resizedImage->save('uploads/private_investment/photo_gallery/'.$filename);
+                        $path[] = $resizedImage->basePath();
+                    }
+                    $privateInvestment->photo_gallery = json_encode($path);
+                }
             }
+            //End Multiple photo resize and put link to db
 
             $privateInvestment->title_2           = $request->title_2;
             $privateInvestment->paragraph_2      = $request->paragraph_2;
 
             $privateInvestment->save();
 
-            flash(icon() . ' ' . Str::singular($this->module_title) . " Created Successfully")->success()->important();
+            flash(icon() . ' ' . Str::singular($this->module_title) . " Updated Successfully")->success()->important();
             logUserAccess($this->module_title . ' ' . $module_action . ' | Id: ' . $privateInvestment->id);
             DB::commit();
             return redirect("admin/$this->module_name");
@@ -471,7 +529,7 @@ class PrivateInvestmentController extends Controller
         } catch (\Throwable $th) {
             DB::rollBack();
             $msg = $th->getMessage();
-            flash(icon() . ' ' . Str::singular($this->module_title) . " Creation Failed! $msg")->error()->important();
+            flash(icon() . ' ' . Str::singular($this->module_title) . " Update Failed! $msg")->error()->important();
             return back()->withInput();
         }
     }
@@ -491,6 +549,25 @@ class PrivateInvestmentController extends Controller
 
         $private_investments = PrivateInvestment::findOrFail($id);
 
+        // Delete the associated files & images
+        $fileFields = ['shares_selling_contract', 'company_papers', 'buisness_plan', 'banner'];
+        foreach ($fileFields as $fileField) {
+            $filePath = public_path($private_investments->{$fileField});
+            if (file_exists($filePath) && is_file($filePath)) {
+                unlink($filePath);
+            }
+        }
+
+        $imagePaths = json_decode($private_investments->photo_gallery, true);
+
+        // Delete Multiple image
+        if ($imagePaths !== null) {
+            foreach ($imagePaths as $imagePath) {
+                if (file_exists($imagePath)) {
+                    unlink($imagePath);
+                }
+            }
+        }
 
         $private_investments->delete();
 

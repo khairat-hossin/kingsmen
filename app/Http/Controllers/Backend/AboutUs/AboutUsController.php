@@ -162,16 +162,14 @@ class AboutUsController extends Controller
     public function update(Request $request, string $id)
     {
         $id = $request->about_us_id;
-        // dd($id);
+
         $this->authorize('add_edit_us');
-        // dd((int)$id);
-        // $id = (int)$id;
         $module_action = 'update';
         $request->validate([
             "question"         => "required|unique:about_us,question," . $id . ',id',
             "answer"           => "required|unique:about_us,answer,"  . $id . ',id',
             "banner"           => "nullable",
-            "banner_text"      => "nullable",           
+            "banner_text"      => "nullable",
         ]);
 
         DB::beginTransaction();
@@ -183,7 +181,15 @@ class AboutUsController extends Controller
             $about_us->banner_text  = $request->banner_text;
 
             $banner_url = '';
-            if ($request->banner) {
+             // Delete previous files on update
+             if($request->hasFile('banner')){
+                if ($oldFile = $about_us->banner) {
+                    $filePath = public_path($oldFile);
+                    if (file_exists($filePath)) {
+                        unlink($filePath);
+                    }
+                }
+                // Set new file
                 $banner_url = uploadFileToPublic($request->file('banner'), 'about_us/banner');
                 $about_us->banner = $banner_url;
             }
@@ -222,8 +228,9 @@ class AboutUsController extends Controller
 
         $$module_name_singular = $module_model::findOrFail($id);
 
-        if (file_exists(public_path($$module_name_singular->banner))) {
-            unlink(public_path($$module_name_singular->banner));
+        $filePath = public_path($$module_name_singular->banner);
+        if (file_exists($filePath) && is_file($filePath)) {
+            unlink($filePath);
         }
 
         $$module_name_singular->delete();

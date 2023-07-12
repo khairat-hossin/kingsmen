@@ -50,6 +50,7 @@
                 <table class="table table-hover table-responsive-sm">
                     <thead>
                         <tr>
+                            <th>#</th>
                             <th>{{ __('labels.text.project_name') }}</th>
                             <th>{{ __('labels.text.project_location') }}</th>
                             <th>{{ __('labels.text.registered_companyName') }}</th>
@@ -58,8 +59,12 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @php
+                            $i = 1;
+                        @endphp
                         @forelse ($private_investments as $investment)
                         <tr>
+                            <td>{{ $i++ }}</td>
                             <td>
                                 {{ $investment->project_name }}
                             </td>

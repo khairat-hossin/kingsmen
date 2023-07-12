@@ -90,7 +90,7 @@ class TeamController extends Controller
             "passport_photo"       => "required|image",
             "ssn"                  => "required|unique:" . $this->module_model . ",ssn",
             "id_card"              => "required|image",
-            "university_degree"    => "required",
+            "university_degree"    => "nullable",
             "about_team_member"    => "required",
             "position"             => "required",
             "designation"          => "required",
@@ -220,15 +220,15 @@ class TeamController extends Controller
     {
         $module_action = 'update';
         $request->validate([
-            "first_name"           => "required|unique:team_members,first_name," . $id.",id",
-            "last_name"            => "required|unique:team_members,last_name," . $id.",id",
+            "first_name"           => "required",
+            "last_name"            => "required",
             "date_of_birth"        => "required",
             "passport_number"      => "required|unique:team_members,passport_number," . $id.",id",
             "passport_expiry_date" => "required",
             "passport_photo"       => "nullable|image",
             "ssn"                  => "required|unique:team_members,ssn," . $id.",id",
             "id_card"              => "nullable|image",
-            "university_degree"    => "required",
+            "university_degree"    => "nullable",
             "about_team_member"    => "required",
             "position"             => "required",
             "designation"          => "required",
@@ -250,20 +250,42 @@ class TeamController extends Controller
             $id_card_url = '';
             $upload_photo_url = '';
 
-            if ($request->passport_photo) {
+             // Delete previous files on update
+             if($request->hasFile('passport_photo')){
+                if ($oldFile = $team->passport_photo) {
+                    $filePath = public_path($oldFile);
+                    if (file_exists($filePath)) {
+                        unlink($filePath);
+                    }
+                }
+                // Set new file
                 $passport_photo_url = uploadFileToPublic($request->file('passport_photo'), 'teams/passport');
                 $team->passport_photo   = $passport_photo_url;
             }
 
-            if ($request->id_card) {
+            if($request->hasFile('id_card')){
+                if ($oldFile = $team->id_card) {
+                    $filePath = public_path($oldFile);
+                    if (file_exists($filePath)) {
+                        unlink($filePath);
+                    }
+                }
                 $id_card_url = uploadFileToPublic($request->file('id_card'), 'teams/id_card');
-                $team->id_card              = $id_card_url;
+                $team->id_card   = $id_card_url;
             }
 
 
-            if($request->upload_photo) {
+            // Delete previous files on update
+            if($request->hasFile('upload_photo')){
+                if ($oldFile = $team->upload_photo) {
+                    $filePath = public_path($oldFile);
+                    if (file_exists($filePath)) {
+                        unlink($filePath);
+                    }
+                }
+                // Resize and save new file
                 $photo = $request->upload_photo;
-                $resizedImage = Image::make($photo); // ei line tai kaaj korse na, data null
+                $resizedImage = Image::make($photo);
 
                 $filename = uniqid() . '.' . $photo->getClientOriginalExtension();
                 $resizedImage->resize(400, 400);
@@ -327,6 +349,14 @@ class TeamController extends Controller
 
         $$module_name_singular = $module_model::findOrFail($id);
 
+        // Delete the associated image/files
+        $fileFields = ['passport_photo','id_card','upload_photo'];
+        foreach ($fileFields as $fileField) {
+            $filePath = public_path($$module_name_singular->{$fileField});
+            if (file_exists($filePath) && is_file($filePath)) {
+                unlink($filePath);
+            }
+        }
 
         $$module_name_singular->delete();
 

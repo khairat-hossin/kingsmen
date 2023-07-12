@@ -22,24 +22,24 @@
   <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     @vite(['resources/sass/app-backend.scss', 'resources/js/app-backend.js'])
   <!-- Favicons -->
-  <link href="{{ asset('../../assets/img/ecogardens/favicon.png') }}" rel="icon">
-  <link href="{{ asset('../../assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+  <link href="{{ asset('/assets/img/ecogardens/favicon.png') }}" rel="icon">
+  <link href="{{ asset('/assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="{{ asset('../../assets/vendor/animate.css/animate.min.css') }}" rel="stylesheet">
-  <link href="{{ asset('../../assets/vendor/aos/aos.css') }}" rel="stylesheet">
-  <link href="{{ asset('../../assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-  <link href="{{ asset('../../assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
-  <link href="{{ asset('../../assets/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
-  <link href="{{ asset('../../assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
-  <link href="{{ asset('../../assets/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
-  <link href="{{ asset('../../assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('/assets/vendor/animate.css/animate.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('/assets/vendor/aos/aos.css') }}" rel="stylesheet">
+  <link href="{{ asset('/assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('/assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+  <link href="{{ asset('/assets/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('/assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('/assets/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
+  <link href="{{ asset('/assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="{{ asset('../../assets/css/ecogardens.css') }}" rel="stylesheet">
+  <link href="{{ asset('/assets/css/ecogardens.css') }}" rel="stylesheet">
 
     <!-- =======================================================
   * Template Name: Ecogardens
@@ -67,17 +67,17 @@
   @stack('before-scripts')
 
   <!-- Vendor JS Files -->
-  <script src="{{ asset('../../assets/vendor/aos/aos.js') }}"></script>
-  <script src="{{ asset('../../assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-  <script src="{{ asset('../../assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
-  <script src="{{ asset('../../assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
-  <script src="{{ asset('../../assets/vendor/waypoints/noframework.waypoints.js') }}"></script>
-  <script src="{{ asset('../../assets/vendor/php-email-form/validate.js') }}"></script>
+  <script src="{{ asset('/assets/vendor/aos/aos.js') }}"></script>
+  <script src="{{ asset('/assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ asset('/assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
+  <script src="{{ asset('/assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+  <script src="{{ asset('/assets/vendor/waypoints/noframework.waypoints.js') }}"></script>
+  <script src="{{ asset('/assets/vendor/php-email-form/validate.js') }}"></script>
     <!-- Swiper JS -->
-  <script src="{{ asset('../../assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
+  <script src="{{ asset('/assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
 
   <!-- Template Main JS File -->
-  <script src="{{ asset('../../assets/js/ecogardens.js') }}"></script>
+  <script src="{{ asset('/assets/js/ecogardens.js') }}"></script>
   <!-- Initialize Swiper -->
   @stack('after-scripts')
 

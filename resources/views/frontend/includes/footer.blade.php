@@ -1,15 +1,19 @@
+@if(Request::is('/'))
+
+@else
 <div class="flex justify-center space-x-6">
     <section class="">
         <div class="container-fluid">
             <div class="row text-center ">
                 <div></div>
-                <div>
-                    <a href=""> <img src="assets/img/kmen.png" class="img-fluid"> </a>
-                </div>
+                    <div>
+                        <a href=""> <img src="{{ asset('assets/img/kmen.png') }}" class="img-fluid"> </a>
+                    </div>
                 <div></div>
             </div>
         </div>
     </section>
+@endif
     <!-- ======= Footer ======= -->
     <footer id="footer">
         <div class="footer-top">
@@ -26,11 +30,11 @@
                                 <strong>Business Hours: </strong> Monday To Saturday 10.00 pm – 6.30 pm<br>
                             </p>
                             <div class="social-links mt-3">
-                                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-                                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                                <a href="https://twitter.com/" target="_blank" class="twitter"><i class="bx bxl-twitter"></i></a>
+                                <a href="https://www.facebook.com/profile.php?id=100088872635687" target="_blank" class="facebook"><i class="bx bxl-facebook"></i></a>
+                                <a href="https://www.instagram.com/greenhillsarmenia/" target="_blank" class="instagram"><i class="bx bxl-instagram"></i></a>
+                                <a href="https://web.skype.com/" target="_blank" class="google-plus"><i class="bx bxl-skype"></i></a>
+                                <a href="https://www.linkedin.com/company/greenhillsarmenia/" target="_blank" class="linkedin"><i class="bx bxl-linkedin"></i></a>
                             </div>
                         </div>
                     </div>

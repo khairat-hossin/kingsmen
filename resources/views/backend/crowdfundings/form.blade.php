@@ -374,6 +374,7 @@
                 'Lands For Sale' => 'Lands For Sale',
                 'Hotel Rooms' => 'Hotel Rooms ',
                 'Apartments' => 'Apartments ',
+                'Urban Project' => 'Urban Project'
             ];
             $value = old('investment_in') ?? '';
             $required = 'required';
@@ -682,7 +683,7 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = '';
-            $required = 'required';
+            // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'project_logo', 'value' => "$value"]) }}
@@ -736,10 +737,10 @@
             $field_lable = label_case($field_name);
             $field_placeholder = 'Please Select';
             $options = [
-                'Template 1' => 'Template 1',
-                'Template 2' => 'Template 2',
-                'Template 3' => 'Template 3',
-                'Template 4' => 'Template 4',
+                'One Tree Armenia'    => 'One Tree Armenia',
+                'The Western Village' => 'The Western Village',
+                'United 8 Apartment'  => 'United 8 Apartment',
+                'Other'               => 'Other'
             ];
             $value = old('choose_template') ?? '';
             $required = 'required';

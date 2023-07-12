@@ -46,10 +46,10 @@ return new class extends Migration
             $table->unsignedDecimal('deposit', 20, 2)->nullable();
             $table->unsignedDecimal('remainingAmount_as_bankTransfer', 20, 2)->nullable();
             $table->unsignedDecimal('full_payment_usdt', 20, 2)->nullable();
-            $table->string('selling_contract')->nullable()->limit(255);
-            $table->string('company_papers')->nullable()->limit(255);
-            $table->string('project_rules_and_regulation')->nullable()->limit(255);
-            $table->string('other_files')->nullable()->limit(255);
+            $table->longText('selling_contract')->nullable();
+            $table->longText('company_papers')->nullable();
+            $table->longText('project_rules_and_regulation')->nullable();
+            $table->longText('other_files')->nullable();
             $table->string('project_thumbnail')->nullable()->limit(255);
             $table->string('title')->nullable()->limit(255);
             $table->text('description')->nullable();

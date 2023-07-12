@@ -54,6 +54,7 @@
                     <table class="table table-hover table-responsive-sm">
                         <thead>
                             <tr>
+                                <th>#</th>
                                 <th>Solution Title</th>
                                 <th>Solution Summary</th>
                                 <th>Banner Text</th>
@@ -62,19 +63,23 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @php
+                                $i = 1;
+                            @endphp
                             @forelse($services as $service)
                                 <tr>
-                                    <td style="max-width: 200px">
-                                        {{ Str::limit($service->solution_title, 50) }}
+                                    <td>{{ $i++ }}</td>
+                                    <td class="text-truncate"  style="max-width: 200px">
+                                        {{ $service->solution_title }}
                                     </td>
-                                    <td style="max-width: 200px">
-                                        {{ Str::limit($service->solution_summary, 50) }}
+                                    <td class="text-truncate"  style="max-width: 200px">
+                                        {{ $service->solution_summary }}
                                     </td>
-                                    <td style="max-width: 200px">
-                                        {{ Str::limit($service->banner_text, 50) }}
+                                    <td class="text-truncate"  style="max-width: 200px">
+                                        {{ $service->banner_text }}
                                     </td>
-                                    <td style="max-width: 200px">
-                                        {{ Str::limit($service->title, 50) }}
+                                    <td class="text-truncate"  style="max-width: 200px">
+                                        {{ $service->title }}
                                     </td>
                                     <td class="text-end">
                                         <form action="{{ route('backend.services.destroy', $service->id) }}" method="POST">

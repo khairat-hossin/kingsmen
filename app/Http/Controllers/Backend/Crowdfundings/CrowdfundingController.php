@@ -453,27 +453,54 @@ class CrowdfundingController extends Controller
             $buisness_plan    = '';
             $project_logo     = '';
 
-            if ($request->selling_contract) {
+             // Delete previous files on update
+            if($request->hasFile('selling_contract')){
+                if ($oldFile = $crowdfunding->selling_contract) {
+                    $filePath = public_path($oldFile);
+                    if (file_exists($filePath)) {
+                        unlink($filePath);
+                    }
+                }
+                // Set new file
                 $selling_contract_url = uploadFileToPublic($request->file('selling_contract'), 'crowdfunding/selling_contract');
-
                 $crowdfunding->selling_contract = $selling_contract_url;
             }
 
-            if ($request->company_papers) {
-                $company_papers_url = uploadFileToPublic($request->file('company_papers'), 'crowdfunding/company_papers');
+                if($request->hasFile('company_papers')){
+                    if ($oldFile = $crowdfunding->company_papers) {
+                        $filePath = public_path($oldFile);
+                        if (file_exists($filePath)) {
+                            unlink($filePath);
+                        }
+                    }
 
+                $company_papers_url = uploadFileToPublic($request->file('company_papers'), 'crowdfunding/company_papers');
                 $crowdfunding->company_papers = $company_papers_url;
             }
 
-            if ($request->buisness_plan) {
-                $buisness_plan_url = uploadFileToPublic($request->file('buisness_plan'), 'crowdfunding/buisness_plan');
+            if($request->hasFile('buisness_plan')){
+                if ($oldFile = $crowdfunding->buisness_plan) {
+                    $filePath = public_path($oldFile);
+                    if (file_exists($filePath)) {
+                        unlink($filePath);
+                    }
+                }
 
+                $buisness_plan_url = uploadFileToPublic($request->file('buisness_plan'), 'crowdfunding/buisness_plan');
                 $crowdfunding->buisness_plan = $buisness_plan_url;
             }
 
-            if ($request->project_logo) {
-                $project_logo_url = uploadFileToPublic($request->file('project_logo'), 'crowdfunding/project_logo');
 
+            // Delete previous logo on update
+            if($request->hasFile('project_logo')){
+                if ($oldImage = $crowdfunding->project_logo) {
+                    $filePath = public_path($oldImage);
+                    if (file_exists($filePath)) {
+                        unlink($filePath);
+                    }
+                }
+                // Put new logo
+                $project_logo_url = uploadFileToPublic($request->file('project_logo'), 'crowdfunding/project_logo');
                 $crowdfunding->project_logo = $project_logo_url;
             }
 
@@ -484,9 +511,15 @@ class CrowdfundingController extends Controller
 
             $banner = '';
 
-            if ($request->banner) {
-                $banner_url = uploadFileToPublic($request->file('banner'), 'crowdfunding/banner');
+            if($request->hasFile('banner')){
+                if ($oldFile = $crowdfunding->banner) {
+                    $filePath = public_path($oldFile);
+                    if (file_exists($filePath)) {
+                        unlink($filePath);
+                    }
+                }
 
+                $banner_url = uploadFileToPublic($request->file('banner'), 'crowdfunding/banner');
                 $crowdfunding->banner = $banner_url;
             }
 
@@ -500,8 +533,19 @@ class CrowdfundingController extends Controller
            $photos_gallery_url = '';
            $photos_gallery = $request->file('photos_gallery');
            $path = [];
-           if($photos_gallery)
-           {
+
+           // Delete previous files on update
+           if($request->hasFile('photos_gallery')){
+                $imagePaths = json_decode($crowdfunding->photos_gallery, true);
+                if ($imagePaths !== null) {
+                    foreach ($imagePaths as $imagePath) {
+                        if (file_exists($imagePath)) {
+                            unlink($imagePath);
+                        }
+                    }
+                }
+
+                // Put new files
                 foreach ($photos_gallery as $photo) {
                     // Resize the image to a specific width and height
                     $resizedImage = Image::make($photo); // ei line tai kaaj korse na, data null
@@ -573,9 +617,6 @@ class CrowdfundingController extends Controller
                     }
                 }
             }
-
-
-
 
         $$module_name_singular->delete();
 

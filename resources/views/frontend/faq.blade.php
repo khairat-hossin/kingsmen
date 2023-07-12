@@ -23,7 +23,7 @@
         <section id="video">
             <div class="container" data-aos="fade-up">
                 <div class="m-0  text-center my-5 ratio ratio-21x9">
-                    <iframe width="310" height="215" src="{{ $video }}"
+                    <iframe width="310" height="215" src="https://www.youtube.com/embed/iTbRMCyvy_E?autoplay=1"
                         title="YouTube video player" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowfullscreen></iframe>

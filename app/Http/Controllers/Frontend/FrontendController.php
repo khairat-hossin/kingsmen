@@ -79,16 +79,14 @@ class FrontendController extends Controller
     {
         $crowdfunding_project = Crowdfunding::where('slug', $slug)->firstOrFail();
 
-        if($crowdfunding_project->banner)
-        {
-            $banner = str_replace('\\','/',$crowdfunding_project->banner);
-            return view('frontend.invests.crowdfunding-project', compact('crowdfunding_project', 'banner'));
-        }
-        else
-        {
-            return view('frontend.invests.crowdfunding-project', compact('crowdfunding_project'));
-        }
 
+            $banner = '';
+            $banner_text = '';
+
+            $banner = str_replace('\\', '/', ($crowdfunding_project->banner ?? ''));
+            $banner_text = str_replace('\\', '/', ($crowdfunding_project->banner_text ?? ''));
+
+            return view('frontend.invests.crowdfunding-project', compact('crowdfunding_project', 'banner', 'banner_text'));
     }
 
     public function privateInvestments()
@@ -161,12 +159,14 @@ class FrontendController extends Controller
     {
         $faqs = Faq::all();
 
+        $banner = '';
+        $banner_text = '';
+        $video = '';
         foreach($faqs as $faq)
          {
             if($faq->banner)
             {
                 $banner = str_replace('\\', '/', $faq->banner);
-
             }
 
             if($faq->banner_text)
@@ -213,11 +213,15 @@ class FrontendController extends Controller
     public function eco_choose_your_land()
     {
         $project_name = 'Eco Gardens';
+
         $projects = Project::where('project_name', $project_name)->firstOrFail();
 
-        
 
-        return view('frontend.projects.ecogardens.choose-your-land', compact('projects'));
+        $banner = '';
+        $banner_text = '';
+            $banner = str_replace('\\','/',$projects->buy_land_page_banner);
+            $banner_text = str_replace('\\','/',$projects->buy_land_page_banner_text);
+            return view('frontend.projects.ecogardens.choose-your-land', compact('projects', 'banner', 'banner_text'));
     }
 
     public function eco_eco_homes()

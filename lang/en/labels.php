@@ -59,6 +59,9 @@ return [
         'shares_listed_for_sale' => 'Shares Listed for Sale',
         'investment_break_even_expected_after_year' => 'Investment Break Even Expection After Year',
         'profit_after_return_of_investment_is' => 'Profit After Return of Investment is',
+        'designation' => 'Designation',
+        'assigned_email' => 'Assigned Email',
+        'assigned_cell_number' => 'Assigned Cell Number',
     ],
     // __("labels.text.edit_profile")
 

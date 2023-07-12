@@ -50,6 +50,7 @@
                 <table class="table table-hover table-responsive-sm">
                     <thead>
                         <tr>
+                            <th>#</th>
                             <th>{{ __('labels.text.name') }}</th>
                             <th>{{ __('labels.text.email') }}</th>
                             <th>{{ __('labels.contacts.phone') }}</th>
@@ -58,8 +59,12 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @php
+                            $i = 1;
+                        @endphp
                         @forelse ($contacts as $member)
                         <tr>
+                            <td>{{ $i++ }}</td>
                             <td>
                                 {{ $member->first_name }} {{ $member->last_name }}
                             </td>

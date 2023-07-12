@@ -42,12 +42,18 @@
             <?php
             $field_name = 'Project Location';
             $field_lable = label_case($field_name);
-            $field_placeholder = $field_lable;
+            $field_placeholder = 'Please Select';
+            $options = [
+                'Armenia' => 'Armenia',
+                'Aragatsanan' => 'Aragatsanan',
+                'Aragats' => 'Aragats',
+            ];
             $value = $crowdfunding->project_location ?? '';
             $required = 'required';
             ?>
+
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'project_location', "$required", 'value' => "$value"]) }}
+            {{ html()->select($field_name)->class('form-control form-control-sm select2')->attributes(['name' => 'project_location', "$required"])->options($options)->value($value) }}
             @error('project_location')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -278,7 +284,7 @@
             $required = '';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->number($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'land_cost_per_sqm', "$required", 'id' => 'price_cost_per_sqm', 'pattern' => '\d*', 'step' => 'any']) }}
+            {{ html()->number($field_name)->class('form-control form-control-sm')->value($value)->attributes(['name' => 'land_cost_per_sqm', "$required", 'id' => 'land_cost_per_sqm', 'pattern' => '\d*', 'step' => 'any']) }}
         </div>
 
         <div class="form-group col-6 col-md-4 mb-2">
@@ -367,6 +373,8 @@
                 'lands_for_sale' => 'Lands For Sale',
                 'hotel_rooms' => 'Hotel Rooms ',
                 'apartments' => 'Apartments ',
+                'Urban Project' => 'Urban Project'
+
             ];
             $value = $crowdfunding->investment_in ?? '';
             $required = 'required';
@@ -469,7 +477,7 @@
                 @error('shares_listed_for_sale')
                     <span class="error">{{ $message }}</span>
                 @enderror
-            </div>        
+            </div>
         </div>
 
     <legend class="border-bottom w-100">Return On Investment</legend>
@@ -734,10 +742,10 @@
             $field_lable = label_case($field_name);
             $field_placeholder = 'Please Select';
             $options = [
-                'Template 1' => 'Template 1',
-                'Template 2' => 'Template 2',
-                'Template 3' => 'Template 3',
-                'Template 4' => 'Template 4',
+                'One Tree Armenia'    => 'One Tree Armenia',
+                'The Western Village' => 'The Western Village',
+                'United 8 Apartment'  => 'United 8 Apartment',
+                'Other'               => 'Other'
             ];
             $value = $crowdfunding->choose_template ?? '';
             $required = 'required';
@@ -1053,6 +1061,34 @@
         function calculateTotalBuiltUpAreaValue(built_area_value_per_sqm, built_up_area_size_per_sqm) {
             let totalBuiltUpAreaValue = parseFloat(built_area_value_per_sqm) * parseFloat(built_up_area_size_per_sqm);
             $("#total_built_up_area_value").val(totalBuiltUpAreaValue);
+        }
+
+        /**
+         * on change area starting and price price starting change land price starting
+         * land_price_starting= land_area_per_sqm * land_cost_per_sqm
+         */
+
+         $('#land_area_per_sqm').on("change", function() {
+            let land_area_per_sqm = $("#land_area_per_sqm").val();
+            let land_cost_per_sqm = $("#land_cost_per_sqm").val();
+
+            if (land_area_per_sqm && land_cost_per_sqm) {
+                calculateLandPriceStarting(land_area_per_sqm, land_cost_per_sqm);
+            }
+        });
+
+        $('#land_cost_per_sqm').on("change", function() {
+            let land_area_per_sqm = $("#land_area_per_sqm").val();
+            let land_cost_per_sqm = $("#land_cost_per_sqm").val();
+
+            if (land_area_per_sqm && land_cost_per_sqm) {
+                calculateLandPriceStarting(land_area_per_sqm, land_cost_per_sqm);
+            }
+        });
+
+        function calculateLandPriceStarting(area, price) {
+            let landPriceStarting = parseFloat(area) * parseFloat(price);
+            $("#total_land_cost").val(landPriceStarting);
         }
     </script>
 @endpush

@@ -27,7 +27,7 @@ jobs:
           server: 34.65.126.117
           port: 22
           local_path: ./* # default is ./*
-          remote_path: /var/www/html
+          remote_path: /var/www/kmen.me
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
 
           # sftp args

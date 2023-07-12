@@ -17,7 +17,7 @@
             $field_name = 'Last Name';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
-            $required = "";
+            $required = "required";
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->text($field_name)->value($contact->last_name)->class('form-control form-control-sm')->attributes(["name" => "last_name", "$required"]) }}
@@ -29,21 +29,21 @@
             $field_name = 'Email';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
-            $required = "";
+            $required = "required";
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->text($field_name)->value($contact->email)->class('form-control form-control-sm')->attributes(["name" => "email", "$required"]) }}
         </div>
     </div>
 </div>
-<div class="row mb-3">    
+<div class="row mb-3">
     <div class="col-6 col-md-4">
         <div class="form-group">
             <?php
             $field_name = 'Phone';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
-            $required = "";
+            $required = "required";
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->text($field_name)->value($contact->phone)->class('form-control form-control-sm')->attributes(["name" => "phone", "type" => "number", "$required"]) }}
@@ -55,7 +55,7 @@
             $field_name = 'ID NO';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
-            $required = "";
+            $required = "required";
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->text($field_name)->value($contact->id_no)->class('form-control form-control-sm')->attributes(["name" => "id_no", "type" => "number", "$required"]) }}
@@ -71,7 +71,7 @@
                 'Investor' => 'Investor',
                 'Connection' => 'Connection',
             ];
-            $value = old('client_type') ?? '';
+            $value = $contact->client_type ?? '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
@@ -79,16 +79,16 @@
             @error('client_type')
                 <span class="error">{{ $message }}</span>
             @enderror
-    </div>    
+    </div>
 </div>
-<div class="row mb-3">    
+<div class="row mb-3">
     <div class="col-6 col-md-4">
         <div class="form-group">
             <?php
             $field_name = 'Buisness Position';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
-            $required = "";
+            $required = "required";
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->text($field_name)->value($contact->buisness_position)->class('form-control form-control-sm')->attributes(["name" => "buisness_position", "$required"]) }}
@@ -100,7 +100,7 @@
             $field_name = 'Budget';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
-            $required = "";
+            $required = "required";
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->text($field_name)->value($contact->budget)->class('form-control form-control-sm')->attributes(["name" => "budget", "$required"]) }}
@@ -115,7 +115,7 @@
                 'Country' => 'Country',
                 'City' => 'City',
             ];
-            $value = old('location') ?? '';
+            $value = $contact->location ?? '';
             $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
@@ -132,15 +132,15 @@
             $field_name = 'Date';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
-            $required = "";
+            $required = "required";
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->date($field_name)->value($contact->added_date)->class('form-control form-control-sm')->attributes(["name" => "added_date", "$required"]) }}
+            {{ html()->text($field_name)->value($contact->added_date)->class('form-control form-control-sm datepicker')->attributes(["name" => "added_date", "$required"]) }}
         </div>
     </div>
 </div>
 <legend class="border-bottom w-100">Reffered By</legend>
-<div class="row mb-3">    
+<div class="row mb-3">
     <div class="col-6 col-md-4">
         <div class="form-group">
             <?php
@@ -170,16 +170,16 @@
             <?php
             $field_name = 'Date of Birth';
             $field_lable = label_case($field_name);
-            $field_placeholder = $field_lable;
+            $field_placeholder = '$field_lable';
             $required = "";
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->date($field_name)->value($contact->date_of_birth)->class('form-control form-control-sm')->attributes(["name" => "date_of_birth", "$required"]) }}
+            {{ html()->text($field_name)->value($contact->date_of_birth)->class('form-control form-control-sm datepicker')->attributes(["name" => "date_of_birth", "$required"]) }}
         </div>
     </div>
 </div>
-<legend class="border-bottom w-100">Assing to</legend>
-<div class="row mb-3">    
+<legend class="border-bottom w-100">Assign to</legend>
+<div class="row mb-3">
     <div class="col-6 col-md-6">
         <div class="form-group">
             <?php
@@ -197,16 +197,22 @@
             <?php
             $field_name = 'Project Or Investment';
             $field_lable = label_case($field_name);
-            $field_placeholder = $field_lable;
+            $field_placeholder = 'Please Select';
+            $options = [
+                'Green Hills' => 'Green Hills',
+                'One Tree Armenia' => 'One Tree Armenia',
+                'Eco Gardens' => 'Eco Gardens',
+            ];
+            $value = $contact->project_or_investment ?? '';
             $required = "";
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->value($contact->project_or_investment)->class('form-control form-control-sm')->attributes(["name" => "project_or_investment", "$required"]) }}
+            {{ html()->select($field_name)->value($contact->project_or_investment)->class('form-control form-control-sm select2')->attributes(["name" => "project_or_investment", "$required"])->options($options)->value($value) }}
         </div>
-    </div>    
+    </div>
 </div>
 <legend class="border-bottom w-100">Add By Client From Portal</legend>
-<div class="row mb-3">    
+<div class="row mb-3">
     <div class="col-6 col-md-4">
         <div class="form-group">
             <?php
@@ -240,7 +246,7 @@
             $required = "";
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->date($field_name)->value($contact->passport_expiry_date)->class('form-control form-control-sm')->attributes(["name" => "passport_expiry_date", "$required"]) }}
+            {{ html()->text($field_name)->value($contact->passport_expiry_date)->class('form-control form-control-sm datepicker')->attributes(["name" => "passport_expiry_date", "$required"]) }}
         </div>
     </div>
 </div>
@@ -281,7 +287,7 @@
             {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(["name" => "photo_of_id_card", "$required"]) }}
         </div>
     </div>
-    
+
 </div>
 <div class="row mb-3">
     <div class="col-6 col-md-4">
@@ -307,7 +313,7 @@
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->text($field_name)->value($contact->PO_box)->class('form-control form-control-sm')->attributes(["name" => "PO_box", "$required"]) }}
         </div>
-    </div>    
+    </div>
 </div>
 <legend class="border-bottom w-100">Add Payment Information From Portal</legend>
 <div class="row mb-3">
@@ -317,7 +323,7 @@
             $field_name = 'Name of the Bank You Work With';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
-            $required = "required";
+            $required = "";
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->text($field_name)->value($contact->name_of_the_bank_you_work_with)->class('form-control form-control-sm')->attributes(["name" => "name_of_the_bank_you_work_with", "$required"]) }}
@@ -334,7 +340,7 @@
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->text($field_name)->value($contact->card_details_for_downpayment)->class('form-control form-control-sm')->attributes(["name" => "card_details_for_downpayment", "$required"]) }}
         </div>
-    </div>    
+    </div>
 </div>
 <div class="row mb-3">
     <div class="col-6 col-md-6">
@@ -355,11 +361,11 @@
             $field_name = 'Connect Crypto Wallet';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
-            $required = "required";
+            $required = "";
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->text($field_name)->value($contact->crypto_wallet)->class('form-control form-control-sm')->attributes(["name" => "crypto_wallet", "$required"]) }}
         </div>
-    </div>    
+    </div>
 </div>
 

@@ -54,6 +54,7 @@
                     <table class="table table-hover table-responsive-sm">
                         <thead>
                             <tr>
+                                <th>#</th>
                                 <th>Question</th>
                                 <th>Answer</th>
                                 <th>Banner Text</th>
@@ -61,16 +62,20 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @php
+                                $i = 1;
+                            @endphp
                             @forelse($about_us as $about)
-                                <tr>
-                                    <td style="max-width: 200px">
-                                        {{ Str::limit($about->question, 50) }}
+                            <tr>
+                                    <td>{{ $i++ }}</td>
+                                    <td class="text-truncate"  style="max-width: 200px">
+                                        {{ $about->question  }}
                                     </td>
-                                    <td style="max-width: 200px">
-                                        {{ Str::limit($about->answer, 50) }}
+                                    <td class="text-truncate"  style="max-width: 200px">
+                                        {{ $about->answer  }}
                                     </td>
-                                    <td style="max-width: 200px">
-                                        {{ Str::limit($about->banner_text, 50) }}
+                                    <td class="text-truncate"  style="max-width: 200px">
+                                        {{ $about->banner_text  }}
                                     </td>
                                     <td class="text-end">
                                         <form action="{{ route('backend.about-us.destroy', $about->id) }}" method="POST">

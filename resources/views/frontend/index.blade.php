@@ -93,7 +93,7 @@
                                     <h4> <span class="text-warning"> Return on investment: </span> 10 years </h4>
                                     <h4> <span class="text-warning"> ROI profit: </span> 30% yearly </h4>
                                     <h4><span class="text-warning"> Ivestment ticket: </span> 12,500 USD </h4>
-                                    <a href="" class="btn mt-1">Learn more</a>
+                                    <a href="{{ route('frontend.crowdfunding_project', 'one-tree-armenia') }}" class="btn mt-1">Learn more</a>
                                     </p>
                                 </div>
                             </div>
@@ -113,7 +113,7 @@
                                     <h4> <span class="text-warning"> Return on investment: </span> 3 years</h4>
                                     <h4> <span class="text-warning"> ROI profit: </span> 50%-one time </h4>
                                     <h4><span class="text-warning"> Ivestment ticket: </span> 12,500 USD </h4>
-                                    <a href="" class="btn mt-1">Learn more</a>
+                                    <a href="{{ route('frontend.crowdfunding_project', 'western-village') }}" class="btn mt-1">Learn more</a>
                                     </p>
                                 </div>
                             </div>
@@ -133,7 +133,7 @@
                                     <h4> <span class="text-warning"> Return on investment: </span>Monthly</h4>
                                     <h4> <span class="text-warning"> ROI profit: </span> 5.7% Lifetime</h4>
                                     <h4><span class="text-warning"> Ivestment ticket: </span> 12,500 USD </h4>
-                                    <a href="" class="btn mt-1">Learn more</a>
+                                    <a href="{{ route('frontend.crowdfunding_project', 'united-8-apartment') }}" class="btn mt-1">Learn more</a>
                                     </p>
                                 </div>
                             </div>
@@ -148,7 +148,7 @@
                                 <img src="assets/img/products/qna.jpg" class="card-img-top" alt="...">
                                 <h3 class="mt-3">Frequently Asked Questions</h3>
                                 <div class="card_inner mt-3">
-                                    <a href="" class="btn">Learn more</a>
+                                    <a href="{{ route('frontend.faq') }}" class="btn">Learn more</a>
                                 </div>
                             </div>
                         </div>
@@ -157,7 +157,7 @@
                                 <img src="assets/img/products/gtc.jpg" class="card-img-top" alt="...">
                                 <h3 class="mt-3">Get to know the company</h3>
                                 <div class="card_inner mt-3">
-                                    <a href="" class="btn">Learn more</a>
+                                    <a href="{{ route('frontend.about_us') }}" class="btn">Learn more</a>
                                 </div>
                             </div>
                         </div>
@@ -166,7 +166,7 @@
                                 <img src="assets/img/products/gtk.jpg" class="card-img-top" alt="...">
                                 <h3 class="mt-3">Get to know the team</h3>
                                 <div class="card_inner mt-3">
-                                    <a href="" class="btn">Learn more</a>
+                                    <a href="{{ route('frontend.team') }}" class="btn">Learn more</a>
                                 </div>
                             </div>
                         </div>

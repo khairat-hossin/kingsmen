@@ -11,7 +11,10 @@
             <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="150">
                 <div class="col-12 col-sm-12 col-xl-12 col-lg-12">
                     <h1 class="text-center text-white  hero_subhead text-uppercase lh-base mt-4 fw-light">
-                        {{ $banner_text }}<span>.</span></h1>
+                        @if ($banner_text)
+                            {{ $banner_text }}
+                        @endif
+                        <span>.</span></h1>
                 </div>
             </div>
 
@@ -77,26 +80,14 @@
                 </div>
             </div>
         </section>
-
-        <section class="">
-            <div class="container-fluid">
-                <div class="row text-center ">
-                    <div></div>
-                    <div>
-                        <a href=""> <img src="assets/img/kmen.png" class="img-fluid"> </a>
-                    </div>
-                    <div></div>
-                </div>
-            </div>
-        </section>
-
-
         <br> <br>
     </main><!-- End #main -->
 @endsection
 
-<style>
-    #hero-about{
-        background: url('{{ $banner }}') top center;
-    }
-</style>
+@if (isset($banner))
+    <style>
+        #hero-about{
+            background: url('{{ $banner }}') top center;
+        }
+    </style>
+@endif

@@ -42,6 +42,8 @@
                 'Region' => 'Region',
                 'City' => 'City',
                 'Village' => 'Village',
+                'Parpi' => 'Parpi'
+
             ];
             $value = $project->address ?? '';
             // $required = 'required';
@@ -109,6 +111,7 @@
                 'Residential' => 'Residential',
                 'Indurstrial' => 'Indurstrial',
                 'Commercial' => 'Commercial',
+                'Private Homes' => 'Private Homes'
             ];
             $value = $project->project_type ?? '';
             // $required = 'required';
@@ -762,7 +765,7 @@
 
         <div class="form-group col-6 col-md-4 mb-2">
             <?php
-            $field_name = 'Add Photos to Galary';
+            $field_name = 'Add Photos to Gallery';
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $value = '';
@@ -859,7 +862,7 @@
             // $required = 'required';
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->file($field_name)->class('form-control form-control-sm')->attributes(['name' => 'qna_page_header_title', "$required", 'value' => "$value"]) }}
+            {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(['name' => 'qna_page_header_title', "$required", 'value' => "$value"]) }}
             @error('qna_page_header_title')
                 <span class="error">{{ $message }}</span>
             @enderror

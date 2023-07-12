@@ -568,7 +568,6 @@ h5{
 }
 
 #hero-the-western-village{
-  background: url("../../assets/img/crowdfunding/the-western-village/hero-bg-the-western-village.jpg") top center;
   background-size: cover;
   background-position: center;
   position: relative;
@@ -659,7 +658,7 @@ h5{
 }
 
 #hero-about{
-  background: url("../../assets/img/about/hero-about-bg.jpg") top center;
+  /* background: url("../../assets/img/about/hero-about-bg.jpg") top center; */
   background-size: cover;
   background-position: center;
   position: relative;

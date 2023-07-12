@@ -124,13 +124,29 @@ class ContactController extends Controller
         $contact = new Contact;
 
         $photo_of_passport_url = '';
-        if ($request->hasFile('photo_of_passport')) {
+        // Delete previous files on update
+        if($request->hasFile('photo_of_passport')){
+            if ($oldFile = $contact->photo_of_passport) {
+                $filePath = public_path($oldFile);
+                if (file_exists($filePath)) {
+                    unlink($filePath);
+                }
+            }
+            // Set new file
             $photo_of_passport_url = uploadFileToPublic($request->file('photo_of_passport'), 'contact/photo_of_passport');
             $contact->photo_of_passport = $photo_of_passport_url;
         }
 
         $photo_of_id_card_url = '';
-        if ($request->hasFile('photo_of_id_card')) {
+
+         if($request->hasFile('photo_of_id_card')){
+            if ($oldFile = $contact->photo_of_id_card) {
+                $filePath = public_path($oldFile);
+                if (file_exists($filePath)) {
+                    unlink($filePath);
+                }
+            }
+
             $photo_of_id_card_url = uploadFileToPublic($request->file('photo_of_id_card'), 'contact/photo_of_id_card');
             $contact->photo_of_id_card = $photo_of_id_card_url;
         }
@@ -145,16 +161,16 @@ class ContactController extends Controller
         $contact->buisness_position = $request->buisness_position;
         $contact->budget = $request->budget;
         $contact->location = $request->location;
-        $contact->added_date = Carbon::parse($request->added_date)->format('Y-m-d');
+        $contact->added_date = Carbon::parse($request->added_date)->format('m-d-Y');
         $contact->reffered_by = $request->reffered_by;
         $contact->note = $request->note;
-        $contact->date_of_birth = Carbon::parse($request->added_date)->format('Y-m-d');
+        $contact->date_of_birth = Carbon::parse($request->date_of_birth)->format('m-d-Y');
         $contact->team_member = $request->team_member;
         $contact->project_or_investment = $request->project_or_investment;
         $contact->citizenship = $request->citizenship;
         $contact->passport_number = $request->passport_number;
         $contact->photo_of_passport = $photo_of_passport_url;
-        $contact->passport_expiry_date = Carbon::parse($request->added_date)->format('Y-m-d');
+        $contact->passport_expiry_date = Carbon::parse($request->passport_expiry_date)->format('m-d-Y');
         $contact->id_card_text = $request->id_card_text;
         $contact->photo_of_id_card = $photo_of_id_card_url;
         $contact->exact_address = $request->exact_address;
@@ -162,14 +178,14 @@ class ContactController extends Controller
         $contact->name_of_the_bank_you_work_with = $request->name_of_the_bank_you_work_with;
         $contact->card_details_for_downpayment = $request->card_details_for_downpayment;
         $contact->bank_acc_with_6_month_history = $request->bank_acc_with_6_month_history;
-        $contact->crypto_wallet = $request->crypto_walle;
+        $contact->crypto_wallet = $request->crypto_wallet;
 
         $contact->save();
 
         // Add a person of this contact in pipedrive
         $this->addPersonPipeDrive($contact);
 
-        flash(icon().' '.Str::singular($module_title)."' Created.")->success()->important();
+        flash(icon().' '."Contact Created Successfully.")->success()->important();
 
         logUserAccess($module_title.' '.$module_action.' | Id: '.$$module_name_singular->id);
 
@@ -302,9 +318,9 @@ class ContactController extends Controller
         $request->validate([
             'first_name' => 'nullable',
             'last_name' => 'nullable:',
-            'email' => 'required|unique:'.$module_model.',email',
-            'phone' => 'required|unique:'.$module_model.',phone',
-            'id_no' => 'required|unique:'.$module_model.',id_no',
+            'email' => 'required|unique:'.$module_model.',email,' . $id.',id',
+            'phone' => 'required|unique:'.$module_model.',phone,' . $id.',id',
+            'id_no' => 'required|unique:'.$module_model.',id_no,' . $id.',id',
             'client_type' => 'nullable',
             'buisness_position' => 'nullable',
             'budget' => 'nullable',
@@ -334,18 +350,31 @@ class ContactController extends Controller
 
         $photo_of_passport_url = $contact->photo_of_passport;
 
-        if ($request->hasFile('photo_of_passport')) {
+        // Delete previous file on update
+        if($request->hasFile('photo_of_passport')){
+            if ($oldImage = $contact->photo_of_passport) {
+                $filePath = public_path($oldImage);
+                if (file_exists($filePath)) {
+                    unlink($filePath);
+                }
+            }
+            // Put new file
             $photo_of_passport_url = uploadFileToPublic($request->file('photo_of_passport'), 'contact/photo_of_passport');
             $contact->photo_of_passport = $photo_of_passport_url;
         }
 
         $photo_of_id_card_url = $contact->photo_of_id_card;
 
-        if ($request->hasFile('photo_of_id_card')) {
-            $photo_of_id_card_url = uploadFileToPublic($request->file('photo_of_id_card'), 'contact/photo_of_id_card');
-            $contact->photo_of_id_card = $photo_of_id_card_url;
-
-        }
+        if($request->hasFile('photo_of_id_card')){
+             if ($oldImage = $contact->photo_of_id_card) {
+                 $filePath = public_path($oldImage);
+                 if (file_exists($filePath)) {
+                     unlink($filePath);
+                 }
+             }
+                 $photo_of_id_card_url = uploadFileToPublic($request->file('photo_of_id_card'), 'contact/photo_of_id_card');
+                 $contact->photo_of_id_card = $photo_of_id_card_url;
+         }
 
         $contact->first_name = $request->first_name;
         $contact->last_name = $request->last_name;
@@ -356,27 +385,27 @@ class ContactController extends Controller
         $contact->buisness_position = $request->buisness_position;
         $contact->budget = $request->budget;
         $contact->location = $request->location;
-        $contact->added_date = Carbon::parse($request->added_date)->format('Y-m-d');
+        $contact->added_date = Carbon::parse($request->added_date)->format('m-d-Y');
         $contact->reffered_by = $request->reffered_by;
         $contact->note = $request->note;
-        $contact->date_of_birth = Carbon::parse($request->added_date)->format('Y-m-d');
+        $contact->date_of_birth = Carbon::parse($request->date_of_birth)->format('m-d-Y');
         $contact->team_member = $request->team_member;
         $contact->project_or_investment = $request->project_or_investment;
         $contact->citizenship = $request->citizenship;
         $contact->passport_number = $request->passport_number;
         $contact->photo_of_passport = $photo_of_passport_url;
-        $contact->passport_expiry_date = Carbon::parse($request->added_date)->format('Y-m-d');
+        $contact->passport_expiry_date = Carbon::parse($request->passport_expiry_date)->format('m-d-Y');
         $contact->photo_of_id_card = $photo_of_id_card_url;
         $contact->exact_address = $request->exact_address;
         $contact->PO_box = $request->PO_box;
         $contact->name_of_the_bank_you_work_with = $request->name_of_the_bank_you_work_with;
         $contact->card_details_for_downpayment = $request->card_details_for_downpayment;
         $contact->bank_acc_with_6_month_history = $request->bank_acc_with_6_month_history;
-        $contact->crypto_wallet = $request->crypto_walle;
+        $contact->crypto_wallet = $request->crypto_wallet;
 
         $contact->save();
 
-        flash(icon().' '.Str::singular($module_title)."' Updated Successfully")->success()->important();
+        flash(icon().' '."Contact Updated Successfully")->success()->important();
 
         logUserAccess($module_title.' '.$module_action.' | Id: '.$$module_name_singular->id);
 
@@ -401,10 +430,18 @@ class ContactController extends Controller
 
         $$module_name_singular = $module_model::findOrFail($id);
 
+        // Delete the associated image & files
+        $fileFields = ['photo_of_passport','photo_of_id_card'];
+        foreach ($fileFields as $fileField) {
+            $filePath = public_path($$module_name_singular->{$fileField});
+            if (file_exists($filePath) && is_file($filePath)) {
+                unlink($filePath);
+            }
+        }
 
         $$module_name_singular->delete();
 
-        flash(icon().' '.Str::singular($module_title)." Deleted Successfully")->success()->important();
+        flash(icon().' '."Contact Deleted Successfully")->success()->important();
 
         logUserAccess($module_title.' '.$module_action.' | Id: '.$$module_name_singular->id);
 
