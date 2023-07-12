@@ -215,6 +215,8 @@ class FrontendController extends Controller
         $project_name = 'Eco Gardens';
         $projects = Project::where('project_name', $project_name)->firstOrFail();
 
+        
+
         return view('frontend.projects.ecogardens.choose-your-land', compact('projects'));
     }
 

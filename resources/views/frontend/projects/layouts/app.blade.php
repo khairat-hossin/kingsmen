@@ -16,8 +16,11 @@
 
   <!-- CSRF Token -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
-
+  
   @stack('before-styles')
+  <script src="{{ asset('vendor/jquery/jquery-3.6.4.min.js') }}"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    @vite(['resources/sass/app-backend.scss', 'resources/js/app-backend.js'])
   <!-- Favicons -->
   <link href="{{ asset('../../assets/img/ecogardens/favicon.png') }}" rel="icon">
   <link href="{{ asset('../../assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
@@ -59,7 +62,7 @@
     @include('frontend.projects.includes.footer')
 
 </body>
-
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
   <!-- Scripts -->
   @stack('before-scripts')
 
@@ -76,6 +79,6 @@
   <!-- Template Main JS File -->
   <script src="{{ asset('../../assets/js/ecogardens.js') }}"></script>
   <!-- Initialize Swiper -->
-
+  @stack('after-scripts')
 
 </html>

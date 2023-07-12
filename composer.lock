@@ -3766,16 +3766,16 @@
         },
         {
             "name": "pipedrive/pipedrive",
-            "version": "4.0.5",
+            "version": "4.0.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pipedrive/client-php.git",
-                "reference": "1c5c766c8d84112196d9d1d082516b5d564e4555"
+                "reference": "82bffda0401ccd7211edfea15f313246f15fde1d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pipedrive/client-php/zipball/1c5c766c8d84112196d9d1d082516b5d564e4555",
-                "reference": "1c5c766c8d84112196d9d1d082516b5d564e4555",
+                "url": "https://api.github.com/repos/pipedrive/client-php/zipball/82bffda0401ccd7211edfea15f313246f15fde1d",
+                "reference": "82bffda0401ccd7211edfea15f313246f15fde1d",
                 "shasum": ""
             },
             "require": {
@@ -3814,9 +3814,9 @@
             ],
             "support": {
                 "issues": "https://github.com/pipedrive/client-php/issues",
-                "source": "https://github.com/pipedrive/client-php/tree/4.0.5"
+                "source": "https://github.com/pipedrive/client-php/tree/4.0.10"
             },
-            "time": "2022-11-15T11:34:24+00:00"
+            "time": "2023-05-08T06:22:42+00:00"
         },
         {
             "name": "predis/predis",

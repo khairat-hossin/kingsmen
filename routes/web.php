@@ -10,6 +10,7 @@ use App\Http\Controllers\Backend\Team\TeamController;
 use App\Http\Controllers\Backend\FAQs\FAQController;
 use App\Http\Controllers\Backend\Services\ServiceController;
 use App\Http\Controllers\Backend\AboutUs\AboutUsController;
+use App\Http\Controllers\Backend\PipeDriveController;
 // use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\LanguageController;
 use Illuminate\Support\Facades\Route;
@@ -38,6 +39,7 @@ Route::get('dashboard', 'App\Http\Controllers\Frontend\FrontendController@index'
 *
 * --------------------------------------------------------------------
 */
+
 Route::group(['namespace' => 'App\Http\Controllers\Frontend', 'as' => 'frontend.'], function () {
     Route::get('/', 'FrontendController@index')->name('index');
     Route::get('home', 'FrontendController@index')->name('home');
@@ -216,5 +218,10 @@ Route::group(['prefix' => 'admin', 'as' => 'backend.', 'middleware' => ['auth', 
 
     Route::get('pipe', [ProjectController::class, 'pipe'])->name('pipe');
 
-
+    // Pipe Drive Routes
+    Route::resource('pipe-drive', PipeDriveController::class );
+    Route::get('pipe-drives/callback', [PipeDriveController::class, 'callback'])->name('pipe-drive.callback');
 });
+
+
+Route::get('/get-land-details', [PipeDriveController::class, 'getLandDetails'])->name('get-land-details');
