@@ -72,6 +72,11 @@ Route::group(['namespace' => 'App\Http\Controllers\Frontend', 'as' => 'frontend.
     Route::get('projects/ecogardens/who-we-are', 'FrontendController@eco_who_we_are')->name('eco_who_we_are');
     Route::get('projects/ecogardens/testimonials', 'FrontendController@eco_testimonials')->name('eco_testimonials');
 
+    // Routes for GreenHills
+    Route::get('projects/greenhills/home', 'GreenHillsController@index')->name('greenhills_home');
+    Route::get('projects/greenhills/overview', 'GreenHillsController@overview')->name('greenhills_overview');
+
+
     Route::group(['middleware' => ['auth']], function () {
         /*
         *

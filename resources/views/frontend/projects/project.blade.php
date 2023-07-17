@@ -62,7 +62,24 @@
                                     <span>Village: </span> {{ $project->address }}<br>
                                     <span>Available: </span> {{ $project->project_type }} <br>
                                     <span>Starting Price: </span> {{ number_format($project->land_price_starting) }} USD <br>
-                                    <a href="{{ route('frontend.eco_home') }}" class="btn mt-3">check project</a>
+                                    {{-- Temporary code --}}
+                                    @php
+                                    $routeName = '';
+                                    if($project->project_name == "GreenHills"){
+                                        $routeName = 'frontend.greenhills_home';
+                                    } elseif ($project->project_name == "Eco Garden") {
+                                        $routeName = 'frontend.eco_home';
+                                    }
+
+                                    @endphp
+                                    {{-- <a href="{{ route($routeName) }}" class="btn mt-3">check project</a> --}}
+
+                                    @if ($routeName && Route::has($routeName))
+                                        <a href="{{ route($routeName) }}" class="btn mt-3" target="_blank">check project</a>
+                                    @else
+                                        <a href="{{ route('frontend.index') }}" class="btn mt-3" target="_blank">check project</a>
+                                    @endif
+                                    {{-- Temporary code --}}
                                 </div>
                             </div>
                         </div>
