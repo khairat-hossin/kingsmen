@@ -96,11 +96,11 @@ Route::group(['namespace' => 'App\Http\Controllers\Frontend', 'as' => 'frontend.
     Route::get('projects/greenhills/revna-400sqm', 'GreenHillsController@revna_400sqm')->name('greenhills_byh_revna_400sqm');
 
     // GreenHills>Amenities routes
-    Route::get('projects/greenhills/activities-entertainment', 'GreenHillsController@revna_400sqm')->name('greenhills_byh_revna_400sqm');
-    Route::get('projects/greenhills/business-technology', 'GreenHillsController@revna_400sqm')->name('greenhills_byh_revna_400sqm');
-    Route::get('projects/greenhills/kindergarten', 'GreenHillsController@revna_400sqm')->name('greenhills_byh_revna_400sqm');
-    Route::get('projects/greenhills/learning-center', 'GreenHillsController@revna_400sqm')->name('greenhills_byh_revna_400sqm');
-    Route::get('projects/greenhills/urban-infrastructure', 'GreenHillsController@revna_400sqm')->name('greenhills_byh_revna_400sqm');
+    Route::get('projects/greenhills/activities-entertainment', 'GreenHillsController@activities_entertainment')->name('greenhills_activities_entertainment');
+    Route::get('projects/greenhills/business-technology', 'GreenHillsController@business_technology')->name('greenhills_business_technology');
+    Route::get('projects/greenhills/kindergarten', 'GreenHillsController@kindergarten')->name('greenhills_kindergarten');
+    Route::get('projects/greenhills/learning-center', 'GreenHillsController@learning_center')->name('greenhills_learning_center');
+    Route::get('projects/greenhills/urban-infrastructure', 'GreenHillsController@urban_infrastructure')->name('greenhills_urban_infrastructure');
 
 
     Route::group(['middleware' => ['auth']], function () {

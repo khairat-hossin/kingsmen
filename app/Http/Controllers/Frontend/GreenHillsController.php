@@ -101,4 +101,32 @@ class GreenHillsController extends Controller
         return view('frontend.projects.greenhills.buy-your-home.revna-400sqm');
     }
 
+    // GreenHills>Amenities benefits
+    public function activities_entertainment()
+    {
+        return view('frontend.projects.greenhills.amenities.activities-entertainment');
+    }
+
+    public function business_technology()
+    {
+        return view('frontend.projects.greenhills.amenities.business-technology');
+    }
+
+    public function kindergarten()
+    {
+        return view('frontend.projects.greenhills.amenities.kindergarten');
+    }
+
+    public function learning_center()
+    {
+        return view('frontend.projects.greenhills.amenities.learning-center');
+    }
+
+    public function urban_infrastructure()
+    {
+        return view('frontend.projects.greenhills.amenities.urban-infrastructure');
+    }
+
+
+
 }

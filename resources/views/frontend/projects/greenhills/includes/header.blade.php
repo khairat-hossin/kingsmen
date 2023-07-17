@@ -32,11 +32,11 @@
           {{-- <li><a  >Amenities</a></li> --}}
           <li class="dropdown"><a class="nav-link scrollto {{ Request::is('projects/greenhills/amenities*') ? 'active' : '' }}" href="{{ route('frontend.greenhills_amenities') }}"><span>Amenities</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-                  <li><a href="{{ asset('frontend.amenities_activities-entertainment') }}">Activities And Entertainment</a></li>
-                  <li><a href="{{ asset('frontend.amenities_business-technology') }}">Business and Technology</a></li>
-                  <li><a href="{{ asset('frontend.amenities_kindergarten') }}">Kindergarten</a></li>
-                  <li><a href="{{ asset('frontend.amenities_learning-center') }}">Learning Center</a></li>
-                  <li><a href="{{ asset('frontend.amenities_urban-infrastructure') }}">Urban Infrastructure</a></li>
+                  <li><a href="{{ route('frontend.greenhills_activities_entertainment') }}">Activities And Entertainment</a></li>
+                  <li><a href="{{ route('frontend.greenhills_business_technology') }}">Business and Technology</a></li>
+                  <li><a href="{{ route('frontend.greenhills_kindergarten') }}">Kindergarten</a></li>
+                  <li><a href="{{ route('frontend.greenhills_learning_center') }}">Learning Center</a></li>
+                  <li><a href="{{ route('frontend.greenhills_urban_infrastructure') }}">Urban Infrastructure</a></li>
             </ul>
           </li>
           <li><a class="nav-link scrollto {{ Request::is('projects/greenhills/financing*') ? 'active' : '' }}" href="{{ route('frontend.greenhills_financing') }}">Financing</a></li>
