@@ -81,30 +81,30 @@
           <div class="col-md-6 col-lg-4 d-flex align-items-stretch mb-2 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
             <div class="icon-box">
               <div class="icon"><img src="{{ asset('assets/img/greenhills/buy-your-home/Moon 200 Garden View.png') }}" class="img-fluid" alt="img"></div>
-              <h4 class="title"><a href="">200 Sqm Fully Equiped</a></h4>
+              <h4 class="title"><a href="{{ route('frontend.greenhills_byh_moon_200sqm') }}">200 Sqm Fully Equiped</a></h4>
               <h6 class="text-success">Land: 700 Sqm</h6>
               <h6 class="text-danger">Buy it Now: 280,000 USD</h5>
-              <a href="#about" class="btn btn-outline-warning animate__animated animate__fadeInUp scrollto">Learn More</a>
+              <a href="{{ route('frontend.greenhills_byh_moon_200sqm') }}" class="btn btn-outline-warning animate__animated animate__fadeInUp scrollto">Learn More</a>
             </div>
           </div>
 
           <div class="col-md-6 col-lg-4 d-flex align-items-stretch mb-2 mb-lg-0" data-aos="fade-up" data-aos-delay="200">
             <div class="icon-box">
               <div class="icon"><img src="{{ asset('assets/img/greenhills/buy-your-home/Villa Moon 300 m Pool View.png') }}" class="img-fluid" alt="img"></div>
-              <h4 class="title"><a href="">300 Sqm Fully Equiped</a></h4>
+              <h4 class="title"><a href="{{ route('frontend.greenhills_byh_moon_300sqm') }}">300 Sqm Fully Equiped</a></h4>
               <h6 class="text-success">Land: 900 Sqm</h6>
               <h6 class="text-danger">Buy it Now: 470,000  USD</h5>
-              <a href="#about" class="btn btn-outline-warning animate__animated animate__fadeInUp scrollto">Learn More</a>
+              <a href="{{ route('frontend.greenhills_byh_moon_300sqm') }}" class="btn btn-outline-warning animate__animated animate__fadeInUp scrollto">Learn More</a>
             </div>
           </div>
 
           <div class="col-md-6 col-lg-4 d-flex align-items-stretch mb-2 mb-lg-0" data-aos="fade-up" data-aos-delay="300">
             <div class="icon-box">
               <div class="icon"><img src="{{ asset('assets/img/greenhills/buy-your-home/Villa Moon 400m Garden View.png') }}" class="img-fluid" alt="img"></div>
-              <h4 class="title"><a href="">400 Sqm Fully Equiped</a></h4>
+              <h4 class="title"><a href="{{ route('frontend.greenhills_byh_moon_400sqm') }}">400 Sqm Fully Equiped</a></h4>
               <h6 class="text-success">Land: 1000 Sqm</h6>
               <h6 class="text-danger">Buy it Now:  600,000 USD</h5>
-              <a href="../greenhills/amenities/" class="btn btn-outline-warning animate__animated animate__fadeInUp scrollto">Learn More</a>
+              <a href="{{ route('frontend.greenhills_byh_moon_400sqm') }}" class="btn btn-outline-warning animate__animated animate__fadeInUp scrollto">Learn More</a>
             </div>
           </div>
 
@@ -129,7 +129,7 @@
                           <h6 class="text-success">Same- Day Approval on Financing </h6>
                           <h6 class="text-success">Available up to 7 Years with 0% Down-Payment </h6>
                           <h6> Financing Granted Online, All you have to do is to register online . </h6>
-                          <a href="" class="btn btn-outline-warning">Submit land purchase/register online</a>
+                          <a href="https://docs.google.com/forms/d/e/1FAIpQLSePEVzsvrdHnx_ygMFcON3_4nBwJ5xHQU8JxWsjdjtpApOjnA/viewform" class="btn btn-outline-warning">Submit land purchase/register online</a>
                       </div>
                   </div>
               </div>

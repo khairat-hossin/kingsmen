@@ -38,15 +38,13 @@
           </div>
         </div>
         <div class="text-center">
-          <a href="buy-your-home.html">
+          <a href="{{ route('frontend.greenhills_buy_your_home') }}">
             <h4 class="py-2 my-2 btn btn-outline-warning">"Discover the Ease of a Ready-Made Home! Our Customizable Homes Will Satisfy Every Taste!" </h4>
           </a>
         </div>
       </div>
     </section>
     <!-- ==== End about the project ==== -->
-
-
 
     <!-- ======= Icon Boxes Section ======= -->
     <section id="icon-boxes" class="icon-boxes ">
@@ -56,44 +54,44 @@
           <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-2 mb-lg-0" data-aos="fade-up">
             <div class="icon-box">
               <div class="icon"><img src="{{ asset('assets/img/greenhills/buy-your-land/Moon 200 Garden View.png') }}" class="img-fluid" alt="img"></div>
-              <h4 class="title"><a href=""> Villa Moon </a></h4>
+              <h4 class="title"><a href="{{ route('frontend.greenhills_byh_moon_200sqm') }}"> Villa Moon </a></h4>
               <h6 class="text-success">200 Sqm Fully Equiped</h6>
               <h6 class="text-success">Land: 700 Sqm</h6>
               <h6 class="text-danger">Buy it Now: 280,000 USD</h5>
-              <a href="buy-your-home/moon-200sqm.html" class="btn btn-outline-warning animate__animated animate__fadeInUp scrollto">Check it now</a>
+              <a href="{{ route('frontend.greenhills_byh_moon_200sqm') }}" class="btn btn-outline-warning animate__animated animate__fadeInUp scrollto">Check it now</a>
             </div>
           </div>
 
           <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-2 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
             <div class="icon-box">
               <div class="icon"><img src="{{ asset('assets/img/greenhills/buy-your-land/Villa Liv 300 m .png') }}" class="img-fluid" alt="img"></div>
-              <h4 class="title"><a href="">Villa Liv</a></h4>
+              <h4 class="title"><a href="{{ route('frontend.greenhills_byh_liv_300sqm') }}">Villa Liv</a></h4>
               <h6 class="text-success">300 Sqm Fully Equiped</h6>
               <h6 class="text-success">Land: 900 Sqm/h6>
               <h6 class="text-danger">Buy it Now: 470,000 USD</h5>
-              <a href="buy-your-home/liv-300sqm.html" class="btn btn-outline-warning animate__animated animate__fadeInUp scrollto">Check it now</a>
+              <a href="{{ route('frontend.greenhills_byh_liv_300sqm') }}" class="btn btn-outline-warning animate__animated animate__fadeInUp scrollto">Check it now</a>
             </div>
           </div>
 
           <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-2 mb-lg-0" data-aos="fade-up" data-aos-delay="200">
             <div class="icon-box">
               <div class="icon"><img src="{{ asset('assets/img/greenhills/buy-your-land/Astrid 200 m Garden side.jpg') }}" class="img-fluid" alt="img"></div>
-              <h4 class="title"><a href="">Villa Astrid</a></h4>
+              <h4 class="title"><a href="{{ route('frontend.greenhills_byh_astrid_200sqm') }}">Villa Astrid</a></h4>
               <h6 class="text-success">200 Sqm Fully Equiped</h6>
               <h6 class="text-success">Land: 700 Sqm</h6>
               <h6 class="text-danger">Buy it Now: 280,000 USD</h5>
-              <a href="buy-your-home/astrid-200sqm.html" class="btn btn-outline-warning animate__animated animate__fadeInUp scrollto">Check it now</a>
+              <a href="{{ route('frontend.greenhills_byh_astrid_200sqm') }}" class="btn btn-outline-warning animate__animated animate__fadeInUp scrollto">Check it now</a>
             </div>
           </div>
 
           <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-2 mb-lg-0" data-aos="fade-up" data-aos-delay="300">
             <div class="icon-box">
               <div class="icon"><img src="{{ asset('assets/img/greenhills/buy-your-land/Villa Revna 400m pv.png') }}" class="img-fluid" alt="img"></div>
-              <h4 class="title"><a href=""> Villa Revna </a></h4>
+              <h4 class="title"><a href="{{ route('frontend.greenhills_byh_revna_400sqm') }}"> Villa Revna </a></h4>
               <h6 class="text-success">400 Sqm Fully Equiped</h6>
               <h6 class="text-success">Land: 1000 Sqm</h6>
               <h6 class="text-danger">Buy it Now: 600,000 USD</h5>
-              <a href="buy-your-home/revna-400sqm.html" class="btn btn-outline-warning animate__animated animate__fadeInUp scrollto">Check it now</a>
+              <a href="{{ route('frontend.greenhills_byh_revna_400sqm') }}" class="btn btn-outline-warning animate__animated animate__fadeInUp scrollto">Check it now</a>
             </div>
           </div>
         </div>

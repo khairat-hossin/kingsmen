@@ -81,6 +81,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Frontend', 'as' => 'frontend.
     Route::get('projects/greenhills/amenities', 'GreenHillsController@amenities')->name('greenhills_amenities');
     Route::get('projects/greenhills/financing', 'GreenHillsController@financing')->name('greenhills_financing');
     Route::get('projects/greenhills/who-we-are', 'GreenHillsController@who_we_are')->name('greenhills_who_we_are');
+
     // GreenHills>Buy your home's project route
     Route::get('projects/greenhills/buy-your-home/astrid-200sqm', 'GreenHillsController@astrid_200sqm')->name('greenhills_byh_astrid_200sqm');
     Route::get('projects/greenhills/buy-your-home/liv-200sqm', 'GreenHillsController@liv_200sqm')->name('greenhills_byh_liv_200sqm');
