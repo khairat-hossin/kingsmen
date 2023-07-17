@@ -4,7 +4,7 @@
 
       <!-- Uncomment below if you prefer to use a text logo -->
       <!-- <h1 class="logo"><a href="index.html">Anyar</a></h1> -->
-      <a href="index.html" class="logo"><img src="{{ asset('assets/img/greenhills/logo.png') }}" alt="" class="img-fluid"></a>
+      <a href="{{ route('frontend.greenhills_home') }}" class="logo"><img src="{{ asset('assets/img/greenhills/logo.png') }}" alt="" class="img-fluid"></a>
 
       <nav id="navbar" class="navbar">
         <ul>

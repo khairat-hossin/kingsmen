@@ -38,7 +38,7 @@
               </p>
           </div>
 
-          <a href="../../index.html" class="btn btn-outline-warning w-75">Check offers</a>
+          <a href="{{ route('frontend.greenhills_home') }}" class="btn btn-outline-warning w-75">Check offers</a>
         </div>
       </div>
     </section>
