@@ -8,16 +8,14 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="{{ route('frontend.greenhills_home') }}">Home</a></li>
-          <li><a class="nav-link scrollto" href="{{ route('frontend.greenhills_overview') }}">Overview</a></li>
-          <li><a href="faq.html">Questions and Answers</a></li>
-          <li class="dropdown"><a href="buy-your-home.html"><span>Buy your home</span></a>
-          </li>
-          <li><a href="buy-your-land.html">Buy your land</a></li>
-          <li class="dropdown"><a href="amenities.html"><span>Amenities</span></a>
-          </li>
-          <li><a href="financing.html">Financing</a></li>
-          <li class="dropdown"><a href="who_we_are.html"><span>Who we are</span></a></li>
+          <li><a class="nav-link scrollto {{ Request::is('projects/greenhills/home') ? 'active' : '' }}" href="{{ route('frontend.greenhills_home') }}">Home</a></li>
+          <li><a class="nav-link scrollto {{ Request::is('projects/greenhills/overview*') ? 'active' : '' }}" href="{{ route('frontend.greenhills_overview') }}">Overview</a></li>
+          <li><a class="nav-link scrollto {{ Request::is('projects/greenhills/faq*') ? 'active' : '' }}" href="{{ route('frontend.greenhills_faq') }}">Questions and Answers</a></li>
+          <li><a class="nav-link scrollto {{ Request::is('projects/greenhills/buy-your-home*') ? 'active' : '' }}" href="{{ route('frontend.greenhills_buy_your_home') }}">Buy your home</a></li>
+          <li><a class="nav-link scrollto {{ Request::is('projects/greenhills/buy-your-land*') ? 'active' : '' }}" href="{{ route('frontend.greenhills_buy_your_land') }}">Buy your land</a></li>
+          <li><a class="nav-link scrollto {{ Request::is('projects/greenhills/amenities*') ? 'active' : '' }}" href="{{ route('frontend.greenhills_amenities') }}">Amenities</a></li>
+          <li><a class="nav-link scrollto {{ Request::is('projects/greenhills/financing*') ? 'active' : '' }}" href="{{ route('frontend.greenhills_financing') }}">Financing</a></li>
+          <li><a class="nav-link scrollto {{ Request::is('projects/greenhills/who-we-are*') ? 'active' : '' }}" href="{{ route('frontend.greenhills_who_we_are') }}">Who we are</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
