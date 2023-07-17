@@ -65,9 +65,9 @@
                                     {{-- Temporary code --}}
                                     @php
                                     $routeName = '';
-                                    if($project->project_name == "GreenHills"){
+                                    if($project->project_name == "Green Hills"){
                                         $routeName = 'frontend.greenhills_home';
-                                    } elseif ($project->project_name == "Eco Garden") {
+                                    } elseif ($project->project_name == "Eco Gardens") {
                                         $routeName = 'frontend.eco_home';
                                     }
 
