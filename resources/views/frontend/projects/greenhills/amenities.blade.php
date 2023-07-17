@@ -32,40 +32,40 @@
           <div class="col-md-3 col-lg-2 d-flex align-items-stretch mb-2 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
             <div class="icon-box">
               <div class="icon"><img src="../../assets/img/greenhills/buy-your-home/Moon 200 Garden View.png" class="img-fluid" alt="img"></div>
-              <h4 class="title"><a href="">Activities and entertainment</a></h4>
-              <a href="../greenhills/amenities/activities-entertainment.html" class="btn btn-outline-warning animate__animated animate__fadeInUp scrollto">Learn More</a>
+              <h4 class="title"><a href="{{ route('frontend.greenhills_activities_entertainment') }}">Activities and entertainment</a></h4>
+              <a href="{{ route('frontend.greenhills_activities_entertainment') }}" class="btn btn-outline-warning animate__animated animate__fadeInUp scrollto">Learn More</a>
             </div>
           </div>
 
           <div class="col-md-3 col-lg-2 d-flex align-items-stretch mb-2 mb-lg-0" data-aos="fade-up" data-aos-delay="200">
             <div class="icon-box">
               <div class="icon"><img src="../../assets/img/greenhills/buy-your-home/Villa Moon 300 m Pool View.png" class="img-fluid" alt="img"></div>
-              <h4 class="title"><a href="">Business and technology</a></h4>
-              <a href="../greenhills/amenities/business-technology.html" class="btn btn-outline-warning animate__animated animate__fadeInUp scrollto">Learn More</a>
+              <h4 class="title"><a href="{{ route('frontend.greenhills_business_technology') }}">Business and technology</a></h4>
+              <a href="{{ route('frontend.greenhills_business_technology') }}" class="btn btn-outline-warning animate__animated animate__fadeInUp scrollto">Learn More</a>
             </div>
           </div>
 
           <div class="col-md-3 col-lg-2 d-flex align-items-stretch mb-2 mb-lg-0" data-aos="fade-up" data-aos-delay="300">
             <div class="icon-box">
               <div class="icon"><img src="../../assets/img/greenhills/buy-your-home/Villa Moon 400m Garden View.png" class="img-fluid" alt="img"></div>
-              <h4 class="title"><a href="">Kindergarten <br> school</a></h4>
-              <a href="../greenhills/amenities/kindergarten.html" class="btn btn-outline-warning animate__animated animate__fadeInUp scrollto">Learn More</a>
+              <h4 class="title"><a href="{{ route('frontend.greenhills_kindergarten') }}">Kindergarten <br> school</a></h4>
+              <a href="{{ route('frontend.greenhills_kindergarten') }}" class="btn btn-outline-warning animate__animated animate__fadeInUp scrollto">Learn More</a>
             </div>
           </div>
 
           <div class="col-md-3 col-lg-2 d-flex align-items-stretch mb-2 mb-lg-0" data-aos="fade-up" data-aos-delay="300">
             <div class="icon-box">
               <div class="icon"><img src="../../assets/img/greenhills/buy-your-home/Villa Moon 400m Garden View.png" class="img-fluid" alt="img"></div>
-              <h4 class="title"><a href="">Learning <br> center</a></h4>
-              <a href="../greenhills/amenities/learning-center.html" class="btn btn-outline-warning animate__animated animate__fadeInUp scrollto">Learn More</a>
+              <h4 class="title"><a href="{{ route('frontend.greenhills_learning_center') }}">Learning <br> center</a></h4>
+              <a href="{{ route('frontend.greenhills_learning_center') }}" class="btn btn-outline-warning animate__animated animate__fadeInUp scrollto">Learn More</a>
             </div>
           </div>
 
           <div class="col-md-3 col-lg-2 d-flex align-items-stretch mb-2 mb-lg-0" data-aos="fade-up" data-aos-delay="300">
             <div class="icon-box">
               <div class="icon"><img src="../../assets/img/greenhills/buy-your-home/Villa Moon 400m Garden View.png" class="img-fluid" alt="img"></div>
-              <h4 class="title"><a href="">Urban infrustructure</a></h4>
-              <a href="../greenhills/amenities/urban-infrastructure.html" class="btn btn-outline-warning animate__animated animate__fadeInUp scrollto">Learn More</a>
+              <h4 class="title"><a href="{{ route('frontend.greenhills_urban_infrastructure') }}">Urban infrustructure</a></h4>
+              <a href="{{ route('frontend.greenhills_urban_infrastructure') }}" class="btn btn-outline-warning animate__animated animate__fadeInUp scrollto">Learn More</a>
             </div>
           </div>
         </div>
@@ -152,7 +152,7 @@
                 <div class="icon-box">
                   <div class="icon"><img src="../../assets/img/greenhills/online features/feature-1.jpg" class="img-fluid" alt="img"></div>
                   <h4 class="title"><a href=""> Green Hills info </a></h4>
-                  <a href="#about" class="btn btn-outline-warning animate__animated animate__fadeInUp scrollto">Learn More</a>
+                  <a href="{{ route('frontend.greenhills_faq') }}" class="btn btn-outline-warning animate__animated animate__fadeInUp scrollto">Learn More</a>
                 </div>
               </div>
 
@@ -160,7 +160,7 @@
                 <div class="icon-box">
                   <div class="icon"><img src="../../assets/img/greenhills/online features/feature-2.jpg" class="img-fluid" alt="img"> </div>
                   <h4 class="title"><a href="">Who we are</a></h4>
-                  <a href="#about" class="btn btn-outline-warning animate__animated animate__fadeInUp scrollto">Learn More</a>
+                  <a href="{{ route('frontend.greenhills_who_we_are') }}" class="btn btn-outline-warning animate__animated animate__fadeInUp scrollto">Learn More</a>
                 </div>
               </div>
 
@@ -184,7 +184,7 @@
                 <div class="icon-box">
                   <div class="icon"><img src="../../assets/img/greenhills/online features/feature-5.jpg" class="img-fluid" alt="img"></div>
                   <h4 class="title"><a href=""> Financing </a></h4>
-                  <a href="#about" class="btn btn-outline-warning animate__animated animate__fadeInUp scrollto">Proceed</a>
+                  <a href="{{ route('frontend.greenhills_financing') }}" class="btn btn-outline-warning animate__animated animate__fadeInUp scrollto">Proceed</a>
                 </div>
               </div>
 
@@ -192,7 +192,7 @@
                 <div class="icon-box">
                   <div class="icon"><img src="../../assets/img/greenhills/online features/feature-6.jpg" class="img-fluid" alt="img"></div>
                   <h4 class="title"><a href=""> Buy your Home </a></h4>
-                  <a href="#about" class="btn btn-outline-warning animate__animated animate__fadeInUp scrollto"> Proceed </a>
+                  <a href="{{ route('frontend.greenhills_buy_your_home') }}" class="btn btn-outline-warning animate__animated animate__fadeInUp scrollto"> Proceed </a>
                 </div>
               </div>
 

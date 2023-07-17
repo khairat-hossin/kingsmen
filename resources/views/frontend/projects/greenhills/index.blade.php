@@ -148,7 +148,7 @@
           Green Hills Urban City is an amazing opportunity for those looking to invest in Armenia. The project offers not only access to comfortable living conditions but also an opportunity to make your dream home come true without any financial distractions.  So come and be part of this exciting journey – it's all about making the future, yours!</p>
       </div>
       <div class="text-center">
-        <a class="btn btn-outline-warning w-75" href="faq.html" >Frequently asked questions</a>
+        <a class="btn btn-outline-warning w-75" href="{{ route('frontend.greenhills_faq') }}" >Frequently asked questions</a>
       </div>
     </div>
   </div>
@@ -163,7 +163,7 @@
             <div class="icon-box">
               <div class="icon"><img src="{{ asset('assets/img/greenhills/buy-your-home/Moon 200 Garden View.png') }}" class="img-fluid" alt="img"></div>
               <h4 class="title"><a href="">Activities and entertainment</a></h4>
-              <a href="amenities/activities-entertainment.html" class="btn btn-outline-warning animate__animated animate__fadeInUp scrollto">Learn More</a>
+              <a href="{{ route('frontend.greenhills_activities_entertainment') }}" class="btn btn-outline-warning animate__animated animate__fadeInUp scrollto">Learn More</a>
             </div>
           </div>
 
@@ -171,7 +171,7 @@
             <div class="icon-box">
               <div class="icon"><img src="{{ asset('assets/img/greenhills/buy-your-home/Villa Moon 300 m Pool View.png') }}" class="img-fluid" alt="img"></div>
               <h4 class="title"><a href="">Business and technology</a></h4>
-              <a href="amenities/business-technology.html" class="btn btn-outline-warning animate__animated animate__fadeInUp scrollto">Learn More</a>
+              <a href="{{ route('frontend.greenhills_business_technology') }}" class="btn btn-outline-warning animate__animated animate__fadeInUp scrollto">Learn More</a>
             </div>
           </div>
 
@@ -179,7 +179,7 @@
             <div class="icon-box">
               <div class="icon"><img src="{{ asset('assets/img/greenhills/buy-your-home/Villa Moon 400m Garden View.png') }}" class="img-fluid" alt="img"></div>
               <h4 class="title"><a href="">Kindergarten <br> school </a></h4>
-              <a href="amenities/kindergarten.html" class="btn btn-outline-warning animate__animated animate__fadeInUp scrollto">Learn More</a>
+              <a href="{{ route('frontend.greenhills_kindergarten') }}" class="btn btn-outline-warning animate__animated animate__fadeInUp scrollto">Learn More</a>
             </div>
           </div>
 
@@ -187,7 +187,7 @@
             <div class="icon-box">
               <div class="icon"><img src="{{ asset('assets/img/greenhills/buy-your-home/Villa Moon 400m Garden View.png') }}" class="img-fluid" alt="img"></div>
               <h4 class="title"><a href="">Learning <br> center</a></h4>
-              <a href="amenities/learning-center.html" class="btn btn-outline-warning animate__animated animate__fadeInUp scrollto">Learn More</a>
+              <a href="{{ route('frontend.greenhills_learning_center') }}" class="btn btn-outline-warning animate__animated animate__fadeInUp scrollto">Learn More</a>
             </div>
           </div>
 
@@ -195,7 +195,7 @@
             <div class="icon-box">
               <div class="icon"><img src="{{ asset('assets/img/greenhills/buy-your-home/Villa Moon 400m Garden View.png') }}" class="img-fluid" alt="img"></div>
               <h4 class="title"><a href="">Urban infrustructure</a></h4>
-              <a href="amenities/urban-infrastructure.html" class="btn btn-outline-warning animate__animated animate__fadeInUp scrollto">Learn More</a>
+              <a href="{{ route('frontend.greenhills_urban_infrastructure') }}" class="btn btn-outline-warning animate__animated animate__fadeInUp scrollto">Learn More</a>
             </div>
           </div>
         </div>
@@ -279,7 +279,7 @@
                 <div class="error-message"></div>
                 <div class="sent-message">Your message has been sent. Thank you!</div>
               </div>
-              <div class="text-center"><button class="btn btn-outline-warning" type="submit">Send Message</button></div>
+              <div class="text-center"><button class="btn btn-outline-warning" type="submit">a</button></div>
             </form>
 
           </div>
