@@ -74,6 +74,38 @@ Route::group(['namespace' => 'App\Http\Controllers\Frontend', 'as' => 'frontend.
     Route::get('projects/ecogardens/who-we-are', 'FrontendController@eco_who_we_are')->name('eco_who_we_are');
     Route::get('projects/ecogardens/testimonials', 'FrontendController@eco_testimonials')->name('eco_testimonials');
 
+    // Routes for GreenHills
+    Route::get('projects/greenhills/home', 'GreenHillsController@index')->name('greenhills_home');
+    Route::get('projects/greenhills/overview', 'GreenHillsController@overview')->name('greenhills_overview');
+    Route::get('projects/greenhills/faq', 'GreenHillsController@faq')->name('greenhills_faq');
+    Route::get('projects/greenhills/buy-your-home', 'GreenHillsController@buy_your_home')->name('greenhills_buy_your_home');
+    Route::get('projects/greenhills/buy-your-land', 'GreenHillsController@buy_your_land')->name('greenhills_buy_your_land');
+    Route::get('projects/greenhills/amenities', 'GreenHillsController@amenities')->name('greenhills_amenities');
+    Route::get('projects/greenhills/financing', 'GreenHillsController@financing')->name('greenhills_financing');
+    Route::get('projects/greenhills/who-we-are', 'GreenHillsController@who_we_are')->name('greenhills_who_we_are');
+
+    // GreenHills>Buy your home's project route
+    Route::get('projects/greenhills/buy-your-home/astrid-200sqm', 'GreenHillsController@astrid_200sqm')->name('greenhills_byh_astrid_200sqm');
+    Route::get('projects/greenhills/buy-your-home/liv-200sqm', 'GreenHillsController@liv_200sqm')->name('greenhills_byh_liv_200sqm');
+    Route::get('projects/greenhills/buy-your-home/moon-200sqm', 'GreenHillsController@moon_200sqm')->name('greenhills_byh_moon_200sqm');
+    Route::get('projects/greenhills/buy-your-home/revna-200sqm', 'GreenHillsController@revna_200sqm')->name('greenhills_byh_revna_200sqm');
+    Route::get('projects/greenhills/buy-your-home/astrid-300sqm', 'GreenHillsController@astrid_300sqm')->name('greenhills_byh_astrid_300sqm');
+    Route::get('projects/greenhills/buy-your-home/liv-300sqm', 'GreenHillsController@liv_300sqm')->name('greenhills_byh_liv_300sqm');
+    Route::get('projects/greenhills/buy-your-home/moon-300sqm', 'GreenHillsController@moon_300sqm')->name('greenhills_byh_moon_300sqm');
+    Route::get('projects/greenhills/buy-your-home/revna-300sqm', 'GreenHillsController@revna_300sqm')->name('greenhills_byh_revna_300sqm');
+    Route::get('projects/greenhills/buy-your-home/astrid-400sqm', 'GreenHillsController@astrid_400sqm')->name('greenhills_byh_astrid_400sqm');
+    Route::get('projects/greenhills/buy-your-home/liv-400sqm', 'GreenHillsController@liv_400sqm')->name('greenhills_byh_liv_400sqm');
+    Route::get('projects/greenhills/buy-your-home/moon-400sqm', 'GreenHillsController@moon_400sqm')->name('greenhills_byh_moon_400sqm');
+    Route::get('projects/greenhills/buy-your-home/revna-400sqm', 'GreenHillsController@revna_400sqm')->name('greenhills_byh_revna_400sqm');
+
+    // GreenHills>Amenities routes
+    Route::get('projects/greenhills/amenities/activities-entertainment', 'GreenHillsController@activities_entertainment')->name('greenhills_activities_entertainment');
+    Route::get('projects/greenhills/amenities/business-technology', 'GreenHillsController@business_technology')->name('greenhills_business_technology');
+    Route::get('projects/greenhills/amenities/kindergarten', 'GreenHillsController@kindergarten')->name('greenhills_kindergarten');
+    Route::get('projects/greenhills/amenities/learning-center', 'GreenHillsController@learning_center')->name('greenhills_learning_center');
+    Route::get('projects/greenhills/amenities/urban-infrastructure', 'GreenHillsController@urban_infrastructure')->name('greenhills_urban_infrastructure');
+
+
     Route::group(['middleware' => ['auth']], function () {
         /*
         *

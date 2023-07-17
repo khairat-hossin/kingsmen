@@ -317,7 +317,7 @@
 </div>
 <legend class="border-bottom w-100">Add Payment Information From Portal</legend>
 <div class="row">
-    <div class="form-group col-6 col-md-4 mb-2">
+    <div class="form-group col-12 col-md-6 mb-2">
             <?php
             $field_name = 'Name of the Bank You Work With';
             $field_lable = label_case($field_name);
@@ -327,7 +327,7 @@
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(["name" => "name_of_the_bank_you_work_with", "$required"]) }}
     </div>
-    <div class="form-group col-6 col-md-4 mb-2">
+    <div class="form-group col-12 col-md-6 mb-2">
             <?php
             $field_name = 'ADD CARD DETAILS FOR DOWNPAYMENT';
             $field_lable = label_case($field_name);
@@ -337,9 +337,10 @@
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(["name" => "card_details_for_downpayment", "$required"]) }}
     </div>
+</div>
 
-
-    <div class="form-group col-6 col-md-4 mb-2">
+<div class="row">
+    <div class="form-group col-12 col-md-6 mb-2">
             <?php
             $field_name = 'Bank Account With 6 Month History Showing Your Exact Billing Address';
             $field_lable = label_case($field_name);
@@ -349,7 +350,7 @@
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
             {{ html()->text($field_name)->class('form-control form-control-sm')->attributes(["name" => "bank_acc_with_6_month_history", "$required"]) }}
     </div>
-    <div class="form-group col-6 col-md-4 mb-2">
+    <div class="form-group col-12 col-md-6 mb-2">
             <?php
             $field_name = 'Connect Crypto Wallet';
             $field_lable = label_case($field_name);
