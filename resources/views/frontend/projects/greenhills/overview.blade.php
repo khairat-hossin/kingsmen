@@ -155,7 +155,7 @@
               <div class="row">
                 <div class="col-md-6 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up">
                   <div class="icon-box">
-                    <div class="icon"><img src="../../assets/img/greenhills/overview/pic-2.jpg" class="img-fluid lazy" alt="img"></div>
+                    <div class="icon"><img src="{{ asset('assets/img/greenhills/overview/pic-2.jpg') }}" class="img-fluid lazy" alt="img"></div>
                     <h4 class="title"><a href="{{ route('frontend.greenhills_byh_astrid_200sqm') }}"> Experience unparalleled luxury when you choose Villa ASTRID! </a></h4>
                     <p>Villa Astrid is designed with functionality and style in mind, as well as comfort and luxury as it offer privacy and peacefulness.</p>
                     <a href="{{ route('frontend.greenhills_buy_your_home') }}" class="btn btn-outline-warning animate__animated animate__fadeInUp scrollto">Other designs</a>
@@ -164,7 +164,7 @@
 
                 <div class="col-md-6 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
                   <div class="icon-box">
-                    <div class="icon"><img src="../../assets/img/greenhills/overview/pic-4.jpg" class="img-fluid lazy" alt="img"> </div>
+                    <div class="icon"><img src="{{ asset('assets/img/greenhills/overview/pic-4.jpg') }}" class="img-fluid lazy" alt="img"> </div>
                     <h4 class="title"><a href="{{ route('frontend.greenhills_amenities') }}">Enjoy a leisurely lifestyle with our array of amenities …</a></h4>
                     <p>Featuring an array of luxurious finishes and tones, this design is sure to bring an air of sophistication to any space. </p>
                     <a href="{{ route('frontend.greenhills_amenities') }}" class="btn btn-outline-warning animate__animated animate__fadeInUp scrollto">Amenities</a>
@@ -173,7 +173,7 @@
 
                 <div class="col-md-6 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="200">
                   <div class="icon-box">
-                    <div class="icon"><img src="../../assets/img/greenhills/overview/pic-5.JPG" class="img-fluid lazy" alt="img"></div>
+                    <div class="icon"><img src="{{ asset('assets/img/greenhills/overview/pic-5.JPG') }}" class="img-fluid lazy" alt="img"></div>
                     <h4 class="title"><a href="">Need Help to take the next step into creating your dream ?</a></h4>
                     <p>Call us today , and get in touch with one of our experienced professionals to appreciate what this opportunity has to offer.</p>
                     <a href="#about" class="btn btn-outline-warning animate__animated animate__fadeInUp scrollto">Contact us</a>
@@ -197,7 +197,7 @@
             <div class="row">
               <div class="col-md-6 col-lg-2 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up">
                 <div class="icon-box">
-                  <div class="icon"><img src="../../assets/img/greenhills/online features/feature-1.jpg" class="img-fluid lazy" alt="img"></div>
+                  <div class="icon"><img src="{{ asset('assets/img/greenhills/online features/feature-1.jpg') }}" class="img-fluid lazy" alt="img"></div>
                   <h4 class="title"><a href="{{ route('frontend.greenhills_faq') }}"> Green Hills info </a></h4>
                   <a href="{{ route('frontend.greenhills_faq') }}" class="btn btn-outline-warning animate__animated animate__fadeInUp scrollto">Learn More</a>
                 </div>
@@ -205,7 +205,7 @@
 
               <div class="col-md-6 col-lg-2 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
                 <div class="icon-box">
-                  <div class="icon"><img src="../../assets/img/greenhills/online features/feature-2.jpg" class="img-fluid lazy" alt="img"> </div>
+                  <div class="icon"><img src="{{ asset('assets/img/greenhills/online features/feature-2.jpg') }}" class="img-fluid lazy" alt="img"> </div>
                   <h4 class="title"><a href="{{ route('frontend.greenhills_who_we_are') }}">Who we are</a></h4>
                   <a href="{{ route('frontend.greenhills_who_we_are') }}" class="btn btn-outline-warning animate__animated animate__fadeInUp scrollto">Learn More</a>
                 </div>
@@ -213,7 +213,7 @@
 
               <div class="col-md-6 col-lg-2 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="200">
                 <div class="icon-box">
-                  <div class="icon"><img src="../../assets/img/greenhills/online features/feature-3.jpg" class="img-fluid lazy" alt="img"></div>
+                  <div class="icon"><img src="{{ asset('assets/img/greenhills/online features/feature-3.jpg') }}" class="img-fluid lazy" alt="img"></div>
                   <h4 class="title"><a href="">Message us</a></h4>
                   <a href="#about" class="btn btn-outline-warning animate__animated animate__fadeInUp scrollto">Contact us</a>
                 </div>
@@ -221,7 +221,7 @@
 
               <div class="col-md-6 col-lg-2 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="300">
                 <div class="icon-box">
-                  <div class="icon"><img src="../../assets/img/greenhills/online features/feature-4.jpg" class="img-fluid lazy" alt="img"></div>
+                  <div class="icon"><img src="{{ asset('assets/img/greenhills/online features/feature-4.jpg') }}" class="img-fluid lazy" alt="img"></div>
                   <h4 class="title"><a href="#about"> Register Online </a></h4>
                   <a href="#about" class="btn btn-outline-warning animate__animated animate__fadeInUp scrollto">Sign up</a>
                 </div>
@@ -229,7 +229,7 @@
 
               <div class="col-md-6 col-lg-2 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="300">
                 <div class="icon-box">
-                  <div class="icon"><img src="../../assets/img/greenhills/online features/feature-5.jpg" class="img-fluid lazy"  alt="img"></div>
+                  <div class="icon"><img src="{{ asset('assets/img/greenhills/online features/feature-5.jpg') }}" class="img-fluid lazy"  alt="img"></div>
                   <h4 class="title"><a href="{{ route('frontend.greenhills_financing') }}"> Financing </a></h4>
                   <a href="{{ route('frontend.greenhills_financing') }}" class="btn btn-outline-warning animate__animated animate__fadeInUp scrollto">Proceed</a>
                 </div>
@@ -237,7 +237,7 @@
 
               <div class="col-md-6 col-lg-2 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="300">
                 <div class="icon-box">
-                  <div class="icon"><img src="../../assets/img/greenhills/online features/feature-6.jpg" class="img-fluid lazy" alt="img"></div>
+                  <div class="icon"><img src="{{ asset('assets/img/greenhills/online features/feature-6.jpg') }}" class="img-fluid lazy" alt="img"></div>
                   <h4 class="title"><a href="{{ route('frontend.greenhills_buy_your_home') }}"> Buy your Home </a></h4>
                   <a href="{{ route('frontend.greenhills_buy_your_home') }}" class="btn btn-outline-warning animate__animated animate__fadeInUp scrollto"> Proceed </a>
                 </div>
@@ -256,7 +256,7 @@
         <div class="m-3  text-center">
 
           <h3 class="text-center mt-3">Project Development - Sales and Marketing</h3>
-          <img src="../../assets/img/greenhills/clients/client-4.png" class="img-fluid lazy" alt="logo">
+          <img src="{{ asset('assets/img/greenhills/clients/client-4.png') }}" class="img-fluid lazy" alt="logo">
         </div>
       </div>
     </section>

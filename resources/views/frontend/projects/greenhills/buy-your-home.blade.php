@@ -38,7 +38,7 @@
         <div class="row">
           <div class="col-md-6 col-lg-4 d-flex align-items-stretch mb-2 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
             <div class="icon-box">
-              <div class="icon"><img data-src="../../assets/img/greenhills/buy-your-home/Moon 200 Garden View.png" class="img-fluid lazy" alt="img"></div>
+              <div class="icon"><img src="{{ asset('assets/img/greenhills/buy-your-home/Moon 200 Garden View.png') }}" class="img-fluid lazy" alt="img"></div>
               <h4 class="title"><a href="">200 Sqm Fully Equiped</a></h4>
               <h6 class="text-success">Land: 700 Sqm</h6>
               <h6 class="text-danger">Buy it Now: 280,000 USD</h5>
@@ -48,7 +48,7 @@
 
           <div class="col-md-6 col-lg-4 d-flex align-items-stretch mb-2 mb-lg-0" data-aos="fade-up" data-aos-delay="200">
             <div class="icon-box">
-              <div class="icon"><img data-src="../../assets/img/greenhills/buy-your-home/Villa Moon 300 m Pool View.png" class="img-fluid lazy" alt="img"></div>
+              <div class="icon"><img src="{{ asset('assets/img/greenhills/buy-your-home/Villa Moon 300 m Pool View.png') }}" class="img-fluid lazy" alt="img"></div>
               <h4 class="title"><a href="">300 Sqm Fully Equiped</a></h4>
               <h6 class="text-success">Land: 900 Sqm</h6>
               <h6 class="text-danger">Buy it Now: 470,000  USD</h5>
@@ -58,7 +58,7 @@
 
           <div class="col-md-6 col-lg-4 d-flex align-items-stretch mb-2 mb-lg-0" data-aos="fade-up" data-aos-delay="300">
             <div class="icon-box">
-              <div class="icon"><img data-src="../../assets/img/greenhills/buy-your-home/Villa Moon 400m Garden View.png" class="img-fluid lazy" alt="img" ></div>
+              <div class="icon"><img src="{{ asset('assets/img/greenhills/buy-your-home/Villa Moon 400m Garden View.png') }}" class="img-fluid lazy" alt="img" ></div>
               <h4 class="title"><a href="">400 Sqm Fully Equiped</a></h4>
               <h6 class="text-success">Land: 1000 Sqm</h6>
               <h6 class="text-danger">Buy it Now:  600,000 USD</h5>
@@ -75,7 +75,7 @@
         <div class="row">
           <div class="col-md-6 col-lg-4 d-flex align-items-stretch mb-2 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
             <div class="icon-box">
-              <div class="icon"><img data-src="../../assets/img/greenhills/buy-your-home/Lv RV 200 m.png" class="img-fluid lazy" alt="img"></div>
+              <div class="icon"><img src="{{ asset('assets/img/greenhills/buy-your-home/Lv RV 200 m.png') }}" class="img-fluid lazy" alt="img"></div>
               <h4 class="title"><a href="">200 Sqm Fully Equiped</a></h4>
               <h6 class="text-success">Land: 700 Sqm</h6>
               <h6 class="text-danger">Buy it Now: 280,000 USD</h5>
@@ -85,7 +85,7 @@
 
           <div class="col-md-6 col-lg-4 d-flex align-items-stretch mb-2 mb-lg-0" data-aos="fade-up" data-aos-delay="200">
             <div class="icon-box">
-              <div class="icon"><img data-src="../../assets/img/greenhills/buy-your-home/Villa Liv 300 m .png" class="img-fluid lazy" alt="img"></div>
+              <div class="icon"><img src="{{ asset('assets/img/greenhills/buy-your-home/Villa Liv 300 m .png') }}" class="img-fluid lazy" alt="img"></div>
               <h4 class="title"><a href="">300 Sqm Fully Equiped</a></h4>
               <h6 class="text-success">Land: 900 Sqm</h6>
               <h6 class="text-danger">Buy it Now: 470,000 USD</h5>
@@ -95,7 +95,7 @@
 
           <div class="col-md-6 col-lg-4 d-flex align-items-stretch mb-2 mb-lg-0" data-aos="fade-up" data-aos-delay="300">
             <div class="icon-box">
-              <div class="icon"><img data-src="../../assets/img/greenhills/buy-your-home/Layer RV 400 M.png" class="img-fluid lazy" alt="img"></div>
+              <div class="icon"><img src="{{ asset('assets/img/greenhills/buy-your-home/Layer RV 400 M.png') }}" class="img-fluid lazy" alt="img"></div>
               <h4 class="title"><a href="">400 Sqm Fully Equiped</a></h4>
               <h6 class="text-success">Land: 1000 Sqm</h6>
               <h6 class="text-danger">Buy it Now: 600,000 USD</h5>
@@ -112,7 +112,7 @@
         <div class="row">
           <div class="col-md-6 col-lg-4 d-flex align-items-stretch mb-2 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
             <div class="icon-box">
-              <div class="icon"><img data-src="../../assets/img/greenhills/buy-your-home/Astrid 200 m Garden side.jpg" class="img-fluid lazy" alt="img"></div>
+              <div class="icon"><img src="{{ asset('assets/img/greenhills/buy-your-home/Astrid 200 m Garden side.jpg') }}" class="img-fluid lazy" alt="img"></div>
               <h4 class="title"><a href="">200 Sqm Fully Equiped</a></h4>
               <h6 class="text-success">Land: 700 Sqm</h6>
               <h6 class="text-danger">Buy it Now: 280,000 USD</h5>
@@ -122,7 +122,7 @@
 
           <div class="col-md-6 col-lg-4 d-flex align-items-stretch mb-2 mb-lg-0" data-aos="fade-up" data-aos-delay="200">
             <div class="icon-box">
-              <div class="icon"><img data-src="../../assets/img/greenhills/buy-your-home/AStrid 300 gs.jpg" class="img-fluid lazy" alt="img"></div>
+              <div class="icon"><img src="{{ asset('assets/img/greenhills/buy-your-home/AStrid 300 gs.jpg') }}" class="img-fluid lazy" alt="img"></div>
               <h4 class="title"><a href="">300 Sqm Fully Equiped</a></h4>
               <h6 class="text-success">Land: 900 Sqm</h6>
               <h6 class="text-danger">Buy it Now: 470,000 USD</h5>
@@ -132,7 +132,7 @@
 
           <div class="col-md-6 col-lg-4 d-flex align-items-stretch mb-2 mb-lg-0" data-aos="fade-up" data-aos-delay="300">
             <div class="icon-box">
-              <div class="icon"><img data-src="../../assets/img/greenhills/buy-your-home/AStrid 400 Road Side.jpg" class="img-fluid lazy" alt="img"></div>
+              <div class="icon"><img src="{{ asset('assets/img/greenhills/buy-your-home/AStrid 400 Road Side.jpg') }}" class="img-fluid lazy" alt="img"></div>
               <h4 class="title"><a href="">400 Sqm Fully Equiped</a></h4>
               <h6 class="text-success">Land: 1000 Sqm</h6>
               <h6 class="text-danger">Buy it Now: 600,000 USD</h5>
@@ -149,7 +149,7 @@
         <div class="row">
           <div class="col-md-6 col-lg-4 d-flex align-items-stretch mb-2 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
             <div class="icon-box">
-              <div class="icon"><img data-src="../../assets/img/greenhills/buy-your-home/Villa Revna 200 m PV.png" class="img-fluid lazy" alt="img"></div>
+              <div class="icon"><img src="{{ asset('assets/img/greenhills/buy-your-home/Villa Revna 200 m PV.png') }}" class="img-fluid lazy" alt="img"></div>
               <h4 class="title"><a href="">200 Sqm Fully Equiped</a></h4>
               <h6 class="text-success">Land: 700 Sqm</h6>
               <h6 class="text-danger">Buy it Now: 280,000 USD</h5>
@@ -159,7 +159,7 @@
 
           <div class="col-md-6 col-lg-4 d-flex align-items-stretch mb-2 mb-lg-0" data-aos="fade-up" data-aos-delay="200">
             <div class="icon-box">
-              <div class="icon"><img data-src="../../assets/img/greenhills/buy-your-home/Villa Revna 300 sv.png" class="img-fluid lazy" alt="img"></div>
+              <div class="icon"><img src="{{ asset('assets/img/greenhills/buy-your-home/Villa Revna 300 sv.png') }}" class="img-fluid lazy" alt="img"></div>
               <h4 class="title"><a href="">300 Sqm Fully Equiped</a></h4>
               <h6 class="text-success">Land: 900 Sqm</h6>
               <h6 class="text-danger">Buy it Now: 470,000 USD</h5>
@@ -169,7 +169,7 @@
 
           <div class="col-md-6 col-lg-4 d-flex align-items-stretch mb-2 mb-lg-0" data-aos="fade-up" data-aos-delay="300">
             <div class="icon-box">
-              <div class="icon"><img data-src="../../assets/img/greenhills/buy-your-home/Villa Revna 400m pv.png" class="img-fluid lazy" alt="img"></div>
+              <div class="icon"><img src="{{ asset('assets/img/greenhills/buy-your-home/Villa Revna 400m pv.png') }}" class="img-fluid lazy" alt="img"></div>
               <h4 class="title"><a href="">400 Sqm Fully Equiped</a></h4>
               <h6 class="text-success">Land: 1000 Sqm</h6>
               <h6 class="text-danger">Buy it Now: 600,000 USD</h5>
@@ -187,7 +187,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-xxl-6">
-                    <img class="img-fluid lazy" data-src="../../assets/img/greenhills/raw-img/Familly contractor.jpg" alt="img">
+                    <img class="img-fluid lazy" src="{{ asset('assets/img/greenhills/raw-img/Familly contractor.jpg') }}" alt="img">
                 </div>
                 <div class="col-md-6 col-xxl-6 box">
                     <h1 class="fs-1 text-success">Build your Own Home</h1>
@@ -205,7 +205,7 @@
         <div class="m-3  text-center">
 
           <h3 class="text-center mt-3">Project Development - Sales and Marketing</h3>
-          <img data-src="../../assets/img/greenhills/clients/client-4.png" class="img-fluid lazy" alt="logo">
+          <img src="{{ asset('assets/img/greenhills/clients/client-4.png') }}" class="img-fluid lazy" alt="logo">
         </div>
       </div>
     </section>

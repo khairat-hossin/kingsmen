@@ -55,7 +55,7 @@
         <div class="row">
           <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-2 mb-lg-0" data-aos="fade-up">
             <div class="icon-box">
-              <div class="icon"><img src="../../assets/img/greenhills/buy-your-land/Moon 200 Garden View.png" class="img-fluid" alt="img"></div>
+              <div class="icon"><img src="{{ asset('assets/img/greenhills/buy-your-land/Moon 200 Garden View.png') }}" class="img-fluid" alt="img"></div>
               <h4 class="title"><a href=""> Villa Moon </a></h4>
               <h6 class="text-success">200 Sqm Fully Equiped</h6>
               <h6 class="text-success">Land: 700 Sqm</h6>
@@ -66,7 +66,7 @@
 
           <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-2 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
             <div class="icon-box">
-              <div class="icon"><img src="../../assets/img/greenhills/buy-your-land/Villa Liv 300 m .png" class="img-fluid" alt="img"></div>
+              <div class="icon"><img src="{{ asset('assets/img/greenhills/buy-your-land/Villa Liv 300 m .png') }}" class="img-fluid" alt="img"></div>
               <h4 class="title"><a href="">Villa Liv</a></h4>
               <h6 class="text-success">300 Sqm Fully Equiped</h6>
               <h6 class="text-success">Land: 900 Sqm/h6>
@@ -77,7 +77,7 @@
 
           <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-2 mb-lg-0" data-aos="fade-up" data-aos-delay="200">
             <div class="icon-box">
-              <div class="icon"><img src="../../assets/img/greenhills/buy-your-land/Astrid 200 m Garden side.jpg" class="img-fluid" alt="img"></div>
+              <div class="icon"><img src="{{ asset('assets/img/greenhills/buy-your-land/Astrid 200 m Garden side.jpg') }}" class="img-fluid" alt="img"></div>
               <h4 class="title"><a href="">Villa Astrid</a></h4>
               <h6 class="text-success">200 Sqm Fully Equiped</h6>
               <h6 class="text-success">Land: 700 Sqm</h6>
@@ -88,7 +88,7 @@
 
           <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-2 mb-lg-0" data-aos="fade-up" data-aos-delay="300">
             <div class="icon-box">
-              <div class="icon"><img src="../../assets/img/greenhills/buy-your-land/Villa Revna 400m pv.png" class="img-fluid" alt="img"></div>
+              <div class="icon"><img src="{{ asset('assets/img/greenhills/buy-your-land/Villa Revna 400m pv.png') }}" class="img-fluid" alt="img"></div>
               <h4 class="title"><a href=""> Villa Revna </a></h4>
               <h6 class="text-success">400 Sqm Fully Equiped</h6>
               <h6 class="text-success">Land: 1000 Sqm</h6>
@@ -107,7 +107,7 @@
         <div class="m-3  text-center">
 
           <h3 class="text-center mt-3">Project Development - Sales and Marketing</h3>
-          <img src="../../assets/img/greenhills/clients/client-4.png" class="img-fluid" alt="logo">
+          <img src="{{ asset('assets/img/greenhills/clients/client-4.png') }}" class="img-fluid" alt="logo">
         </div>
       </div>
     </section>

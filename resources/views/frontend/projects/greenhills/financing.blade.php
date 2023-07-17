@@ -38,7 +38,7 @@
               </p>
           </div>
 
-          <a href="../../index.html" class="btn btn-outline-warning w-75">Check offers</a>
+          <a href="{{ asset('index.html') }}" class="btn btn-outline-warning w-75">Check offers</a>
         </div>
       </div>
     </section>
@@ -56,7 +56,7 @@
             <div class="row">
               <div class="col-md-6 col-lg-2 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up">
                 <div class="icon-box">
-                  <div class="icon"><img src="../../assets/img/greenhills/online features/feature-1.jpg" class="img-fluid" alt="img"></div>
+                  <div class="icon"><img src="{{ asset('assets/img/greenhills/online features/feature-1.jpg')}}" class="img-fluid" alt="img"></div>
                   <h4 class="title"><a href="{{ route('frontend.greenhills_faq') }}"> Green Hills info </a></h4>
                   <a href="{{ route('frontend.greenhills_faq') }}" class="btn btn-outline-warning animate__animated animate__fadeInUp scrollto">Learn More</a>
                 </div>
@@ -64,7 +64,7 @@
 
               <div class="col-md-6 col-lg-2 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
                 <div class="icon-box">
-                  <div class="icon"><img src="../../assets/img/greenhills/online features/feature-2.jpg" class="img-fluid" alt="img"> </div>
+                  <div class="icon"><img src="{{ asset('assets/img/greenhills/online features/feature-2.jpg') }}" class="img-fluid" alt="img"> </div>
                   <h4 class="title"><a href="{{ route('frontend.greenhills_who_we_are') }}">Who we are</a></h4>
                   <a href="{{ route('frontend.greenhills_who_we_are') }}" class="btn btn-outline-warning animate__animated animate__fadeInUp scrollto">Learn More</a>
                 </div>
@@ -72,7 +72,7 @@
 
               <div class="col-md-6 col-lg-2 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="200">
                 <div class="icon-box">
-                  <div class="icon"><img src="../../assets/img/greenhills/online features/feature-3.jpg" class="img-fluid" alt="img"></div>
+                  <div class="icon"><img src="{{ asset('assets/img/greenhills/online features/feature-3.jpg') }}" class="img-fluid" alt="img"></div>
                   <h4 class="title"><a href="">Message us</a></h4>
                   <a href="#about" class="btn btn-outline-warning animate__animated animate__fadeInUp scrollto">Contact us</a>
                 </div>
@@ -80,7 +80,7 @@
 
               <div class="col-md-6 col-lg-2 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="300">
                 <div class="icon-box">
-                  <div class="icon"><img src="../../assets/img/greenhills/online features/feature-4.jpg" class="img-fluid" alt="img"></div>
+                  <div class="icon"><img src="{{ asset('assets/img/greenhills/online features/feature-4.jpg') }}" class="img-fluid" alt="img"></div>
                   <h4 class="title"><a href=""> Register Online </a></h4>
                   <a href="#about" class="btn btn-outline-warning animate__animated animate__fadeInUp scrollto">Sign up</a>
                 </div>
@@ -88,7 +88,7 @@
 
               <div class="col-md-6 col-lg-2 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="300">
                 <div class="icon-box">
-                  <div class="icon"><img src="../../assets/img/greenhills/online features/feature-5.jpg" class="img-fluid" alt="img"></div>
+                  <div class="icon"><img src="{{ asset('assets/img/greenhills/online features/feature-5.jpg') }}" class="img-fluid" alt="img"></div>
                   <h4 class="title"><a href="{{ route('frontend.greenhills_financing') }}"> Financing </a></h4>
                   <a href="{{ route('frontend.greenhills_financing') }}" class="btn btn-outline-warning animate__animated animate__fadeInUp scrollto">Proceed</a>
                 </div>
@@ -96,7 +96,7 @@
 
               <div class="col-md-6 col-lg-2 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="300">
                 <div class="icon-box">
-                  <div class="icon"><img src="../../assets/img/greenhills/online features/feature-6.jpg" class="img-fluid" alt="img"></div>
+                  <div class="icon"><img src="{{ asset('assets/img/greenhills/online features/feature-6.jpg') }}" class="img-fluid" alt="img"></div>
                   <h4 class="title"><a href="{{ route('frontend.greenhills_buy_your_home') }}"> Buy your Home </a></h4>
                   <a href="{{ route('frontend.greenhills_buy_your_home') }}" class="btn btn-outline-warning animate__animated animate__fadeInUp scrollto"> Proceed </a>
                 </div>
@@ -111,7 +111,7 @@
       <div class="container">
         <div class="m-3  text-center">
           <h3 class="text-center mt-3">Project Development - Sales and Marketing</h3>
-          <img src="../../assets/img/greenhills/clients/client-4.png" class="img-fluid" alt="logo">
+          <img src="{{ asset('assets/img/greenhills/clients/client-4.png') }}" class="img-fluid" alt="logo">
         </div>
       </div>
     </section>

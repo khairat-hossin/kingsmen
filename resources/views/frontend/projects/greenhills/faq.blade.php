@@ -149,7 +149,7 @@
           <div class="row">
             <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up">
               <div class="icon-box">
-                <div class="icon"><img src="../../assets/img/greenhills/portfolio/gathering Venue.jpg" class="img-fluid" alt="img"></div>
+                <div class="icon"><img src="{{ asset('assets/img/greenhills/portfolio/gathering Venue.jpg') }}" class="img-fluid" alt="img"></div>
                 <h4 class="title"><a href="{{ route('frontend.greenhills_urban_infrastructure') }}"> Urban infrastructure </a></h4>
                 <a href="{{ route('frontend.greenhills_urban_infrastructure') }}" class="btn btn-outline-warning animate__animated animate__fadeInUp scrollto">Learn More</a>
               </div>
@@ -157,7 +157,7 @@
 
             <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
               <div class="icon-box">
-                <div class="icon"><img src="../../assets/img/greenhills/portfolio/gbc.jpg" class="img-fluid" alt="img"></div>
+                <div class="icon"><img src="{{ asset('assets/img/greenhills/portfolio/gbc.jpg') }}" class="img-fluid" alt="img"></div>
                 <h4 class="title"><a href="{{ route('frontend.greenhills_business_technology') }}">Buisness and Technology</a></h4>
                 <a href="{{ route('frontend.greenhills_business_technology') }}" class="btn btn-outline-warning animate__animated animate__fadeInUp scrollto">Learn More</a>
               </div>
@@ -165,7 +165,7 @@
 
             <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="200">
               <div class="icon-box">
-                <div class="icon"><img src="../../assets/img/greenhills/portfolio/sak.jpg" class="img-fluid" alt="img"></div>
+                <div class="icon"><img src="{{ asset('assets/img/greenhills/portfolio/sak.jpg') }}" class="img-fluid" alt="img"></div>
                 <h4 class="title"><a href="{{ route('frontend.greenhills_learning_center') }}">Learning Center</a></h4>
                 <a href="{{ route('frontend.greenhills_learning_center') }}" class="btn btn-outline-warning animate__animated animate__fadeInUp scrollto">Learn More</a>
               </div>
@@ -173,7 +173,7 @@
 
             <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="300">
               <div class="icon-box">
-                <div class="icon"><img src="../../assets/img/greenhills/portfolio/gathering Venue.jpg" class="img-fluid" alt="img"></div>
+                <div class="icon"><img src="{{ asset('assets/img/greenhills/portfolio/gathering Venue.jpg') }}" class="img-fluid" alt="img"></div>
                 <h4 class="title"><a href="{{ route('frontend.greenhills_activities_entertainment') }}"> Activities and Entertainment </a></h4>
                 <a href="{{ route('frontend.greenhills_activities_entertainment') }}" class="btn btn-outline-warning animate__animated animate__fadeInUp scrollto">Learn More</a>
               </div>
@@ -190,7 +190,7 @@
         <div class="m-3  text-center">
 
           <h3 class="text-center mt-3">Project Development - Sales and Marketing</h3>
-          <img src="../../assets/img/greenhills/clients/client-4.png" class="img-fluid" alt="logo">
+          <img src="{{ asset('assets/img/greenhills/clients/client-4.png') }}" class="img-fluid" alt="logo">
         </div>
       </div>
     </section>
