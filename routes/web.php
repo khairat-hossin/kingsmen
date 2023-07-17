@@ -81,6 +81,26 @@ Route::group(['namespace' => 'App\Http\Controllers\Frontend', 'as' => 'frontend.
     Route::get('projects/greenhills/amenities', 'GreenHillsController@amenities')->name('greenhills_amenities');
     Route::get('projects/greenhills/financing', 'GreenHillsController@financing')->name('greenhills_financing');
     Route::get('projects/greenhills/who-we-are', 'GreenHillsController@who_we_are')->name('greenhills_who_we_are');
+    // GreenHills>Buy your home's project route
+    Route::get('projects/greenhills/astrid-200sqm', 'GreenHillsController@astrid_200sqm')->name('greenhills_byh_astrid_200sqm');
+    Route::get('projects/greenhills/liv-200sqm', 'GreenHillsController@liv_200sqm')->name('greenhills_byh_liv_200sqm');
+    Route::get('projects/greenhills/moon-200sqm', 'GreenHillsController@moon_200sqm')->name('greenhills_byh_moon_200sqm');
+    Route::get('projects/greenhills/revna-200sqm', 'GreenHillsController@revna_200sqm')->name('greenhills_byh_revna_200sqm');
+    Route::get('projects/greenhills/astrid-300sqm', 'GreenHillsController@astrid_300sqm')->name('greenhills_byh_astrid_300sqm');
+    Route::get('projects/greenhills/liv-300sqm', 'GreenHillsController@liv_300sqm')->name('greenhills_byh_liv_300sqm');
+    Route::get('projects/greenhills/moon-300sqm', 'GreenHillsController@moon_300sqm')->name('greenhills_byh_moon_300sqm');
+    Route::get('projects/greenhills/revna-300sqm', 'GreenHillsController@revna_300sqm')->name('greenhills_byh_revna_300sqm');
+    Route::get('projects/greenhills/astrid-400sqm', 'GreenHillsController@astrid_400sqm')->name('greenhills_byh_astrid_400sqm');
+    Route::get('projects/greenhills/liv-400sqm', 'GreenHillsController@liv_400sqm')->name('greenhills_byh_liv_400sqm');
+    Route::get('projects/greenhills/moon-400sqm', 'GreenHillsController@moon_400sqm')->name('greenhills_byh_moon_400sqm');
+    Route::get('projects/greenhills/revna-400sqm', 'GreenHillsController@revna_400sqm')->name('greenhills_byh_revna_400sqm');
+
+    // GreenHills>Amenities routes
+    Route::get('projects/greenhills/activities-entertainment', 'GreenHillsController@revna_400sqm')->name('greenhills_byh_revna_400sqm');
+    Route::get('projects/greenhills/business-technology', 'GreenHillsController@revna_400sqm')->name('greenhills_byh_revna_400sqm');
+    Route::get('projects/greenhills/kindergarten', 'GreenHillsController@revna_400sqm')->name('greenhills_byh_revna_400sqm');
+    Route::get('projects/greenhills/learning-center', 'GreenHillsController@revna_400sqm')->name('greenhills_byh_revna_400sqm');
+    Route::get('projects/greenhills/urban-infrastructure', 'GreenHillsController@revna_400sqm')->name('greenhills_byh_revna_400sqm');
 
 
     Route::group(['middleware' => ['auth']], function () {
