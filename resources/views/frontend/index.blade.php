@@ -14,7 +14,7 @@
                     <div class="col-xl-10 col-lg-8">
                         <h1 class="text-warning fw-light hero_text text-uppercase lh-base mt-2 fw-light">
                             Invest in Your Homeland <span>.</span></h1>
-                        <h2 class="fw-bold text-white fs-3 lh-base">From anywhere in the world with Kingsmen Armenia</h2>
+                        <a href="#" class="text-white lh-base customTextApplynow">APPLY NOW</a>
                     </div>
                 </div>
                 <div class="row"></div>
@@ -23,39 +23,43 @@
         <!-- End Hero -->
         <main id="main">
             <!-- video section -->
-            <section id="video" class="">
+            <section id="video" class="p-0">
                 <div class="container-fluid" data-aos="fade-up">
-                    <h2 class="fw-bold text-dark bg-white text-center mt-xl-3">WELCOME TO THE ONLINE WORLD OF KINGSMEN </h2>
+                    <h2 class="fw-bold text-dark bg-white text-center mt-xl-3">WELCOME TO THE ONLINE WORLD OF KINGSMEN</h2>
                     <div class="row d-flex justify-content-center align-items-center">
-                        <div class=" ">
+                        <div class="video-container">
                             <div class="ratio" style="--bs-aspect-ratio: 40%;">
                                 <iframe src="https://www.youtube.com/embed/iTbRMCyvy_E?autoplay=1" title="A YouTube video"
                                     frameborder="0" allowfullscreen></iframe>
                             </div>
                         </div>
-                        <div class="row"></div>
                     </div>
                 </div>
             </section>
+
             <!-- ======= About Section ======= -->
             <section id="about" class="about">
+                <div class="row">
+                    <div class="col-md-12 customAlandOf">
+                        <span class="fontsizeAland">A land of opportunities waiting to be explored!</span>
+                    </div>
+                </div>
                 <div class="container-fluid" data-aos="fade-up" style="text-align:justify;">
                     <div class="row text-white d-flex align-items-center justify-content-center">
-
                         <div class="border border-3  border-warning border-hover bg-dark col-10 col-sm-10 col-md-10 col-lg-10 col-xl-10 pt-4 pt-lg-0 order-2 order-lg-1 content "
                             data-aos-delay="100">
-                            <h4 class="fw-normal lh-base  pt-2">At Kingsmen Investments,<br> we offer a variety of
+                            <h4 class="fw-normal lh-base  pt-2 customkingsmenText " style="text-align:center;">we offer a variety of
                                 investment opportunities that can both start your journey and grow alongside you. Investor
                                 Portal provides secure and reliable access to track projects' progress and manage financial
                                 investments, giving you the insight and analytics needed to ensure the project remains
-                                successful. It also provides investors with regular updates on their investments'
+                                successful.<br><br> It also provides investors with regular updates on their investments'
                                 performance so they can make better decisions with their
                                 capital.We believe in building long-term relationships with our clients, which is why we
-                                strive for continued success for everyone involved in every project. So come join us at
+                                strive for continued success for everyone involved in every project.<br><br> So come join us at
                                 Kingsmen Investments and let us help you reach
                                 your dreams and financial goals today ! </h4>
                             <div class="text-center mt-4">
-                                <h4 class="fw-semibold"> Angelo Hani <br> C.E.O <br> Kingsmen Investments</h6>
+                                <h4 class="fw-semibold customkingsmenText"> Angelo Hani <br> C.E.O <br> Kingsmen Investments</h6>
                             </div>
                         </div>
                     </div>
@@ -74,18 +78,18 @@
             </div>
             <!-- ======= Product Section ======= -->
             <section class="products text-center">
-                <h2 class="text-center fw-bold my-4">Discover the untapped potential of investing in Armenia </h2>
+                <h2 class="text-center customTextDiscover">Discover the untapped potential of investing in Armenia </h2>
                 <div id="products" class="container-fluid " data-aos="fade-up" style="text-align: justify;">
 
                     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 m-auto g-4">
                         <div class="col text-justify text-white">
                             <div class="card h-80 bg-dark">
-                                <h2 class="card-title fw-semibold text-center">ONE TREE ARMENIA</h2>
+                                <h2 class="pt-4 card-title text-center customCardTExt">ONE TREE ARMENIA</h2>
                                 <img src="assets/img/products/longterminvest.jpg" class="card-img-top img-fluid"
                                     style="height:auto; width: auto;" alt="...">
                                 <div class="card-body">
                                     <p class="card-text">
-                                    <h4 class="mb-3">Kingsmen believes that investing in walnut orchards offers a
+                                    <h4 class="mb-3 customTextCard">Kingsmen believes that investing in walnut orchards offers a
                                         strategic opportunity to provide steady, long-term returns and support to the local
                                         agricultural sector. </h4>
                                     <h4> <span class="text-warning mt-5"> Type: </span> Agriculture </h4>
@@ -100,12 +104,12 @@
                         </div>
                         <div class="col text-justify text-white">
                             <div class="card h-80 bg-dark">
-                                <h2 class="card-title fw-semibold text-center">WESTERN VILLAGE</h2>
+                                <h2 class="card-title text-center pt-4 customCardTExt">WESTERN VILLAGE</h2>
                                 <img src="assets/img/products/mediumterminvest.jpg" class="card-img-top img-fluid"
                                     style="height:auto; width: auto;" alt="...">
                                 <div class="card-body">
                                     <p class="card-text">
-                                    <h4 class="mb-3">Kingsmen has invested in the development of residential communities
+                                    <h4 class="mb-3 customTextCard">Kingsmen has invested in the development of residential communities
                                         just 15 minutes outside of Yerevan, the capital of Armenia,for medium-term returns
                                         on investment.</h4>
                                     <h4> <span class="text-warning mt-5"> Type: </span>Real Estate Development</h4>
@@ -120,12 +124,12 @@
                         </div>
                         <div class="col text-justify text-white">
                             <div class="card h-80 bg-dark">
-                                <h2 class="card-title fw-semibold text-center">UNITED 8 APARTMENTS</h2>
+                                <h2 class="card-title text-center pt-4 customCardTExt">UNITED 8 APARTMENTS</h2>
                                 <img src="assets/img/products/shortterminvest.JPG" class="card-img-top img-fluid"
                                     style="height:auto; width: auto;" alt="...">
                                 <div class="card-body">
                                     <p class="card-text">
-                                    <h4 class="mb-3">Apart-hotel, is aimed at providing short-term returns for investors
+                                    <h4 class="mb-3 customTextCard">Apart-hotel, is aimed at providing short-term returns for investors
                                         while catering to the needs of various customers of the serviced apartments.United 8
                                         apertments</h4>
                                     <h4> <span class="text-warning mt-5"> Type: </span> Hotel Business </h4>
@@ -141,7 +145,9 @@
                     </div>
                     <!-- End Product Section -->
                     <!-- ======= Faq Section ======= -->
-                    <h2 class="text-center my-3">ARMENIA, A more profitable destination, than any other country</h2>
+                    <div class="text-center mt-5 mb-3">
+                        <span class="textArmenia">ARMENIA, </span><span class="textAmorePortable">A more profitable destination, than any other country</span>
+                    </div>
                     <div class="row row-cols-lg-3 row-cols-1 row-cols-md-2 m-auto ">
                         <div class="container my-4">
                             <div class="faq_wrap bg-dark text-white">
@@ -266,6 +272,7 @@
                     </div>
                 </div>
             </section>
+
             <!--  End testimonial section   -->
             <!-- ======= Clients Section ======= -->
             <section id="clients" class="clients">

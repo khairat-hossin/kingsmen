@@ -170,7 +170,7 @@ h5{
 #header {
   transition: all 0.5s;
   z-index: 997;
-  padding: 25px 0;
+  padding: 10px 0;
 }
 
 #header.header-scrolled,
@@ -209,7 +209,7 @@ h5{
   padding: 7px 25px 8px 25px;
   white-space: nowrap;
   transition: 0.3s;
-  font-size: calc(10px + 0.390625vw);
+  font-size: calc(10px + 0.390625vw) !important;
   display: inline-block;
   border: 2px solid #ffc451;
 }
@@ -254,7 +254,7 @@ h5{
   align-items: center;
   justify-content: space-between;
   padding: 10px 0 10px 30px;
-  font-size: calc(10px + 0.390625vw);
+  font-size: calc(10px + 0.390625vw) !important;
   font-weight: 600;
   color: #fff;
   white-space: nowrap;
@@ -461,11 +461,20 @@ h5{
 /*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
-#hero {
-  background-image: url('../img/hero-bg.jpg');
+/* #hero {
+  background-image: url('../img/Kingsmen Armenia home Page.jpg');
   background-size: cover;
   background-position: center;
   position: relative;
+} */
+#hero {
+    background-position: center top;
+    background-image: url('../img/Kingsmen Armenia home Page.jpg');
+    background-size: cover;
+    transform: translate3d(0px, 0px, 0px);
+    position: relative;
+    top:-50px;
+    height:340px;
 }
 
 #hero::before {
@@ -475,7 +484,7 @@ h5{
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0.7; /* set the opacity value as needed */
+  opacity: 0.3; /* set the opacity value as needed */
   background-color: #000; /* set the background color as needed */
 }
 
@@ -682,13 +691,66 @@ h5{
 
 .hero_text{
   margin: 0;
-  font-size: calc(45px + 0.390625vw);
+  font-size: 25pt;
   font-weight: 300;
   text-transform: uppercase;
   line-height: 64px;
   color: #fff;
   font-family: "lato";
+  margin-bottom: 13px;
 }
+.customTextApplynow {
+    margin-top:3px;
+    border: 1px solid white;
+    padding-left: 200px;
+    padding-right: 200px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-radius: 3px;
+}
+.customTextApplynow:hover {
+    background-color: rgba(255, 255, 255, 0.3); /* White color with 30% opacity */
+}
+
+.customkingsmenText {
+    font-family: Lato, Arial;
+    font-size: 13.999999999999998pt;
+    font-style: italic;
+    font-weight: 300;
+    vertical-align: baseline;
+    line-height: 1.38;
+}
+.textArmenia {
+    font-family: Lato, Arial;
+    font-style: italic;
+    font-weight: 700;
+    vertical-align: baseline;
+    font-size: 24.0pt;
+    color: rgba(55,71,79,1);
+    font-family: Lato, sans-serif;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+
+
+  }
+  .textAmorePortable {
+    font-style: italic;
+    vertical-align: baseline;
+    font-size: 24.0pt;
+    color: rgba(55,71,79,1);
+    font-family: Lato, sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+
+  }
+
+/* .LB7kq .JYVBee {
+    font-size: 25pt;
+    font-weight: 300;
+    line-height: 1.1;
+    margin-top: 25px;
+} */
 .hero_subhead{
   margin-top: calc(50px + 0.390625vw)!important;
   font-size: calc(35px + 0.390625vw);
@@ -698,6 +760,19 @@ h5{
   margin-top: 15px;
   font-family: "lato";
 }
+.customAlandOf {
+    font-family: Lato, Arial;
+    font-style: italic;
+    font-weight: 300;
+    vertical-align: baseline;
+    text-align: center;
+    font-size: 24.0pt;
+    margin-bottom: 20px;
+}
+.bg-black {
+    background-color:#202060;
+}
+
 
 @media (max-width: 768px){
 
@@ -709,6 +784,7 @@ h5{
     line-height: 64px;
     color: #fff;
     font-family: "lato";
+    margin-bottom: 13px;
   }
   .hero_subhead{
     margin: 0;
@@ -806,6 +882,27 @@ h5{
 /*--------------------------------------------------------------
 # Sections General
 --------------------------------------------------------------*/
+.video-container {
+    width: 65%;
+    margin: 0 auto; /* Center the container horizontally */
+}
+
+/* Keep the aspect ratio for the video */
+.ratio {
+    position: relative;
+    width: 100%;
+    padding-bottom: var(--bs-aspect-ratio, 56.25%); /* 16:9 aspect ratio */
+}
+
+/* If you want to center-align the content inside the video container */
+.ratio iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
 section {
   padding: 60px 0;
   overflow: hidden;
@@ -844,6 +941,26 @@ section {
   text-transform: uppercase;
   font-family: "lato", sans-serif;
   color: #151515;
+}
+
+.customTextDiscover {
+    font-family: Lato, Arial;
+    font-style: italic;
+    font-weight: 400;
+    vertical-align: baseline;
+    font-size: 24.0pt;
+}
+
+.customCardTExt {
+    font-size: 18.0pt;
+    font-family: Lato, sans-serif;
+}
+.customTextCard {
+    color: #ffffff;
+    font-family: Roboto, Arial;
+    font-size: 12.0pt;
+    font-weight: 400;
+    vertical-align: baseline;
 }
 
 /*--------------------------------------------------------------
