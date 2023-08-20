@@ -534,12 +534,42 @@ h5{
   color: #fff;
   font-family: 'inter', sans-serif;
 }
+.customChooseText {
+    color: rgba(55,71,79,1);
+    font-family: Lato, sans-serif;
+    font-size: 34pt;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+}
+.customFaqBodytext {
+    height: 44px;
+    padding: 0px;
+    color: white;
+    margin: auto;
+    /* text-align: center; */
+   width: 88%;
+   padding: auto;
+   font-size: 11px;
+}
+.customFaqTextTitle {
+    background-color: #150404;
+    color: #dfd512;
+    cursor: pointer;
+    padding: 30px 20px;
+    width: 90%;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    margin: auto;
+}
 
 #hero-invests{
-  background: url("../img/invests/hero-invests-bg.jpg") top center;
+  background: url("../img/invests/Kingsmen Armenia home Page.jpg") top center;
   background-size: cover;
   background-position: center;
   position: relative;
+  height: 350px;
 }
 #hero-invests::before{
   content: '';
@@ -548,14 +578,15 @@ h5{
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0.7; /* set the opacity value as needed */
-  background-color: #000; /* set the background color as needed */
+  opacity: 0.3;
+  background-color: #000;
 }
 #hero-services{
-  background: url("../img/services/hero-services-bg.jpg") top center;
+  background: url("../img/services/service-baner-logo.jpg") top center;
   background-size: cover;
-  background-position: center;
+  background-position: center center;
   position: relative;
+  height: 500px;
 }
 #hero-services:before{
   content: '';
@@ -564,8 +595,73 @@ h5{
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0.7; /* set the opacity value as needed */
-  background-color: #000; /* set the background color as needed */
+  opacity: 0.6; /* set the opacity value as needed */
+  background-color: rgba(255,255,255,1);
+}
+.customBannerText {
+    font-family: Lato, Arial;
+    font-style: italic;
+    font-weight: 700;
+    vertical-align: baseline;
+    font-size: 24.0pt;
+    color: rgba(33,33,33,1);
+}
+.customTitleText {
+    font-style: italic;
+    vertical-align: baseline;
+    font-size: 24.0pt;
+    pointer-events: all;
+    color: rgba(55,71,79,1);
+    font-family: Lato, sans-serif;
+    font-size: 24pt;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+}
+.customMeetText {
+    font-style: italic;
+    pointer-events: all;
+    color: rgba(55,71,79,1);
+    font-family: Lato, sans-serif;
+    font-size: 34pt;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+}
+.customOuConsoltext {
+    color: rgba(33,33,33,1);
+    font-family: Lato, sans-serif;
+    font-size: 11pt;
+    font-weight: 400;
+    line-height: 1.6667;
+}
+.QmpIrf {
+    background-color: rgb(0, 0, 0);
+    border-color: rgba(55,71,79,1);
+    color: white;
+    font-family: Lato, sans-serif;
+    font-size: 11pt;
+    line-height: normal;
+    border-radius: 5px;
+}
+.FKF6mc:visited {
+    fill: inherit;
+    stroke: inherit;
+}
+.FKF6mc, .FKF6mc:focus {
+    display: block;
+    outline: none;
+    text-decoration: none;
+}
+.NsaAfc {
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 12px;
+    padding-bottom: 1px;
+}
+.NsaAfc {
+    text-align: center;
+    width: 100%;
 }
 #hero-one-tree-armenia{
   background-size: cover;
@@ -618,10 +714,12 @@ h5{
   font-family: 'inter', sans-serif;
 }
 #hero-projects-bg{
-  background: url("../../assets/img/projects/projects-hero-bg.jpg") top center;
+  background: url("../../assets/img/projects/Real Estate.jpg") top center;
   background-size: cover;
-  background-position: center;
+  background-position: center bottom;
   position: relative;
+  height:525px;
+  transform: translate3d(0px, 0px, 0px);
 }
 #hero-projects-bg::before{
   content: '';
@@ -630,14 +728,15 @@ h5{
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0.7; /* set the opacity value as needed */
-  background-color: #000; /* set the background color as needed */
+  /* opacity: 0.7;
+  background-color: #000; */
 }
 #hero-faq-bg{
-  background: url("../../assets/img/faq-hero-bg.jpg") top center;
+  background: url("../../assets/img/Kingsmen Armenia home Page.jpg") top center;
   background-size: cover;
   background-position: center;
   position: relative;
+  height: 275px;
 }
 #hero-faq-bg::before{
   content: '';
@@ -646,14 +745,15 @@ h5{
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0.7; /* set the opacity value as needed */
-  background-color: #000; /* set the background color as needed */
+  opacity: 0.4;
+  background-color: #000;
 }
 #hero-team-bg{
-  background: url("../../assets/img/team/team-hero-bg.jpg") top center;
+  background: url("../../assets/img/team/peddeling team.jpg") top center;
   background-size: cover;
   background-position: center;
   position: relative;
+  height: 500px;
 }
 #hero-team-bg::before{
   content: '';
@@ -662,16 +762,74 @@ h5{
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0.7; /* set the opacity value as needed */
+  opacity: 0.3; /* set the opacity value as needed */
   background-color: #000; /* set the background color as needed */
 }
 
 #hero-about{
-  /* background: url("../../assets/img/about/hero-about-bg.jpg") top center; */
+  background: url("../../assets/img/about/hero-about-bg.jpg") top center;
   background-size: cover;
   background-position: center;
   position: relative;
+  height: 590px;
 }
+.customAboutBannareText {
+    font-family: Lato, Arial;
+    font-style: italic;
+    font-weight: 700;
+    vertical-align: baseline;
+    font-size: 24.0pt;
+    text-align: center;
+    color: rgba(255,255,255,1);
+}
+.customGetToNo {
+    color: rgba(55,71,79,1);
+    font-family: Lato, sans-serif;
+    font-size: 34pt;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    line-height: 1.0;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.customProudtext {
+    font-size: 13.999999999999998pt;
+    vertical-align: baseline;
+    color: rgba(55,71,79,1);
+    font-family: Lato, sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+}
+.QmpIrf {
+    background-color: rgba(50,50,50,1);
+    border-color: rgba(255,255,255,1);
+    color: rgba(255,255,255,1);
+    font-family: Lato, sans-serif;
+    font-size: 11pt !important;
+    line-height: normal;
+}
+.NsaAfc {
+    padding-left: 12px;
+    padding-right: 12px;
+    text-align: center;
+    width: 100%;
+}
+.customUnlockingText {
+    font-family: Roboto, Arial;
+    font-weight: 400;
+    vertical-align: baseline;
+    font-size: 30.0pt;
+    color: rgba(33,33,33,1);
+}
+.customProjecttext {
+    color: rgba(55,71,79,1);
+    font-family: Lato, sans-serif;
+    font-size: 34pt;
+    font-weight: 300 !important;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+}
+
 #hero-about::before{
   content: '';
   position: absolute;
@@ -679,8 +837,41 @@ h5{
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0.7; /* set the opacity value as needed */
+  opacity: 0.5; /* set the opacity value as needed */
   background-color: #000; /* set the background color as needed */
+}
+.customMeetBannaerText {
+    font-size: 24.0pt;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,1);
+    font-family: Lato, sans-serif;
+    font-weight: 300;
+    vertical-align: baseline;
+    margin-top: 154px !important;
+}
+.customMeetTextstyle {
+    color: rgba(55,71,79,1);
+    font-family: Lato, sans-serif;
+    font-size: 19pt !important;
+    font-weight: 400;
+    line-height: 1.4;
+}
+.customModernTExt {
+    /* font-family: Roboto, Arial; */
+    font-family: Lato, sans-serif;
+    font-weight: 300;
+    color: rgba(33,33,33,1);
+    font-size: 15pt !important;
+    font-style: normal;
+    line-height: 1.25;
+}
+.customTeamTextTitle {
+    color: rgba(55,71,79,1);
+    font-family: Lato, sans-serif;
+    font-size: 34pt !important;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
 }
 
 #hero .container {
@@ -1991,7 +2182,7 @@ margin: auto;
 /* Style the buttons that are used to open and close the faq-page body */
 .faq-page {
   /* background-color: #eee; */
-  color: #444;
+  /* color: #444; */
   cursor: pointer;
   padding: 30px 20px;
   width: 90%;
@@ -2011,10 +2202,10 @@ margin: auto;
 
 
 /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-.active-faq,
+/* .active-faq,
 .faq-page:hover {
   background-color: #F9F9F9;
-}
+} */
 
 /* Style the faq-page panel. Note: hidden by default */
 .faq-body {

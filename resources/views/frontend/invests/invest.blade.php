@@ -9,15 +9,17 @@
     <section id="hero-invests" class="d-flex align-items-center justify-content-center">
         <div class="container" data-aos="fade-up">
             <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="150">
-                <div class="col-12 col-sm-12 col-xl-6 col-lg-8">
-                    <h2 class="text-center   hero_subhead text-uppercase lh-base mt- fw-light">
-                        Choose Your Preferred Method <span>.</span></h2>
-                </div>
             </div>
 
             <div class="row"></div>
         </div>
     </section><!-- End Hero -->
+    <div class="row mt-4 ms-5">
+        <div class="col-md-12">
+            <h2 class="customChooseText">
+                Choose Your Preferred Method <span>.</span></h2>
+        </div>
+    </div>
 
     <main id="main">
 

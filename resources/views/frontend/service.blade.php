@@ -10,18 +10,22 @@
         <div class="container" data-aos="fade-up">
             <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="150">
                 <div class="col-12 col-sm-12 col-xl-12 col-lg-12">
-                    <h2 class="text-center  hero_subhead text-uppercase lh-base mt-5 text-warning fw-light">
-                        {{ $banner_text }}<span>.</span></h2>
+                    <h2 class="text-center lh-base mt-5 customBannerText">
+                        {{ $banner_text }}<span>.</span>
+                    </h2>
                 </div>
             </div>
 
             <div class="row"></div>
         </div>
     </section><!-- End Hero -->
-
+<div class="row">
+    <div class="col-md-12">
+        <h2 class="ms-5 mt-3 fs-2 customTitleText">{{ $title }}</h2>
+    </div>
+</div>
     <main id="main">
 
-        <h2 class="text-center mt-3">{{ $title }}</h2>
 
 
         <section class="py-2">
@@ -56,12 +60,13 @@
                     <div> <img src="assets/img/services/Kingsmen Team.jpg" class="img-fluid"></img></div>
                     <div class=" ">
                         <div class="my-2">
-                            <h2 class="text-center my-2">Meet our Team of Experts</h2>
-                            <p>Our consultants help you create an efficient operational system tailored to your specific
+                            <h2 class="text-center my-4 customMeetText">Meet our Team of Experts</h2>
+                            <p class="customOuConsoltext">Our consultants help you create an efficient operational system tailored to your specific
                                 needs. We provide budgeting advice and risk assessment and management, so you can make
                                 informed decisions while taking into account potential risks.</p>
                         </div>
-                        <a href="{{ route('frontend.team') }}" class="btn"> Meat the team </a>
+                        {{-- <a href="{{ route('frontend.team') }}" class="btn customMeetText"> Meat the team </a> --}}
+                        <a class="FKF6mc TpQm9d QmpIrf" href="{{ route('frontend.team') }}" aria-label="Meet the team"><div class="NsaAfc"><p>Meet the team</p></div><div class="wvnY3c" jsname="ksKsZd"></div></a>
                     </div>
                 </div>
             </div>

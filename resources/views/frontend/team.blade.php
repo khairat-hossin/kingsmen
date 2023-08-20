@@ -13,7 +13,7 @@
                     <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="150">
                         <div class="col-xl-10 col-lg-8">
                             <h1
-                                class="text-center text-warning fw-light hero_subhead text-uppercase lh-base mt-5 fw-light d-flex align-items-center justify-content-center ">
+                                class="text-center fw-light lh-base mt-5 fw-light d-flex align-items-center justify-content-center customMeetBannaerText">
                                 "Rowing Towards a Unified Goal: The Power of Synchronized Teamwork"</h1>
                         </div>
                     </div>
@@ -29,8 +29,8 @@
             <section class="description">
                 <div class="container" data-aos="fade-up">
                     <div class="row">
-                        <h3>Meet our team : </h3>
-                        <p>
+                        <h3 class="customMeetTextstyle">Meet our team : </h3>
+                        <p class="customModernTExt">
                             As a modern real estate investment firm, we strive to take our clients to the next level. We
                             combine
                             traditional practices and cutting-edge technology to ensure that our clients gain access to the
@@ -54,7 +54,7 @@
                     @foreach ($teams as $team)
                         <div class="container" data-aos-delay="fade-up">
 
-                            <h3>{{ $team->position }} </h3>
+                            <h3 class="customTeamTextTitle">{{ $team->position }} </h3>
                             <div class="row row row-cols-auto m-0 row-cols-lg-2 gx-5">
                                 <div>
                                     <img src="{{ $team->upload_photo }}" class="img-fluid my-5">
