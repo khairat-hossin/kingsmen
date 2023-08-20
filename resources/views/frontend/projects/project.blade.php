@@ -7,11 +7,11 @@
 @section('content')
     <!-- ======= Hero Section ======= -->
     <section id="hero-projects-bg" class="d-flex align-items-center justify-content-center">
-        <div class="container" data-aos="fade-up">
+        <div class="container mt-4" data-aos="fade-up">
 
             <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="150">
-                <div class="col-12 col-xl-12 col-lg-12text-white">
-                    <h2 class="text-warning fw-light hero_subhead">Unlocking the Potential of Real Estate Projects
+                <div class="col-12 col-xl-12 col-lg-12">
+                    <h2 class="customUnlockingText">Unlocking the Potential of Real Estate Projects
                         <span>.</span>
                     </h2>
                 </div>
@@ -25,7 +25,7 @@
 
         <!-- ======= projects-under-development ======= -->
         <section class="projects">
-            <h2 class="my-3 fw-bold text-black text-center">Projects Under-Development </h2>
+            <h2 class="my-2 fw-bold text-black ms-5 mb-5 customProjecttext">Projects Under-Development </h2>
 
             @if (count($projects) > 0)
                 @foreach ($projects as $project)

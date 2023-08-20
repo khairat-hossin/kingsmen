@@ -11,7 +11,7 @@
 
             <div class="row justify-content-start" data-aos="fade-up" data-aos-delay="150">
                 <div class="col-12 col-xl-12 col-lg-12 text-white">
-                    <h1 class="hero_text text-start">{{ $banner_text }}<span>.</span></h1>
+                    {{-- <h1 class="hero_text text-start">{{ $banner_text }}<span>.</span></h1> --}}
                 </div>
             </div>
             <div class="row"></div>
@@ -21,8 +21,8 @@
     <main id="main">
         <!-- video section -->
         <section id="video">
-            <div class="container" data-aos="fade-up">
-                <div class="m-0  text-center my-5 ratio ratio-21x9">
+            <div class="container" style="width:70%" data-aos="fade-up">
+                <div class="m-0  text-center ratio ratio-21x9">
                     <iframe width="310" height="215" src="https://www.youtube.com/embed/iTbRMCyvy_E?autoplay=1"
                         title="YouTube video player" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
