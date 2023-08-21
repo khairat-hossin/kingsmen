@@ -58,6 +58,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Frontend', 'as' => 'frontend.
     Route::get('services', 'FrontendController@services')->name('services');
     Route::get('faq', 'FrontendController@faq')->name('faq');
     Route::get('about-us', 'FrontendController@about_us')->name('about_us');
+    Route::get('coming-soon', 'FrontendController@coming_soon')->name('coming_soon');
 
     // Routes for Ecogardens
     Route::get('projects/ecogardens/home', 'FrontendController@eco_index')->name('eco_home');

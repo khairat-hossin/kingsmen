@@ -24,6 +24,7 @@
                 <li><a class="nav-link scrollto {{ Request::is('services*') ? 'active' : '' }}" href="{{ route('frontend.services') }}">Services</a></li>
                 <li><a class="nav-link scrollto {{ Request::is('team*') ? 'active' : '' }}" href="{{ route('frontend.team') }}">Meet our Team</a></li>
                 <li><a class="nav-link scrollto {{ Request::is('about-us*') ? 'active' : '' }} " href="{{ route('frontend.about_us') }}">About us</a></li>
+                <li><a class="nav-link scrollto {{ Request::is('coming-soon*') ? 'active' : '' }}" href="{{ route('frontend.coming_soon') }}">Coming Soon</a></li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->

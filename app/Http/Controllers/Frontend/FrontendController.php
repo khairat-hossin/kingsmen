@@ -154,6 +154,34 @@ class FrontendController extends Controller
 
         return view('frontend.about-us', compact('about_us', 'banner', 'banner_text', 'video'));
     }
+    public function coming_soon()
+    {
+        $about_us = AboutUs::all();
+
+        $banner = '';
+        $banner_text = '';
+        $video = '';
+
+        foreach($about_us as $about)
+         {
+            if($about->banner)
+            {
+                $banner = str_replace('\\','/',$about->banner);
+            }
+
+            if($about->banner_text)
+            {
+                $banner_text = $about->banner_text;
+            }
+
+            if($about->video)
+            {
+                $video = $about->video;
+            }
+        }
+
+        return view('frontend.coming-soon', compact('about_us', 'banner', 'banner_text', 'video'));
+    }
 
     public function faq()
     {
