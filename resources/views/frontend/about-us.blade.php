@@ -25,25 +25,26 @@
     <main id="main">
 
         <!-- ======= About Us ======= -->
-        <section class="faq-container bg-dark text-white">
-            @if ($about_us)
+        <section class="faq-container customFaqText">
+            @if (count($about_us) > 0)
                 @foreach ($about_us as $about)
                     <div class="faq-one">
+                        <!-- faq question -->
+                        <h3 class="faq-page">{{ $about->question }}</h3>
 
-                        <!-- About Us question -->
-                        <h3 class="faq-page customFaqTextTitle">{{ $about->question }}</h3>
-
-                        <!-- About Us answer -->
-                        <div class="customFaqBodytext">
-                            <p>{{ $about->answer }}</p>
+                        <!-- faq answer -->
+                        <div class="faq-body customFaqBody">
+                            <p class="fontSize">
+                                {!! nl2br($about->answer) !!}
+                            </p>
                         </div>
                     </div>
-                    <hr class="hr-line my-2">
                 @endforeach
             @endif
             </div>
             </div>
         </section>
+
         <section>
             <div class="container border border-warning border-2 p-5">
                 <div class="row  row-cols-1 row-cols-lg-2 row-cols-xl-2 row-cols-md-2">
@@ -93,3 +94,29 @@
         }
     </style>
 @endif
+
+<style>
+    .customFaqText {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background: #363636;
+    color: #dfd512;
+    font-size: 13.999999999999998pt;
+    font-variant: normal;
+    vertical-align: baseline;
+    }
+    .customFaqBody {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background: #363636 !important;
+    color: white;
+    }
+    .fontSize {
+    font-family: Lato, sans-serif;
+    font-size: 11pt !important;
+    font-weight: 400;
+    line-height: 1.6667;
+    }
+</style>

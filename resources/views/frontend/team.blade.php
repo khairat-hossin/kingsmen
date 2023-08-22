@@ -55,18 +55,18 @@
                         <div class="container" data-aos-delay="fade-up">
 
                             <h3 class="customTeamTextTitle">{{ $team->position }} </h3>
-                            <div class="row row row-cols-auto m-0 row-cols-lg-2 gx-5">
+                            <div class="row row-cols-auto m-0 row-cols-lg-2 gx-5">
                                 <div>
                                     <img src="{{ $team->upload_photo }}" class="img-fluid my-5">
                                 </div>
                                 <div class="my-5 ">
-                                    <h4 class="text-center fw-bolder">{{ $team->first_name . ' ' . $team->last_name }}</h4>
-                                    <h6 class="text-center"> {{ $team->designation }} <br>
+                                    <h4 class="text-center customTeamFirstName">{{ $team->first_name . ' ' . $team->last_name }}</h4>
+                                    <h6 class="text-center customTeamDesignation"> {{ $team->designation }} <br>
                                         @if ($team->university_degree)
                                             - {{ $team->university_degree }}
                                         @endif
-                                    </h6><br><br>
-                                    <p class="fw-light">
+                                    </h6><br>
+                                    <p class="customTeamMemberText">
                                         {!! nl2br($team->about_team_member) !!}
                                         <br>
 
